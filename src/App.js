@@ -3,9 +3,14 @@ import Typography from "@material-ui/core/Typography";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import { Tooltip, TextField } from "@material-ui/core";
-
+import { Tooltip } from "@material-ui/core";
+import TabMe from "./TabMe";
 import ReadOnlyCopyField from "./ReadOnlyCopyField";
+import { EMAIL } from "./Info";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+toast.configure();
 
 const styles = {
   root: {
@@ -13,9 +18,8 @@ const styles = {
     width: "100%"
   },
 
-  inline: {
-    display: "inline-flex",
-    align: "center"
+  appBar: {
+    marginBottom: "20px"
   },
 
   title: {
@@ -24,10 +28,11 @@ const styles = {
     marginTop: "10px"
   },
 
-  subtitle: {
+  footer: {
     fontSize: "20px",
     textAlign: "center",
-    marginTop: "10px"
+    margin: "10px",
+    align: "center"
   }
 };
 
@@ -35,8 +40,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentTab: 0,
-      email: "jurcaua@gmail.com"
+      currentTab: 0
     };
   }
 
@@ -45,15 +49,15 @@ class App extends Component {
   };
 
   render() {
-    const { currentTab, email } = this.state;
+    const { currentTab } = this.state;
 
     return (
       <div className={styles.root}>
-        <AppBar position="static" color="default">
+        <AppBar position="static" color="default" style={styles.appBar}>
           <Typography style={styles.title} variant="h2">
             Alexander Jurcau
           </Typography>
-          <ReadOnlyCopyField text={email} />
+          <ReadOnlyCopyField text={EMAIL} />
           <Tabs value={currentTab} onChange={this.handleChange} centered>
             <Tooltip title="Summary, contact info, etc.">
               <Tab label="Me" icon={<i className="material-icons">face</i>} />
@@ -74,9 +78,13 @@ class App extends Component {
             </Tooltip>
           </Tabs>
         </AppBar>
-        {currentTab === 0 && <p>This is a work in progress :)</p>}
+        {currentTab === 0 && <TabMe />}
         {currentTab === 1 && <div />}
         {currentTab === 2 && <div />}
+
+        <AppBar position="static" color="default">
+          <Typography style={styles.footer}>© 2019 Alexander Jurcau</Typography>
+        </AppBar>
       </div>
     );
   }
