@@ -3,12 +3,14 @@ import Typography from "@material-ui/core/Typography";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import { Tooltip } from "@material-ui/core";
+import { Tooltip, Button } from "@material-ui/core";
 import TabMe from "./TabMe";
 import ReadOnlyCopyField from "./ReadOnlyCopyField";
 import { EMAIL } from "./Info";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import getJapanFlagSVG, { getCanadianFlagSVG } from "./flags";
+import { strings } from "./localization";
 
 toast.configure();
 
@@ -33,8 +35,19 @@ const styles = {
     textAlign: "center",
     margin: "10px",
     align: "center"
+  },
+
+  svgButton: {
+    position: "absolute",
+    margin: "5px"
   }
 };
+
+// This workaround is for this issue: https://github.com/mui-org/material-ui/issues/12597
+function CloneProps(props) {
+  const { children, ...other } = props;
+  return children(other);
+}
 
 class App extends Component {
   constructor(props) {
@@ -48,34 +61,97 @@ class App extends Component {
     this.setState({ currentTab: value });
   };
 
+  changeLanguage = (event, language) => {
+    strings.setLanguage(language);
+    this.setState({}); // force the state to refresh -> localization updates after setting language
+  };
+
   render() {
     const { currentTab } = this.state;
 
     return (
       <div className={styles.root}>
         <AppBar position="static" color="default" style={styles.appBar}>
+          {/* TODO: make a "supported languages" module to reduce this code */}
+          {strings.getLanguage() !== "jp" && (
+            <div style={styles.svgButton}>
+              <Button
+                onClick={event => {
+                  this.changeLanguage(event, "jp");
+                }}
+              >
+                {getJapanFlagSVG()}
+              </Button>
+            </div>
+          )}
+          {strings.getLanguage() !== "en" && (
+            <div style={styles.svgButton}>
+              <Button
+                onClick={event => {
+                  this.changeLanguage(event, "en");
+                }}
+              >
+                {getCanadianFlagSVG()}
+              </Button>
+            </div>
+          )}
           <Typography style={styles.title} variant="h2">
-            Alexander Jurcau
+            {strings.nameFirst}
+            {strings.nameSeperator}
+            {strings.nameLast}
           </Typography>
           <ReadOnlyCopyField text={EMAIL} />
+
+          {/* TODO: Put icon in the localization module for en (and can be overriden for other lang), 
+          then make tabs based on localization strings*/}
           <Tabs value={currentTab} onChange={this.handleChange} centered>
-            <Tooltip title="Summary, contact info, etc.">
-              <Tab label="Me" icon={<i className="material-icons">face</i>} />
-            </Tooltip>
-            <Tooltip title="Notable projects and experience.">
-              <Tab
-                disabled
-                label="Projects"
-                icon={<i className="material-icons">laptop_mac</i>}
-              />
-            </Tooltip>
-            <Tooltip title="Things I like.">
-              <Tab
-                disabled
-                label="Interests"
-                icon={<i className="material-icons">favorite_border</i>}
-              />
-            </Tooltip>
+            <CloneProps>
+              {tabProps => (
+                <Tooltip title={strings.tabs.me.tooltip} placement="bottom">
+                  <div>
+                    <Tab
+                      {...tabProps}
+                      label={<span>{strings.tabs.me.label}</span>}
+                      icon={<i className="material-icons">face</i>}
+                    />
+                  </div>
+                </Tooltip>
+              )}
+            </CloneProps>
+            <CloneProps>
+              {tabProps => (
+                <Tooltip
+                  title={strings.tabs.projects.tooltip}
+                  placement="bottom"
+                >
+                  <div>
+                    <Tab
+                      {...tabProps}
+                      disabled
+                      label={<span>{strings.tabs.projects.label}</span>}
+                      icon={<i className="material-icons">laptop_mac</i>}
+                    />
+                  </div>
+                </Tooltip>
+              )}
+            </CloneProps>
+            <CloneProps>
+              {tabProps => (
+                <Tooltip
+                  title={strings.tabs.interests.tooltip}
+                  placement="bottom"
+                >
+                  <div>
+                    <Tab
+                      {...tabProps}
+                      disabled
+                      label={<span>{strings.tabs.interests.label}</span>}
+                      icon={<i className="material-icons">favorite_border</i>}
+                    />
+                  </div>
+                </Tooltip>
+              )}
+            </CloneProps>
           </Tabs>
         </AppBar>
         {currentTab === 0 && <TabMe />}
