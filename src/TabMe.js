@@ -10,9 +10,11 @@ import {
   DialogTitle,
   DialogContent,
   DialogContentText,
-  IconButton
+  IconButton,
+  Button
 } from "@material-ui/core";
 import { strings } from "./localization";
+import ResumeDialog from "./resume";
 
 const styles = {
   root: {
@@ -37,7 +39,8 @@ class TabMe extends Component {
 
     this.state = {
       selectedOtherExperience: null,
-      otherExperienceDialogOpen: false
+      otherExperienceDialogOpen: false,
+      resumeOpen: false
     };
   }
 
@@ -114,12 +117,28 @@ class TabMe extends Component {
     );
   };
 
+  handleOpenResume = event => {
+    this.setState({ resumeOpen: true });
+  };
+
+  handleCloseResume = event => {
+    this.setState({ resumeOpen: false });
+  };
+
   render() {
     return (
       <div style={styles.root}>
         {/* Header */}
-        <Typography style={styles.header}>Hello there! I'm Alex.</Typography>
+        <Typography style={styles.header}>{strings.greeting}</Typography>
+        <div style={{ textAlign: "center", marginBottom: "10px" }}>
+          <Button variant="outlined" onClick={this.handleOpenResume}>
+            {strings.openResume}
+          </Button>
+        </div>
 
+        {this.state.resumeOpen && (
+          <ResumeDialog onClose={this.handleCloseResume} dialogSize="md" />
+        )}
         {/* Short Intro */}
         <Typography style={styles.paragraph}>
           Currently {this.calculateAge()} years old, and a fourth year student

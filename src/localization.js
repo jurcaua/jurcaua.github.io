@@ -5,6 +5,8 @@ export const strings = new LocalizedStrings({
     nameFirst: "Alexander",
     nameSeperator: " ",
     nameLast: "Jurcau",
+    greeting: "Hello there! I'm Alex.",
+    openResume: "View My Resume!",
     tabs: {
       me: {
         label: "Me",
@@ -81,6 +83,8 @@ export const strings = new LocalizedStrings({
     nameFirst: "ジュルコ",
     nameSeperator: "・",
     nameLast: "アレックス",
+    greeting: "こんにちは！アレックスです。",
+    openResume: "履歴書",
     tabs: {
       me: {
         label: "私について",
