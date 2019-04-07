@@ -4,7 +4,7 @@ import IconButton from "@material-ui/core/IconButton";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import TextField from "@material-ui/core/TextField";
 import { toast } from "react-toastify";
-import { strings } from "./localization";
+import { strings } from "./Localization";
 
 const styles = {
   inline: {

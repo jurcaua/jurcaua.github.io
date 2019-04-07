@@ -42,11 +42,13 @@ class ResumeDialog extends Component {
   }
 
   setDivSize = () => {
-    this.setState({
-      width:
-        this.pdfWrapper.getBoundingClientRect().width *
-        dialogPDFWidthMapping[this.props.dialogSize]
-    });
+    if (this.pdfWrapper) {
+      this.setState({
+        width:
+          this.pdfWrapper.getBoundingClientRect().width *
+          dialogPDFWidthMapping[this.props.dialogSize]
+      });
+    }
   };
 
   render() {

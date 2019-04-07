@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Typography from "@material-ui/core/Typography";
-import { BIRTHDAY } from "./Info";
+import { BIRTHDAY } from "../../Info";
 import {
   List,
   ListItemText,
@@ -13,8 +13,10 @@ import {
   IconButton,
   Button
 } from "@material-ui/core";
-import { strings } from "./localization";
-import ResumeDialog from "./resume";
+import { strings } from "../../Localization";
+import ResumeDialog from "../../resume/Resume";
+import Emoji from "../../Emoji";
+import { getYearsAgo, getMonthsAgo, getDaysAgo } from "../../Utils";
 
 const styles = {
   root: {
@@ -129,7 +131,10 @@ class TabMe extends Component {
     return (
       <div style={styles.root}>
         {/* Header */}
-        <Typography style={styles.header}>{strings.greeting}</Typography>
+        <Typography style={styles.header}>
+          {strings.greeting}
+          {<Emoji symbol="👋" />}
+        </Typography>
         <div style={{ textAlign: "center", marginBottom: "10px" }}>
           <Button variant="outlined" onClick={this.handleOpenResume}>
             {strings.openResume}
@@ -141,7 +146,7 @@ class TabMe extends Component {
         )}
         {/* Short Intro */}
         <Typography style={styles.paragraph}>
-          Currently {this.calculateAge()} years old, and a fourth year student
+          Currently {getYearsAgo(BIRTHDAY)} years old, and a fourth year student
           at the <b>University of Toronto</b> -- studying Computer Science with
           focuses in Algorithms, System Design, and Game Design.
         </Typography>
@@ -165,6 +170,8 @@ class TabMe extends Component {
           <Dialog
             open={this.state.otherExperienceDialogOpen}
             onClose={this.handleOtherExperienceDialogClose}
+            fullWidth={true}
+            maxWidth="md"
           >
             <DialogTitle>
               {this.state.selectedOtherExperience.dialogTitle}

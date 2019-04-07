@@ -4,13 +4,15 @@ import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import { Tooltip, Button } from "@material-ui/core";
-import TabMe from "./TabMe";
+import TabMe from "./tabs/me/TabMe";
 import ReadOnlyCopyField from "./ReadOnlyCopyField";
 import { EMAIL } from "./Info";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import getJapanFlagSVG, { getCanadianFlagSVG } from "./flags";
-import { strings } from "./localization";
+import getJapanFlagSVG, { getCanadianFlagSVG } from "./Flags";
+import { strings } from "./Localization";
+import TabInterests from "./tabs/interests/TabInterests";
+import { getCurrentYear } from "./Utils";
 
 toast.configure();
 
@@ -144,7 +146,6 @@ class App extends Component {
                   <div>
                     <Tab
                       {...tabProps}
-                      disabled
                       label={<span>{strings.tabs.interests.label}</span>}
                       icon={<i className="material-icons">favorite_border</i>}
                     />
@@ -156,10 +157,12 @@ class App extends Component {
         </AppBar>
         {currentTab === 0 && <TabMe />}
         {currentTab === 1 && <div />}
-        {currentTab === 2 && <div />}
+        {currentTab === 2 && <TabInterests />}
 
         <AppBar position="static" color="default">
-          <Typography style={styles.footer}>© 2019 Alexander Jurcau</Typography>
+          <Typography style={styles.footer}>
+            © {getCurrentYear()} Alexander Jurcau
+          </Typography>
         </AppBar>
       </div>
     );
