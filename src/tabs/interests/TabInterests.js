@@ -2,13 +2,8 @@ import React, { Component } from "react";
 import { strings } from "../../Localization";
 import {
   Typography,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
   ExpansionPanel,
-  ExpansionPanelSummary,
-  ExpansionPanelDetails
+  ExpansionPanelSummary
 } from "@material-ui/core";
 import Emoji from "../../Emoji";
 import Paper from "@material-ui/core/Paper";
@@ -76,103 +71,31 @@ class TabInterests extends Component {
 
   renderInterests = () => {
     return (
-      <List>
-        {this.getInterests().content.map((item, index) => {
-          return (
-            <div
-              key={index}
-              onMouseEnter={this.handleHoverOverInterest.bind(this, index)}
-            >
-              <ListItem>
-                <i className="material-icons">arrow_right</i>
-                <ListItemIcon>
-                  <i className="material-icons">{item.icon}</i>
-                </ListItemIcon>
-                <ListItemText style={styles.paragraph} primary={item.primary} />
-              </ListItem>
-            </div>
-          );
-        })}
-      </List>
-    );
-  };
-
-  renderInterestsExpansionPanels = () => {
-    return (
-      <div onMouseLeave={this.handleHoverOverInterest.bind(this, null)}>
-        {this.getInterests().content.map((item, index) => {
-          return (
-            <ExpansionPanel
-              key={index}
-              expanded={this.state.currentHoverInterest === index}
-              style={{
-                marginTop: -1,
-                marginBottom: -1,
-                width: "50%"
-              }}
-            >
-              <ExpansionPanelSummary
-                key={index}
-                onMouseEnter={this.handleHoverOverInterest.bind(this, index)}
-              >
-                <i className="material-icons">arrow_right</i>
-                <i className="material-icons">{item.icon}</i>
-                <Typography style={styles.drawerSummary}>
-                  {item.summary}
-                </Typography>
-              </ExpansionPanelSummary>
-              <ExpansionPanelDetails>
-                {/* <Typography style={styles.paragraph}>{item.details}</Typography> */}
-                {item.details}
-              </ExpansionPanelDetails>
-            </ExpansionPanel>
-          );
-        })}
-      </div>
-    );
-  };
-
-  renderInterestsSideShow = () => {
-    return (
       <div style={{ display: "flex" }}>
         <div>
-          <Slide
-            direction="up"
-            in={true}
-            exit={false}
-            timeout={styles.slideTimeout}
-          >
-            <div>
-              {this.getInterests().content.map((item, index) => {
-                return (
-                  <ExpansionPanel
-                    key={index}
-                    expanded={false}
-                    style={{
-                      backgroundColor:
-                        this.state.currentHoverInterest === index
-                          ? "#eeeeee"
-                          : ""
-                    }}
-                  >
-                    <ExpansionPanelSummary
-                      key={index}
-                      onMouseEnter={this.handleHoverOverInterest.bind(
-                        this,
-                        index
-                      )}
-                    >
-                      <i className="material-icons">arrow_right</i>
-                      <i className="material-icons">{item.icon}</i>
-                      <Typography style={styles.drawerSummary} noWrap>
-                        {item.summary}
-                      </Typography>
-                    </ExpansionPanelSummary>
-                  </ExpansionPanel>
-                );
-              })}
-            </div>
-          </Slide>
+          {this.getInterests().content.map((item, index) => {
+            return (
+              <ExpansionPanel
+                key={index}
+                expanded={false}
+                style={{
+                  backgroundColor:
+                    this.state.currentHoverInterest === index ? "#eeeeee" : ""
+                }}
+              >
+                <ExpansionPanelSummary
+                  key={index}
+                  onMouseEnter={this.handleHoverOverInterest.bind(this, index)}
+                >
+                  <i className="material-icons">arrow_right</i>
+                  <i className="material-icons">{item.icon}</i>
+                  <Typography style={styles.drawerSummary} noWrap>
+                    {item.summary}
+                  </Typography>
+                </ExpansionPanelSummary>
+              </ExpansionPanel>
+            );
+          })}
         </div>
         <div>
           {this.state.currentHoverInterest === null && (
@@ -235,8 +158,7 @@ class TabInterests extends Component {
         <br />
 
         {/* Interest Overview */}
-        {this.renderInterestsSideShow()}
-        {/* {this.renderInterests()} */}
+        {this.renderInterests()}
         <br />
       </div>
     );
