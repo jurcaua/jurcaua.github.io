@@ -160,9 +160,8 @@ export const strings = {
                 <Typography style={styles.paragraph}>
                   I have been learning Japanese for about{" "}
                   {<b>{getTimeLearningJapaneseString("en")}</b>}. I currently
-                  hold a {<b>JLPT N5</b>} certification I recieved Dec. 2017 and
-                  will be attempting the <b>N3</b> level this coming Decemeber
-                  2019.
+                  hold a {<b>JLPT N5</b>} certification I received Dec. 2017 and
+                  will be attempting the <b>N3</b> level this coming Dec. 2019.
                 </Typography>
                 <br />
                 <Typography style={styles.paragraph}>
@@ -182,7 +181,7 @@ export const strings = {
                 games like Pokemon, Spyro, and my all-time favourite video game
                 series, Kingdom Hearts! Now I enjoy making games as much as I
                 enjoy playing them (something my kid-self would've never
-                believed )!
+                believed)!
               </Typography>
             ),
             icon: "videogame_asset"
