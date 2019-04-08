@@ -262,7 +262,11 @@ export const strings = {
             icon: "code"
           }
         ],
-        otherExperiencesHeader: "業界に関連する経験は以下のとおりです。",
+        otherExperiencesHeader: (
+          <Typography style={styles.paragraph}>
+            業界に関連する経験は以下のとおりです。
+          </Typography>
+        ),
         otherExperiences: [
           {
             primary:
