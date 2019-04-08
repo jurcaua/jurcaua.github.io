@@ -8,7 +8,6 @@
     "lodash.throttle": "^4.1.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-localization": "^1.0.13",
     "react-pdf": "^4.0.5",
     "react-scripts": "2.1.8",
     "react-toastify": "^5.0.0-rc.5"

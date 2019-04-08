@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Document, Page, Outline } from "react-pdf";
-import resume from "./resume.pdf";
+import resume from "./Resume.pdf";
 import { pdfjs } from "react-pdf";
 import throttle from "lodash.throttle";
 import { Dialog, Divider, DialogContent, IconButton } from "@material-ui/core";

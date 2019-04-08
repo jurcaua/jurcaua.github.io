@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Typography from "@material-ui/core/Typography";
-import { BIRTHDAY } from "../../Info";
 import {
   List,
   ListItemText,
@@ -13,10 +12,9 @@ import {
   IconButton,
   Button
 } from "@material-ui/core";
-import { strings } from "../../Localization";
+import { localized } from "../../Localization";
 import ResumeDialog from "../../resume/Resume";
 import Emoji from "../../Emoji";
-import { getYearsAgo, getMonthsAgo, getDaysAgo } from "../../Utils";
 
 const styles = {
   root: {
@@ -46,14 +44,24 @@ class TabMe extends Component {
     };
   }
 
-  calculateAge = () => {
-    var ageDifMs = Date.now() - BIRTHDAY.getTime();
-    var ageDate = new Date(ageDifMs); // miliseconds from epoch
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
+  getIntro = () => {
+    const { summary } = localized().tabs.me;
+    return (
+      <div>
+        {summary.map((point, index) => {
+          return (
+            <div key={index}>
+              {point}
+              <br />
+            </div>
+          );
+        })}
+      </div>
+    );
   };
 
   getCurrentExperiences = () => {
-    const { currentExperiences } = strings;
+    const { currentExperiences } = localized().tabs.me;
     return (
       <List>
         {currentExperiences.map((experience, index) => {
@@ -87,8 +95,12 @@ class TabMe extends Component {
     });
   };
 
+  getOtherExperiencesHeader = () => {
+    return localized().tabs.me.otherExperiencesHeader;
+  };
+
   getOtherExperiences = () => {
-    const { otherExperiences } = strings;
+    const { otherExperiences } = localized().tabs.me;
     return (
       <List>
         {otherExperiences.map((experience, index) => {
@@ -119,6 +131,51 @@ class TabMe extends Component {
     );
   };
 
+  getOtherExperiencesPopup = () => {
+    if (this.state.selectedOtherExperience) {
+      return (
+        <Dialog
+          open={this.state.otherExperienceDialogOpen}
+          onClose={this.handleOtherExperienceDialogClose}
+          fullWidth={true}
+          maxWidth="md"
+        >
+          <DialogTitle>
+            {this.state.selectedOtherExperience.dialogTitle}
+            <IconButton
+              onClick={this.handleOtherExperienceDialogClose}
+              style={{ position: "absolute", right: "10px", top: "10px" }}
+            >
+              <i className="material-icons">close</i>
+            </IconButton>
+          </DialogTitle>
+          <DialogContent>
+            {this.state.selectedOtherExperience.dialogText.map(
+              (text, index) => {
+                return (
+                  <div
+                    key={index}
+                    style={{ display: "inline-flex", marginBottom: "10px" }}
+                  >
+                    <i className="material-icons">arrow_right</i>
+                    <DialogContentText
+                      style={{
+                        marginLeft: "10px",
+                        color: "#363738"
+                      }}
+                    >
+                      {text}
+                    </DialogContentText>
+                  </div>
+                );
+              }
+            )}
+          </DialogContent>
+        </Dialog>
+      );
+    }
+  };
+
   handleOpenResume = event => {
     this.setState({ resumeOpen: true });
   };
@@ -132,12 +189,12 @@ class TabMe extends Component {
       <div style={styles.root}>
         {/* Header */}
         <Typography style={styles.header}>
-          {strings.greeting}
+          {localized().greeting}
           {<Emoji symbol="👋" />}
         </Typography>
         <div style={{ textAlign: "center", marginBottom: "10px" }}>
           <Button variant="outlined" onClick={this.handleOpenResume}>
-            {strings.openResume}
+            {localized().openResume}
           </Button>
         </div>
 
@@ -145,62 +202,15 @@ class TabMe extends Component {
           <ResumeDialog onClose={this.handleCloseResume} dialogSize="md" />
         )}
         {/* Short Intro */}
-        <Typography style={styles.paragraph}>
-          Currently {getYearsAgo(BIRTHDAY)} years old, and a fourth year student
-          at the <b>University of Toronto</b> -- studying Computer Science with
-          focuses in Algorithms, System Design, and Game Design.
-        </Typography>
-        <br />
+        {this.getIntro()}
 
         {/* Current Experiences */}
-        <Typography style={styles.paragraph}>
-          I am currently doing a 15 month internship at <b>Ubisoft Toronto</b>{" "}
-          where I work on the tools team. Responsible for a variety of things,
-          my focuses lie in:
-        </Typography>
         {this.getCurrentExperiences()}
 
         {/* Other Experiences */}
-        <Typography style={styles.paragraph}>
-          Other related experience in the industry includes:
-        </Typography>
-        <List>{this.getOtherExperiences()}</List>
-
-        {this.state.selectedOtherExperience && (
-          <Dialog
-            open={this.state.otherExperienceDialogOpen}
-            onClose={this.handleOtherExperienceDialogClose}
-            fullWidth={true}
-            maxWidth="md"
-          >
-            <DialogTitle>
-              {this.state.selectedOtherExperience.dialogTitle}
-              <IconButton
-                onClick={this.handleOtherExperienceDialogClose}
-                style={{ position: "absolute", right: "10px", top: "10px" }}
-              >
-                <i className="material-icons">close</i>
-              </IconButton>
-            </DialogTitle>
-            <DialogContent>
-              {this.state.selectedOtherExperience.dialogText.map(text => {
-                return (
-                  <div style={{ display: "inline-flex", marginBottom: "10px" }}>
-                    <i className="material-icons">arrow_right</i>
-                    <DialogContentText
-                      style={{
-                        marginLeft: "10px",
-                        color: "#363738"
-                      }}
-                    >
-                      {text}
-                    </DialogContentText>
-                  </div>
-                );
-              })}
-            </DialogContent>
-          </Dialog>
-        )}
+        {this.getOtherExperiencesHeader()}
+        {this.getOtherExperiences()}
+        {this.getOtherExperiencesPopup()}
       </div>
     );
   }

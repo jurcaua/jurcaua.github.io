@@ -10,7 +10,7 @@ import { EMAIL } from "./Info";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import getJapanFlagSVG, { getCanadianFlagSVG } from "./Flags";
-import { strings } from "./Localization";
+import { localized, getLanguage, setLanguage } from "./Localization";
 import TabInterests from "./tabs/interests/TabInterests";
 import { getCurrentYear } from "./Utils";
 
@@ -64,7 +64,7 @@ class App extends Component {
   };
 
   changeLanguage = (event, language) => {
-    strings.setLanguage(language);
+    setLanguage(language);
     this.setState({}); // force the state to refresh -> localization updates after setting language
   };
 
@@ -75,7 +75,7 @@ class App extends Component {
       <div className={styles.root}>
         <AppBar position="static" color="default" style={styles.appBar}>
           {/* TODO: make a "supported languages" module to reduce this code */}
-          {strings.getLanguage() !== "jp" && (
+          {getLanguage() !== "jp" && (
             <div style={styles.svgButton}>
               <Button
                 onClick={event => {
@@ -86,7 +86,7 @@ class App extends Component {
               </Button>
             </div>
           )}
-          {strings.getLanguage() !== "en" && (
+          {getLanguage() !== "en" && (
             <div style={styles.svgButton}>
               <Button
                 onClick={event => {
@@ -98,9 +98,9 @@ class App extends Component {
             </div>
           )}
           <Typography style={styles.title} variant="h2">
-            {strings.nameFirst}
-            {strings.nameSeperator}
-            {strings.nameLast}
+            {localized().nameFirst}
+            {localized().nameSeperator}
+            {localized().nameLast}
           </Typography>
           <ReadOnlyCopyField text={EMAIL} />
 
@@ -109,11 +109,11 @@ class App extends Component {
           <Tabs value={currentTab} onChange={this.handleChange} centered>
             <CloneProps>
               {tabProps => (
-                <Tooltip title={strings.tabs.me.tooltip} placement="bottom">
+                <Tooltip title={localized().tabs.me.tooltip} placement="bottom">
                   <div>
                     <Tab
                       {...tabProps}
-                      label={<span>{strings.tabs.me.label}</span>}
+                      label={<span>{localized().tabs.me.label}</span>}
                       icon={<i className="material-icons">face</i>}
                     />
                   </div>
@@ -123,14 +123,14 @@ class App extends Component {
             <CloneProps>
               {tabProps => (
                 <Tooltip
-                  title={strings.tabs.projects.tooltip}
+                  title={localized().tabs.projects.tooltip}
                   placement="bottom"
                 >
                   <div>
                     <Tab
                       {...tabProps}
                       disabled
-                      label={<span>{strings.tabs.projects.label}</span>}
+                      label={<span>{localized().tabs.projects.label}</span>}
                       icon={<i className="material-icons">laptop_mac</i>}
                     />
                   </div>
@@ -140,13 +140,13 @@ class App extends Component {
             <CloneProps>
               {tabProps => (
                 <Tooltip
-                  title={strings.tabs.interests.tooltip}
+                  title={localized().tabs.interests.tooltip}
                   placement="bottom"
                 >
                   <div>
                     <Tab
                       {...tabProps}
-                      label={<span>{strings.tabs.interests.label}</span>}
+                      label={<span>{localized().tabs.interests.label}</span>}
                       icon={<i className="material-icons">favorite_border</i>}
                     />
                   </div>

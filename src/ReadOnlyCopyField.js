@@ -4,7 +4,7 @@ import IconButton from "@material-ui/core/IconButton";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import TextField from "@material-ui/core/TextField";
 import { toast } from "react-toastify";
-import { strings } from "./Localization";
+import { localized } from "./Localization";
 
 const styles = {
   inline: {
@@ -51,7 +51,7 @@ class ReadOnlyCopyField extends Component {
     e.target.focus();
 
     if (!toast.isActive(this.state.copyToastId)) {
-      let newToastId = toast(strings.copyConfirmNotification, {
+      let newToastId = toast(localized().copyConfirmNotification, {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: true,

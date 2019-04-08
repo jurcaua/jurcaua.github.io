@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { strings } from "../../Localization";
+import { localized } from "../../Localization";
 import {
   Typography,
   ExpansionPanel,
@@ -58,7 +58,7 @@ class TabInterests extends Component {
   }
 
   getInterests = () => {
-    return strings.tabs.interests;
+    return localized().tabs.interests;
   };
 
   getInterestContent = index => {
@@ -125,6 +125,7 @@ class TabInterests extends Component {
             if (this.state.currentHoverInterest === index) {
               return (
                 <Slide
+                  key={index}
                   direction="left"
                   in={this.state.currentHoverInterest === index}
                   exit={false}
@@ -136,6 +137,7 @@ class TabInterests extends Component {
                 </Slide>
               );
             }
+            return null;
           })}
         </div>
       </div>
@@ -147,12 +149,12 @@ class TabInterests extends Component {
       <div style={styles.root}>
         {/* Header */}
         <Typography style={styles.header}>
-          {strings.tabs.interests.header}
+          {localized().tabs.interests.header}
         </Typography>
 
         {/* Sub-header */}
         <Typography style={styles.subheader}>
-          I also do a couple more things outside of work!
+          {localized().tabs.interests.subheader}
           {<Emoji symbol="😄" />}
         </Typography>
         <br />
