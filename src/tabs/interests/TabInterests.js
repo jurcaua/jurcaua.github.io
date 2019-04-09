@@ -11,8 +11,7 @@ import Slide from "@material-ui/core/Slide";
 
 const styles = {
   root: {
-    marginLeft: "10%",
-    marginRight: "10%"
+    overflowX: "hidden"
   },
 
   header: {
@@ -40,7 +39,7 @@ const styles = {
     zIndex: 1,
     marginLeft: "10%",
     marginRight: "10%",
-    width: "100%"
+    width: "90%"
   },
 
   slideTimeout: {
@@ -71,7 +70,7 @@ class TabInterests extends Component {
 
   renderInterests = () => {
     return (
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", marginLeft: "5%", marginRight: "5%" }}>
         <div>
           {this.getInterests().content.map((item, index) => {
             return (
@@ -105,7 +104,7 @@ class TabInterests extends Component {
               exit={false}
               timeout={styles.slideTimeout}
             >
-              <Paper elevation={4} style={styles.paper}>
+              <Paper elevation={4} style={{ ...styles.paper, width: "100%" }}>
                 <div style={{ margin: "10px" }}>
                   <i className="material-icons" style={{ float: "left" }}>
                     arrow_left
@@ -114,7 +113,6 @@ class TabInterests extends Component {
                     touch_app
                   </i>
                   <Typography style={styles.paragraph} noWrap>
-                    {" "}
                     Hover over one of my interests!
                   </Typography>
                 </div>

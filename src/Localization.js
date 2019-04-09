@@ -49,8 +49,8 @@ const basicStrings = {
     time: {
       year: "年",
       years: "年",
-      month: "月",
-      months: "月",
+      month: "ヶ月",
+      months: "ヶ月",
       connector: "の",
       space: ""
     }
