@@ -4,6 +4,7 @@ import resume from "./Resume.pdf";
 import { pdfjs } from "react-pdf";
 import throttle from "lodash.throttle";
 import { Dialog, Divider, DialogContent, IconButton } from "@material-ui/core";
+
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${
   pdfjs.version
 }/pdf.worker.js`;

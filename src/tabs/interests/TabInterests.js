@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import { localized } from "../../Localization";
-import {
-  Typography,
-  ExpansionPanel,
-  ExpansionPanelSummary
-} from "@material-ui/core";
+import { Typography, ExpansionPanel, ExpansionPanelSummary } from "@material-ui/core";
 import Emoji from "../../Emoji";
 import Paper from "@material-ui/core/Paper";
 import Slide from "@material-ui/core/Slide";
@@ -78,14 +74,10 @@ class TabInterests extends Component {
                 key={index}
                 expanded={false}
                 style={{
-                  backgroundColor:
-                    this.state.currentHoverInterest === index ? "#eeeeee" : ""
+                  backgroundColor: this.state.currentHoverInterest === index ? "#eeeeee" : ""
                 }}
               >
-                <ExpansionPanelSummary
-                  key={index}
-                  onMouseEnter={this.handleHoverOverInterest.bind(this, index)}
-                >
+                <ExpansionPanelSummary key={index} onMouseEnter={this.handleHoverOverInterest.bind(this, index)}>
                   <i className="material-icons">arrow_right</i>
                   <i className="material-icons">{item.icon}</i>
                   <Typography style={styles.drawerSummary} noWrap>
@@ -113,7 +105,7 @@ class TabInterests extends Component {
                     touch_app
                   </i>
                   <Typography style={styles.paragraph} noWrap>
-                    Hover over one of my interests!
+                    {localized().tabs.interests.hoverPrompt}
                   </Typography>
                 </div>
               </Paper>
@@ -146,9 +138,7 @@ class TabInterests extends Component {
     return (
       <div style={styles.root}>
         {/* Header */}
-        <Typography style={styles.header}>
-          {localized().tabs.interests.header}
-        </Typography>
+        <Typography style={styles.header}>{localized().tabs.interests.header}</Typography>
 
         {/* Sub-header */}
         <Typography style={styles.subheader}>
