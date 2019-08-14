@@ -92,7 +92,7 @@ const TabInterests = props => {
                     touch_app
                   </i>
                   <Typography style={styles.paragraph} noWrap>
-                    {localized().tabs.interests.hoverPrompt}
+                    {localized().tabs.interests.clickPrompt}
                   </Typography>
                 </div>
               </Paper>
