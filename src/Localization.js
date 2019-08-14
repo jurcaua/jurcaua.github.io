@@ -144,7 +144,7 @@ export const strings = {
         tooltip: "Things I like.",
         header: "Welcome to my world!",
         subheader: "I also do a couple more things outside of work!",
-        hoverPrompt: "Hover over one of my interests!",
+        clickPrompt: "Click one of my interests!",
         content: [
           {
             summary: "Japanese Language",
@@ -294,7 +294,7 @@ export const strings = {
         tooltip: "好きなこと",
         header: "私の世界へ、ようこそ！",
         subheader: "プライベートの私を紹介します！",
-        hoverPrompt: "私の興味にカーソルを合わせてください！",
+        clickPrompt: "私の興味にクリックしてください！",
         content: [
           {
             summary: "日本語",

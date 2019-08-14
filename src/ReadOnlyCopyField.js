@@ -5,6 +5,7 @@ import InputAdornment from "@material-ui/core/InputAdornment";
 import TextField from "@material-ui/core/TextField";
 import { toast } from "react-toastify";
 import { localized } from "./Localization";
+import { Tooltip } from "@material-ui/core";
 
 const styles = {
   inline: {
@@ -36,9 +37,11 @@ class ReadOnlyCopyField extends Component {
     if (document.queryCommandSupported("copy")) {
       return (
         <InputAdornment position="end">
-          <IconButton style={styles.inline} onClick={this.copyToClipboard}>
-            <Icon style={{ fontSize: "20px" }}>file_copy</Icon>
-          </IconButton>
+          <Tooltip title="Copy to clipboard">
+            <IconButton style={styles.inline} onClick={this.copyToClipboard}>
+              <Icon style={{ fontSize: "20px" }}>file_copy</Icon>
+            </IconButton>
+          </Tooltip>
         </InputAdornment>
       );
     }

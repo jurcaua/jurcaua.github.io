@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { localized } from "../../Localization";
 import { Typography, ExpansionPanel, ExpansionPanelSummary } from "@material-ui/core";
 import Emoji from "../../Emoji";
@@ -8,6 +8,12 @@ import Slide from "@material-ui/core/Slide";
 const styles = {
   root: {
     overflowX: "hidden"
+  },
+
+  interestsRoot: {
+    display: "flex",
+    marginLeft: "5%",
+    marginRight: "5%"
   },
 
   header: {
@@ -43,41 +49,27 @@ const styles = {
   }
 };
 
-class TabInterests extends Component {
-  constructor(props) {
-    super(props);
+const TabInterests = props => {
+  const [selectedInterest, setSelectedInterest] = useState(null);
 
-    this.state = {
-      currentHoverInterest: null
-    };
-  }
-
-  getInterests = () => {
+  const getInterests = () => {
     return localized().tabs.interests;
   };
 
-  getInterestContent = index => {
-    return this.getInterests().content[index];
-  };
-
-  handleHoverOverInterest = index => {
-    this.setState({ currentHoverInterest: index });
-  };
-
-  renderInterests = () => {
+  const renderInterests = () => {
     return (
-      <div style={{ display: "flex", marginLeft: "5%", marginRight: "5%" }}>
+      <div style={styles.interestsRoot}>
         <div>
-          {this.getInterests().content.map((item, index) => {
+          {getInterests().content.map((item, index) => {
             return (
               <ExpansionPanel
                 key={index}
                 expanded={false}
                 style={{
-                  backgroundColor: this.state.currentHoverInterest === index ? "#eeeeee" : ""
+                  backgroundColor: selectedInterest === index ? "#eeeeee" : ""
                 }}
               >
-                <ExpansionPanelSummary key={index} onMouseEnter={this.handleHoverOverInterest.bind(this, index)}>
+                <ExpansionPanelSummary key={index} onClick={() => setSelectedInterest(index)}>
                   <i className="material-icons">arrow_right</i>
                   <i className="material-icons">{item.icon}</i>
                   <Typography style={styles.drawerSummary} noWrap>
@@ -89,13 +81,8 @@ class TabInterests extends Component {
           })}
         </div>
         <div>
-          {this.state.currentHoverInterest === null && (
-            <Slide
-              direction="left"
-              in={this.state.currentHoverInterest === null}
-              exit={false}
-              timeout={styles.slideTimeout}
-            >
+          {selectedInterest === null && (
+            <Slide direction="left" in={selectedInterest === null} exit={false} timeout={styles.slideTimeout}>
               <Paper elevation={4} style={{ ...styles.paper, width: "100%" }}>
                 <div style={{ margin: "10px" }}>
                   <i className="material-icons" style={{ float: "left" }}>
@@ -111,13 +98,13 @@ class TabInterests extends Component {
               </Paper>
             </Slide>
           )}
-          {this.getInterests().content.map((item, index) => {
-            if (this.state.currentHoverInterest === index) {
+          {getInterests().content.map((item, index) => {
+            if (selectedInterest === index) {
               return (
                 <Slide
                   key={index}
                   direction="left"
-                  in={this.state.currentHoverInterest === index}
+                  in={selectedInterest === index}
                   exit={false}
                   timeout={styles.slideTimeout}
                 >
@@ -134,25 +121,23 @@ class TabInterests extends Component {
     );
   };
 
-  render() {
-    return (
-      <div style={styles.root}>
-        {/* Header */}
-        <Typography style={styles.header}>{localized().tabs.interests.header}</Typography>
+  return (
+    <div style={styles.root}>
+      {/* Header */}
+      <Typography style={styles.header}>{localized().tabs.interests.header}</Typography>
 
-        {/* Sub-header */}
-        <Typography style={styles.subheader}>
-          {localized().tabs.interests.subheader}
-          {<Emoji symbol="😄" />}
-        </Typography>
-        <br />
+      {/* Sub-header */}
+      <Typography style={styles.subheader}>
+        {localized().tabs.interests.subheader}
+        {<Emoji symbol="😄" />}
+      </Typography>
+      <br />
 
-        {/* Interest Overview */}
-        {this.renderInterests()}
-        <br />
-      </div>
-    );
-  }
-}
+      {/* Interest Overview */}
+      {renderInterests()}
+      <br />
+    </div>
+  );
+};
 
 export default TabInterests;
