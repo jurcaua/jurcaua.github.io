@@ -75,14 +75,14 @@ export const strings = {
             -- studying Computer Science with focuses in Algorithms, System Design, and Game Design.
           </Typography>,
           <Typography style={styles.paragraph}>
-            I am currently doing a 15 month internship at <b>Ubisoft Toronto</b> where I work on the tools team.
-            Responsible for a variety of things, my focuses lie in:
+            I worked for <b>Ubisoft Toronto</b> (Watch Dogs Legion) on the tools team for 15 months.
+            Responsible for a variety of things, my focuses were:
           </Typography>
         ],
         currentExperiences: [
           {
             primary: "Leading development on a company-wide service-consolidating meeting productivity tool",
-            secondary: "Python / C#",
+            secondary: "Python, C#",
             icon: "code"
           },
           {
@@ -92,7 +92,12 @@ export const strings = {
           },
           {
             primary: "Developing an online service management web tool",
-            secondary: "React / Redux",
+            secondary: "React / Redux, Python, C++",
+            icon: "code"
+          },
+          {
+            primary: "Resolving Sony TRC onlines / ui issues",
+            secondary: "C++",
             icon: "code"
           }
         ],
@@ -147,7 +152,7 @@ export const strings = {
         clickPrompt: "Click one of my interests!",
         content: [
           {
-            summary: "Japanese Language",
+            summary: "Japanese",
             details: (
               <React.Fragment>
                 <Typography style={styles.paragraph}>
@@ -193,11 +198,7 @@ export const strings = {
               <React.Fragment>
                 <Typography style={styles.paragraph}>
                   I absolutely <i>ADORE</i> a good cup of {<Emoji symbol="☕" />}. While I rarely feel the effects of
-                  caffeine, I stick with it for the taste!
-                </Typography>
-                <br />
-                <Typography style={styles.paragraph}>
-                  I believe a nice cup of black coffee is the best thing to sip on while programming.
+                  caffeine, I stick with it for the taste! I believe a nice cup of black coffee is the best thing to sip on while programming.
                 </Typography>
               </React.Fragment>
             ),
@@ -225,14 +226,13 @@ export const strings = {
             コンピューターサイエンスのアルゴリズムやシステムデザインやゲームデザインを中心に学んでいます。
           </Typography>,
           <Typography style={styles.paragraph}>
-            今<b>Ubisoft</b>
-            というゲーム会社のツールチームで15ヶ月のインターンシップをしています。 私の専門は以下のとおりです。
+            <b>Ubisoft</b>というゲーム会社のツールチームで15ヶ月のインターンシップをしていました。 私の専門は以下のとおりです。
           </Typography>
         ],
         currentExperiences: [
           {
             primary: "Leading development on a company-wide service-consolidating meeting productivity tool",
-            secondary: "Python / C#",
+            secondary: "Python, C#",
             icon: "code"
           },
           {
@@ -242,7 +242,12 @@ export const strings = {
           },
           {
             primary: "Developing an online service management web tool",
-            secondary: "React / Redux",
+            secondary: "React / Redux, Python, C++",
+            icon: "code"
+          },
+          {
+            primary: "Resolving Sony TRC onlines / ui issues",
+            secondary: "C++",
             icon: "code"
           }
         ],
@@ -344,11 +349,7 @@ export const strings = {
               <React.Fragment>
                 <Typography style={styles.paragraph}>
                   よくした{<Emoji symbol="☕" />}
-                  が大好きです。いれたてのコーヒーの味は最高ですけれども、カフェインの効果があまり感じないんです。
-                </Typography>
-                <br />
-                <Typography style={styles.paragraph}>
-                  プログラミングする時には一番清々しいことはコーヒーを飲むことだと思います。
+                  が大好きです。いれたてのコーヒーの味は最高ですけれども、カフェインの効果があまり感じないんです。プログラミングする時にはよく集中するため、コーヒーは私の一番好きな飲み物です。
                 </Typography>
               </React.Fragment>
             ),
@@ -391,7 +392,7 @@ export function getTimeLearningJapaneseString(lang) {
   if (months > 0) {
     months = `${space}${basicStrings[lang].time.connector}${space}${months}${space}${
       months === 1 ? basicStrings[lang].time.month : basicStrings[lang].time.months
-    }`;
+      }`;
   }
   return `${yearsString}${monthsString}`;
 }

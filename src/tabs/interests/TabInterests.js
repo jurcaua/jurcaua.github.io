@@ -1,19 +1,14 @@
 import React, { useState } from "react";
 import { localized } from "../../Localization";
-import { Typography, ExpansionPanel, ExpansionPanelSummary } from "@material-ui/core";
+import { Typography, Tab, Tabs } from "@material-ui/core";
 import Emoji from "../../Emoji";
 import Paper from "@material-ui/core/Paper";
 import Slide from "@material-ui/core/Slide";
 
 const styles = {
-  root: {
-    overflowX: "hidden"
-  },
-
   interestsRoot: {
-    display: "flex",
-    marginLeft: "5%",
-    marginRight: "5%"
+    padding: "1%",
+    overflow: "hidden"
   },
 
   header: {
@@ -28,20 +23,9 @@ const styles = {
     align: "center"
   },
 
-  paragraph: {
-    fontSize: "22px"
-  },
-
-  drawerSummary: {
-    fontSize: "22px",
-    marginLeft: "10px"
-  },
-
   paper: {
-    zIndex: 1,
-    marginLeft: "10%",
-    marginRight: "10%",
-    width: "90%"
+    margin: "1% 2%",
+    padding: "1%"
   },
 
   slideTimeout: {
@@ -50,7 +34,11 @@ const styles = {
 };
 
 const TabInterests = props => {
-  const [selectedInterest, setSelectedInterest] = useState(null);
+  const [currentTab, setCurrentTab] = useState(0);
+
+  const handleTabChange = (event, value) => {
+    setCurrentTab(value);
+  };
 
   const getInterests = () => {
     return localized().tabs.interests;
@@ -58,66 +46,36 @@ const TabInterests = props => {
 
   const renderInterests = () => {
     return (
-      <div style={styles.interestsRoot}>
-        <div>
+      <Paper style={styles.interestsRoot} elevation={2}>
+        <Tabs value={currentTab} onChange={handleTabChange} centered>
           {getInterests().content.map((item, index) => {
             return (
-              <ExpansionPanel
+              <Tab
                 key={index}
-                expanded={false}
-                style={{
-                  backgroundColor: selectedInterest === index ? "#eeeeee" : ""
-                }}
+                label={<span>{item.summary}</span>}
+                icon={<i className="material-icons">{item.icon}</i>}
               >
-                <ExpansionPanelSummary key={index} onClick={() => setSelectedInterest(index)}>
-                  <i className="material-icons">arrow_right</i>
-                  <i className="material-icons">{item.icon}</i>
-                  <Typography style={styles.drawerSummary} noWrap>
-                    {item.summary}
-                  </Typography>
-                </ExpansionPanelSummary>
-              </ExpansionPanel>
+              </Tab>
             );
           })}
-        </div>
-        <div>
-          {selectedInterest === null && (
-            <Slide direction="left" in={selectedInterest === null} exit={false} timeout={styles.slideTimeout}>
-              <Paper elevation={4} style={{ ...styles.paper, width: "100%" }}>
-                <div style={{ margin: "10px" }}>
-                  <i className="material-icons" style={{ float: "left" }}>
-                    arrow_left
-                  </i>
-                  <i className="material-icons" style={{ float: "left" }}>
-                    touch_app
-                  </i>
-                  <Typography style={styles.paragraph} noWrap>
-                    {localized().tabs.interests.clickPrompt}
-                  </Typography>
-                </div>
+        </Tabs>
+        {getInterests().content.map((item, index) => {
+          return (
+            <Slide
+              key={index}
+              direction="left"
+              in={currentTab === index}
+              exit={false}
+              timeout={styles.slideTimeout}
+              unmountOnExit
+            >
+              <Paper elevation={2} style={styles.paper}>
+                {item.details}
               </Paper>
             </Slide>
-          )}
-          {getInterests().content.map((item, index) => {
-            if (selectedInterest === index) {
-              return (
-                <Slide
-                  key={index}
-                  direction="left"
-                  in={selectedInterest === index}
-                  exit={false}
-                  timeout={styles.slideTimeout}
-                >
-                  <Paper elevation={4} style={styles.paper}>
-                    <div style={{ margin: "10px" }}>{item.details}</div>
-                  </Paper>
-                </Slide>
-              );
-            }
-            return null;
-          })}
-        </div>
-      </div>
+          );
+        })}
+      </Paper>
     );
   };
 
