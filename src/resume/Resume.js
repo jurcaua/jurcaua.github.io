@@ -10,9 +10,9 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 }/pdf.worker.js`;
 
 const dialogPDFWidthMapping = {
-  sm: 0.45,
-  md: 0.74,
-  lg: 1,
+  sm: 0.32,
+  md: 0.53,
+  lg: 0.71,
   xl: 1
 };
 

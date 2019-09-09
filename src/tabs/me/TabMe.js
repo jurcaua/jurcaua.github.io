@@ -199,7 +199,7 @@ class TabMe extends Component {
         </div>
 
         {this.state.resumeOpen && (
-          <ResumeDialog onClose={this.handleCloseResume} dialogSize="md" />
+          <ResumeDialog onClose={this.handleCloseResume} dialogSize="xl" />
         )}
         {/* Short Intro */}
         {this.getIntro()}
