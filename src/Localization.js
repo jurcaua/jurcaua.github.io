@@ -47,8 +47,8 @@ const basicStrings = {
   },
   jp: {
     time: {
-      year: "年",
-      years: "年",
+      year: "年間",
+      years: "年間",
       month: "ヶ月",
       months: "ヶ月",
       connector: "の",
@@ -157,13 +157,13 @@ export const strings = {
               <React.Fragment>
                 <Typography style={styles.paragraph}>
                   I have been learning Japanese for about {<b>{getTimeLearningJapaneseString("en")}</b>}. I currently
-                  hold a {<b>JLPT N{JLPT_LEVEL_CURRENTLY_HAVE}</b>} certification I received Dec. 2017 and will be
-                  attempting the <b>N{JLPT_LEVEL_GOING_FOR}</b> level this coming Dec. 2019.
+                  hold a {<b>JLPT N{JLPT_LEVEL_CURRENTLY_HAVE}</b>} certification I received Dec. 2017 and am awaiting my
+                  results for the <b>N{JLPT_LEVEL_GOING_FOR}</b> level test I took this past December.
                 </Typography>
                 <br />
                 <Typography style={styles.paragraph}>
-                  I can have a casual conversation with few issues, and can keep up with native speaking patterns and
-                  colloquial speech.
+                  I can have a casual or simple business level conversation with few issues, and can keep up with 
+                  native speaking patterns and colloquial speech.
                 </Typography>
               </React.Fragment>
             ),
@@ -310,11 +310,11 @@ export const strings = {
                   日本語を勉強しています。 2017年の12月に
                   <b>日本語能力試験の{JLPT_LEVEL_CURRENTLY_HAVE}級</b>に合格し、今年の年末に
                   <b>{JLPT_LEVEL_GOING_FOR}級</b>
-                  に挑戦する予定です。
+                  に挑戦しました（結果未定）。
                 </Typography>
                 <br />
                 <Typography style={styles.paragraph}>
-                  ビジネスレベルではなければ、問題なく日本語でコミュニケーションをとることが出来ます。
+                  上級ビジネスレベルではなければ、問題なく日本語でコミュニケーションをとることが出来ます。
                 </Typography>
               </React.Fragment>
             ),
@@ -324,6 +324,10 @@ export const strings = {
             summary: "ゲーム",
             details: (
               <Typography style={styles.paragraph}>
+                (翻訳確認中) <br/>
+                <b>ゲームが大好きなため、プログラミングにしようと思いました！</b>小さい頃に、フラッシュゲームやＣＤ−ＲＯＭが大好きでしたので、
+                そこからキングダムハーツを始め、ポケモン、スパイロ・ザ・ドラゴン等をしました。現在、ゲームをするのはゲームを作るのと同じの程度に好きなのです
+                （昔、そのことを信じられないかもしれません）。
                 <b>My love for programming came from games!</b> I started out playing Flash and CD-ROM games as kid,
                 moving on to classic games like Pokemon, Spyro, and my all-time favourite video game series, Kingdom
                 Hearts! Now I enjoy making games as much as I enjoy playing them (something my kid-self would've never
@@ -336,6 +340,10 @@ export const strings = {
             summary: "バスケットボール",
             details: (
               <Typography style={styles.paragraph}>
+                (翻訳確認中) <br/>
+                人生のほとんど、大学までに<b>競技バスケットボール</b>をしました。
+                優れた選手に教えられつつ、何軍にも属され、
+                未だにその時に習った<u>頑張り</u>や<u>チームワーク</u>を優先する考え方が残っています。
                 I played basketball at a <b>competitive level</b> for majority of my life, leading up to university.
                 Playing on countless teams and in countless leagues, and being trained by veterans in the game -- it
                 built a certain <u>hardwork</u> and <u>team-centered</u> mindset that sticks with me to this day.
@@ -348,8 +356,10 @@ export const strings = {
             details: (
               <React.Fragment>
                 <Typography style={styles.paragraph}>
+                  (翻訳確認中) <br/>
                   よくした{<Emoji symbol="☕" />}
-                  が大好きです。いれたてのコーヒーの味は最高ですけれども、カフェインの効果があまり感じないんです。プログラミングする時にはよく集中するため、コーヒーは私の一番好きな飲み物です。
+                  が大好きです。いれたてのコーヒーの味は最高ですけれども、カフェインの効果があまり感じないんです。
+                  プログラミングする時にはよく集中するため、コーヒーは私の一番好きな飲み物です。
                 </Typography>
               </React.Fragment>
             ),
