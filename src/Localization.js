@@ -325,9 +325,10 @@ export const strings = {
             details: (
               <Typography style={styles.paragraph}>
                 (翻訳確認中) <br/>
-                <b>ゲームが大好きなため、プログラミングにしようと思いました！</b>小さい頃に、フラッシュゲームやＣＤ−ＲＯＭが大好きでしたので、
-                そこからキングダムハーツを始め、ポケモン、スパイロ・ザ・ドラゴン等をしました。現在、ゲームをするのはゲームを作るのと同じの程度に好きなのです
-                （昔、そのことを信じられないかもしれません）。
+                <b>ゲームが大好きなため、プログラミングにしようと思いました！</b>小さい頃に、フラッシュゲームやCDが大好きでしたので、
+                そこからキングダムハーツを始め、ポケモン、スパイロ・ザ・ドラゴン等をしました。
+                現在、ゲームをするのはゲームを作るのと同じ程度に好きなのです。
+                （昔の自分だと、そのことを信じられないかもしれません）。
                 <b>My love for programming came from games!</b> I started out playing Flash and CD-ROM games as kid,
                 moving on to classic games like Pokemon, Spyro, and my all-time favourite video game series, Kingdom
                 Hearts! Now I enjoy making games as much as I enjoy playing them (something my kid-self would've never
