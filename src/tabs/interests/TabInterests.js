@@ -25,7 +25,7 @@ const styles = {
 
   paper: {
     margin: "1% 2%",
-    padding: "1%"
+    padding: "2%"
   },
 
   slideTimeout: {

@@ -1,19 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
+
+// External Package Imports
 import { makeStyles } from "@material-ui/styles";
-import Typography from "@material-ui/core/Typography";
-import AppBar from "@material-ui/core/AppBar";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
-import { Tooltip, Button } from "@material-ui/core";
-import TabMe from "./tabs/me/TabMe";
-import ReadOnlyCopyField from "./ReadOnlyCopyField";
-import { EMAIL } from "./Info";
+import { AppBar, Typography, Tooltip, Button } from "@material-ui/core";
+import { Route, BrowserRouter } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import getJapanFlagSVG, { getCanadianFlagSVG } from "./Flags";
-import { localized, getLanguage, setLanguage } from "./Localization";
-import TabInterests from "./tabs/interests/TabInterests";
+
+// Local Imports
+import { EMAIL } from "./Info";
 import { getCurrentYear } from "./Utils";
+import { localized, getLanguage, setLanguage } from "./Localization";
+import getJapanFlagSVG, { getCanadianFlagSVG } from "./Flags";
+import ReadOnlyCopyField from "./ReadOnlyCopyField";
+import TabNavigation from "./tabs/TabNavigation";
+import TabRouteRendering from "./tabs/TabRouteRendering";
 
 toast.configure();
 
@@ -49,105 +50,65 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-// This workaround is for this issue: https://github.com/mui-org/material-ui/issues/12597
-function CloneProps(props) {
-  const { children, ...other } = props;
-  return children(other);
-}
-
 const App = props => {
-  const [currentTab, setCurrentTab] = useState(0);
+  const classes = useStyles(props);
   const [, updateState] = React.useState();
   const forceUpdate = React.useCallback(() => updateState({}), []);
-
-  const handleChange = (event, value) => {
-    setCurrentTab(value);
-  };
 
   const changeLanguage = (event, language) => {
     setLanguage(language);
     forceUpdate();
   };
 
-  const classes = useStyles(props);
-
   let switchLanguageTo = getLanguage() === "jp" ? "en" : "jp";
   let switchLanguageToFlag = switchLanguageTo === "jp" ? getJapanFlagSVG() : getCanadianFlagSVG();
 
   return (
-    <div className={classes.root}>
-      <AppBar position="static" color="default" className={classes.appBar}>
-        {/* TODO: make a "supported languages" module to reduce this code */}
+    <BrowserRouter>
+      <div className={classes.root}>
+        <Route
+          path="/"
+          render={({ location }) => (
+            <React.Fragment>
+              <AppBar position="static" color="default" className={classes.appBar}>
+                {/* TODO: make a "supported languages" module to reduce this code */}
 
-        <Tooltip title={`Change the language to ${switchLanguageTo}`}>
-          <div className={classes.svgButton}>
-            <Button
-              onClick={event => {
-                changeLanguage(event, switchLanguageTo);
-              }}
-            >
-              {switchLanguageToFlag}
-            </Button>
-          </div>
-        </Tooltip>
-        <Typography className={classes.title} variant="h2">
-          {`${localized().nameFirst}${localized().nameSeperator}${localized().nameLast}`}
-        </Typography>
-        <ReadOnlyCopyField text={EMAIL} />
+                <Tooltip title={`Change the language to ${switchLanguageTo}`}>
+                  <div className={classes.svgButton}>
+                    <Button
+                      onClick={event => {
+                        changeLanguage(event, switchLanguageTo);
+                      }}
+                    >
+                      {switchLanguageToFlag}
+                    </Button>
+                  </div>
+                </Tooltip>
+                <Typography className={classes.title} variant="h2">
+                  {`${localized().nameFirst}${localized().nameSeperator}${localized().nameLast}`}
+                </Typography>
+                <ReadOnlyCopyField text={EMAIL} />
 
-        {/* TODO: Put icon in the localization module for en (and can be overriden for other lang), 
-          then make tabs based on localization strings*/}
-        <Tabs value={currentTab} onChange={handleChange} centered>
-          <CloneProps>
-            {tabProps => (
-              <Tooltip title={localized().tabs.me.tooltip} placement="bottom">
-                <div>
-                  <Tab
-                    {...tabProps}
-                    label={<span>{localized().tabs.me.label}</span>}
-                    icon={<i className="material-icons">face</i>}
-                  />
-                </div>
-              </Tooltip>
-            )}
-          </CloneProps>
-          <CloneProps>
-            {tabProps => (
-              <Tooltip title={localized().tabs.projects.tooltip} placement="bottom">
-                <div>
-                  <Tab
-                    {...tabProps}
-                    disabled
-                    label={<span>{localized().tabs.projects.label}</span>}
-                    icon={<i className="material-icons">laptop_mac</i>}
-                  />
-                </div>
-              </Tooltip>
-            )}
-          </CloneProps>
-          <CloneProps>
-            {tabProps => (
-              <Tooltip title={localized().tabs.interests.tooltip} placement="bottom">
-                <div>
-                  <Tab
-                    {...tabProps}
-                    label={<span>{localized().tabs.interests.label}</span>}
-                    icon={<i className="material-icons">favorite_border</i>}
-                  />
-                </div>
-              </Tooltip>
-            )}
-          </CloneProps>
-        </Tabs>
-      </AppBar>
-      {currentTab === 0 && <TabMe />}
-      {currentTab === 1 && <div />}
-      {currentTab === 2 && <TabInterests />}
+                {/* Controls the navigation of the main tabs. */}
+                <TabNavigation pathname={location.pathname} />
+              </AppBar>
 
-      <AppBar position="static" color="default">
-        <Typography className={classes.footer}>© {getCurrentYear()} Alexander Jurcau</Typography>
-      </AppBar>
-    </div>
+              {/* Renders the appropriate main tab according to the current Router path. */}
+              {/* パスによって、適切なメインタブを表現するコンポーネント */}
+              <TabRouteRendering />
+
+              {/* Footer with basic information. */}
+              {/* 基本情報があるフッター */}
+              <AppBar position="static" color="default">
+                <Typography className={classes.footer}>
+                  © {getCurrentYear()} Alexander Jurcau
+                </Typography>
+              </AppBar>
+            </React.Fragment>
+          )}
+        />
+      </div>
+    </BrowserRouter>
   );
 };
 
