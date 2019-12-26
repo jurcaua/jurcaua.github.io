@@ -6,7 +6,7 @@ import { Tabs, Tooltip, Tab } from "@material-ui/core";
 import { Link as RouterLink } from "react-router-dom";
 
 // Local Imports
-import { RootTab } from "../Constants";
+import { RootTab, GetRootTabLinkToPath } from "../Constants";
 import { localized } from "../Localization";
 
 // This workaround is for this issue: https://github.com/mui-org/material-ui/issues/12597
@@ -27,8 +27,8 @@ function TabItemLink({ item, icon, disabled }) {
               label={localized().tabs[item].label}
               icon={<i className="material-icons">{icon}</i>}
               component={RouterLink}
-              to={RootTab[item].path}
-              value={RootTab[item].path}
+              to={GetRootTabLinkToPath(item)}
+              value={GetRootTabLinkToPath(item)}
             />
           </div>
         </Tooltip>
@@ -58,7 +58,7 @@ const TabNavigation = ({ pathname }) => {
         <TabItemLink
           key={tabKey}
           disabled={RootTab[tabKey].disabled}
-          value={RootTab[tabKey].path}
+          value={GetRootTabLinkToPath(tabKey)}
           item={tabKey}
           icon={RootTab[tabKey].icon}
         />

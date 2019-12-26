@@ -3,6 +3,7 @@ import { getYearsAgo, getMonthsAgo } from "./Utils";
 import { BIRTHDAY, JAPANESE_STARTED_LEARNING, JLPT_LEVEL_GOING_FOR, JLPT_LEVEL_CURRENTLY_HAVE } from "./Info";
 import { Typography } from "@material-ui/core";
 import Emoji from "./Emoji";
+import { DEFAULT_LANGUAGE } from "./Constants";
 
 const styles = {
   root: {
@@ -32,7 +33,7 @@ const styles = {
   }
 };
 
-var currentLanguage = "en";
+var currentLanguage = DEFAULT_LANGUAGE;
 
 const basicStrings = {
   en: {
