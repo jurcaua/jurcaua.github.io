@@ -150,26 +150,21 @@ class TabMe extends Component {
             </IconButton>
           </DialogTitle>
           <DialogContent>
-            {this.state.selectedOtherExperience.dialogText.map(
-              (text, index) => {
-                return (
-                  <div
-                    key={index}
-                    style={{ display: "inline-flex", marginBottom: "10px" }}
+            {this.state.selectedOtherExperience.dialogText.map((text, index) => {
+              return (
+                <div key={index} style={{ display: "inline-flex", marginBottom: "10px" }}>
+                  <i className="material-icons">arrow_right</i>
+                  <DialogContentText
+                    style={{
+                      marginLeft: "10px",
+                      color: "#363738"
+                    }}
                   >
-                    <i className="material-icons">arrow_right</i>
-                    <DialogContentText
-                      style={{
-                        marginLeft: "10px",
-                        color: "#363738"
-                      }}
-                    >
-                      {text}
-                    </DialogContentText>
-                  </div>
-                );
-              }
-            )}
+                    {text}
+                  </DialogContentText>
+                </div>
+              );
+            })}
           </DialogContent>
         </Dialog>
       );
@@ -198,9 +193,7 @@ class TabMe extends Component {
           </Button>
         </div>
 
-        {this.state.resumeOpen && (
-          <ResumeDialog onClose={this.handleCloseResume} dialogSize="xl" />
-        )}
+        {this.state.resumeOpen && <ResumeDialog onClose={this.handleCloseResume} dialogSize="xl" />}
         {/* Short Intro */}
         {this.getIntro()}
 

@@ -1,6 +1,11 @@
 import React from "react";
 import { getYearsAgo, getMonthsAgo } from "./Utils";
-import { BIRTHDAY, JAPANESE_STARTED_LEARNING, JLPT_LEVEL_GOING_FOR, JLPT_LEVEL_CURRENTLY_HAVE } from "./Info";
+import {
+  BIRTHDAY,
+  JAPANESE_STARTED_LEARNING,
+  JLPT_LEVEL_GOING_FOR,
+  JLPT_LEVEL_CURRENTLY_HAVE
+} from "./Info";
 import { Typography } from "@material-ui/core";
 import Emoji from "./Emoji";
 import { DEFAULT_LANGUAGE } from "./Constants";
@@ -72,8 +77,9 @@ export const strings = {
         tooltip: "Qualification overview.",
         summary: [
           <Typography style={styles.paragraph}>
-            Currently {getYearsAgo(BIRTHDAY)} years old, and a fourth year student at the <b>University of Toronto</b>{" "}
-            -- studying Computer Science with focuses in Algorithms, System Design, and Game Design.
+            Currently {getYearsAgo(BIRTHDAY)} years old, and a fourth year student at the{" "}
+            <b>University of Toronto</b> -- studying Computer Science with focuses in Algorithms,
+            System Design, and Game Design.
           </Typography>,
           <Typography style={styles.paragraph}>
             I worked for <b>Ubisoft Toronto</b> (Watch Dogs Legion) on the tools team for 15 months.
@@ -82,7 +88,8 @@ export const strings = {
         ],
         currentExperiences: [
           {
-            primary: "Leading development on a company-wide service-consolidating meeting productivity tool",
+            primary:
+              "Leading development on a company-wide service-consolidating meeting productivity tool",
             secondary: "Python, C#",
             icon: "code"
           },
@@ -97,17 +104,20 @@ export const strings = {
             icon: "code"
           },
           {
-            primary: "Resolving Sony TRC onlines / ui issues",
+            primary: "Resolving Sony TRC onlines / UI issues",
             secondary: "C++",
             icon: "code"
           }
         ],
         otherExperiencesHeader: (
-          <Typography style={styles.paragraph}>Other related experience in the industry includes:</Typography>
+          <Typography style={styles.paragraph}>
+            Other related experience in the industry includes:
+          </Typography>
         ),
         otherExperiences: [
           {
-            primary: "Working for an augmented reality startup -- as a programmer and tech consultant",
+            primary:
+              "Working for an augmented reality startup -- as a programmer and tech consultant",
             secondary: "Unity",
             icon: "videogame_asset",
             dialogTitle: "ARnocular - Augmented Reality Software Developer",
@@ -129,7 +139,8 @@ export const strings = {
             ]
           },
           {
-            primary: "Working as Systems Support doing data validation, and integration and regression testing",
+            primary:
+              "Working as Systems Support doing data validation, and integration and regression testing",
             secondary: "SQL Server (TSQL)",
             icon: "table_chart",
             dialogTitle: "Inmar - Systems Support",
@@ -157,14 +168,16 @@ export const strings = {
             details: (
               <React.Fragment>
                 <Typography style={styles.paragraph}>
-                  I have been learning Japanese for about {<b>{getTimeLearningJapaneseString("en")}</b>}. I currently
-                  hold a {<b>JLPT N{JLPT_LEVEL_CURRENTLY_HAVE}</b>} certification I received Dec. 2017 and am awaiting my
-                  results for the <b>N{JLPT_LEVEL_GOING_FOR}</b> level test I took this past December.
+                  I have been learning Japanese for about{" "}
+                  {<b>{getTimeLearningJapaneseString("en")}</b>}. I currently hold a{" "}
+                  {<b>JLPT N{JLPT_LEVEL_CURRENTLY_HAVE}</b>} certification I received Dec. 2017 and
+                  am awaiting my results for the <b>N{JLPT_LEVEL_GOING_FOR}</b> level test I took
+                  this past December.
                 </Typography>
                 <br />
                 <Typography style={styles.paragraph}>
-                  I can have a casual or simple business level conversation with few issues, and can keep up with 
-                  native speaking patterns and colloquial speech.
+                  I can have a casual or simple business level conversation with few issues, and can
+                  keep up with native speaking patterns and colloquial speech.
                 </Typography>
               </React.Fragment>
             ),
@@ -174,10 +187,10 @@ export const strings = {
             summary: "Gaming",
             details: (
               <Typography style={styles.paragraph}>
-                <b>My love for programming came from games!</b> I started out playing Flash and CD-ROM games as kid,
-                moving on to classic games like Pokemon, Spyro, and my all-time favourite video game series, Kingdom
-                Hearts! Now I enjoy making games as much as I enjoy playing them (something my kid-self would've never
-                believed)!
+                <b>My love for programming came from games!</b> I started out playing Flash and
+                CD-ROM games as kid, moving on to classic games like Pokemon, Spyro, and my all-time
+                favourite video game series, Kingdom Hearts! Now I enjoy making games as much as I
+                enjoy playing them (something my kid-self would've never believed)!
               </Typography>
             ),
             icon: "videogame_asset"
@@ -186,9 +199,10 @@ export const strings = {
             summary: "Basketball",
             details: (
               <Typography style={styles.paragraph}>
-                I played basketball at a <b>competitive level</b> for majority of my life, leading up to university.
-                Playing on countless teams and in countless leagues, and being trained by veterans in the game -- it
-                built a certain <u>hardwork</u> and <u>team-centered</u> mindset that sticks with me to this day.
+                I played basketball at a <b>competitive level</b> for majority of my life, leading
+                up to university. Playing on countless teams and in countless leagues, and being
+                trained by veterans in the game -- it built a certain <u>hardwork</u> and{" "}
+                <u>team-centered</u> mindset that sticks with me to this day.
               </Typography>
             ),
             icon: "fitness_center"
@@ -198,8 +212,9 @@ export const strings = {
             details: (
               <React.Fragment>
                 <Typography style={styles.paragraph}>
-                  I absolutely <i>ADORE</i> a good cup of {<Emoji symbol="☕" />}. While I rarely feel the effects of
-                  caffeine, I stick with it for the taste! I believe a nice cup of black coffee is the best thing to sip on while programming.
+                  I absolutely <i>ADORE</i> a good cup of {<Emoji symbol="☕" />}. While I rarely
+                  feel the effects of caffeine, I stick with it for the taste! I believe a nice cup
+                  of black coffee is the best thing to sip on while programming.
                 </Typography>
               </React.Fragment>
             ),
@@ -227,12 +242,14 @@ export const strings = {
             コンピューターサイエンスのアルゴリズムやシステムデザインやゲームデザインを中心に学んでいます。
           </Typography>,
           <Typography style={styles.paragraph}>
-            <b>Ubisoft</b>というゲーム会社のツールチームで15ヶ月のインターンシップをしていました。 私の専門は以下のとおりです。
+            <b>Ubisoft</b>というゲーム会社のツールチームで15ヶ月のインターンシップをしていました。
+            私の専門は以下のとおりです。
           </Typography>
         ],
         currentExperiences: [
           {
-            primary: "Leading development on a company-wide service-consolidating meeting productivity tool",
+            primary:
+              "Leading development on a company-wide service-consolidating meeting productivity tool",
             secondary: "Python, C#",
             icon: "code"
           },
@@ -257,7 +274,8 @@ export const strings = {
         ),
         otherExperiences: [
           {
-            primary: "Working for an augmented reality startup -- as a programmer and tech consultant",
+            primary:
+              "Working for an augmented reality startup -- as a programmer and tech consultant",
             secondary: "Unity",
             icon: "videogame_asset",
             dialogTitle: "ARnocular - Augmented Reality Software Developer",
@@ -279,7 +297,8 @@ export const strings = {
             ]
           },
           {
-            primary: "Working as Systems Support doing data validation, and integration and regression testing",
+            primary:
+              "Working as Systems Support doing data validation, and integration and regression testing",
             secondary: "SQL Server (TSQL)",
             icon: "table_chart",
             dialogTitle: "Inmar - Systems Support",
@@ -325,15 +344,11 @@ export const strings = {
             summary: "ゲーム",
             details: (
               <Typography style={styles.paragraph}>
-                (翻訳確認中) <br/>
-                <b>ゲームが大好きなため、プログラミングにしようと思いました！</b>小さい頃に、フラッシュゲームやCDが大好きでしたので、
-                そこからキングダムハーツを始め、ポケモン、スパイロ・ザ・ドラゴン等をしました。
-                現在、ゲームをするのはゲームを作るのと同じ程度に好きなのです。
-                （昔の自分だと、そのことを信じられないかもしれません）。
-                <b>My love for programming came from games!</b> I started out playing Flash and CD-ROM games as kid,
-                moving on to classic games like Pokemon, Spyro, and my all-time favourite video game series, Kingdom
-                Hearts! Now I enjoy making games as much as I enjoy playing them (something my kid-self would've never
-                believed )!
+                <b>ゲームが大好きなため、プログラミングをしようと思いました。</b>
+                幼い頃、フラッシュゲームやCD-ROMが大好きだったので、
+                その頃からキングダムハーツを始め、ポケモン、スパイロ・ザ・ドラゴン等をしました。
+                現在はゲームをする事はゲームを作るのと同程度好きな事です。
+                (昔の自分だったら、その事を信じる事は出来ないかもしれません。)
               </Typography>
             ),
             icon: "videogame_asset"
@@ -342,13 +357,14 @@ export const strings = {
             summary: "バスケットボール",
             details: (
               <Typography style={styles.paragraph}>
-                (翻訳確認中) <br/>
+                (翻訳確認中) <br />
                 人生のほとんど、大学までに<b>競技バスケットボール</b>をしました。
-                優れた選手に教えられつつ、何軍にも属され、
-                未だにその時に習った<u>頑張り</u>や<u>チームワーク</u>を優先する考え方が残っています。
-                I played basketball at a <b>competitive level</b> for majority of my life, leading up to university.
-                Playing on countless teams and in countless leagues, and being trained by veterans in the game -- it
-                built a certain <u>hardwork</u> and <u>team-centered</u> mindset that sticks with me to this day.
+                優れた選手に教えられつつ、何軍にも属され、 未だにその時に習った<u>頑張り</u>や
+                <u>チームワーク</u>を優先する考え方が残っています。 I played basketball at a{" "}
+                <b>competitive level</b> for majority of my life, leading up to university. Playing
+                on countless teams and in countless leagues, and being trained by veterans in the
+                game -- it built a certain <u>hardwork</u> and <u>team-centered</u> mindset that
+                sticks with me to this day.
               </Typography>
             ),
             icon: "fitness_center"
@@ -358,7 +374,7 @@ export const strings = {
             details: (
               <React.Fragment>
                 <Typography style={styles.paragraph}>
-                  (翻訳確認中) <br/>
+                  (翻訳確認中) <br />
                   よくした{<Emoji symbol="☕" />}
                   が大好きです。いれたてのコーヒーの味は最高ですけれども、カフェインの効果があまり感じないんです。
                   プログラミングする時にはよく集中するため、コーヒーは私の一番好きな飲み物です。
@@ -399,12 +415,14 @@ export function getTimeLearningJapaneseString(lang) {
 
   const { space } = basicStrings[lang].time;
 
-  let yearsString = `${years}${space}${years === 1 ? basicStrings[lang].time.year : basicStrings[lang].time.years}`;
+  let yearsString = `${years}${space}${
+    years === 1 ? basicStrings[lang].time.year : basicStrings[lang].time.years
+  }`;
   let monthsString = "";
   if (months > 0) {
     months = `${space}${basicStrings[lang].time.connector}${space}${months}${space}${
       months === 1 ? basicStrings[lang].time.month : basicStrings[lang].time.months
-      }`;
+    }`;
   }
   return `${yearsString}${monthsString}`;
 }
