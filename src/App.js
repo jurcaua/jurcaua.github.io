@@ -3,7 +3,7 @@ import React from "react";
 // External Package Imports
 import { makeStyles } from "@material-ui/styles";
 import { AppBar, Typography, Tooltip, Button } from "@material-ui/core";
-import { Route, Redirect, useRouteMatch, useHistory, useLocation } from "react-router-dom";
+import { Route, Redirect, useHistory, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -16,6 +16,7 @@ import ReadOnlyCopyField from "./ReadOnlyCopyField";
 import TabNavigation from "./tabs/TabNavigation";
 import TabRouteRendering from "./tabs/TabRouteRendering";
 import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from "./Constants";
+import { useEffect } from "react";
 
 toast.configure();
 
@@ -54,20 +55,17 @@ const App = props => {
   const classes = useStyles(props);
   let history = useHistory();
   let location = useLocation();
-  // const [, updateState] = React.useState();
-  // const forceUpdate = React.useCallback(() => updateState({}), []);
 
-  const changeLanguage = language => {
+  const changeLanguage = (language, reset = false) => {
     setLanguage(language);
 
     // replace the language part of the path and update
     let splitURL = location.pathname.split("/");
     splitURL[1] = language;
+    if (reset) {
+      splitURL = splitURL.slice(0, 2);
+    }
     history.push(splitURL.join("/"));
-
-    // we used to have to force update after changing the internal language variable
-    // but the introduction of react-router-dom saves us from this step now
-    // forceUpdate();
   };
 
   const getDynamicTitleSize = () => {
@@ -85,19 +83,25 @@ const App = props => {
     return `${localized().nameFirst}${localized().nameSeperator}${localized().nameLast}`;
   };
 
-  let switchLanguageTo = getLanguage() === "jp" ? "en" : "jp";
-  let switchLanguageToFlag = switchLanguageTo === "jp" ? getJapanFlagSVG() : getCanadianFlagSVG();
-
-  // Reset to default language if we find an unknown language in the URL
-  const tryMatchLang = useRouteMatch("/:lang");
-  if (tryMatchLang) {
-    let paramsLang = tryMatchLang.params.lang;
-    if (paramsLang && paramsLang !== getLanguage()) {
-      if (!SUPPORTED_LANGUAGES.find(supportedLang => paramsLang === supportedLang)) {
-        changeLanguage(DEFAULT_LANGUAGE);
+  // Only on initialization, will we check the user-entered URL and make sure it is valid
+  // - this is mostly for checking the entered language and redirecting otherwise
+  useEffect(() => {
+    const splitURL = location.pathname.split("/");
+    const locationLang = splitURL[1]; // by our own definition we have the language first in the URL path
+    if (getLanguage() !== locationLang) {
+      // Reset to the main DEFAULT_LANGUAGE if it is not in the list of supported languages
+      if (!SUPPORTED_LANGUAGES.find(supportedLang => locationLang === supportedLang)) {
+        changeLanguage(DEFAULT_LANGUAGE, true);
+      }
+      // otherwise, change the language to the one in the URL, keeping the remaining path as well (aka, no reset flag)
+      else {
+        changeLanguage(locationLang);
       }
     }
-  }
+  });
+
+  let switchLanguageTo = getLanguage() === "jp" ? "en" : "jp";
+  let switchLanguageToFlag = switchLanguageTo === "jp" ? getJapanFlagSVG() : getCanadianFlagSVG();
 
   return (
     <div className={classes.root}>
