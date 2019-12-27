@@ -4,7 +4,7 @@ import React from "react";
 import { useEffect } from "react";
 import { makeStyles } from "@material-ui/styles";
 import { AppBar, Typography, Tooltip, Button } from "@material-ui/core";
-import { Route, Redirect, useHistory, useLocation } from "react-router-dom";
+import { Route, useHistory, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -59,6 +59,7 @@ const App = props => {
   const changeLanguage = (language, reset = false) => {
     // early exit
     const currentLanguage = getLanguage();
+    console.log("Changing language: ", currentLanguage, "->", language);
     if (currentLanguage === language) {
       return;
     }
@@ -72,7 +73,13 @@ const App = props => {
     if (reset) {
       splitURL = splitURL.slice(0, 2);
     }
-    history.push(splitURL.join("/"));
+    const toPush = splitURL.join("/");
+    if (location !== splitURL.join("/")) {
+      history.push(splitURL.join("/"));
+      console.log("Pushed to history:", toPush);
+    } else {
+      console.log("Skipped redundant history.push:", toPush);
+    }
   };
 
   const getDynamicTitleSize = () => {
@@ -98,10 +105,14 @@ const App = props => {
     if (getLanguage() !== locationLang) {
       // Reset to the main DEFAULT_LANGUAGE if it is not in the list of supported languages
       if (!SUPPORTED_LANGUAGES.find(supportedLang => locationLang === supportedLang)) {
+        // Always redirect to english part if unexpected URL.
+        // 予想以外のURLがあれば、いつも英語の方にリダイレクトする
+        console.log("Changing language, NOT found in SUPPORTED_LANGUAGES -> to default.");
         changeLanguage(DEFAULT_LANGUAGE, true);
       }
       // otherwise, change the language to the one in the URL, keeping the remaining path as well (aka, no reset flag)
       else {
+        console.log("Changing language, found in SUPPORTED_LANGUAGES.");
         changeLanguage(locationLang);
       }
     }
@@ -112,7 +123,7 @@ const App = props => {
 
   return (
     <div className={classes.root}>
-      {localized() !== undefined && (
+      {localized() !== undefined && getLanguage !== undefined && (
         <div>
           <Route
             path="/:lang"
@@ -155,11 +166,6 @@ const App = props => {
               </React.Fragment>
             )}
           />
-          {/* Always redirect to english part if unexpected URL. */}
-          {/* 予想以外のURLがあれば、いつも英語の方にリダイレクトする */}
-          <Route>
-            <Redirect to="/en" />
-          </Route>
         </div>
       )}
     </div>
