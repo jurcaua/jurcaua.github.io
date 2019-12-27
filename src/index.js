@@ -6,7 +6,7 @@ import * as serviceWorker from "./serviceWorker";
 
 import { ThemeProvider } from "@material-ui/styles";
 import { createMuiTheme } from "@material-ui/core/styles";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 
 const theme = createMuiTheme({
   overrides: {
@@ -20,9 +20,9 @@ const theme = createMuiTheme({
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
-    <BrowserRouter>
+    <HashRouter basename="/">
       <App />
-    </BrowserRouter>
+    </HashRouter>
   </ThemeProvider>,
   document.getElementById("root")
 );

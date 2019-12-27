@@ -10,6 +10,8 @@ import { Typography } from "@material-ui/core";
 import Emoji from "./Emoji";
 import { DEFAULT_LANGUAGE } from "./Constants";
 
+let currentLanguage = DEFAULT_LANGUAGE;
+
 const styles = {
   root: {
     marginLeft: "10%",
@@ -37,8 +39,6 @@ const styles = {
     marginLeft: "10px"
   }
 };
-
-var currentLanguage = DEFAULT_LANGUAGE;
 
 const basicStrings = {
   en: {

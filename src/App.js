@@ -1,6 +1,7 @@
 import React from "react";
 
 // External Package Imports
+import { useEffect } from "react";
 import { makeStyles } from "@material-ui/styles";
 import { AppBar, Typography, Tooltip, Button } from "@material-ui/core";
 import { Route, Redirect, useHistory, useLocation } from "react-router-dom";
@@ -8,6 +9,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 // Local Imports
+import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from "./Constants";
 import { EMAIL } from "./Info";
 import { getCurrentYear } from "./Utils";
 import { localized, getLanguage, setLanguage } from "./Localization";
@@ -15,8 +17,6 @@ import getJapanFlagSVG, { getCanadianFlagSVG } from "./Flags";
 import ReadOnlyCopyField from "./ReadOnlyCopyField";
 import TabNavigation from "./tabs/TabNavigation";
 import TabRouteRendering from "./tabs/TabRouteRendering";
-import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from "./Constants";
-import { useEffect } from "react";
 
 toast.configure();
 
@@ -57,9 +57,16 @@ const App = props => {
   let location = useLocation();
 
   const changeLanguage = (language, reset = false) => {
+    // early exit
+    const currentLanguage = getLanguage();
+    if (currentLanguage === language) {
+      return;
+    }
+
+    // Set the language for localization module
     setLanguage(language);
 
-    // replace the language part of the path and update
+    // Replace the language part of the path and push new history
     let splitURL = location.pathname.split("/");
     splitURL[1] = language;
     if (reset) {
@@ -105,52 +112,56 @@ const App = props => {
 
   return (
     <div className={classes.root}>
-      <Route
-        path="/:lang"
-        render={({ location }) => (
-          <React.Fragment>
-            <AppBar position="static" color="default" className={classes.appBar}>
-              {/* TODO: make a "supported languages" module to reduce this code */}
+      {localized() !== undefined && (
+        <div>
+          <Route
+            path="/:lang"
+            render={({ location }) => (
+              <React.Fragment>
+                <AppBar position="static" color="default" className={classes.appBar}>
+                  {/* TODO: make a "supported languages" module to reduce this code */}
 
-              <Tooltip title={`Change the language to ${switchLanguageTo}`}>
-                <div className={classes.svgButton}>
-                  <Button
-                    onClick={event => {
-                      changeLanguage(switchLanguageTo);
-                    }}
-                  >
-                    {switchLanguageToFlag}
-                  </Button>
-                </div>
-              </Tooltip>
-              <Typography className={classes.title} style={getDynamicTitleSize()} variant="h2">
-                {getLocalizedName()}
-              </Typography>
-              <ReadOnlyCopyField text={EMAIL} />
+                  <Tooltip title={`Change the language to ${switchLanguageTo}`}>
+                    <div className={classes.svgButton}>
+                      <Button
+                        onClick={event => {
+                          changeLanguage(switchLanguageTo);
+                        }}
+                      >
+                        {switchLanguageToFlag}
+                      </Button>
+                    </div>
+                  </Tooltip>
+                  <Typography className={classes.title} style={getDynamicTitleSize()} variant="h2">
+                    {getLocalizedName()}
+                  </Typography>
+                  <ReadOnlyCopyField text={EMAIL} />
 
-              {/* Controls the navigation of the main tabs. */}
-              <TabNavigation pathname={location.pathname} />
-            </AppBar>
+                  {/* Controls the navigation of the main tabs. */}
+                  <TabNavigation pathname={location.pathname} />
+                </AppBar>
 
-            {/* Renders the appropriate main tab according to the current Router path. */}
-            {/* パスによって、適切なメインタブを表現するコンポーネント */}
-            <TabRouteRendering />
+                {/* Renders the appropriate main tab according to the current Router path. */}
+                {/* パスによって、適切なメインタブを表現するコンポーネント */}
+                <TabRouteRendering />
 
-            {/* Footer with basic information. */}
-            {/* 基本情報があるフッター */}
-            <AppBar position="static" color="default">
-              <Typography className={classes.footer}>
-                © {getCurrentYear()} {getLocalizedName()}
-              </Typography>
-            </AppBar>
-          </React.Fragment>
-        )}
-      />
-      {/* Always redirect to english part if unexpected URL. */}
-      {/* 予想以外のURLがあれば、いつも英語の方にリダイレクトする */}
-      <Route>
-        <Redirect to="/en" />
-      </Route>
+                {/* Footer with basic information. */}
+                {/* 基本情報があるフッター */}
+                <AppBar position="static" color="default">
+                  <Typography className={classes.footer}>
+                    © {getCurrentYear()} {getLocalizedName()}
+                  </Typography>
+                </AppBar>
+              </React.Fragment>
+            )}
+          />
+          {/* Always redirect to english part if unexpected URL. */}
+          {/* 予想以外のURLがあれば、いつも英語の方にリダイレクトする */}
+          <Route>
+            <Redirect to="/en" />
+          </Route>
+        </div>
+      )}
     </div>
   );
 };
