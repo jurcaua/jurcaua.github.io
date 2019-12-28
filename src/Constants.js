@@ -9,7 +9,7 @@ export const RootTab = {
     icon: "face"
   },
   projects: {
-    disabled: true,
+    // disabled: true,
     path: "projects",
     icon: "laptop_mac"
   },

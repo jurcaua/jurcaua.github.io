@@ -9,6 +9,7 @@ import {
 import { Typography } from "@material-ui/core";
 import Emoji from "./Emoji";
 import { DEFAULT_LANGUAGE } from "./Constants";
+import { projectTagMappings } from "./tabs/projects/ProjectsConfig";
 
 let currentLanguage = DEFAULT_LANGUAGE;
 
@@ -154,7 +155,62 @@ export const strings = {
       },
       projects: {
         label: "Projects",
-        tooltip: "Notable projects and experience."
+        tooltip: "Notable projects and experience.",
+        displaying: num => `Displaying ${num} projects`,
+        content: [
+          {
+            name: "Holo-Mole",
+            shortDescription:
+              "Augmented reality game on a physical rainbow hologram, built in Unity.",
+            image:
+              "https://github.com/jurcaua/github_image_hosting/blob/master/HoloMole/yt1.jpg?raw=true",
+            tags: ["L1", "T0", "T6", "T9", "O0", "O2", "O3", "O4"],
+            links: [
+              {
+                title: "GitHub",
+                url: "https://github.com/jurcaua/Hologram-Whack-A-Mole"
+              }
+            ],
+            video: "https://www.youtube.com/watch?v=XwkHZDINBOI"
+          },
+          {
+            name: "Google Spy",
+            shortDescription:
+              "Take full control of in-game characters in Unity by voice via Google Assistant.",
+            image:
+              "https://github.com/jurcaua/github_image_hosting/blob/master/GoogleSpy/screenshot1.PNG?raw=true",
+            tags: ["L1", "L3", "T0", "T6", "T9", "T11", "O1", "O4"],
+            links: [
+              {
+                title: "GitHub",
+                url: "https://github.com/jurcaua/GoogleSpy"
+              },
+              {
+                title: "Devpost",
+                url: "https://devpost.com/software/googlespy"
+              }
+            ]
+          },
+          {
+            name: "TranslatAR",
+            shortDescription:
+              "Real-time Augmented Reality translation app with image recognition in Unity.",
+            image:
+              "https://github.com/jurcaua/github_image_hosting/blob/master/TranslatAR/devpost1.jpg?raw=true",
+            tags: ["L1", "T0", "T6", "O1", "O3"],
+            links: [
+              {
+                title: "GitHub",
+                url: "https://github.com/jurcaua/TranslatAR"
+              },
+              {
+                title: "Devpost",
+                url: "https://devpost.com/software/translatar-ha36kr"
+              }
+            ],
+            video: "https://youtu.be/GyIVdzyi8pY"
+          }
+        ]
       },
       interests: {
         label: "Interests",
@@ -312,7 +368,60 @@ export const strings = {
       },
       projects: {
         label: "プロジェクト",
-        tooltip: "最高の作ったプロジェクト"
+        tooltip: "最高の作ったプロジェクト",
+        displaying: num => <b>{num}件が表示されている</b>,
+        content: [
+          {
+            name: "ホグラたたき",
+            shortDescription: "本物のレインボーホログラムのARゲーム。",
+            image:
+              "https://github.com/jurcaua/github_image_hosting/blob/master/HoloMole/yt1.jpg?raw=true",
+            tags: ["L1", "T0", "T6", "T9", "O0", "O2", "O3", "O4"],
+            links: [
+              {
+                title: "GitHub",
+                url: "https://github.com/jurcaua/Hologram-Whack-A-Mole"
+              }
+            ],
+            video: "https://www.youtube.com/watch?v=XwkHZDINBOI"
+          },
+          {
+            name: "グーグルスパイ",
+            shortDescription:
+              "Googleアシスタントを使って音声だけでゲームのキャラクターを操作が出来る。",
+            image:
+              "https://github.com/jurcaua/github_image_hosting/blob/master/GoogleSpy/screenshot1.PNG?raw=true",
+            tags: ["L1", "L3", "T0", "T6", "T9", "T11", "O1", "O4"],
+            links: [
+              {
+                title: "GitHub",
+                url: "https://github.com/jurcaua/GoogleSpy"
+              },
+              {
+                title: "Devpost",
+                url: "https://devpost.com/software/googlespy"
+              }
+            ]
+          },
+          {
+            name: "TranslatAR",
+            shortDescription: "画像認識によって、リアルタイム環境翻訳のARの携帯アプリケーション。",
+            image:
+              "https://github.com/jurcaua/github_image_hosting/blob/master/TranslatAR/devpost1.jpg?raw=true",
+            tags: ["L1", "T0", "T6", "O1", "O3"],
+            links: [
+              {
+                title: "GitHub",
+                url: "https://github.com/jurcaua/TranslatAR"
+              },
+              {
+                title: "Devpost",
+                url: "https://devpost.com/software/translatar-ha36kr"
+              }
+            ],
+            video: "https://youtu.be/GyIVdzyi8pY"
+          }
+        ]
       },
       interests: {
         label: "興味",
@@ -358,14 +467,15 @@ export const strings = {
             details: (
               <Typography style={styles.paragraph}>
                 (翻訳確認中) <br />
-                人生のほとんど、大学までに<b>競技バスケットボール</b>をしました。
-                優れた選手に教えられつつ、何軍にも属され、 未だにその時に習った<u>頑張り</u>や
-                <u>チームワーク</u>を優先する考え方が残っています。 I played basketball at a{" "}
-                <b>competitive level</b> for majority of my life, leading up to university. Playing
-                on countless teams and in countless leagues, and being trained by veterans in the
-                game -- it built a certain <u>hardwork</u> and <u>team-centered</u> mindset that
-                sticks with me to this day.
+                人生のほとんど、大学までを<b>競技バスケットボール</b>に費やしました。
+                優れた選手に指導をされつつ、数々のチームに所属していました。 未だにその時に習った
+                <u>頑張り</u>や<u>チームワーク</u>を優先する考え方が残っています。
               </Typography>
+              /* Formal version:
+              私は大学までの人生の大半、競技バスケットボールをしていました。(をして過ごしました。)
+              下のチームやリーグで試合をし、試合の中で優れた選手に訓練されてきました。
+              それらが確かな努力とチームワークを優先する思考を形成し、今日(こんにち)まで私の信念です。
+              */
             ),
             icon: "fitness_center"
           },
@@ -401,6 +511,10 @@ export function localized() {
   return strings[currentLanguage];
 }
 
+export function localizedProjectTag(tag) {
+  return projectTagMappings[currentLanguage][tag];
+}
+
 // *Sigh* This is basically a super overcomplicated function that takes in a language and will give you
 // a nicely formatted string that is the amount of time ive been studying Japanese
 // To make it more general I had to do some ugly stuff like define what a SPACE was because, whoops cant have spaces with Japanese!!
@@ -426,58 +540,3 @@ export function getTimeLearningJapaneseString(lang) {
   }
   return `${yearsString}${monthsString}`;
 }
-
-/*
-content: [
-          { summary: "日本語", details: "" },
-          {
-            summary: "ゲーム",
-            details: (
-              <div>
-                <Typography style={styles.paragraph}>
-                  最初にゲームはネットでとかしていましたが、それからポケモンやSpyroや一番の好きなゲーム、キングダムハーツをしていました！Now
-                  I enjoy making games as much as I enjoy playing
-                  them　(something my kid-self would've never believed )!
-                </Typography>
-              </div>
-            )
-          },
-          { summary: "バスケットボール", details: "" },
-          { summary: "コーヒー", details: "" }
-        ]
-
-
-{
-            summary: "日本語",
-            details: (
-              <React.Fragment>
-                <Typography style={styles.paragraph}>
-                  I have been learning Japanese for about{" "}
-                  {<b>{getTimeLearningJapaneseString()}</b>}. I currently hold a{" "}
-                  {<b>JLPT N5</b>} certification I recieved Dec. 2017 and will
-                  be attempting the <b>N3</b> level this coming Decemeber 2019.
-                </Typography>
-                <br />
-                <Typography style={styles.paragraph}>
-                  I can have a casual conversation with few issues, and can keep
-                  up with native speaking patterns and colloquial speech.
-                </Typography>
-              </React.Fragment>
-            ),
-            icon: "translate"
-          },
-          {
-            summary: "ゲーム",
-            details: (
-              <Typography style={styles.paragraph}>
-                <b>
-                  プログラミングが好きということの理由は、子供頃にゲームはずっとをしていたんですから。{" "}
-                </b>
-                最初にゲームはネットでとかしていましたが、それからポケモンやSpyroや一番の好きなゲーム、キングダムハーツをしていました！
-                Now I enjoy making games as much as I enjoy playing them
-                (something my kid-self would've never believed )!
-              </Typography>
-            ),
-            icon: "videogame_asset"
-          }
-*/
