@@ -72,6 +72,7 @@ export const strings = {
     greeting: "Hello there! I'm Alex.",
     openResume: "View My Resume!",
     copyConfirmNotification: "Copied to clipboard!",
+    changeLanguage: "言語を日本語に変える! (Japanese)",
     tabs: {
       me: {
         label: "Me",
@@ -290,6 +291,7 @@ export const strings = {
     greeting: "こんにちは！アレックスです。",
     openResume: "履歴書",
     copyConfirmNotification: "コーピした!",
+    changeLanguage: "Change the language to English! (英語)",
     tabs: {
       me: {
         label: "私について",

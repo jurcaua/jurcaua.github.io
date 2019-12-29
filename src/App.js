@@ -3,7 +3,7 @@ import React from "react";
 // External Package Imports
 import { useEffect } from "react";
 import { makeStyles } from "@material-ui/styles";
-import { AppBar, Typography, Tooltip, Button } from "@material-ui/core";
+import { AppBar, Typography } from "@material-ui/core";
 import { Route, useHistory, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -13,10 +13,10 @@ import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from "./Constants";
 import { EMAIL } from "./Info";
 import { getCurrentYear } from "./Utils";
 import { localized, getLanguage, setLanguage } from "./Localization";
-import getJapanFlagSVG, { getCanadianFlagSVG } from "./Flags";
 import ReadOnlyCopyField from "./ReadOnlyCopyField";
 import TabNavigation from "./tabs/TabNavigation";
 import TabRouteRendering from "./tabs/TabRouteRendering";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 toast.configure();
 
@@ -40,14 +40,6 @@ const useStyles = makeStyles(theme => ({
     textAlign: "center",
     margin: "10px",
     align: "center"
-  },
-
-  svgButton: {
-    position: "fixed",
-    margin: "5px",
-    zIndex: 10,
-    bottom: theme.spacing(1),
-    right: theme.spacing(1)
   }
 }));
 
@@ -118,9 +110,6 @@ const App = props => {
     }
   });
 
-  let switchLanguageTo = getLanguage() === "jp" ? "en" : "jp";
-  let switchLanguageToFlag = switchLanguageTo === "jp" ? getJapanFlagSVG() : getCanadianFlagSVG();
-
   return (
     <div className={classes.root}>
       {localized() !== undefined && getLanguage !== undefined && (
@@ -130,19 +119,6 @@ const App = props => {
             render={({ location }) => (
               <React.Fragment>
                 <AppBar position="static" color="default" className={classes.appBar}>
-                  {/* TODO: make a "supported languages" module to reduce this code */}
-
-                  <Tooltip title={`Change the language to ${switchLanguageTo}`}>
-                    <div className={classes.svgButton}>
-                      <Button
-                        onClick={event => {
-                          changeLanguage(switchLanguageTo);
-                        }}
-                      >
-                        {switchLanguageToFlag}
-                      </Button>
-                    </div>
-                  </Tooltip>
                   <Typography className={classes.title} style={getDynamicTitleSize()} variant="h2">
                     {getLocalizedName()}
                   </Typography>
@@ -155,6 +131,10 @@ const App = props => {
                 {/* Renders the appropriate main tab according to the current Router path. */}
                 {/* パスによって、適切なメインタブを表現するコンポーネント */}
                 <TabRouteRendering />
+
+                {/* Displays the fixed position button that changes the language on click. */}
+                {/* fixedポジションの言語を変わられるボタンの要素 */}
+                <LanguageSwitcher onClick={changeLanguage} />
 
                 {/* Footer with basic information. */}
                 {/* 基本情報があるフッター */}
