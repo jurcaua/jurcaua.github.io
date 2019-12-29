@@ -13,7 +13,6 @@ import {
   Button
 } from "@material-ui/core";
 import { localized } from "../../Localization";
-import ResumeDialog from "../../resume/Resume";
 import Emoji from "../../Emoji";
 
 const styles = {
@@ -30,6 +29,11 @@ const styles = {
 
   paragraph: {
     fontSize: "22px"
+  },
+
+  resumeRoot: {
+    textAlign: "center",
+    marginBottom: "10px"
   }
 };
 
@@ -172,11 +176,7 @@ class TabMe extends Component {
   };
 
   handleOpenResume = event => {
-    this.setState({ resumeOpen: true });
-  };
-
-  handleCloseResume = event => {
-    this.setState({ resumeOpen: false });
+    window.open(`${window.location.origin}/resume.pdf`, "_blank");
   };
 
   render() {
@@ -187,13 +187,12 @@ class TabMe extends Component {
           {localized().greeting}
           {<Emoji symbol="👋" />}
         </Typography>
-        <div style={{ textAlign: "center", marginBottom: "10px" }}>
+        <div style={styles.resumeRoot}>
           <Button variant="outlined" onClick={this.handleOpenResume}>
             {localized().openResume}
           </Button>
         </div>
 
-        {this.state.resumeOpen && <ResumeDialog onClose={this.handleCloseResume} dialogSize="xl" />}
         {/* Short Intro */}
         {this.getIntro()}
 
