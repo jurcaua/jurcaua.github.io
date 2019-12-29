@@ -6,6 +6,7 @@ import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import ProjectTagList from "./ProjectTagList";
 import ReactPlayer from "react-player";
 import ProjectLinkList from "./ProjectLinkList";
+import { localized } from "../../Localization";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -64,7 +65,7 @@ const ProjectDetailsDialog = ({ project, open, onClose, ...props }) => {
         <Typography>{shortDescription}</Typography>
         <ProjectTagList tags={tags} />
 
-        <Typography variant="h6">Links</Typography>
+        <Typography variant="h6">{localized().tabs.projects.dialog.linksTitle}</Typography>
         <ProjectLinkList links={links} />
       </DialogContent>
     </Dialog>

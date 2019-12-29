@@ -157,13 +157,16 @@ export const strings = {
         label: "Projects",
         tooltip: "Notable projects and experience.",
         displaying: num => `Displaying ${num} projects`,
+        dialog: {
+          linksTitle: "Related Links"
+        },
         content: [
           {
             name: "Holo-Mole",
             shortDescription:
               "Augmented reality game on a physical rainbow hologram, built in Unity.",
             image:
-              "https://github.com/jurcaua/github_image_hosting/blob/master/HoloMole/yt1.jpg?raw=true",
+              "https://github.com/jurcaua/github_image_hosting/blob/master/HoloMole/screenshot1.png?raw=true",
             tags: ["L1", "T0", "T6", "T9", "O0", "O2", "O3", "O4"],
             links: [
               {
@@ -370,12 +373,15 @@ export const strings = {
         label: "プロジェクト",
         tooltip: "最高の作ったプロジェクト",
         displaying: num => <b>{num}件が表示されている</b>,
+        dialog: {
+          linksTitle: "関連リンク"
+        },
         content: [
           {
             name: "ホグラたたき",
             shortDescription: "本物のレインボーホログラムのARゲーム。",
             image:
-              "https://github.com/jurcaua/github_image_hosting/blob/master/HoloMole/yt1.jpg?raw=true",
+              "https://github.com/jurcaua/github_image_hosting/blob/master/HoloMole/screenshot1.png?raw=true",
             tags: ["L1", "T0", "T6", "T9", "O0", "O2", "O3", "O4"],
             links: [
               {
@@ -466,7 +472,6 @@ export const strings = {
             summary: "バスケットボール",
             details: (
               <Typography style={styles.paragraph}>
-                (翻訳確認中) <br />
                 人生のほとんど、大学までを<b>競技バスケットボール</b>に費やしました。
                 優れた選手に指導をされつつ、数々のチームに所属していました。 未だにその時に習った
                 <u>頑張り</u>や<u>チームワーク</u>を優先する考え方が残っています。
