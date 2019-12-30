@@ -13,13 +13,6 @@ import { projectTagMappings } from "./tabs/projects/ProjectsConfig";
 
 let currentLanguage = DEFAULT_LANGUAGE;
 
-const styles = {
-  root: {
-    marginLeft: "10%",
-    marginRight: "10%"
-  }
-};
-
 const basicStrings = {
   en: {
     time: {

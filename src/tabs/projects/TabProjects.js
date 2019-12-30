@@ -3,11 +3,13 @@ import { makeStyles } from "@material-ui/core";
 import ProjectsDisplay from "./ProjectsDisplay";
 import ProjectsNumberOverlay from "./ProjectsNumberOverlay";
 import { localized } from "../../Localization";
+import { SMALL_WIDTH_THRESHOLD_MARGINS } from "../../Constants";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    paddingLeft: "5vw", // more responsive than theme.spacing for pc/mobile display
-    paddingRight: "5vw",
+    paddingLeft: props => (props.windowInnerWidth < SMALL_WIDTH_THRESHOLD_MARGINS ? "5vw" : "10vw"),
+    paddingRight: props =>
+      props.windowInnerWidth < SMALL_WIDTH_THRESHOLD_MARGINS ? "5vw" : "10vw",
     paddingTop: theme.spacing(2),
     paddingBottom: theme.spacing(2)
   }

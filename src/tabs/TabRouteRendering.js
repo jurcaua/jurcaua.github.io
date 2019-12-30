@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 // External Package Imports
 import { Switch, Route } from "react-router-dom";
@@ -10,11 +10,38 @@ import TabProjects from "./projects/TabProjects";
 import TabInterests from "./interests/TabInterests";
 
 const TabRouteRendering = props => {
+  const [windowInnerWidth, setWindowInnerWidth] = useState(window.innerWidth);
+
+  const handleWindowSizeChange = () => {
+    setWindowInnerWidth(window.innerWidth);
+  };
+
+  // Effect used to add/remove event listener for window size changes and change number of columns accordingly
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowSizeChange);
+
+    return function cleanup() {
+      window.removeEventListener("resize", handleWindowSizeChange);
+    };
+  });
+
   return (
     <Switch>
-      <Route exact path={GetRootTabRouterPath("me")} render={() => <TabMe />} />
-      <Route exact path={GetRootTabRouterPath("projects")} render={() => <TabProjects />} />
-      <Route exact path={GetRootTabRouterPath("interests")} render={() => <TabInterests />} />
+      <Route
+        exact
+        path={GetRootTabRouterPath("me")}
+        render={() => <TabMe windowInnerWidth={windowInnerWidth} />}
+      />
+      <Route
+        exact
+        path={GetRootTabRouterPath("projects")}
+        render={() => <TabProjects windowInnerWidth={windowInnerWidth} />}
+      />
+      <Route
+        exact
+        path={GetRootTabRouterPath("interests")}
+        render={() => <TabInterests windowInnerWidth={windowInnerWidth} />}
+      />
     </Switch>
   );
 };

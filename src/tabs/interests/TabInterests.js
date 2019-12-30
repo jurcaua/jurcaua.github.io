@@ -1,11 +1,19 @@
 import React, { useState } from "react";
-import { localized } from "../../Localization";
-import { Typography, Tab, Tabs, makeStyles } from "@material-ui/core";
+
+// External Package Exports
+import { Paper, Slide, Typography, Tab, Tabs, makeStyles } from "@material-ui/core";
 import Emoji from "../../Emoji";
-import Paper from "@material-ui/core/Paper";
-import Slide from "@material-ui/core/Slide";
+
+// Local Imports
+import { localized } from "../../Localization";
+import { SMALL_WIDTH_THRESHOLD_MARGINS } from "../../Constants";
 
 const useStyles = makeStyles(theme => ({
+  root: {
+    marginLeft: props => (props.windowInnerWidth < SMALL_WIDTH_THRESHOLD_MARGINS ? "2vw" : "10vw"),
+    marginRight: props => (props.windowInnerWidth < SMALL_WIDTH_THRESHOLD_MARGINS ? "2vw" : "10vw")
+  },
+
   interestsRoot: {
     padding: "1%",
     overflow: "hidden"

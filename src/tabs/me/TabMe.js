@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from "react";
-import Typography from "@material-ui/core/Typography";
+import React, { useState } from "react";
+
+// External Package Imports
 import {
+  Typography,
   List,
   ListItemText,
   ListItem,
@@ -11,9 +13,11 @@ import {
   ExpansionPanelSummary,
   ExpansionPanelDetails
 } from "@material-ui/core";
-import { localized } from "../../Localization";
-import Emoji from "../../Emoji";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import Emoji from "../../Emoji";
+
+// Local Imports
+import { localized } from "../../Localization";
 import { SMALL_WIDTH_THRESHOLD_MARGINS } from "../../Constants";
 
 const useStyles = makeStyles(theme => ({
@@ -66,22 +70,8 @@ const useStyles = makeStyles(theme => ({
 
 const TabMe = props => {
   const [otherExperienceExpanded, setOtherExperienceExpanded] = useState(false);
-  const [windowInnerWidth, setWindowInnerWidth] = useState(window.innerWidth);
 
-  const classes = useStyles({ windowInnerWidth, ...props });
-
-  const handleWindowSizeChange = () => {
-    setWindowInnerWidth(window.innerWidth);
-  };
-
-  // Effect used to add/remove event listener for window size changes and change number of columns accordingly
-  useEffect(() => {
-    window.addEventListener("resize", handleWindowSizeChange);
-
-    return function cleanup() {
-      window.removeEventListener("resize", handleWindowSizeChange);
-    };
-  });
+  const classes = useStyles(props);
 
   const handleExpand = panel => (event, isExpanded) => {
     setOtherExperienceExpanded(isExpanded ? panel : false);
