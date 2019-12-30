@@ -14,7 +14,6 @@ const styles = {
   },
 
   text: {
-    fontSize: "20px",
     textAlign: "center",
     marginTop: "10px",
     display: "inline-flex",

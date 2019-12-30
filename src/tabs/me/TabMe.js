@@ -22,12 +22,12 @@ const useStyles = makeStyles(theme => ({
     marginRight: props => (props.windowInnerWidth < SMALL_WIDTH_THRESHOLD_MARGINS ? "5vw" : "15vw")
   },
   header: {
-    fontSize: "28px",
     textAlign: "center",
     align: "center"
   },
-  paragraph: {
-    fontSize: "22px"
+  primaryList: {},
+  secondaryList: {
+    color: theme.palette.text.secondary
   },
   resumeRoot: {
     textAlign: "center",
@@ -45,13 +45,11 @@ const useStyles = makeStyles(theme => ({
     color: "#363738"
   },
   heading: {
-    fontSize: theme.typography.pxToRem(15),
     flexShrink: 0,
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2)
   },
   secondaryHeading: {
-    fontSize: theme.typography.pxToRem(15),
     color: theme.palette.text.secondary,
     marginLeft: theme.spacing(2),
     marginRight: theme.spacing(2)
@@ -120,9 +118,17 @@ const TabMe = props => {
                 <i className="material-icons">{experience.icon}</i>
               </ListItemIcon>
               <ListItemText
-                className={classes.paragraph}
-                primary={experience.primary}
-                secondary={experience.secondary}
+                disableTypography
+                primary={
+                  <Typography className={classes.primaryList} variant="body1">
+                    {experience.primary}
+                  </Typography>
+                }
+                secondary={
+                  <Typography className={classes.secondaryList} variant="body2">
+                    {experience.secondary}
+                  </Typography>
+                }
               />
             </ListItem>
           );
@@ -154,8 +160,10 @@ const TabMe = props => {
                   <i className="material-icons">{experience.icon}</i>
                 </div>
                 <div>
-                  <Typography className={classes.heading}>{experience.primary}</Typography>
-                  <Typography className={classes.secondaryHeading}>
+                  <Typography className={classes.heading} variant="body1">
+                    {experience.primary}
+                  </Typography>
+                  <Typography className={classes.secondaryHeading} variant="body2">
                     {experience.secondary}
                   </Typography>
                 </div>
@@ -165,7 +173,9 @@ const TabMe = props => {
                   return (
                     <div key={index} className={classes.otherExperienceExpandRoot}>
                       <i className="material-icons">arrow_right</i>
-                      <Typography className={classes.otherExperienceExpandText}>{text}</Typography>
+                      <Typography className={classes.otherExperienceExpandText} variant="body2">
+                        {text}
+                      </Typography>
                     </div>
                   );
                 })}
@@ -180,7 +190,7 @@ const TabMe = props => {
   return (
     <div className={classes.root}>
       {/* Header */}
-      <Typography className={classes.header}>
+      <Typography className={classes.header} variant="h4">
         {localized().greeting}
         {<Emoji symbol="👋" />}
       </Typography>

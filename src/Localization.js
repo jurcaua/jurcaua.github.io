@@ -17,27 +17,6 @@ const styles = {
   root: {
     marginLeft: "10%",
     marginRight: "10%"
-  },
-
-  header: {
-    fontSize: "28px",
-    textAlign: "center",
-    align: "center"
-  },
-
-  subheader: {
-    fontSize: "22px",
-    textAlign: "center",
-    align: "center"
-  },
-
-  paragraph: {
-    fontSize: "22px"
-  },
-
-  drawerSummary: {
-    fontSize: "22px",
-    marginLeft: "10px"
   }
 };
 
@@ -78,12 +57,12 @@ export const strings = {
         label: "Me",
         tooltip: "Qualification overview.",
         summary: [
-          <Typography style={styles.paragraph}>
+          <Typography variant="h5">
             Currently {getYearsAgo(BIRTHDAY)} years old, and a fourth year student at the{" "}
             <b>University of Toronto</b> -- studying Computer Science with focuses in Algorithms,
             System Design, and Game Design.
           </Typography>,
-          <Typography style={styles.paragraph}>
+          <Typography variant="h5">
             I worked for <b>Ubisoft Toronto</b> (Watch Dogs Legion) on the tools team for 15 months.
             Responsible for a variety of things, my focuses were:
           </Typography>
@@ -112,9 +91,7 @@ export const strings = {
           }
         ],
         otherExperiencesHeader: (
-          <Typography style={styles.paragraph}>
-            Other related experience in the industry includes:
-          </Typography>
+          <Typography variant="h5">Other related experience in the industry includes:</Typography>
         ),
         otherExperiences: [
           {
@@ -227,7 +204,7 @@ export const strings = {
             summary: "Japanese",
             details: (
               <React.Fragment>
-                <Typography style={styles.paragraph}>
+                <Typography variant="h5">
                   I have been learning Japanese for about{" "}
                   {<b>{getTimeLearningJapaneseString("en")}</b>}. I currently hold a{" "}
                   {<b>JLPT N{JLPT_LEVEL_CURRENTLY_HAVE}</b>} certification I received Dec. 2017 and
@@ -235,7 +212,7 @@ export const strings = {
                   this past December.
                 </Typography>
                 <br />
-                <Typography style={styles.paragraph}>
+                <Typography variant="h5">
                   I can have a casual or simple business level conversation with few issues, and can
                   keep up with native speaking patterns and colloquial speech.
                 </Typography>
@@ -246,7 +223,7 @@ export const strings = {
           {
             summary: "Gaming",
             details: (
-              <Typography style={styles.paragraph}>
+              <Typography variant="h5">
                 <b>My love for programming came from games!</b> I started out playing Flash and
                 CD-ROM games as kid, moving on to classic games like Pokemon, Spyro, and my all-time
                 favourite video game series, Kingdom Hearts! Now I enjoy making games as much as I
@@ -258,7 +235,7 @@ export const strings = {
           {
             summary: "Basketball",
             details: (
-              <Typography style={styles.paragraph}>
+              <Typography variant="h5">
                 I played basketball at a <b>competitive level</b> for majority of my life, leading
                 up to university. Playing on countless teams and in countless leagues, and being
                 trained by veterans in the game -- it built a certain <u>hardwork</u> and{" "}
@@ -271,7 +248,7 @@ export const strings = {
             summary: "Coffee",
             details: (
               <React.Fragment>
-                <Typography style={styles.paragraph}>
+                <Typography variant="h5">
                   I absolutely <i>ADORE</i> a good cup of {<Emoji symbol="☕" />}. While I rarely
                   feel the effects of caffeine, I stick with it for the taste! I believe a nice cup
                   of black coffee is the best thing to sip on while programming.
@@ -297,12 +274,12 @@ export const strings = {
         label: "私について",
         tooltip: "資格概要",
         summary: [
-          <Typography style={styles.paragraph}>
+          <Typography variant="h5">
             現在、<b>トロント大学</b>に通っている{getYearsAgo(BIRTHDAY)}
             歳の四年生です。
             コンピューターサイエンスのアルゴリズムやシステムデザインやゲームデザインを中心に学んでいます。
           </Typography>,
-          <Typography style={styles.paragraph}>
+          <Typography variant="h5">
             <b>Ubisoft</b>というゲーム会社のツールチームで15ヶ月のインターンシップをしていました。
             私の専門は以下のとおりです。
           </Typography>
@@ -331,7 +308,7 @@ export const strings = {
           }
         ],
         otherExperiencesHeader: (
-          <Typography style={styles.paragraph}>業界に関連する経験は以下のとおりです。</Typography>
+          <Typography variant="h5">業界に関連する経験は以下のとおりです。</Typography>
         ),
         otherExperiences: [
           {
@@ -442,7 +419,7 @@ export const strings = {
             summary: "日本語",
             details: (
               <React.Fragment>
-                <Typography style={styles.paragraph}>
+                <Typography variant="h5">
                   私は{<b>{getTimeLearningJapaneseString("jp")}</b>}
                   日本語を勉強しています。 2017年の12月に
                   <b>日本語能力試験の{JLPT_LEVEL_CURRENTLY_HAVE}級</b>に合格し、今年の年末に
@@ -450,7 +427,7 @@ export const strings = {
                   に挑戦しました（結果未定）。
                 </Typography>
                 <br />
-                <Typography style={styles.paragraph}>
+                <Typography variant="h5">
                   上級ビジネスレベルではなければ、問題なく日本語でコミュニケーションをとることが出来ます。
                 </Typography>
               </React.Fragment>
@@ -460,7 +437,7 @@ export const strings = {
           {
             summary: "ゲーム",
             details: (
-              <Typography style={styles.paragraph}>
+              <Typography variant="h5">
                 <b>ゲームが大好きなため、プログラミングをしようと思いました。</b>
                 幼い頃、フラッシュゲームやCD-ROMが大好きだったので、
                 その頃からキングダムハーツを始め、ポケモン、スパイロ・ザ・ドラゴン等をしました。
@@ -473,7 +450,7 @@ export const strings = {
           {
             summary: "バスケットボール",
             details: (
-              <Typography style={styles.paragraph}>
+              <Typography variant="h5">
                 人生のほとんど、大学までを<b>競技バスケットボール</b>に費やしました。
                 優れた選手に指導をされつつ、数々のチームに所属していました。 未だにその時に習った
                 <u>頑張り</u>や<u>チームワーク</u>を優先する考え方が残っています。
@@ -490,7 +467,7 @@ export const strings = {
             summary: "コーヒー",
             details: (
               <React.Fragment>
-                <Typography style={styles.paragraph}>
+                <Typography variant="h5">
                   (翻訳確認中) <br />
                   よくした{<Emoji symbol="☕" />}
                   が大好きです。いれたてのコーヒーの味は最高ですけれども、カフェインの効果があまり感じないんです。

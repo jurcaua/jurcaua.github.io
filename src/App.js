@@ -32,11 +32,12 @@ const useStyles = makeStyles(theme => ({
 
   title: {
     textAlign: "center",
-    marginTop: "10px"
+    marginTop: "10px",
+    marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(2)
   },
 
   footer: {
-    fontSize: "20px",
     textAlign: "center",
     margin: "10px",
     align: "center"
@@ -74,17 +75,6 @@ const App = props => {
     }
   };
 
-  const getDynamicTitleSize = () => {
-    if (getLanguage() === "jp") {
-      return {
-        fontSize: "40px"
-      };
-    }
-    return {
-      fontSize: "50px"
-    };
-  };
-
   const getLocalizedName = () => {
     return `${localized().nameFirst}${localized().nameSeperator}${localized().nameLast}`;
   };
@@ -110,6 +100,11 @@ const App = props => {
     }
   });
 
+  // Japanese font is much larger than the English, so let's make sure it fits on all screens this way
+  const getTitleVariant = () => {
+    return getLanguage() === "en" ? "h2" : "h3";
+  };
+
   return (
     <div className={classes.root}>
       {localized() !== undefined && getLanguage !== undefined && (
@@ -119,7 +114,7 @@ const App = props => {
             render={({ location }) => (
               <React.Fragment>
                 <AppBar position="static" color="default" className={classes.appBar}>
-                  <Typography className={classes.title} style={getDynamicTitleSize()} variant="h2">
+                  <Typography className={classes.title} variant={getTitleVariant()}>
                     {getLocalizedName()}
                   </Typography>
                   <ReadOnlyCopyField text={EMAIL} />
@@ -139,7 +134,7 @@ const App = props => {
                 {/* Footer with basic information. */}
                 {/* 基本情報があるフッター */}
                 <AppBar position="static" color="default">
-                  <Typography className={classes.footer}>
+                  <Typography className={classes.footer} variant="h6">
                     © {getCurrentYear()} {getLocalizedName()}
                   </Typography>
                 </AppBar>

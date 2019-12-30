@@ -5,10 +5,10 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
 import { ThemeProvider } from "@material-ui/styles";
-import { createMuiTheme } from "@material-ui/core/styles";
+import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
 import { HashRouter } from "react-router-dom";
 
-const theme = createMuiTheme({
+let theme = createMuiTheme({
   overrides: {
     MuiTooltip: {
       tooltip: {
@@ -17,6 +17,7 @@ const theme = createMuiTheme({
     }
   }
 });
+theme = responsiveFontSizes(theme);
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>

@@ -1,24 +1,17 @@
 import React, { useState } from "react";
 import { localized } from "../../Localization";
-import { Typography, Tab, Tabs } from "@material-ui/core";
+import { Typography, Tab, Tabs, makeStyles } from "@material-ui/core";
 import Emoji from "../../Emoji";
 import Paper from "@material-ui/core/Paper";
 import Slide from "@material-ui/core/Slide";
 
-const styles = {
+const useStyles = makeStyles(theme => ({
   interestsRoot: {
     padding: "1%",
     overflow: "hidden"
   },
 
-  header: {
-    fontSize: "28px",
-    textAlign: "center",
-    align: "center"
-  },
-
-  subheader: {
-    fontSize: "22px",
+  centeredText: {
     textAlign: "center",
     align: "center"
   },
@@ -26,14 +19,14 @@ const styles = {
   paper: {
     margin: "1% 2%",
     padding: "2%"
-  },
-
-  slideTimeout: {
-    enter: 500
   }
-};
+}));
+
+const SLIDE_TIMEOUT = 500;
 
 const TabInterests = props => {
+  const classes = useStyles(props);
+
   const [currentTab, setCurrentTab] = useState(0);
 
   const handleTabChange = (event, value) => {
@@ -46,7 +39,7 @@ const TabInterests = props => {
 
   const renderInterests = () => {
     return (
-      <Paper style={styles.interestsRoot} elevation={2}>
+      <Paper className={classes.interestsRoot} elevation={2}>
         <Tabs value={currentTab} onChange={handleTabChange} centered>
           {getInterests().content.map((item, index) => {
             return (
@@ -54,8 +47,7 @@ const TabInterests = props => {
                 key={index}
                 label={<span>{item.summary}</span>}
                 icon={<i className="material-icons">{item.icon}</i>}
-              >
-              </Tab>
+              ></Tab>
             );
           })}
         </Tabs>
@@ -66,10 +58,10 @@ const TabInterests = props => {
               direction="left"
               in={currentTab === index}
               exit={false}
-              timeout={styles.slideTimeout}
+              timeout={SLIDE_TIMEOUT}
               unmountOnExit
             >
-              <Paper elevation={2} style={styles.paper}>
+              <Paper elevation={2} className={classes.paper}>
                 {item.details}
               </Paper>
             </Slide>
@@ -80,12 +72,14 @@ const TabInterests = props => {
   };
 
   return (
-    <div style={styles.root}>
+    <div className={classes.root}>
       {/* Header */}
-      <Typography style={styles.header}>{localized().tabs.interests.header}</Typography>
+      <Typography className={classes.centeredText} variant="h4">
+        {localized().tabs.interests.header}
+      </Typography>
 
       {/* Sub-header */}
-      <Typography style={styles.subheader}>
+      <Typography className={classes.centeredText} variant="h5">
         {localized().tabs.interests.subheader}
         {<Emoji symbol="😄" />}
       </Typography>
