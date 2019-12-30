@@ -6,10 +6,11 @@ import { Grid } from "@material-ui/core";
 // Local Imports
 import ProjectTile from "./ProjectTile";
 import ProjectDetailsDialog from "./ProjectDetailsDialog";
+import { SMALL_WIDTH_THRESHOLD_GRID } from "../../Constants";
 
 const getGridSize = () => {
   // 6 --> for 2 columns | 12 --> for 1 column (for Material UI Grid system)
-  if (window.innerWidth > 600) {
+  if (window.innerWidth > SMALL_WIDTH_THRESHOLD_GRID) {
     return 6;
   }
   return 12;

@@ -1,54 +1,99 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Typography from "@material-ui/core/Typography";
 import {
   List,
   ListItemText,
   ListItem,
   ListItemIcon,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogContentText,
-  IconButton,
-  Button
+  Button,
+  makeStyles,
+  ExpansionPanel,
+  ExpansionPanelSummary,
+  ExpansionPanelDetails
 } from "@material-ui/core";
 import { localized } from "../../Localization";
 import Emoji from "../../Emoji";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import { SMALL_WIDTH_THRESHOLD_MARGINS } from "../../Constants";
 
-const styles = {
+const useStyles = makeStyles(theme => ({
   root: {
-    marginLeft: "10%",
-    marginRight: "10%"
+    marginLeft: props => (props.windowInnerWidth < SMALL_WIDTH_THRESHOLD_MARGINS ? "5vw" : "15vw"),
+    marginRight: props => (props.windowInnerWidth < SMALL_WIDTH_THRESHOLD_MARGINS ? "5vw" : "15vw")
   },
-
   header: {
     fontSize: "28px",
     textAlign: "center",
     align: "center"
   },
-
   paragraph: {
     fontSize: "22px"
   },
-
   resumeRoot: {
     textAlign: "center",
     marginBottom: "10px"
+  },
+  otherExperienceExpandDetails: {
+    display: "block"
+  },
+  otherExperienceExpandRoot: {
+    display: "flex",
+    marginBottom: "10px"
+  },
+  otherExperienceExpandText: {
+    marginLeft: "10px",
+    color: "#363738"
+  },
+  heading: {
+    fontSize: theme.typography.pxToRem(15),
+    flexShrink: 0,
+    marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(2)
+  },
+  secondaryHeading: {
+    fontSize: theme.typography.pxToRem(15),
+    color: theme.palette.text.secondary,
+    marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(2)
+  },
+  greyIcon: {
+    color: theme.palette.text.secondary
+  },
+  expansionPanelSummary: {
+    "&:hover": {
+      background: "lightgrey"
+    }
   }
-};
+}));
 
-class TabMe extends Component {
-  constructor(props) {
-    super(props);
+const TabMe = props => {
+  const [otherExperienceExpanded, setOtherExperienceExpanded] = useState(false);
+  const [windowInnerWidth, setWindowInnerWidth] = useState(window.innerWidth);
 
-    this.state = {
-      selectedOtherExperience: null,
-      otherExperienceDialogOpen: false,
-      resumeOpen: false
+  const classes = useStyles({ windowInnerWidth, ...props });
+
+  const handleWindowSizeChange = () => {
+    setWindowInnerWidth(window.innerWidth);
+  };
+
+  // Effect used to add/remove event listener for window size changes and change number of columns accordingly
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowSizeChange);
+
+    return function cleanup() {
+      window.removeEventListener("resize", handleWindowSizeChange);
     };
-  }
+  });
 
-  getIntro = () => {
+  const handleExpand = panel => (event, isExpanded) => {
+    setOtherExperienceExpanded(isExpanded ? panel : false);
+  };
+
+  const handleOpenResume = event => {
+    window.open(`${window.location.origin}/resume.pdf`, "_blank");
+  };
+
+  const getIntro = () => {
     const { summary } = localized().tabs.me;
     return (
       <div>
@@ -64,7 +109,7 @@ class TabMe extends Component {
     );
   };
 
-  getCurrentExperiences = () => {
+  const getCurrentExperiences = () => {
     const { currentExperiences } = localized().tabs.me;
     return (
       <List>
@@ -75,7 +120,7 @@ class TabMe extends Component {
                 <i className="material-icons">{experience.icon}</i>
               </ListItemIcon>
               <ListItemText
-                style={styles.paragraph}
+                className={classes.paragraph}
                 primary={experience.primary}
                 secondary={experience.secondary}
               />
@@ -86,126 +131,76 @@ class TabMe extends Component {
     );
   };
 
-  handleOtherExperienceClick = (event, experience) => {
-    this.setState({
-      otherExperienceDialogOpen: true,
-      selectedOtherExperience: experience
-    });
-  };
-
-  handleOtherExperienceDialogClose = event => {
-    this.setState({
-      otherExperienceDialogOpen: false
-    });
-  };
-
-  getOtherExperiencesHeader = () => {
+  const getOtherExperiencesHeader = () => {
     return localized().tabs.me.otherExperiencesHeader;
   };
 
-  getOtherExperiences = () => {
+  const getOtherExperiences = () => {
     const { otherExperiences } = localized().tabs.me;
     return (
       <List>
         {otherExperiences.map((experience, index) => {
           return (
-            <ListItem
+            <ExpansionPanel
               key={index}
-              button
-              divider
-              onClick={event => {
-                this.handleOtherExperienceClick(event, experience);
-              }}
+              expanded={otherExperienceExpanded === index}
+              onChange={handleExpand(index)}
             >
-              <ListItemIcon>
-                <i className="material-icons">{experience.icon}</i>
-              </ListItemIcon>
-              <ListItemText
-                style={styles.paragraph}
-                primary={experience.primary}
-                secondary={experience.secondary}
-              />
-              <ListItemIcon>
-                <i className="material-icons">keyboard_arrow_right</i>
-              </ListItemIcon>
-            </ListItem>
+              <ExpansionPanelSummary
+                className={classes.expansionPanelSummary}
+                expandIcon={<ExpandMoreIcon />}
+              >
+                <div className={classes.greyIcon}>
+                  <i className="material-icons">{experience.icon}</i>
+                </div>
+                <div>
+                  <Typography className={classes.heading}>{experience.primary}</Typography>
+                  <Typography className={classes.secondaryHeading}>
+                    {experience.secondary}
+                  </Typography>
+                </div>
+              </ExpansionPanelSummary>
+              <ExpansionPanelDetails className={classes.otherExperienceExpandDetails}>
+                {experience.dialogText.map((text, index) => {
+                  return (
+                    <div key={index} className={classes.otherExperienceExpandRoot}>
+                      <i className="material-icons">arrow_right</i>
+                      <Typography className={classes.otherExperienceExpandText}>{text}</Typography>
+                    </div>
+                  );
+                })}
+              </ExpansionPanelDetails>
+            </ExpansionPanel>
           );
         })}
       </List>
     );
   };
 
-  getOtherExperiencesPopup = () => {
-    if (this.state.selectedOtherExperience) {
-      return (
-        <Dialog
-          open={this.state.otherExperienceDialogOpen}
-          onClose={this.handleOtherExperienceDialogClose}
-          fullWidth={true}
-          maxWidth="md"
-        >
-          <DialogTitle>
-            {this.state.selectedOtherExperience.dialogTitle}
-            <IconButton
-              onClick={this.handleOtherExperienceDialogClose}
-              style={{ position: "absolute", right: "10px", top: "10px" }}
-            >
-              <i className="material-icons">close</i>
-            </IconButton>
-          </DialogTitle>
-          <DialogContent>
-            {this.state.selectedOtherExperience.dialogText.map((text, index) => {
-              return (
-                <div key={index} style={{ display: "inline-flex", marginBottom: "10px" }}>
-                  <i className="material-icons">arrow_right</i>
-                  <DialogContentText
-                    style={{
-                      marginLeft: "10px",
-                      color: "#363738"
-                    }}
-                  >
-                    {text}
-                  </DialogContentText>
-                </div>
-              );
-            })}
-          </DialogContent>
-        </Dialog>
-      );
-    }
-  };
-
-  handleOpenResume = event => {
-    window.open(`${window.location.origin}/resume.pdf`, "_blank");
-  };
-
-  render() {
-    return (
-      <div style={styles.root}>
-        {/* Header */}
-        <Typography style={styles.header}>
-          {localized().greeting}
-          {<Emoji symbol="👋" />}
-        </Typography>
-        <div style={styles.resumeRoot}>
-          <Button variant="outlined" onClick={this.handleOpenResume}>
-            {localized().openResume}
-          </Button>
-        </div>
-
-        {/* Short Intro */}
-        {this.getIntro()}
-
-        {/* Current Experiences */}
-        {this.getCurrentExperiences()}
-
-        {/* Other Experiences */}
-        {this.getOtherExperiencesHeader()}
-        {this.getOtherExperiences()}
-        {this.getOtherExperiencesPopup()}
+  return (
+    <div className={classes.root}>
+      {/* Header */}
+      <Typography className={classes.header}>
+        {localized().greeting}
+        {<Emoji symbol="👋" />}
+      </Typography>
+      <div className={classes.resumeRoot}>
+        <Button variant="outlined" onClick={handleOpenResume}>
+          {localized().openResume}
+        </Button>
       </div>
-    );
-  }
-}
+
+      {/* Short Intro */}
+      {getIntro()}
+
+      {/* Current Experiences */}
+      {getCurrentExperiences()}
+
+      {/* Other Experiences */}
+      {getOtherExperiencesHeader()}
+      {getOtherExperiences()}
+    </div>
+  );
+};
 
 export default TabMe;
