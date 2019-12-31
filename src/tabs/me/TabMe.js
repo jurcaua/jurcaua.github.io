@@ -35,17 +35,19 @@ const useStyles = makeStyles(theme => ({
   },
   resumeRoot: {
     textAlign: "center",
-    marginBottom: "10px"
+    margin: theme.spacing(1)
+  },
+  expansionPanelRoot: {
+    margin: theme.spacing(1)
   },
   otherExperienceExpandDetails: {
     display: "block"
   },
   otherExperienceExpandRoot: {
     display: "flex",
-    marginBottom: "10px"
+    marginBottom: theme.spacing(1)
   },
   otherExperienceExpandText: {
-    marginLeft: "10px",
     color: "#363738"
   },
   heading: {
@@ -138,6 +140,7 @@ const TabMe = props => {
         {otherExperiences.map((experience, index) => {
           return (
             <ExpansionPanel
+              className={classes.expansionPanelRoot}
               key={index}
               expanded={otherExperienceExpanded === index}
               onChange={handleExpand(index)}
@@ -184,8 +187,10 @@ const TabMe = props => {
         {localized().greeting}
         {<Emoji symbol="👋" />}
       </Typography>
+
+      {/* Resume Section */}
       <div className={classes.resumeRoot}>
-        <Button variant="outlined" onClick={handleOpenResume}>
+        <Button size="large" variant="outlined" onClick={handleOpenResume}>
           {localized().openResume}
         </Button>
       </div>
