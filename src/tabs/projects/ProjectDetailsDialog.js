@@ -143,8 +143,8 @@ const ProjectDetailsDialog = ({ project, open, onClose, ...props }) => {
           then forcing the current picture to match that size.
           Instead, we still render nearby photos but instead we force the height to 0 (classes.preloadImg), 
           so then the current picture is always the largest size in the current loaded set of images. */}
-          {Math.abs(activeStep - index) <= 2 ? (
-            Math.abs(activeStep - index) === 0 ? (
+          {Math.abs(getStepCount(activeStep, hasVideo) - index) <= 2 ? (
+            Math.abs(getStepCount(activeStep, hasVideo) - index) === 0 ? (
               <img className={classes.img} src={image.imgPath} alt={image.caption} />
             ) : (
               <img className={classes.preloadImg} src={image.imgPath} alt={image.caption} />
