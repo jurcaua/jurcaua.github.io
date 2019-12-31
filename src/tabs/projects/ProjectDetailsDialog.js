@@ -55,6 +55,12 @@ const useStyles = makeStyles(theme => ({
     overflow: "hidden",
     width: "100%"
   },
+  preloadImg: {
+    display: "block",
+    overflow: "hidden",
+    width: "100%",
+    height: "0"
+  },
   imageCaption: {
     color: "dimgrey"
   }
@@ -133,9 +139,16 @@ const ProjectDetailsDialog = ({ project, open, onClose, ...props }) => {
 
       let imageViews = images.map((image, index) => (
         <div key={index}>
-          {/* Only render the nearest pictures. */}
+          {/* Issue I ran into was having nearby pictures really large, 
+          then forcing the current picture to match that size.
+          Instead, we still render nearby photos but instead we force the height to 0 (classes.preloadImg), 
+          so then the current picture is always the largest size in the current loaded set of images. */}
           {Math.abs(activeStep - index) <= 2 ? (
-            <img className={classes.img} src={image.imgPath} alt={image.caption} />
+            Math.abs(activeStep - index) === 0 ? (
+              <img className={classes.img} src={image.imgPath} alt={image.caption} />
+            ) : (
+              <img className={classes.preloadImg} src={image.imgPath} alt={image.caption} />
+            )
           ) : null}
         </div>
       ));

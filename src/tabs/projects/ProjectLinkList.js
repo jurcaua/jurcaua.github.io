@@ -18,9 +18,8 @@ const ProjectLinkList = ({ links, ...props }) => {
     <div>
       {links.map((link, index) => {
         return (
-          <Paper className={classes.paperRoot} elevation={2}>
+          <Paper key={index} className={classes.paperRoot} elevation={2}>
             <Link
-              key={index}
               className={classes.link}
               variant="overline"
               href={link.url}

@@ -185,6 +185,38 @@ export const strings = {
               "Web app made to be the center of clubs and events for the University of Toronto - school project prototype (100% grade).",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/dashboard-logged-in.png?raw=true",
+            images: [
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/create-post.gif?raw=true",
+                caption: "Creating an event user flow."
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/search-clubs.png?raw=true",
+                caption: "Club search page."
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/create-club.gif?raw=true",
+                caption: "Creating a club user flow."
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/featured-clubs.gif?raw=true",
+                caption: "Dashboard featured clubs."
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/user-profile.gif?raw=true",
+                caption: "User profile page."
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/club-profile.gif?raw=true",
+                caption: "Club profile page."
+              }
+            ],
             tags: ["L3", "L4", "T2", "T3", "T4", "T5", "T9", "T13", "O2", "O6"],
             links: [
               {
@@ -311,6 +343,28 @@ export const strings = {
             shortDescription: "A 3D platformer prototype based on music visualization.",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/raw/master/Code%20Bumpin'/code-bumpin-v3%202017-01-23%2019-51-19-10.bmp",
+            images: [
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Code%20Bumpin'/game-1.png?raw=true",
+                caption: "Collect the green pickup to push the walls that are closing in!"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Code%20Bumpin'/game-2.png?raw=true",
+                caption: "Collect the blue pickup to slow down time (and the music)!"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Code%20Bumpin'/game-3.png?raw=true",
+                caption: "It's easiest to collect the pickups if you sync up with the music!"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Code%20Bumpin'/game-4.png?raw=true",
+                caption: "Game over screen."
+              }
+            ],
             tags: ["L1", "T0", "T6", "T9", "O1", "O4"],
             links: [
               {
@@ -543,8 +597,7 @@ export const strings = {
         content: [
           {
             name: "フィッシャー大将",
-            shortDescription:
-              "釣り竿だけで、フィッシャーマン同士と戦って、このお山の大将のゲームを勝利しましょう！",
+            shortDescription: "釣り竿一本で釣り人と戦って、お山の大将ゲームを勝ち抜こう！",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/artwork1.png?raw=true",
             images: [
@@ -592,6 +645,38 @@ export const strings = {
               "トロント大学の部活を養うWebアプリケーション。満点を取った大学のプロジェクト。",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/dashboard-logged-in.png?raw=true",
+            images: [
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/create-post.gif?raw=true",
+                caption: "イベントの作り方。"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/search-clubs.png?raw=true",
+                caption: "サークル検索ページ。"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/create-club.gif?raw=true",
+                caption: "ユーザーの作り方。"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/featured-clubs.gif?raw=true",
+                caption: "ホームページでのサークル。"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/user-profile.gif?raw=true",
+                caption: "ユーザーのプロファイル。"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/club-profile.gif?raw=true",
+                caption: "サークルのプロファイル"
+              }
+            ],
             tags: ["L3", "L4", "T2", "T3", "T4", "T5", "T9", "T13", "O2", "O6"],
             links: [
               {
@@ -715,6 +800,28 @@ export const strings = {
             shortDescription: "音楽の視覚化をもとにした3Dプラットフォーム・ゲーム。",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/raw/master/Code%20Bumpin'/code-bumpin-v3%202017-01-23%2019-51-19-10.bmp",
+            images: [
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Code%20Bumpin'/game-1.png?raw=true",
+                caption: "緑のピックアップを集めると、だんだん近づかれている壁を押し戻すよ！"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Code%20Bumpin'/game-2.png?raw=true",
+                caption: "青いピックアップを集めると、時間と音楽が遅くなるよ！"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Code%20Bumpin'/game-3.png?raw=true",
+                caption: "音楽に合わせると、簡単に集められるよ！"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Code%20Bumpin'/game-4.png?raw=true",
+                caption: "ゲームオーバー。"
+              }
+            ],
             tags: ["L1", "T0", "T6", "T9", "O1", "O4"],
             links: [
               {
