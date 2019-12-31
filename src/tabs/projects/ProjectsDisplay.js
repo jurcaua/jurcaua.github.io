@@ -26,10 +26,18 @@ const ProjectsDisplay = ({ projects }) => {
     setDialogOpen(true);
   };
 
+  // ------------------------------------
+  // Handle closing, and make sure we only set the selected project to undefined after we close the dialog
   const handleDialogClose = () => {
     setDialogOpen(false);
-    setSelectedProject(undefined);
   };
+  
+  useEffect(() => {
+    if (dialogOpen === false) {
+      setSelectedProject(undefined);
+    }
+  }, [dialogOpen]);
+  // ------------------------------------
 
   const handleWindowSizeChange = () => {
     setProjectGridSize(getGridSize());

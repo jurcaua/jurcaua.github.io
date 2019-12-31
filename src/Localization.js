@@ -43,6 +43,7 @@ export const strings = {
     nameLast: "Jurcau",
     greeting: "Hello there! I'm Alex.",
     openResume: "View My Resume!",
+    copyButtonTooltip: "Copy to clipboard",
     copyConfirmNotification: "Copied to clipboard!",
     changeLanguage: "言語を日本語に変える! (Japanese)",
     tabs: {
@@ -133,10 +134,42 @@ export const strings = {
         },
         content: [
           {
+            name: "Fisherman Foes",
+            shortDescription:
+              "Fight your fellow fisherman to be the king-of-the-hill, and win in this 2D multiplayer battle, with only your rod as your weapon.",
+            mainImage:
+              "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/artwork1.png?raw=true",
+            tags: ["L1", "T0", "T6", "T9", "O1", "O4"],
+            links: [
+              {
+                title: "GitHub",
+                url: "https://github.com/jurcaua/TOJAM13"
+              },
+              {
+                title: "itch.io (Play now!)",
+                url: "https://jurcaua.itch.io/fisherman-foes"
+              }
+            ]
+          },
+          {
+            name: "Event Listeners",
+            shortDescription:
+              "Web app made to be the center of clubs and events for the University of Toronto - school project prototype (100% grade).",
+            mainImage:
+              "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/dashboard-logged-in.png?raw=true",
+            tags: ["L3", "L4", "T2", "T3", "T4", "T5", "T9", "T13", "O2", "O6"],
+            links: [
+              {
+                title: "Website",
+                url: "https://event-listeners.herokuapp.com/"
+              }
+            ]
+          },
+          {
             name: "Holo-Mole",
             shortDescription:
               "Augmented reality game on a physical rainbow hologram, built in Unity.",
-            image:
+            mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/HoloMole/screenshot1.png?raw=true",
             tags: ["L1", "T0", "T6", "T9", "O0", "O2", "O3", "O4"],
             links: [
@@ -151,7 +184,7 @@ export const strings = {
             name: "Google Spy",
             shortDescription:
               "Take full control of in-game characters in Unity by voice via Google Assistant.",
-            image:
+            mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/GoogleSpy/screenshot1.PNG?raw=true",
             tags: ["L1", "L3", "T0", "T6", "T9", "T11", "O1", "O4"],
             links: [
@@ -166,10 +199,28 @@ export const strings = {
             ]
           },
           {
+            name: "Kleptomanihat",
+            shortDescription:
+              "A hat kleptomaniac imprisoned for life is magically released. Control him as he runs around town, collecting hats as he goes.",
+            mainImage:
+              "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/main-menu-cropped.png?raw=true",
+            tags: ["L1", "T0", "T6", "T9", "O1", "O4"],
+            links: [
+              {
+                title: "GitHub",
+                url: "https://github.com/jurcaua/Kleptomanihat"
+              },
+              {
+                title: "itch.io (Play now!)",
+                url: "https://jurcaua.itch.io/kleptomanihat"
+              }
+            ]
+          },
+          {
             name: "TranslatAR",
             shortDescription:
               "Real-time Augmented Reality translation app with image recognition in Unity.",
-            image:
+            mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/TranslatAR/devpost1.jpg?raw=true",
             tags: ["L1", "T0", "T6", "O1", "O3"],
             links: [
@@ -183,6 +234,106 @@ export const strings = {
               }
             ],
             video: "https://youtu.be/GyIVdzyi8pY"
+          },
+          {
+            name: "Snake Dimensions",
+            shortDescription:
+              "3D version of the classic game of Snake, built for Android using Unity.",
+            mainImage:
+              "https://github.com/jurcaua/github_image_hosting/raw/master/Snake%20DIMENSIONS/Screenshot_20170102-123935.png",
+            tags: ["L1", "T0", "T6", "T9", "O4"],
+            links: [
+              {
+                title: "GitHub",
+                url: "https://github.com/jurcaua/Snake-Dimensions"
+              },
+              {
+                title: "Google Play",
+                url: "https://play.google.com/store/apps/details?id=com.jurk.co.snakedimensions"
+              },
+              {
+                title: "itch.io (Play now!)",
+                url: "https://jurcaua.itch.io/snake-dimensions"
+              }
+            ],
+            video: "https://www.youtube.com/watch?v=X5Rv26UH0jo"
+          },
+          {
+            name: "Re-Lec",
+            shortDescription:
+              "Platform that allows students to record lectures and view other recorded lecture, under token-earning system.",
+            mainImage:
+              "https://github.com/jurcaua/github_image_hosting/blob/master/Re-Lec/logo_relec.png?raw=true",
+            tags: ["L1", "L3", "L4", "T0", "T3", "T6", "T9", "O2", "O6"]
+          },
+          {
+            name: "Code Bumpin'",
+            shortDescription: "A 3D platformer prototype based on music visualization.",
+            mainImage:
+              "https://github.com/jurcaua/github_image_hosting/raw/master/Code%20Bumpin'/code-bumpin-v3%202017-01-23%2019-51-19-10.bmp",
+            tags: ["L1", "T0", "T6", "T9", "O1", "O4"],
+            links: [
+              {
+                title: "GitHub",
+                url: "https://github.com/jurcaua/code-bumpin"
+              },
+              {
+                title: "itch.io (Play now!)",
+                url: "https://jurcaua.itch.io/code-bumpin"
+              }
+            ],
+            video: "https://www.youtube.com/watch?v=Yfn3moFHb3s&feature=youtu.be"
+          },
+          {
+            name: "Game Nani",
+            shortDescription:
+              "Drag-and-drop analytics developer tool for Unity3D, seamlessly reporting player behaviour.",
+            mainImage:
+              "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot3.jpg?raw=true",
+            tags: ["L1", "T0", "T6", "T9", "O1", "O4", "O5"],
+            links: [
+              {
+                title: "GitHub (Tool)",
+                url: "https://github.com/jurcaua/GameNaniGrapher"
+              },
+              {
+                title: "GitHub (Game)",
+                url: "https://github.com/jurcaua/GameNani"
+              },
+              {
+                title: "DevPost",
+                url: "https://devpost.com/software/thacks2"
+              }
+            ]
+          },
+          {
+            name: "Space Shooter",
+            shortDescription:
+              "Modified version of a Unity tutorial, adding custom firing mechanics for aimed shooting.",
+            mainImage:
+              "https://github.com/jurcaua/github_image_hosting/blob/master/Space%20Shooter/Screenshot_20170110-221144-cropped.png?raw=true",
+            tags: ["L1", "T0", "T6", "T9", "O4"],
+            links: [
+              {
+                title: "GitHub",
+                url: "https://github.com/jurcaua/SpaceShooter-Android"
+              }
+            ],
+            video: "https://www.youtube.com/watch?v=yUQojrvAw1k"
+          },
+          {
+            name: "Airplane Simulator",
+            shortDescription:
+              "Completely hand-made physics based airplane simulator coded in Java.",
+            mainImage:
+              "https://github.com/jurcaua/github_image_hosting/blob/master/AirplaneSim/2019-12-30%2021_50_28-Settings.png?raw=true",
+            tags: ["L5", "O2"],
+            links: [
+              {
+                title: "GitHub",
+                url: "https://github.com/jurcaua/airplaneSimulator"
+              }
+            ]
           }
         ]
       },
@@ -260,6 +411,7 @@ export const strings = {
     nameLast: "アレックス",
     greeting: "こんにちは！アレックスです。",
     openResume: "履歴書",
+    copyButtonTooltip: "コーピする",
     copyConfirmNotification: "コーピした!",
     changeLanguage: "Change the language to English! (英語)",
     tabs: {
@@ -350,9 +502,41 @@ export const strings = {
         },
         content: [
           {
+            name: "フィッシャー大将",
+            shortDescription:
+              "釣り竿だけで、フィッシャーマン同士と戦って、このお山の大将のゲームを勝利しましょう！",
+            mainImage:
+              "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/artwork1.png?raw=true",
+            tags: ["L1", "T0", "T6", "T9", "O1", "O4"],
+            links: [
+              {
+                title: "GitHub",
+                url: "https://github.com/jurcaua/TOJAM13"
+              },
+              {
+                title: "itch.io (プレイ出来る！)",
+                url: "https://jurcaua.itch.io/fisherman-foes"
+              }
+            ]
+          },
+          {
+            name: "Event Listeners",
+            shortDescription:
+              "トロント大学の部活を養うWebアプリケーション。満点を取った大学のプロジェクト。",
+            mainImage:
+              "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/dashboard-logged-in.png?raw=true",
+            tags: ["L3", "L4", "T2", "T3", "T4", "T5", "T9", "T13", "O2", "O6"],
+            links: [
+              {
+                title: "Website",
+                url: "https://event-listeners.herokuapp.com/"
+              }
+            ]
+          },
+          {
             name: "ホグラたたき",
             shortDescription: "本物のレインボーホログラムのARゲーム。",
-            image:
+            mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/HoloMole/screenshot1.png?raw=true",
             tags: ["L1", "T0", "T6", "T9", "O0", "O2", "O3", "O4"],
             links: [
@@ -367,7 +551,7 @@ export const strings = {
             name: "グーグルスパイ",
             shortDescription:
               "Googleアシスタントを使って音声だけでゲームのキャラクターを操作が出来る。",
-            image:
+            mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/GoogleSpy/screenshot1.PNG?raw=true",
             tags: ["L1", "L3", "T0", "T6", "T9", "T11", "O1", "O4"],
             links: [
@@ -382,9 +566,27 @@ export const strings = {
             ]
           },
           {
+            name: "Kleptomanihat",
+            shortDescription:
+              "終身刑に処せられた窃盗協が魔力的に出獄された。彼をコントロールして、冒険しながら様々な帽子を集めよう！",
+            mainImage:
+              "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/main-menu-cropped.png?raw=true",
+            tags: ["L1", "T0", "T6", "T9", "O1", "O4"],
+            links: [
+              {
+                title: "GitHub",
+                url: "https://github.com/jurcaua/Kleptomanihat"
+              },
+              {
+                title: "itch.io (Play now!)",
+                url: "https://jurcaua.itch.io/kleptomanihat"
+              }
+            ]
+          },
+          {
             name: "TranslatAR",
             shortDescription: "画像認識によって、リアルタイム環境翻訳のARの携帯アプリケーション。",
-            image:
+            mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/TranslatAR/devpost1.jpg?raw=true",
             tags: ["L1", "T0", "T6", "O1", "O3"],
             links: [
@@ -398,6 +600,104 @@ export const strings = {
               }
             ],
             video: "https://youtu.be/GyIVdzyi8pY"
+          },
+          {
+            name: "Snake Dimensions",
+            shortDescription: "Unityで作られたアンドロイド向けの3Dのヘビゲーム。",
+            mainImage:
+              "https://github.com/jurcaua/github_image_hosting/raw/master/Snake%20DIMENSIONS/Screenshot_20170102-123935.png",
+            tags: ["L1", "T0", "T6", "T9", "O4"],
+            links: [
+              {
+                title: "GitHub",
+                url: "https://github.com/jurcaua/Snake-Dimensions"
+              },
+              {
+                title: "Google Play",
+                url: "https://play.google.com/store/apps/details?id=com.jurk.co.snakedimensions"
+              },
+              {
+                title: "itch.io (プレイ出来る！)",
+                url: "https://jurcaua.itch.io/snake-dimensions"
+              }
+            ],
+            video: "https://www.youtube.com/watch?v=X5Rv26UH0jo"
+          },
+          {
+            name: "Re-Lec",
+            shortDescription:
+              "トーケンを稼ぐため、学生が講義を録画してアップロード出来る携帯とWebアプリケーション。それから、トーケンを払うと、他のアップロードした講義も観ることになります。",
+            mainImage:
+              "https://github.com/jurcaua/github_image_hosting/blob/master/Re-Lec/logo_relec.png?raw=true",
+            tags: ["L1", "L3", "L4", "T0", "T3", "T6", "T9", "O2", "O6"]
+          },
+          {
+            name: "Code Bumpin'",
+            shortDescription: "音楽の視覚化をもとにした3Dプラットフォーム・ゲーム。",
+            mainImage:
+              "https://github.com/jurcaua/github_image_hosting/raw/master/Code%20Bumpin'/code-bumpin-v3%202017-01-23%2019-51-19-10.bmp",
+            tags: ["L1", "T0", "T6", "T9", "O1", "O4"],
+            links: [
+              {
+                title: "GitHub",
+                url: "https://github.com/jurcaua/code-bumpin"
+              },
+              {
+                title: "itch.io (Play now!)",
+                url: "https://jurcaua.itch.io/code-bumpin"
+              }
+            ],
+            video: "https://www.youtube.com/watch?v=Yfn3moFHb3s&feature=youtu.be"
+          },
+          {
+            name: "Game Nani",
+            shortDescription:
+              "3DのUnityのゲームのユーザー行動を分析するドラッグ＆ドロップのツール。",
+            mainImage:
+              "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot3.jpg?raw=true",
+            tags: ["L1", "T0", "T6", "T9", "O1", "O4", "O5"],
+            links: [
+              {
+                title: "GitHub（ツール）",
+                url: "https://github.com/jurcaua/GameNaniGrapher"
+              },
+              {
+                title: "GitHub（ゲーム）",
+                url: "https://github.com/jurcaua/GameNani"
+              },
+              {
+                title: "DevPost",
+                url: "https://devpost.com/software/thacks2"
+              }
+            ]
+          },
+          {
+            name: "Space Shooter",
+            shortDescription: "良く狙える射撃を修正したUnityチュートリアルのゲーム。",
+            mainImage:
+              "https://github.com/jurcaua/github_image_hosting/blob/master/Space%20Shooter/Screenshot_20170110-221144-cropped.png?raw=true",
+            tags: ["L1", "T0", "T6", "T9", "O4"],
+            links: [
+              {
+                title: "GitHub",
+                url: "https://github.com/jurcaua/SpaceShooter-Android"
+              }
+            ],
+            video: "https://www.youtube.com/watch?v=yUQojrvAw1k"
+          },
+          {
+            name: "Airplane Simulator",
+            shortDescription:
+              "高等学校の時に作った物理的なフライトシミュレータ。Javaで作られたアプリケーション。",
+            mainImage:
+              "https://github.com/jurcaua/github_image_hosting/blob/master/AirplaneSim/2019-12-30%2021_50_28-Settings.png?raw=true",
+            tags: ["L5", "O2"],
+            links: [
+              {
+                title: "GitHub",
+                url: "https://github.com/jurcaua/airplaneSimulator"
+              }
+            ]
           }
         ]
       },

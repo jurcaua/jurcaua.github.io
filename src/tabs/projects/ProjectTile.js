@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
 const ProjectTile = ({ project, onClick, ...rest }) => {
   const classes = useStyles(rest);
 
-  const { name, shortDescription, image, tags } = project;
+  const { name, shortDescription, mainImage, tags } = project;
 
   const handleClick = event => {
     onClick(event, project);
@@ -19,7 +19,7 @@ const ProjectTile = ({ project, onClick, ...rest }) => {
   return (
     <Card className={classes.card} onClick={handleClick}>
       <CardActionArea>
-        <CardMedia component="img" alt={name} src={image} />
+        <CardMedia component="img" alt={name} src={mainImage} />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {name}

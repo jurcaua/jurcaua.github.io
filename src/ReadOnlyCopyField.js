@@ -21,6 +21,7 @@ const styles = {
   }
 };
 
+// TODO: Convert to Function Component
 class ReadOnlyCopyField extends Component {
   emailRef = null;
 
@@ -36,7 +37,7 @@ class ReadOnlyCopyField extends Component {
     if (document.queryCommandSupported("copy")) {
       return (
         <InputAdornment position="end">
-          <Tooltip title="Copy to clipboard">
+          <Tooltip title={localized().copyButtonTooltip}>
             <IconButton style={styles.inline} onClick={this.copyToClipboard}>
               <Icon style={{ fontSize: "20px" }}>file_copy</Icon>
             </IconButton>

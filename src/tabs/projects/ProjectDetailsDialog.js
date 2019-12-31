@@ -54,6 +54,23 @@ const ProjectDetailsDialog = ({ project, open, onClose, ...props }) => {
     }
   };
 
+  const displayTags = () => {
+    if (tags.length !== 0) {
+      return <ProjectTagList tags={tags} />;
+    }
+  };
+
+  const displayRelatedLinks = () => {
+    if (links.length !== 0) {
+      return (
+        <React.Fragment>
+          <Typography variant="h6">{localized().tabs.projects.dialog.linksTitle}</Typography>
+          <ProjectLinkList links={links} />
+        </React.Fragment>
+      );
+    }
+  };
+
   // TODO: Support the back button (specifically for Android) to close the dialog by using a hash in the URL.
   //    Github Issue: https://github.com/mui-org/material-ui/issues/12759
   //    Example Fix in Codesandbox: https://codesandbox.io/s/material-demo-7zf07
@@ -63,10 +80,9 @@ const ProjectDetailsDialog = ({ project, open, onClose, ...props }) => {
       <DialogContent>
         {displayVisualContent()}
         <Typography>{shortDescription}</Typography>
-        <ProjectTagList tags={tags} />
+        {displayTags()}
 
-        <Typography variant="h6">{localized().tabs.projects.dialog.linksTitle}</Typography>
-        <ProjectLinkList links={links} />
+        {displayRelatedLinks()}
       </DialogContent>
     </Dialog>
   );

@@ -26,14 +26,17 @@ export const groupedProjectTagMappings = {
       T9: "Git",
       T10: "ELK",
       T11: "Firebase",
-      T12: "Google Assistant"
+      T12: "Google Assistant",
+      T13: "Material UI"
     },
     other: {
       O0: "Hologram",
-      O1: "Hackathon",
+      O1: "Game Jam / Hackathon",
       O2: "School Project",
       O3: "AR",
-      O4: "Game"
+      O4: "Game",
+      O5: "Tool",
+      O6: "Web App"
     }
   },
   jp: {
@@ -62,14 +65,17 @@ export const groupedProjectTagMappings = {
       T9: "Git",
       T10: "ELK",
       T11: "Firebase",
-      T12: "Google アシスタント"
+      T12: "Google アシスタント",
+      T13: "Material UI"
     },
     other: {
       O0: "ホログラム",
       O1: "ハッカソン",
       O2: "学校のプロジェクト",
       O3: "AR",
-      O4: "ゲーム"
+      O4: "ゲーム",
+      O5: "ツール",
+      O6: "Webアプリケーション"
     }
   }
 };
