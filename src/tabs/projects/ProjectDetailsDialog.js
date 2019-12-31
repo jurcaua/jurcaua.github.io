@@ -1,12 +1,26 @@
 import React from "react";
 
 // External Package Imports
-import { Dialog, DialogContent, Typography, IconButton, makeStyles } from "@material-ui/core";
+import {
+  Dialog,
+  DialogContent,
+  Typography,
+  IconButton,
+  makeStyles,
+  MobileStepper,
+  Button,
+  Paper
+} from "@material-ui/core";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
-import ProjectTagList from "./ProjectTagList";
+import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
+import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import ReactPlayer from "react-player";
-import ProjectLinkList from "./ProjectLinkList";
+import SwipeableViews from "react-swipeable-views";
+
+// Local Imports
 import { localized } from "../../Localization";
+import ProjectTagList from "./ProjectTagList";
+import ProjectLinkList from "./ProjectLinkList";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -18,6 +32,31 @@ const useStyles = makeStyles(theme => ({
     right: theme.spacing(1),
     top: theme.spacing(1),
     color: theme.palette.grey[500]
+  },
+  imagesRoot: {
+    padding: theme.spacing(1),
+    marginBottom: theme.spacing(1),
+    flexGrow: 1
+  },
+  header: {
+    display: "flex",
+    alignItems: "center",
+    paddingLeft: theme.spacing(4),
+    backgroundColor: theme.palette.background.default
+  },
+  mainImage: {
+    width: "100%"
+  },
+  videoPlayerRoot: {
+    overflow: "hidden"
+  },
+  img: {
+    display: "block",
+    overflow: "hidden",
+    width: "100%"
+  },
+  imageCaption: {
+    color: "dimgrey"
   }
 }));
 
@@ -38,20 +77,123 @@ const DialogTitle = props => {
 };
 
 const ProjectDetailsDialog = ({ project, open, onClose, ...props }) => {
+  const classes = useStyles(props);
+
+  const [activeStep, setActiveStep] = React.useState(0);
+
   const tryGetAttr = (obj, key, def) => {
     return (obj && obj[key]) || def;
   };
 
   const name = tryGetAttr(project, "name", "");
+  const mainImage = tryGetAttr(project, "mainImage", undefined);
   const video = tryGetAttr(project, "video", undefined);
-  const shortDescription = tryGetAttr(project, "shortDescription", "");
+  const shortDescription = tryGetAttr(project, "shortDescription", undefined);
+  const longDescription = tryGetAttr(project, "longDescription", undefined);
   const tags = tryGetAttr(project, "tags", []);
+  const images = tryGetAttr(project, "images", []);
   const links = tryGetAttr(project, "links", []);
 
-  const displayVisualContent = () => {
-    if (video !== undefined) {
-      return <ReactPlayer controls url={video} width={"100%"} height={"32vw"} />;
+  const handleNext = () => {
+    setActiveStep(prevActiveStep => prevActiveStep + 1);
+  };
+
+  const handleBack = () => {
+    setActiveStep(prevActiveStep => prevActiveStep - 1);
+  };
+
+  const handleStepChange = step => {
+    setActiveStep(step);
+  };
+
+  const getVideoPlayer = () => {
+    return (
+      <div key={video} className={classes.videoPlayerRoot}>
+        <ReactPlayer controls url={video} width={"100%"} height={"32vw"} />
+      </div>
+    );
+  };
+
+  const getStepCount = (step, hasVideo) => {
+    if (hasVideo) {
+      return step - 1;
     }
+    return step;
+  };
+
+  const displayVisualContent = () => {
+    const hasVideo = video !== undefined;
+    const hasImages = images.length !== 0;
+
+    // If we have no images and just a video, we can just return the player.
+    if (!hasImages && hasVideo) {
+      return getVideoPlayer();
+    } else if (hasImages) {
+      const maxSteps = images.length + (hasVideo ? 1 : 0);
+
+      let imageViews = images.map((image, index) => (
+        <div key={index}>
+          {/* Only render the nearest pictures. */}
+          {Math.abs(activeStep - index) <= 2 ? (
+            <img className={classes.img} src={image.imgPath} alt={image.caption} />
+          ) : null}
+        </div>
+      ));
+      if (hasVideo) {
+        imageViews.unshift(getVideoPlayer());
+      }
+
+      return (
+        <Paper className={classes.imagesRoot}>
+          <SwipeableViews
+            axis={"x"}
+            index={activeStep}
+            onChangeIndex={handleStepChange}
+            enableMouseEvents
+          >
+            {imageViews}
+          </SwipeableViews>
+          <Paper square elevation={0} className={classes.header}>
+            {/* If we have a video, consider the first step to just have an empty caption */}
+            {/* Otherwise, return the caption as usual (whose index may have to be subtracted by 1 if we have a video) */}
+            <Typography className={classes.imageCaption} variant="subtitle1">
+              {hasVideo && activeStep === 0
+                ? ""
+                : images[getStepCount(activeStep, hasVideo)].caption}
+            </Typography>
+          </Paper>
+          <MobileStepper
+            steps={maxSteps}
+            variant="dots"
+            position="static"
+            activeStep={activeStep}
+            nextButton={
+              <Button size="small" onClick={handleNext} disabled={activeStep === maxSteps - 1}>
+                Next
+                <KeyboardArrowRight />
+              </Button>
+            }
+            backButton={
+              <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
+                <KeyboardArrowLeft />
+                Back
+              </Button>
+            }
+          />
+        </Paper>
+      );
+    } else if (mainImage !== undefined) {
+      return <img className={classes.mainImage} alt={name} src={mainImage} />;
+    }
+  };
+
+  const displayDescription = () => {
+    if (longDescription !== undefined) {
+      return <Typography>{longDescription}</Typography>;
+    } else if (shortDescription !== undefined) {
+      return <Typography>{shortDescription}</Typography>;
+    }
+    return null;
   };
 
   const displayTags = () => {
@@ -79,9 +221,8 @@ const ProjectDetailsDialog = ({ project, open, onClose, ...props }) => {
       <DialogTitle onClose={onClose}>{name}</DialogTitle>
       <DialogContent>
         {displayVisualContent()}
-        <Typography>{shortDescription}</Typography>
+        {displayDescription()}
         {displayTags()}
-
         {displayRelatedLinks()}
       </DialogContent>
     </Dialog>

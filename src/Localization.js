@@ -139,6 +139,34 @@ export const strings = {
               "Fight your fellow fisherman to be the king-of-the-hill, and win in this 2D multiplayer battle, with only your rod as your weapon.",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/artwork1.png?raw=true",
+            images: [
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/screenshot2.png?raw=true",
+                caption: "Start off on a peaceful ship!"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/screenshot3.png?raw=true",
+                caption: "Hit some stormy weather..."
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/screenshot1.png?raw=true",
+                caption:
+                  "The final iceberg stage provides a great end to the game with great height and a dangerous surrounding waters."
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/screenshot5.png?raw=true",
+                caption: "The main menu."
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/screenshot4.png?raw=true",
+                caption: "The controls screen."
+              }
+            ],
             tags: ["L1", "T0", "T6", "T9", "O1", "O4"],
             links: [
               {
@@ -222,6 +250,18 @@ export const strings = {
               "Real-time Augmented Reality translation app with image recognition in Unity.",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/TranslatAR/devpost1.jpg?raw=true",
+            images: [
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/TranslatAR/translatAR-test-pic1.png?raw=true",
+                caption: ""
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/TranslatAR/translatAR-test-pic2.png?raw=true",
+                caption: ""
+              }
+            ],
             tags: ["L1", "T0", "T6", "O1", "O3"],
             links: [
               {
@@ -507,6 +547,33 @@ export const strings = {
               "釣り竿だけで、フィッシャーマン同士と戦って、このお山の大将のゲームを勝利しましょう！",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/artwork1.png?raw=true",
+            images: [
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/screenshot2.png?raw=true",
+                caption: "和やかな船で始まろう！"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/screenshot3.png?raw=true",
+                caption: "雲行きが怪しい。。。"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/screenshot1.png?raw=true",
+                caption: "最後の氷山のステージには、すごく楽しい高さと危険な周りの海がありますよ！"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/screenshot5.png?raw=true",
+                caption: "メインメニュー。"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/screenshot4.png?raw=true",
+                caption: "操作の設定のメニュー。"
+              }
+            ],
             tags: ["L1", "T0", "T6", "T9", "O1", "O4"],
             links: [
               {
@@ -588,6 +655,18 @@ export const strings = {
             shortDescription: "画像認識によって、リアルタイム環境翻訳のARの携帯アプリケーション。",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/TranslatAR/devpost1.jpg?raw=true",
+            images: [
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/TranslatAR/translatAR-test-pic1.png?raw=true",
+                caption: ""
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/TranslatAR/translatAR-test-pic2.png?raw=true",
+                caption: ""
+              }
+            ],
             tags: ["L1", "T0", "T6", "O1", "O3"],
             links: [
               {

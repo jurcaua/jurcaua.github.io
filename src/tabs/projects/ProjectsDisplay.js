@@ -31,7 +31,7 @@ const ProjectsDisplay = ({ projects }) => {
   const handleDialogClose = () => {
     setDialogOpen(false);
   };
-  
+
   useEffect(() => {
     if (dialogOpen === false) {
       setSelectedProject(undefined);
