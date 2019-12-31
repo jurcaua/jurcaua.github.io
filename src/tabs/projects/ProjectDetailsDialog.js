@@ -47,11 +47,20 @@ const useStyles = makeStyles(theme => ({
   mainImage: {
     width: "100%"
   },
+  reactPlayer: {
+    position: "absolute",
+    top: "0",
+    left: "0"
+  },
   videoPlayerRoot: {
-    overflow: "hidden"
+    overflow: "hidden",
+    position: "relative",
+    paddingTop: "56.25%"
   },
   videoPlayerRootHidden: {
     overflow: "hidden",
+    position: "relative",
+    paddingTop: "56.25%",
     height: "0"
   },
   img: {
@@ -127,7 +136,13 @@ const ProjectDetailsDialog = ({ project, open, onClose, ...props }) => {
 
     return (
       <div key={video} className={className}>
-        <ReactPlayer controls url={video} width={"100%"} height={"32vw"} />
+        <ReactPlayer
+          className={classes.reactPlayer}
+          controls
+          url={video}
+          width={"100%"}
+          height={"100%"}
+        />
       </div>
     );
   };
