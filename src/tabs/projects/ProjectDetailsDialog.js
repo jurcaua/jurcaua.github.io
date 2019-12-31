@@ -50,6 +50,10 @@ const useStyles = makeStyles(theme => ({
   videoPlayerRoot: {
     overflow: "hidden"
   },
+  videoPlayerRootHidden: {
+    overflow: "hidden",
+    height: "0"
+  },
   img: {
     display: "block",
     overflow: "hidden",
@@ -100,6 +104,12 @@ const ProjectDetailsDialog = ({ project, open, onClose, ...props }) => {
   const images = tryGetAttr(project, "images", []);
   const links = tryGetAttr(project, "links", []);
 
+  // On close, reset the active step to 0 and pass along the onClose call with all arguments
+  const handleClose = (...args) => {
+    setActiveStep(0);
+    onClose.call(args);
+  };
+
   const handleNext = () => {
     setActiveStep(prevActiveStep => prevActiveStep + 1);
   };
@@ -112,9 +122,11 @@ const ProjectDetailsDialog = ({ project, open, onClose, ...props }) => {
     setActiveStep(step);
   };
 
-  const getVideoPlayer = () => {
+  const getVideoPlayer = className => {
+    className = className || classes.videoPlayerRoot;
+
     return (
-      <div key={video} className={classes.videoPlayerRoot}>
+      <div key={video} className={className}>
         <ReactPlayer controls url={video} width={"100%"} height={"32vw"} />
       </div>
     );
@@ -153,7 +165,11 @@ const ProjectDetailsDialog = ({ project, open, onClose, ...props }) => {
         </div>
       ));
       if (hasVideo) {
-        imageViews.unshift(getVideoPlayer());
+        if (activeStep === 0) {
+          imageViews.unshift(getVideoPlayer());
+        } else {
+          imageViews.unshift(getVideoPlayer(classes.videoPlayerRootHidden));
+        }
       }
 
       return (
@@ -230,8 +246,8 @@ const ProjectDetailsDialog = ({ project, open, onClose, ...props }) => {
   //    Github Issue: https://github.com/mui-org/material-ui/issues/12759
   //    Example Fix in Codesandbox: https://codesandbox.io/s/material-demo-7zf07
   return (
-    <Dialog open={open && project !== undefined} onClose={onClose}>
-      <DialogTitle onClose={onClose}>{name}</DialogTitle>
+    <Dialog open={open && project !== undefined} onClose={handleClose}>
+      <DialogTitle onClose={handleClose}>{name}</DialogTitle>
       <DialogContent>
         {displayVisualContent()}
         {displayDescription()}
