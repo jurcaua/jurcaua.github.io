@@ -9,7 +9,8 @@ import {
   makeStyles,
   MobileStepper,
   Button,
-  Paper
+  Paper,
+  Zoom
 } from "@material-ui/core";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
@@ -78,6 +79,10 @@ const useStyles = makeStyles(theme => ({
     color: "dimgrey"
   }
 }));
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Zoom direction="up" ref={ref} {...props} />;
+});
 
 const DialogTitle = props => {
   const { children, onClose, ...other } = props;
@@ -261,7 +266,11 @@ const ProjectDetailsDialog = ({ project, open, onClose, ...props }) => {
   //    Github Issue: https://github.com/mui-org/material-ui/issues/12759
   //    Example Fix in Codesandbox: https://codesandbox.io/s/material-demo-7zf07
   return (
-    <Dialog open={open && project !== undefined} onClose={handleClose}>
+    <Dialog
+      open={open && project !== undefined}
+      onClose={handleClose}
+      TransitionComponent={Transition}
+    >
       <DialogTitle onClose={handleClose}>{name}</DialogTitle>
       <DialogContent>
         {displayVisualContent()}
