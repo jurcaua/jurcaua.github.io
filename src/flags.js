@@ -1,8 +1,15 @@
 import React from "react";
 
+const svgStyle = {
+  width: "16vw",
+  height: "8vw",
+  maxWidth: "100px",
+  maxHeight: "50px"
+};
+
 const svgMap = {
   en: (
-    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="30" viewBox="0 0 9600 4800">
+    <svg style={svgStyle} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9600 4800">
       <path fill="#d52b1e" d="m0 0h2400l99 99h4602l99-99h2400v4800h-2400l-99-99h-4602l-99 99H0z" />
       <path
         fill="#fff"
@@ -11,7 +18,7 @@ const svgMap = {
     </svg>
   ),
   jp: (
-    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="30" viewBox="0 0 100 50">
+    <svg style={svgStyle} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
       <rect fill="#000" height="50" width="100" />
       <rect fill="#fff" height="46" width="96" x="2" y="2" />
       <circle fill="#bc002d" cx="50" cy="25" r="12.5" />
