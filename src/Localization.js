@@ -246,6 +246,24 @@ export const strings = {
               "Take full control of in-game characters in Unity by voice via Google Assistant.",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/GoogleSpy/screenshot1.PNG?raw=true",
+            images: [
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/GoogleSpy/screenshot3.PNG?raw=true",
+                caption:
+                  "Possible actions are displayed as you try to navigate the level only using your voice."
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/GoogleSpy/screenshot4.PNG?raw=true",
+                caption: "Avoid being spotted by the evil apple enemies!"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/GoogleSpy/screenshot1.PNG?raw=true",
+                caption: ""
+              }
+            ],
             tags: ["L1", "L3", "T0", "T6", "T9", "T11", "O1", "O4"],
             links: [
               {
@@ -263,7 +281,39 @@ export const strings = {
             shortDescription:
               "A hat kleptomaniac imprisoned for life is magically released. Control him as he runs around town, collecting hats as he goes.",
             mainImage:
-              "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/main-menu-cropped.png?raw=true",
+              "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/main-menu.PNG?raw=true",
+            images: [
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/prison-structure.PNG?raw=true",
+                caption: "Break out of prison!"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/boss-1.PNG?raw=true",
+                caption: "Defeat a plethora of unique bosses!"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/basketball.PNG?raw=true",
+                caption: "Take a moment to enjoy the city life with some basketball."
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/movie-theatre.PNG?raw=true",
+                caption: "Enjoy a relaxing movie!"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/final-boss-1.PNG?raw=true",
+                caption: "Become part of the movie!"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/final-boss-2.PNG?raw=true",
+                caption: "And find the greatest hat of all time..."
+              }
+            ],
             tags: ["L1", "T0", "T6", "T9", "O1", "O4"],
             links: [
               {
@@ -313,6 +363,28 @@ export const strings = {
               "3D version of the classic game of Snake, built for Android using Unity.",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/raw/master/Snake%20DIMENSIONS/Screenshot_20170102-123935.png",
+            images: [
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Snake%20DIMENSIONS/Screenshot_20170102-123958.png?raw=true",
+                caption: "Simple 3D controls screen."
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Snake%20DIMENSIONS/Screenshot_20170102-124203.png?raw=true",
+                caption: "Avoid falling blocks and running into yourself to get the highscore."
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Snake%20DIMENSIONS/Screenshot_20170102-124324.png?raw=true",
+                caption: "Special FPS mode triggered via random powerup!"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Snake%20DIMENSIONS/Screenshot_20170102-124602.png?raw=true",
+                caption: "Integrated local highscores!"
+              }
+            ],
             tags: ["L1", "T0", "T6", "T9", "O4"],
             links: [
               {
@@ -379,11 +451,38 @@ export const strings = {
             video: "https://www.youtube.com/watch?v=Yfn3moFHb3s&feature=youtu.be"
           },
           {
-            name: "Game Nani",
+            name: "GameNani",
             shortDescription:
               "Drag-and-drop analytics developer tool for Unity3D, seamlessly reporting player behaviour.",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot3.jpg?raw=true",
+            images: [
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot1.jpg?raw=true",
+                caption: "Every object has toggleable live analytics."
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot2.jpg?raw=true",
+                caption: "All key presses are logged and can be displayed live in-game."
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot3.jpg?raw=true",
+                caption: "Our companion app can display detailed statistics for each play session."
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot4.jpg?raw=true",
+                caption: "Specific data per-session can also be looked into."
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot4.jpg?raw=true",
+                caption: "Key presses are displayed in the same way!"
+              }
+            ],
             tags: ["L1", "T0", "T6", "T9", "O1", "O4", "O5"],
             links: [
               {
@@ -596,7 +695,7 @@ export const strings = {
         },
         content: [
           {
-            name: "フィッシャー大将",
+            name: "フィッシャーズ決戦",
             shortDescription: "釣り竿一本で釣り人と戦って、お山の大将ゲームを勝ち抜こう！",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/artwork1.png?raw=true",
@@ -705,6 +804,23 @@ export const strings = {
               "Googleアシスタントを使って音声だけでゲームのキャラクターを操作が出来る。",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/GoogleSpy/screenshot1.PNG?raw=true",
+            images: [
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/GoogleSpy/screenshot3.PNG?raw=true",
+                caption: "音声だけで進めよう！なんでもありうる！"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/GoogleSpy/screenshot4.PNG?raw=true",
+                caption: "アップルの敵に捕まらないようにしよう！"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/GoogleSpy/screenshot1.PNG?raw=true",
+                caption: ""
+              }
+            ],
             tags: ["L1", "L3", "T0", "T6", "T9", "T11", "O1", "O4"],
             links: [
               {
@@ -722,7 +838,39 @@ export const strings = {
             shortDescription:
               "終身刑に処せられた窃盗協が魔力的に出獄された。彼をコントロールして、冒険しながら様々な帽子を集めよう！",
             mainImage:
-              "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/main-menu-cropped.png?raw=true",
+              "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/main-menu.PNG?raw=true",
+            images: [
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/prison-structure.PNG?raw=true",
+                caption: "脱出しよう！"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/boss-1.PNG?raw=true",
+                caption: "特別なボスを倒そう！"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/basketball.PNG?raw=true",
+                caption: "息抜きして、都会生活を楽しみながらバスケットボールをしよう。"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/movie-theatre.PNG?raw=true",
+                caption: "映画館に行こう！"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/final-boss-1.PNG?raw=true",
+                caption: "俳優になろう？"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/final-boss-2.PNG?raw=true",
+                caption: "史上最高の帽子を見つけよう…"
+              }
+            ],
             tags: ["L1", "T0", "T6", "T9", "O1", "O4"],
             links: [
               {
@@ -770,6 +918,28 @@ export const strings = {
             shortDescription: "Unityで作られたアンドロイド向けの3Dのヘビゲーム。",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/raw/master/Snake%20DIMENSIONS/Screenshot_20170102-123935.png",
+            images: [
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Snake%20DIMENSIONS/Screenshot_20170102-123958.png?raw=true",
+                caption: "分かりやすい3Dコントロールメニュー。"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Snake%20DIMENSIONS/Screenshot_20170102-124203.png?raw=true",
+                caption: "自分と落ちている障害物を避けよう！"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Snake%20DIMENSIONS/Screenshot_20170102-124324.png?raw=true",
+                caption: "特別なファーストパーソンモードもたまにあります！"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Snake%20DIMENSIONS/Screenshot_20170102-124602.png?raw=true",
+                caption: "ハイスコアゲットしよう！"
+              }
+            ],
             tags: ["L1", "T0", "T6", "T9", "O4"],
             links: [
               {
@@ -836,11 +1006,38 @@ export const strings = {
             video: "https://www.youtube.com/watch?v=Yfn3moFHb3s&feature=youtu.be"
           },
           {
-            name: "Game Nani",
+            name: "GameNani",
             shortDescription:
               "3DのUnityのゲームのユーザー行動を分析するドラッグ＆ドロップのツール。",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot3.jpg?raw=true",
+            images: [
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot1.jpg?raw=true",
+                caption: "各オブジェクトの実況統計を見ることが出来ます。。"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot2.jpg?raw=true",
+                caption: "キーが入力されたことを全て記録し、実況表示することが出来ます。"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot3.jpg?raw=true",
+                caption: "コンパニオンアプリで各セッションの細かい統計を見ることが出来ます。"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot4.jpg?raw=true",
+                caption: "セッション一件の細かい統計を見ることも出来ます。"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot5.jpg?raw=true",
+                caption: "キーが入力されたことのセッションデータが同じように表示されます。"
+              }
+            ],
             tags: ["L1", "T0", "T6", "T9", "O1", "O4", "O5"],
             links: [
               {

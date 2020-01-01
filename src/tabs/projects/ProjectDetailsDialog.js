@@ -255,7 +255,7 @@ const ProjectDetailsDialog = ({ project, open, onClose, ...props }) => {
     if (links.length !== 0) {
       return (
         <React.Fragment>
-          <Typography variant="h6">{localized().tabs.projects.dialog.linksTitle}</Typography>
+          <Typography variant="h5">{localized().tabs.projects.dialog.linksTitle}</Typography>
           <ProjectLinkList links={links} />
         </React.Fragment>
       );
