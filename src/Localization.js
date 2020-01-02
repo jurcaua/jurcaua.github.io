@@ -250,6 +250,37 @@ export const strings = {
             ]
           },
           {
+            name: "Soundplow",
+            shortDescription:
+              "Soundcloud .mp3 downloader + integrated UI (PySide / Qt) - made in Python",
+            mainImage:
+              "https://github.com/jurcaua/github_image_hosting/blob/master/Soundplow/gif1.gif?raw=true",
+            images: [
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Soundplow/gif1.gif?raw=true",
+                caption: "Search and download tracks instantly."
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Soundplow/screenshot2.png?raw=true",
+                caption: "Download tracks live as they are liked by any registered user."
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Soundplow/screenshot3.png?raw=true",
+                caption: "Batch-download from a list of track URLs."
+              }
+            ],
+            tags: ["L0", "T7", "T9", "O5"],
+            links: [
+              {
+                title: "Github",
+                url: "https://github.com/jurcaua/soundplow"
+              }
+            ]
+          },
+          {
             name: "Holo-Mole",
             shortDescription:
               "Augmented reality game on a physical rainbow hologram, built in Unity.",
@@ -827,6 +858,37 @@ export const strings = {
               {
                 title: "Website",
                 url: "https://event-listeners.herokuapp.com/"
+              }
+            ]
+          },
+          {
+            name: "Soundplow",
+            shortDescription:
+              "Pythonで作られたSoundcloudからのMP3ダウンロードするアプリケーション。GUI込み（PySide / Qt）。",
+            mainImage:
+              "https://github.com/jurcaua/github_image_hosting/blob/master/Soundplow/gif1.gif?raw=true",
+            images: [
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Soundplow/gif1.gif?raw=true",
+                caption: "探索して、ダウンロードする。"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Soundplow/screenshot2.png?raw=true",
+                caption: "入力されたユーザーのいいね！された曲をリアルタイムでダウンロードする。"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/Soundplow/screenshot3.png?raw=true",
+                caption: "曲のURLのリストのバッチ処理も可能。"
+              }
+            ],
+            tags: ["L0", "T7", "T9", "O5"],
+            links: [
+              {
+                title: "Github",
+                url: "https://github.com/jurcaua/soundplow"
               }
             ]
           },
