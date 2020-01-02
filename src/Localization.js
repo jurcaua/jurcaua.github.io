@@ -1313,6 +1313,12 @@ export function getGroupedProjectTags(tag) {
     }, {});
 }
 
+export const getFilteredProjects = filterTagList => {
+  return localized().tabs.projects.content.filter(proj =>
+    filterTagList.every(t => proj.tags.includes(t))
+  );
+};
+
 export function localizedProjectTag(tag) {
   return projectTagMappings[currentLanguage][tag];
 }

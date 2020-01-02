@@ -1,10 +1,14 @@
 import React, { useState } from "react";
+
+// Package Imports
 import { makeStyles } from "@material-ui/core";
+
+// Local Imports
+import { SMALL_WIDTH_THRESHOLD_MARGINS } from "../../Constants";
+import { getFilteredProjects } from "../../Localization";
+import ProjectsFilter from "./ProjectsFilter";
 import ProjectsDisplay from "./ProjectsDisplay";
 import ProjectsNumberOverlay from "./ProjectsNumberOverlay";
-import { localized } from "../../Localization";
-import { SMALL_WIDTH_THRESHOLD_MARGINS } from "../../Constants";
-import ProjectsFilter from "./ProjectsFilter";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -25,11 +29,7 @@ const TabProjects = props => {
     setCurrentFilter(filterTagList);
   };
 
-  const filterProjects = unfilteredProjects => {
-    return unfilteredProjects.filter(proj => currentFilter.every(t => proj.tags.includes(t)));
-  };
-
-  const projects = filterProjects(localized().tabs.projects.content);
+  const projects = getFilteredProjects(currentFilter);
 
   return (
     <div className={classes.root}>

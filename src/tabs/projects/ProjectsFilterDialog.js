@@ -17,12 +17,13 @@ import {
   Checkbox,
   ListItemText,
   Input,
-  Grid
+  Grid,
+  Badge
 } from "@material-ui/core";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
 
 // Local Imports
-import { localized, getGroupedProjectTags } from "../../Localization";
+import { localized, getGroupedProjectTags, getFilteredProjects } from "../../Localization";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -50,6 +51,9 @@ const useStyles = makeStyles(theme => ({
   },
   chip: {
     margin: 2
+  },
+  actionButtonBadge: {
+    marginRight: theme.spacing(1)
   }
 }));
 
@@ -89,12 +93,19 @@ const ProjectsFilterDialog = ({ open, onApply, onCancel, ...props }) => {
   const [onEnterSelectedTags, setOnEnterSelectedTags] = useState(defaultSelectedTags);
   const [selectedTags, setSelectedTags] = useState(defaultSelectedTags);
 
+  const filterTagsToList = tags => {
+    return Object.keys(tags).reduce((lst, key) => {
+      lst.push(...tags[key]);
+      return lst;
+    }, []);
+  };
+
   const handleEnter = () => {
     setOnEnterSelectedTags(selectedTags);
   };
 
   const handleApply = () => {
-    onApply(selectedTags);
+    onApply(filterTagsToList(selectedTags));
   };
 
   const handleClose = (...args) => {
@@ -132,6 +143,17 @@ const ProjectsFilterDialog = ({ open, onApply, onCancel, ...props }) => {
                 onChange={handleTags(key)}
                 input={<Input id="select-multiple-checkbox" />}
                 name="tags"
+                MenuProps={{
+                  anchorOrigin: {
+                    vertical: "top",
+                    horizontal: "left"
+                  },
+                  transformOrigin: {
+                    vertical: "top",
+                    horizontal: "right"
+                  },
+                  getContentAnchorEl: null
+                }}
                 renderValue={selected => (
                   <div className={classes.chips}>
                     {selected.map(value => (
@@ -182,9 +204,15 @@ const ProjectsFilterDialog = ({ open, onApply, onCancel, ...props }) => {
         <Button onClick={handleClose} color="secondary" variant="outlined">
           {localized().tabs.projects.filter.dialog.cancelButton}
         </Button>
-        <Button onClick={handleApply} color="primary" variant="contained">
-          {localized().tabs.projects.filter.dialog.applyButton}
-        </Button>
+        <Badge
+          className={classes.actionButtonBadge}
+          badgeContent={getFilteredProjects(filterTagsToList(selectedTags)).length}
+          color="secondary"
+        >
+          <Button onClick={handleApply} color="primary" variant="contained">
+            {localized().tabs.projects.filter.dialog.applyButton}
+          </Button>
+        </Badge>
       </DialogActions>
     </Dialog>
   );

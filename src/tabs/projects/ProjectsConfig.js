@@ -17,11 +17,11 @@ export const groupedProjectTagMappings = {
         L2: "C++",
         L3: "Javascript",
         L4: "HTML/CSS",
-        L5: "Java",
-        L6: "T-SQL",
-        L7: "Racket",
-        L8: "Haskell",
-        L9: "Dafny"
+        L5: "Java"
+        // L6: "T-SQL",
+        // L7: "Racket",
+        // L8: "Haskell",
+        // L9: "Dafny"
       }
     },
     technology: {
@@ -35,9 +35,9 @@ export const groupedProjectTagMappings = {
         T5: "Redux",
         T6: "Visual Studio",
         T7: "Qt",
-        T8: "Perforce",
+        // T8: "Perforce",
         T9: "Git",
-        T10: "ELK",
+        // T10: "ELK",
         T11: "Firebase",
         T12: "Google Assistant",
         T13: "Material UI"
@@ -71,11 +71,11 @@ export const groupedProjectTagMappings = {
         L2: "C++",
         L3: "Javascript",
         L4: "HTML/CSS",
-        L5: "Java",
-        L6: "T-SQL",
-        L7: "Racket",
-        L8: "Haskell",
-        L9: "Dafny"
+        L5: "Java"
+        // L6: "T-SQL",
+        // L7: "Racket",
+        // L8: "Haskell",
+        // L9: "Dafny"
       }
     },
     technology: {
@@ -89,9 +89,9 @@ export const groupedProjectTagMappings = {
         T5: "Redux",
         T6: "Visual Studio",
         T7: "Qt",
-        T8: "Perforce",
+        // T8: "Perforce",
         T9: "Git",
-        T10: "ELK",
+        // T10: "ELK",
         T11: "Firebase",
         T12: "Google アシスタント",
         T13: "Material UI"

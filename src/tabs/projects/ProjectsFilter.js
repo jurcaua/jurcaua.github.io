@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
+
+// Package Imports
 import { makeStyles } from "@material-ui/styles";
-import { Fab, Grid, Paper, Typography } from "@material-ui/core";
+import { Fab, Grid, Typography } from "@material-ui/core";
 import FilterListIcon from "@material-ui/icons/FilterList";
-import ProjectTagList from "./ProjectTagList";
+
+// Local Imports
 import { localized } from "../../Localization";
+import ProjectTagList from "./ProjectTagList";
 import ProjectsFilterDialog from "./ProjectsFilterDialog";
-import { SMALL_WIDTH_THRESHOLD_GRID } from "../../Constants";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -25,19 +28,11 @@ const ProjectsFilter = ({ windowInnerWidth, onChange, ...props }) => {
   const [filterTags, setFilterTags] = React.useState([]);
   const [dialogOpen, setDialogOpen] = React.useState(false);
 
-  const filterTagsToList = tags => {
-    return Object.keys(tags).reduce((lst, key) => {
-      lst.push(...tags[key]);
-      return lst;
-    }, []);
-  };
-
   const handleApply = newFilters => {
     setDialogOpen(false);
 
-    const convertedToList = filterTagsToList(newFilters);
-    setFilterTags(convertedToList);
-    onChange(convertedToList);
+    setFilterTags(newFilters);
+    onChange(newFilters);
   };
 
   const renderCurrentFilterTags = () => {
