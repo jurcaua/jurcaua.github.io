@@ -1,4 +1,11 @@
 import React from "react";
+
+// Package Imports
+import { Typography } from "@material-ui/core";
+import EmailIcon from "@material-ui/icons/Email";
+
+// Local Imports
+import { DEFAULT_LANGUAGE } from "./Constants";
 import { getYearsAgo, getMonthsAgo } from "./Utils";
 import {
   BIRTHDAY,
@@ -6,15 +13,12 @@ import {
   JLPT_LEVEL_GOING_FOR,
   JLPT_LEVEL_CURRENTLY_HAVE
 } from "./Info";
-import { Typography } from "@material-ui/core";
 import Emoji from "./Emoji";
-import { DEFAULT_LANGUAGE } from "./Constants";
 import {
   projectTagMappings,
   groupedProjectTagMappings,
   ignoreGroups
 } from "./tabs/projects/ProjectsConfig";
-import EmailIcon from "@material-ui/icons/Email";
 import { LinkedInIcon, GithubIcon, SoundcloudIcon } from "./SocialMediaIcons";
 
 let currentLanguage = DEFAULT_LANGUAGE;
@@ -472,6 +476,19 @@ export const strings = {
             video: "https://www.youtube.com/watch?v=X5Rv26UH0jo"
           },
           {
+            name: "Personal Website",
+            shortDescription: "This website - entirely custom and made in React w/ Material UI.",
+            mainImage:
+              "https://github.com/jurcaua/github_image_hosting/blob/master/Personal%20Website/2020-01-02%2016_04_56-Window.png?raw=true",
+            tags: ["L3", "L4", "T2", "T3", "T9", "T13", "O6"],
+            links: [
+              {
+                title: "Website",
+                url: "http://jurcau.com/"
+              }
+            ]
+          },
+          {
             name: "Re-Lec",
             shortDescription:
               "Platform that allows students to record lectures and view other recorded lecture, under token-earning system.",
@@ -880,7 +897,7 @@ export const strings = {
             tags: ["L3", "L4", "T2", "T3", "T4", "T5", "T9", "T13", "O2", "O6"],
             links: [
               {
-                title: "Website",
+                title: "ウェブサイト",
                 url: "https://event-listeners.herokuapp.com/"
               }
             ]
@@ -1088,6 +1105,20 @@ export const strings = {
               }
             ],
             video: "https://www.youtube.com/watch?v=X5Rv26UH0jo"
+          },
+          {
+            name: "Personal Website",
+            shortDescription:
+              "このウェブサイト。ReactとMaterial UIを使って、全て自分で作られました。",
+            mainImage:
+              "https://github.com/jurcaua/github_image_hosting/blob/master/Personal%20Website/2020-01-02%2016_04_56-Window.png?raw=true",
+            tags: ["L3", "L4", "T2", "T3", "T9", "T13", "O6"],
+            links: [
+              {
+                title: "ウェブサイト",
+                url: "http://jurcau.com/"
+              }
+            ]
           },
           {
             name: "Re-Lec",
