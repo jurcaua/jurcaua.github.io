@@ -10,6 +10,8 @@ import { Typography } from "@material-ui/core";
 import Emoji from "./Emoji";
 import { DEFAULT_LANGUAGE } from "./Constants";
 import { projectTagMappings } from "./tabs/projects/ProjectsConfig";
+import EmailIcon from "@material-ui/icons/Email";
+import { LinkedInIcon, GithubIcon, SoundcloudIcon } from "./SocialMediaIcons";
 
 let currentLanguage = DEFAULT_LANGUAGE;
 
@@ -46,6 +48,28 @@ export const strings = {
     copyButtonTooltip: "Copy to clipboard",
     copyConfirmNotification: "Copied to clipboard!",
     changeLanguage: "言語を日本語に変える! (Japanese)",
+    socialMedia: [
+      {
+        name: "LinkedIn",
+        icon: LinkedInIcon,
+        url: "https://www.linkedin.com/in/jurcaua/"
+      },
+      {
+        name: "Github",
+        icon: GithubIcon,
+        url: "https://github.com/jurcaua"
+      },
+      {
+        name: "Soundcloud",
+        icon: SoundcloudIcon,
+        url: "https://soundcloud.com/beunorthodox"
+      },
+      {
+        name: "Email",
+        icon: EmailIcon,
+        url: "mailto:jurcaua@gmail.com"
+      }
+    ],
     tabs: {
       me: {
         label: "Me",
@@ -607,6 +631,28 @@ export const strings = {
     copyButtonTooltip: "コーピする",
     copyConfirmNotification: "コーピした!",
     changeLanguage: "Change the language to English! (英語)",
+    socialMedia: [
+      {
+        name: "LinkedIn",
+        icon: LinkedInIcon,
+        url: "https://www.linkedin.com/in/jurcaua/"
+      },
+      {
+        name: "Github",
+        icon: GithubIcon,
+        url: "https://github.com/jurcaua"
+      },
+      {
+        name: "Soundcloud",
+        icon: SoundcloudIcon,
+        url: "https://soundcloud.com/beunorthodox"
+      },
+      {
+        name: "メール",
+        icon: EmailIcon,
+        url: "mailto:jurcaua@gmail.com"
+      }
+    ],
     tabs: {
       me: {
         label: "私について",

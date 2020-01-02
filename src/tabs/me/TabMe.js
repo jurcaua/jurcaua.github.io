@@ -19,6 +19,7 @@ import Emoji from "../../Emoji";
 // Local Imports
 import { localized } from "../../Localization";
 import { SMALL_WIDTH_THRESHOLD_MARGINS } from "../../Constants";
+import SocialMediaIconList from "./SocialMediaIconList";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -187,6 +188,9 @@ const TabMe = props => {
         {localized().greeting}
         {<Emoji symbol="👋" />}
       </Typography>
+
+      {/* Social Media Icons */}
+      <SocialMediaIconList />
 
       {/* Resume Section */}
       <div className={classes.resumeRoot}>
