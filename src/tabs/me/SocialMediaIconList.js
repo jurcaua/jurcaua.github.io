@@ -17,10 +17,10 @@ const SocialMediaIconList = props => {
 
   return (
     <div className={classes.root}>
-      {localized().socialMedia.map(socialMedia => {
+      {localized().socialMedia.map((socialMedia, index) => {
         const SocialMediaIcon = socialMedia.icon;
         return (
-          <Tooltip title={socialMedia.name} placement="bottom">
+          <Tooltip key={index} title={socialMedia.name} placement="bottom">
             <IconButton
               className={classes.greyIcon}
               onClick={() => window.open(socialMedia.url, "_blank")}
