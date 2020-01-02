@@ -81,7 +81,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Zoom direction="up" ref={ref} {...props} />;
+  return <Zoom ref={ref} {...props} />;
 });
 
 const DialogTitle = props => {

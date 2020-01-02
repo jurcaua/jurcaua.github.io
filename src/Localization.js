@@ -9,7 +9,11 @@ import {
 import { Typography } from "@material-ui/core";
 import Emoji from "./Emoji";
 import { DEFAULT_LANGUAGE } from "./Constants";
-import { projectTagMappings } from "./tabs/projects/ProjectsConfig";
+import {
+  projectTagMappings,
+  groupedProjectTagMappings,
+  ignoreGroups
+} from "./tabs/projects/ProjectsConfig";
 import EmailIcon from "@material-ui/icons/Email";
 import { LinkedInIcon, GithubIcon, SoundcloudIcon } from "./SocialMediaIcons";
 
@@ -155,6 +159,16 @@ export const strings = {
         displaying: num => `Displaying ${num} projects`,
         dialog: {
           linksTitle: "Related Links"
+        },
+        filter: {
+          button: "Filter",
+          currentFiltersTitle: "Current Filters",
+          dialog: {
+            title: "Project Filters",
+            resetFiltersButton: "Reset",
+            cancelButton: "Cancel",
+            applyButton: "Apply Filters"
+          }
         },
         content: [
           {
@@ -770,6 +784,16 @@ export const strings = {
         dialog: {
           linksTitle: "関連リンク"
         },
+        filter: {
+          button: "フィルター",
+          currentFiltersTitle: "現在のフィルター",
+          dialog: {
+            title: "プロジェクトのフィルター",
+            resetFiltersButton: "リセット",
+            cancelButton: "キャンセル",
+            applyButton: "フィルターする"
+          }
+        },
         content: [
           {
             name: "フィッシャーズ決戦",
@@ -1179,7 +1203,7 @@ export const strings = {
           {
             name: "Airplane Simulator",
             shortDescription:
-              "高等学校の時に作った物理的なフライトシミュレータ。Javaで作られたアプリケーション。",
+              "高等学校の時に作った物理学のフライトシミュレータ。Javaで作られたアプリケーション。",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/AirplaneSim/2019-12-30%2021_50_28-Settings.png?raw=true",
             tags: ["L5", "O2"],
@@ -1277,6 +1301,16 @@ export function setLanguage(lang) {
 
 export function localized() {
   return strings[currentLanguage];
+}
+
+export function getGroupedProjectTags(tag) {
+  // Filter away preset ignore keys: https://stackoverflow.com/questions/38750705/filter-object-properties-by-key-in-es6
+  return Object.keys(groupedProjectTagMappings[currentLanguage])
+    .filter(key => !ignoreGroups.includes(key))
+    .reduce((obj, key) => {
+      obj[key] = groupedProjectTagMappings[currentLanguage][key];
+      return obj;
+    }, {});
 }
 
 export function localizedProjectTag(tag) {

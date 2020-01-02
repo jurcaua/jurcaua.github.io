@@ -8,22 +8,21 @@ import ProjectTile from "./ProjectTile";
 import ProjectDetailsDialog from "./ProjectDetailsDialog";
 import { SMALL_WIDTH_THRESHOLD_GRID } from "../../Constants";
 
-const getGridSize = () => {
-  // 6 --> for 2 columns | 12 --> for 1 column (for Material UI Grid system)
-  if (window.innerWidth > SMALL_WIDTH_THRESHOLD_GRID) {
-    return 6;
-  }
-  return 12;
-};
-
-const ProjectsDisplay = ({ projects }) => {
-  const [projectGridSize, setProjectGridSize] = useState(getGridSize());
+const ProjectsDisplay = ({ projects, windowInnerWidth }) => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(undefined);
 
   const handleProjectClick = (event, project) => {
     setSelectedProject(project);
     setDialogOpen(true);
+  };
+
+  const getGridSize = () => {
+    // 6 --> for 2 columns | 12 --> for 1 column (for Material UI Grid system)
+    if (windowInnerWidth > SMALL_WIDTH_THRESHOLD_GRID) {
+      return 6;
+    }
+    return 12;
   };
 
   // ------------------------------------
@@ -39,25 +38,12 @@ const ProjectsDisplay = ({ projects }) => {
   }, [dialogOpen]);
   // ------------------------------------
 
-  const handleWindowSizeChange = () => {
-    setProjectGridSize(getGridSize());
-  };
-
-  // Effect used to add/remove event listener for window size changes and change number of columns accordingly
-  useEffect(() => {
-    window.addEventListener("resize", handleWindowSizeChange);
-
-    return function cleanup() {
-      window.removeEventListener("resize", handleWindowSizeChange);
-    };
-  });
-
   return (
     <div>
       <Grid container spacing={3}>
         {projects.map((project, index) => {
           return (
-            <Grid key={index} item xs={projectGridSize}>
+            <Grid key={index} item xs={getGridSize()}>
               <ProjectTile project={project} onClick={handleProjectClick} />
             </Grid>
           );
