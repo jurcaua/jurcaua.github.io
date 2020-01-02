@@ -4,7 +4,7 @@ export const DEFAULT_LANGUAGE = "en";
 export const SUPPORTED_LANGUAGES = ["en", "jp"];
 
 export const SMALL_WIDTH_THRESHOLD_GRID = 600;
-export const SMALL_WIDTH_THRESHOLD_MARGINS = 800;
+export const SMALL_WIDTH_THRESHOLD_MARGINS = 960;
 
 // supply a "disabled: true" key to disable a tab
 // "disabled: true"の場合に、無効にしてある

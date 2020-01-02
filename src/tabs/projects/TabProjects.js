@@ -12,9 +12,9 @@ import ProjectsNumberOverlay from "./ProjectsNumberOverlay";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    paddingLeft: props => (props.windowInnerWidth < SMALL_WIDTH_THRESHOLD_MARGINS ? "5vw" : "10vw"),
+    paddingLeft: props => (props.windowInnerWidth < SMALL_WIDTH_THRESHOLD_MARGINS ? "5vw" : "15vw"),
     paddingRight: props =>
-      props.windowInnerWidth < SMALL_WIDTH_THRESHOLD_MARGINS ? "5vw" : "10vw",
+      props.windowInnerWidth < SMALL_WIDTH_THRESHOLD_MARGINS ? "5vw" : "15vw",
     paddingTop: theme.spacing(2),
     paddingBottom: theme.spacing(2)
   }
