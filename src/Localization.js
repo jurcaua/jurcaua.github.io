@@ -158,7 +158,7 @@ export const strings = {
         },
         content: [
           {
-            name: "Fisherman Foes",
+            name: "Fisherman Foes: Ocean Commotion",
             shortDescription:
               "Fight your fellow fisherman to be the king-of-the-hill, and win in this 2D multiplayer battle, with only your rod as your weapon.",
             mainImage:
