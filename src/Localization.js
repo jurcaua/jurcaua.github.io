@@ -185,7 +185,7 @@ export const strings = {
             images: [
               {
                 imgPath:
-                  "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/screenshot2.png?raw=true",
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/movement.gif?raw=true",
                 caption: "Start off on a peaceful ship!"
               },
               {
@@ -195,7 +195,7 @@ export const strings = {
               },
               {
                 imgPath:
-                  "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/screenshot1.png?raw=true",
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/iceberg.gif?raw=true",
                 caption:
                   "The final iceberg stage provides a great end to the game with great height and a dangerous surrounding waters."
               },
@@ -203,6 +203,11 @@ export const strings = {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/screenshot5.png?raw=true",
                 caption: "The main menu."
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/character-select.gif?raw=true",
+                caption: "Character lobby."
               },
               {
                 imgPath:
@@ -479,10 +484,38 @@ export const strings = {
           {
             name: "Personal Website",
             shortDescription: "This website - entirely custom and made in React w/ Material UI.",
+            longDescription: (
+              <React.Fragment>
+                <Typography>
+                  <u>Main Features:</u>
+                </Typography>
+                <Typography variant="body1">- Optimized and tested on all screen-sizes.</Typography>
+                <Typography variant="body1">
+                  - Entirely custom and robust localization system (personally translated into
+                  Japanese!)
+                </Typography>
+                <Typography variant="body1" style={{ marginLeft: "8px" }}>
+                  - All areas of the website are built around this to keep everything consistent.
+                </Typography>
+                <Typography variant="body1">
+                  - High-detail and highly-customizable project showcasing framework.
+                </Typography>
+                <Typography variant="body1" style={{ marginLeft: "8px" }}>
+                  - Responsive and easily configurable filtering system.
+                </Typography>
+                <Typography variant="body1" style={{ marginLeft: "8px" }}>
+                  - Support for videos, images, and gifs, all in one scrollable view.
+                </Typography>
+              </React.Fragment>
+            ),
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/Personal%20Website/2020-01-02%2016_04_56-Window.png?raw=true",
             tags: ["L3", "L4", "T2", "T3", "T9", "T13", "O6"],
             links: [
+              {
+                title: "Github",
+                url: "https://github.com/jurcaua/jurcaua.github.io"
+              },
               {
                 title: "Website",
                 url: "http://jurcau.com/"
@@ -821,7 +854,7 @@ export const strings = {
             images: [
               {
                 imgPath:
-                  "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/screenshot2.png?raw=true",
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/movement.gif?raw=true",
                 caption: "和やかな船で始まろう！"
               },
               {
@@ -831,13 +864,18 @@ export const strings = {
               },
               {
                 imgPath:
-                  "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/screenshot1.png?raw=true",
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/iceberg.gif?raw=true",
                 caption: "最後の氷山のステージには、すごく楽しい高さと危険な周りの海がありますよ！"
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/screenshot5.png?raw=true",
                 caption: "メインメニュー。"
+              },
+              {
+                imgPath:
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/character-select.gif?raw=true",
+                caption: "キャラクター選定メニュー。"
               },
               {
                 imgPath:
@@ -1115,6 +1153,10 @@ export const strings = {
               "https://github.com/jurcaua/github_image_hosting/blob/master/Personal%20Website/2020-01-02%2016_04_56-Window.png?raw=true",
             tags: ["L3", "L4", "T2", "T3", "T9", "T13", "O6"],
             links: [
+              {
+                title: "Github",
+                url: "https://github.com/jurcaua/jurcaua.github.io"
+              },
               {
                 title: "ウェブサイト",
                 url: "http://jurcau.com/"

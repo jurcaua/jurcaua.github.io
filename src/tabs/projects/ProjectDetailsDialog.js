@@ -238,7 +238,7 @@ const ProjectDetailsDialog = ({ project, highlights, open, onClose, ...props }) 
 
   const displayDescription = () => {
     if (longDescription !== undefined) {
-      return <Typography>{longDescription}</Typography>;
+      return longDescription;
     } else if (shortDescription !== undefined) {
       return <Typography>{shortDescription}</Typography>;
     }
