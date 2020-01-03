@@ -76,7 +76,7 @@ export const strings = {
       {
         name: "Email",
         icon: EmailIcon,
-        url: "mailto:jurcaua@gmail.com"
+        url: "mailto:jurcaua@gmail.com?subject=Hey%20Alex!"
       }
     ],
     tabs: {
@@ -495,16 +495,16 @@ export const strings = {
                   Japanese!)
                 </Typography>
                 <Typography variant="body1" style={{ marginLeft: "8px" }}>
-                  - All areas of the website are built around this to keep everything consistent.
+                  ⤷ All areas of the website are built around this to keep everything consistent.
                 </Typography>
                 <Typography variant="body1">
                   - High-detail and highly-customizable project showcasing framework.
                 </Typography>
                 <Typography variant="body1" style={{ marginLeft: "8px" }}>
-                  - Responsive and easily configurable filtering system.
+                  ⤷ Responsive and easily configurable filtering system.
                 </Typography>
                 <Typography variant="body1" style={{ marginLeft: "8px" }}>
-                  - Support for videos, images, and gifs, all in one scrollable view.
+                  ⤷ Support for videos, images, and gifs, all in one scrollable view.
                 </Typography>
               </React.Fragment>
             ),
@@ -746,7 +746,7 @@ export const strings = {
       {
         name: "メール",
         icon: EmailIcon,
-        url: "mailto:jurcaua@gmail.com"
+        url: "mailto:jurcaua@gmail.com?subject=Hey%20Alex!"
       }
     ],
     tabs: {
