@@ -4,7 +4,14 @@ import { makeStyles } from "@material-ui/styles";
 import ProjectTagList from "./ProjectTagList";
 
 const useStyles = makeStyles(theme => ({
-  card: {}
+  // Ref: https://mui-treasury.com/components/shadow
+  card: {
+    boxShadow: "0 8px 20px -12px rgba(0,0,0,0.3)",
+    transition: "0.3s",
+    "&:hover": {
+      boxShadow: "0 8px 40px -12px rgba(0,0,0,0.3)"
+    }
+  }
 }));
 
 const ProjectTile = ({ project, highlights, onClick, ...rest }) => {
