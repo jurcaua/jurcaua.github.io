@@ -112,6 +112,37 @@ export const groupedProjectTagMappings = {
   }
 };
 
+export const customFilters = {
+  en: {
+    playable: {
+      title: "Playable",
+      chipTitle: "Playable",
+      validate: proj =>
+        proj.links !== undefined &&
+        proj.links.some(link => link.url.includes("https://jurcaua.itch.io"))
+    },
+    hasVideo: {
+      title: "w/ Video",
+      chipTitle: "Video",
+      validate: proj => proj.video !== undefined
+    }
+  },
+  jp: {
+    playable: {
+      title: "プレイ可能",
+      chipTitle: "プレイ",
+      validate: proj =>
+        proj.links !== undefined &&
+        proj.links.some(link => link.url.includes("https://jurcaua.itch.io"))
+    },
+    hasVideo: {
+      title: "動画込み",
+      chipTitle: "動画",
+      validate: proj => proj.video !== undefined
+    }
+  }
+};
+
 const flattenGroupObject = root => {
   return Object.keys(root).reduce((obj, lang) => {
     // loop over languages

@@ -5,7 +5,7 @@ import { makeStyles } from "@material-ui/core";
 
 // Local Imports
 import { SMALL_WIDTH_THRESHOLD_MARGINS } from "../../Constants";
-import { getFilteredProjects } from "../../Localization";
+import { getFilteredProjects, customBoolsToFunctions } from "../../Localization";
 import ProjectsFilter from "./ProjectsFilter";
 import ProjectsDisplay from "./ProjectsDisplay";
 import ProjectsNumberOverlay from "./ProjectsNumberOverlay";
@@ -24,12 +24,14 @@ const TabProjects = props => {
   const classes = useStyles(props);
 
   const [currentFilter, setCurrentFilter] = useState([]);
+  const [customFilterBools, setCustomFilterBools] = useState([]);
 
-  const handleFilterChange = filterTagList => {
+  const handleFilterChange = (filterTagList, customFilterBools) => {
     setCurrentFilter(filterTagList);
+    setCustomFilterBools(customFilterBools);
   };
 
-  const projects = getFilteredProjects(currentFilter);
+  const projects = getFilteredProjects(currentFilter, customBoolsToFunctions(customFilterBools));
 
   return (
     <div className={classes.root}>
@@ -39,7 +41,11 @@ const TabProjects = props => {
 
       {/* Displaying Project Tiles */}
       {/* プロジェクトのタイルを表現する */}
-      <ProjectsDisplay projects={projects} windowInnerWidth={props.windowInnerWidth} />
+      <ProjectsDisplay
+        projects={projects}
+        filter={currentFilter}
+        windowInnerWidth={props.windowInnerWidth}
+      />
 
       {/* Display Number of Projects Displayed */}
       {/* 表現されているプロジェクト数 */}

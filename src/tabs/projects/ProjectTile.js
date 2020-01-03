@@ -7,7 +7,7 @@ const useStyles = makeStyles(theme => ({
   card: {}
 }));
 
-const ProjectTile = ({ project, onClick, ...rest }) => {
+const ProjectTile = ({ project, highlights, onClick, ...rest }) => {
   const classes = useStyles(rest);
 
   const { name, shortDescription, mainImage, tags } = project;
@@ -27,7 +27,7 @@ const ProjectTile = ({ project, onClick, ...rest }) => {
           <Typography variant="body2" color="textSecondary" component="p">
             {shortDescription}
           </Typography>
-          <ProjectTagList tags={tags} />
+          <ProjectTagList tags={tags} highlights={highlights} />
         </CardContent>
       </CardActionArea>
     </Card>

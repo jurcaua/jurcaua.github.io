@@ -100,7 +100,7 @@ const DialogTitle = props => {
   );
 };
 
-const ProjectDetailsDialog = ({ project, open, onClose, ...props }) => {
+const ProjectDetailsDialog = ({ project, highlights, open, onClose, ...props }) => {
   const classes = useStyles(props);
 
   const [activeStep, setActiveStep] = React.useState(0);
@@ -247,7 +247,7 @@ const ProjectDetailsDialog = ({ project, open, onClose, ...props }) => {
 
   const displayTags = () => {
     if (tags.length !== 0) {
-      return <ProjectTagList tags={tags} />;
+      return <ProjectTagList tags={tags} highlights={highlights} />;
     }
   };
 

@@ -8,7 +8,7 @@ import ProjectTile from "./ProjectTile";
 import ProjectDetailsDialog from "./ProjectDetailsDialog";
 import { SMALL_WIDTH_THRESHOLD_GRID } from "../../Constants";
 
-const ProjectsDisplay = ({ projects, windowInnerWidth }) => {
+const ProjectsDisplay = ({ projects, filter, windowInnerWidth }) => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(undefined);
 
@@ -44,13 +44,14 @@ const ProjectsDisplay = ({ projects, windowInnerWidth }) => {
         {projects.map((project, index) => {
           return (
             <Grid key={index} item xs={getGridSize()}>
-              <ProjectTile project={project} onClick={handleProjectClick} />
+              <ProjectTile project={project} highlights={filter} onClick={handleProjectClick} />
             </Grid>
           );
         })}
       </Grid>
       <ProjectDetailsDialog
         project={selectedProject}
+        highlights={filter}
         open={dialogOpen}
         onClose={handleDialogClose}
       />

@@ -6,9 +6,10 @@ import { Fab, Grid, Typography } from "@material-ui/core";
 import FilterListIcon from "@material-ui/icons/FilterList";
 
 // Local Imports
-import { localized } from "../../Localization";
+import { localized, getCustomFilters } from "../../Localization";
 import ProjectTagList from "./ProjectTagList";
 import ProjectsFilterDialog from "./ProjectsFilterDialog";
+import ChipList from "../../general/ChipList";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -26,13 +27,23 @@ const ProjectsFilter = ({ windowInnerWidth, onChange, ...props }) => {
   const classes = useStyles(props);
 
   const [filterTags, setFilterTags] = React.useState([]);
+  const [filterBools, setFilterBools] = React.useState({});
   const [dialogOpen, setDialogOpen] = React.useState(false);
 
-  const handleApply = newFilters => {
+  const handleApply = (newFilters, customFilterBools) => {
     setDialogOpen(false);
 
     setFilterTags(newFilters);
-    onChange(newFilters);
+    setFilterBools(customFilterBools);
+    onChange(newFilters, customFilterBools);
+  };
+
+  const filterBoolsToList = () => {
+    const customFilters = getCustomFilters();
+
+    return Object.keys(filterBools)
+      .filter(key => filterBools[key] === true)
+      .map(key => customFilters[key].chipTitle);
   };
 
   const renderCurrentFilterTags = () => {
@@ -40,7 +51,15 @@ const ProjectsFilter = ({ windowInnerWidth, onChange, ...props }) => {
       // !0 -> "None"
       return <ProjectTagList tags={["!0"]} />;
     } else {
-      return <ProjectTagList tags={filterTags} />;
+      return <ProjectTagList tags={filterTags} color="primary" />;
+    }
+  };
+
+  const renderCurrentFilterBools = () => {
+    if (filterBoolsToList().length === 0) {
+      return null;
+    } else {
+      return <ChipList list={filterBoolsToList()} color="secondary" />;
     }
   };
 
@@ -75,10 +94,19 @@ const ProjectsFilter = ({ windowInnerWidth, onChange, ...props }) => {
             </Typography>
           </Grid>
           <Grid item>{renderCurrentFilterTags()}</Grid>
+          <Grid item>{renderCurrentFilterBools()}</Grid>
         </Grid>
 
         {/* Filter Button */}
         <Grid container item xs={getFilterButtonXS()} justify="flex-end" alignItems="center">
+          {/* TODO: This will only be possible (cleanly) once I add Redux into the mix. */}
+          {/* {(filterTags.length > 0 || filterBoolsToList().length > 0) && (
+            <Grid item>
+              <IconButton>
+                <ReplayIcon />
+              </IconButton>
+            </Grid>
+          )} */}
           <Grid item>
             <Fab
               className={classes.extendedIcon}

@@ -18,12 +18,19 @@ import {
   ListItemText,
   Input,
   Grid,
-  Badge
+  Badge,
+  Switch
 } from "@material-ui/core";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
 
 // Local Imports
-import { localized, getGroupedProjectTags, getFilteredProjects } from "../../Localization";
+import {
+  localized,
+  getGroupedProjectTags,
+  getFilteredProjects,
+  getCustomFilters,
+  customBoolsToFunctions
+} from "../../Localization";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -86,12 +93,27 @@ const getEmptyDefaultSelectedTags = () => {
   }, {});
 };
 
+const getEmptyDefaultCustomFilterBools = () => {
+  const customFilters = getCustomFilters();
+
+  return Object.keys(customFilters).reduce((obj, key) => {
+    obj[key] = false;
+    return obj;
+  }, {});
+};
+
 const ProjectsFilterDialog = ({ open, onApply, onCancel, ...props }) => {
   const classes = useStyles(props);
 
   const defaultSelectedTags = getEmptyDefaultSelectedTags();
   const [onEnterSelectedTags, setOnEnterSelectedTags] = useState(defaultSelectedTags);
   const [selectedTags, setSelectedTags] = useState(defaultSelectedTags);
+
+  const defaultCustomFilterBools = getEmptyDefaultCustomFilterBools();
+  const [onEnterCustomFilterBools, setOnEnterCustomFilterBools] = useState(
+    defaultCustomFilterBools
+  );
+  const [customFilterBools, setCustomFilterBools] = useState(defaultCustomFilterBools);
 
   const filterTagsToList = tags => {
     return Object.keys(tags).reduce((lst, key) => {
@@ -102,26 +124,39 @@ const ProjectsFilterDialog = ({ open, onApply, onCancel, ...props }) => {
 
   const handleEnter = () => {
     setOnEnterSelectedTags(selectedTags);
+    setOnEnterCustomFilterBools(customFilterBools);
+  };
+
+  const handleReset = () => {
+    setSelectedTags(defaultSelectedTags);
+    setCustomFilterBools(defaultCustomFilterBools);
   };
 
   const handleApply = () => {
-    onApply(filterTagsToList(selectedTags));
+    onApply(filterTagsToList(selectedTags), customFilterBools);
   };
 
   const handleClose = (...args) => {
-    setSelectedTags(onEnterSelectedTags);
     onCancel.call(args);
+    setSelectedTags(onEnterSelectedTags);
+    setCustomFilterBools(onEnterCustomFilterBools);
   };
 
   const handleTags = key => event => {
     setSelectedTags(update(selectedTags, { [key]: { $set: event.target.value } }));
   };
 
+  const handleSwitchChange = key => event => {
+    setCustomFilterBools(update(customFilterBools, { [key]: { $set: event.target.checked } }));
+  };
+
   const renderFilterGroups = () => {
     const groupedTags = getGroupedProjectTags();
+    const customFilters = getCustomFilters();
 
     return (
       <Grid container spacing={1} direction="column" justify="center" alignItems="center">
+        {/* Basic Select Filters */}
         {Object.keys(groupedTags).map(key => (
           <Grid
             key={key}
@@ -178,6 +213,30 @@ const ProjectsFilterDialog = ({ open, onApply, onCancel, ...props }) => {
             </Grid>
           </Grid>
         ))}
+
+        {/* Custom Filters */}
+        {Object.keys(customFilters).map(key => (
+          <Grid
+            key={key}
+            container
+            item
+            xs={12}
+            spacing={2}
+            justify="space-between"
+            alignItems="center"
+          >
+            <Grid item xs={4}>
+              <Typography variant="overline">{customFilters[key].title}</Typography>
+            </Grid>
+            <Grid item xs>
+              <Switch
+                checked={customFilterBools[key]}
+                onChange={handleSwitchChange(key)}
+                value={key}
+              />
+            </Grid>
+          </Grid>
+        ))}
       </Grid>
     );
   };
@@ -198,7 +257,7 @@ const ProjectsFilterDialog = ({ open, onApply, onCancel, ...props }) => {
         {renderFilterGroups()}
       </DialogContent>
       <DialogActions>
-        <Button onClick={() => setSelectedTags(defaultSelectedTags)} color="primary" variant="text">
+        <Button onClick={handleReset} color="primary" variant="text">
           {localized().tabs.projects.filter.dialog.resetFiltersButton}
         </Button>
         <Button onClick={handleClose} color="secondary" variant="outlined">
@@ -206,7 +265,12 @@ const ProjectsFilterDialog = ({ open, onApply, onCancel, ...props }) => {
         </Button>
         <Badge
           className={classes.actionButtonBadge}
-          badgeContent={getFilteredProjects(filterTagsToList(selectedTags)).length}
+          badgeContent={
+            getFilteredProjects(
+              filterTagsToList(selectedTags),
+              customBoolsToFunctions(customFilterBools)
+            ).length
+          }
           color="secondary"
         >
           <Button onClick={handleApply} color="primary" variant="contained">

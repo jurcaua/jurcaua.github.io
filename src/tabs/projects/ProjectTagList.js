@@ -12,13 +12,24 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const ProjectTagList = ({ tags, ...props }) => {
+const ProjectTagList = ({ tags, highlights, highlightColor, color, ...props }) => {
   const classes = useStyles(props);
-  
+
+  highlights = highlights || [];
+  highlightColor = highlightColor || "primary";
+  color = color || "default";
+
   return (
     <div>
       {tags.map((tag, index) => {
-        return <Chip key={index} className={classes.chip} label={localizedProjectTag(tag)} />;
+        return (
+          <Chip
+            key={index}
+            className={classes.chip}
+            color={highlights.includes(tag) ? highlightColor : color}
+            label={localizedProjectTag(tag)}
+          />
+        );
       })}
     </div>
   );

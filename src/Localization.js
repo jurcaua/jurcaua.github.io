@@ -17,7 +17,8 @@ import Emoji from "./Emoji";
 import {
   projectTagMappings,
   groupedProjectTagMappings,
-  ignoreGroups
+  ignoreGroups,
+  customFilters
 } from "./tabs/projects/ProjectsConfig";
 import { LinkedInIcon, GithubIcon, SoundcloudIcon } from "./SocialMediaIcons";
 
@@ -1344,10 +1345,27 @@ export function getGroupedProjectTags(tag) {
     }, {});
 }
 
-export const getFilteredProjects = filterTagList => {
-  return localized().tabs.projects.content.filter(proj =>
-    filterTagList.every(t => proj.tags.includes(t))
+export const customBoolsToFunctions = customBools => {
+  const customFilters = getCustomFilters();
+
+  return Object.keys(customBools).reduce((lst, key) => {
+    if (customBools[key]) {
+      lst.push(customFilters[key].validate);
+    }
+    return lst;
+  }, []);
+};
+
+export const getFilteredProjects = (filterTagList, miscFilterFunctionList = []) => {
+  return localized().tabs.projects.content.filter(
+    proj =>
+      filterTagList.every(t => proj.tags.includes(t)) && // 1. only get projects that have every tag given
+      (miscFilterFunctionList.length === 0 || miscFilterFunctionList.every(f => f(proj))) // 2. custom functions the project should return true for
   );
+};
+
+export const getCustomFilters = () => {
+  return customFilters[currentLanguage];
 };
 
 export function localizedProjectTag(tag) {
