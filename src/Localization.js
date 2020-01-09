@@ -831,41 +831,43 @@ export const strings = {
       projects: {
         label: "プロジェクト",
         tooltip: "最高の作ったプロジェクト",
-        displaying: num => <b>{num}件が表示されている</b>,
+        displaying: num => <b>{num}件のプロジェクトを表示</b>,
         dialog: {
           linksTitle: "関連リンク"
         },
         filter: {
-          button: "フィルター",
-          currentFiltersTitle: "現在のフィルター",
+          button: "絞り込み",
+          currentFiltersTitle: "現在の絞り込み",
           dialog: {
-            title: "プロジェクトのフィルター",
+            title: "プロジェクトの絞り込み",
             resetFiltersButton: "リセット",
             cancelButton: "キャンセル",
-            applyButton: "フィルターする"
+            applyButton: "絞り込む"
           }
         },
         content: [
           {
             name: "フィッシャーズ決戦",
-            shortDescription: "釣り竿一本で釣り人と戦って、お山の大将ゲームを勝ち抜こう！",
+            shortDescription:
+              "釣り竿一本で闘い抜け！ライバルを突き放し、「お山の大将ゲーム」を勝ち抜こう！",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/artwork1.png?raw=true",
             images: [
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/movement.gif?raw=true",
-                caption: "和やかな船で始まろう！"
+                caption: "穏やかな船で始めよう！"
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/screenshot3.png?raw=true",
-                caption: "雲行きが怪しい。。。"
+                caption: "時には嵐にも巻き込まれ。。。"
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/iceberg.gif?raw=true",
-                caption: "最後の氷山のステージには、すごく楽しい高さと危険な周りの海がありますよ！"
+                caption:
+                  "最後の氷山のステージでは、想像を超える高さと、危険な海に囲まれた、最高のエンディングを迎える！"
               },
               {
                 imgPath:
@@ -875,12 +877,12 @@ export const strings = {
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/character-select.gif?raw=true",
-                caption: "キャラクター選定メニュー。"
+                caption: "キャラクターセレクト画面"
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/screenshot4.png?raw=true",
-                caption: "操作の設定のメニュー。"
+                caption: "操作説明画面"
               }
             ],
             tags: ["L1", "T0", "T6", "T9", "O1", "O4"],
@@ -890,7 +892,7 @@ export const strings = {
                 url: "https://github.com/jurcaua/TOJAM13"
               },
               {
-                title: "itch.io (プレイ出来る！)",
+                title: "itch.io (今すぐプレイ！)",
                 url: "https://jurcaua.itch.io/fisherman-foes"
               }
             ]
@@ -898,7 +900,7 @@ export const strings = {
           {
             name: "Event Listeners",
             shortDescription:
-              "トロント大学の部活を養うWebアプリケーション。満点を取った大学のプロジェクト。",
+              "トロント大学のサークルやイベント情報を集約するWebアプリケーションというアイディア ～ スクールプロジェクトとして、満点を獲得～",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/dashboard-logged-in.png?raw=true",
             images: [
@@ -915,12 +917,12 @@ export const strings = {
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/create-club.gif?raw=true",
-                caption: "ユーザーの作り方。"
+                caption: "サークルの作り方。"
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/featured-clubs.gif?raw=true",
-                caption: "ホームページでのサークル。"
+                caption: "ダッシュボードで取り上げているサークル一覧。"
               },
               {
                 imgPath:
@@ -1139,7 +1141,7 @@ export const strings = {
                 url: "https://play.google.com/store/apps/details?id=com.jurk.co.snakedimensions"
               },
               {
-                title: "itch.io (プレイ出来る！)",
+                title: "itch.io (今すぐプレイ！)",
                 url: "https://jurcaua.itch.io/snake-dimensions"
               }
             ],

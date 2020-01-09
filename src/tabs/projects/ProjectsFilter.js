@@ -65,7 +65,7 @@ const ProjectsFilter = ({ windowInnerWidth, onChange, ...props }) => {
 
   // Keep increasing the grid size as the window width gets smaller
   const getFilterButtonXS = () => {
-    if (windowInnerWidth > 1150) {
+    if (windowInnerWidth > 1200) {
       return 2;
     } else if (windowInnerWidth > 700) {
       return 3;

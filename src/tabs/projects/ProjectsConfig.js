@@ -98,11 +98,11 @@ export const groupedProjectTagMappings = {
       }
     },
     other: {
-      title: "雑多",
+      title: "その他",
       mappings: {
         O0: "ホログラム",
         O1: "ハッカソン",
-        O2: "学校のプロジェクト",
+        O2: "スクールプロジェクト",
         O3: "AR",
         O4: "ゲーム",
         O5: "ツール",
@@ -129,15 +129,15 @@ export const customFilters = {
   },
   jp: {
     playable: {
-      title: "プレイ可能",
-      chipTitle: "プレイ",
+      title: "再生可能",
+      chipTitle: "再生可能",
       validate: proj =>
         proj.links !== undefined &&
         proj.links.some(link => link.url.includes("https://jurcaua.itch.io"))
     },
     hasVideo: {
-      title: "動画込み",
-      chipTitle: "動画",
+      title: "動画有り",
+      chipTitle: "動画有り",
       validate: proj => proj.video !== undefined
     }
   }
