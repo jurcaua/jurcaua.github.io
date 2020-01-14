@@ -56,7 +56,7 @@ export const strings = {
     openResume: "View My Resume!",
     copyButtonTooltip: "Copy to clipboard",
     copyConfirmNotification: "Copied to clipboard!",
-    changeLanguage: "言語を日本語に変える! (Japanese)",
+    changeLanguage: "日本語に変更 (Japanese)",
     socialMedia: [
       {
         name: "LinkedIn",
@@ -724,8 +724,8 @@ export const strings = {
     nameLast: "アレックス",
     greeting: "こんにちは！アレックスです。",
     openResume: "履歴書",
-    copyButtonTooltip: "コーピする",
-    copyConfirmNotification: "コーピした!",
+    copyButtonTooltip: "コピー",
+    copyConfirmNotification: "コピーしました！",
     changeLanguage: "Change the language to English! (英語)",
     socialMedia: [
       {
@@ -830,7 +830,7 @@ export const strings = {
       },
       projects: {
         label: "プロジェクト",
-        tooltip: "最高の作ったプロジェクト",
+        tooltip: "注目のプロジェクト",
         displaying: num => <b>{num}件のプロジェクトを表示</b>,
         dialog: {
           linksTitle: "関連リンク"
@@ -946,7 +946,7 @@ export const strings = {
           {
             name: "Soundplow",
             shortDescription:
-              "Pythonで作られたSoundcloudからのMP3ダウンロードするアプリケーション。GUI込み（PySide / Qt）。",
+              "Pythonで作られたSoundcloudからのMP3をダウンロードするアプリケーション。GUI込み（PySide / Qt）。",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/Soundplow/gif1.gif?raw=true",
             images: [
@@ -958,12 +958,12 @@ export const strings = {
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Soundplow/screenshot2.png?raw=true",
-                caption: "入力されたユーザーのいいね！された曲をリアルタイムでダウンロードする。"
+                caption: "いいね！された曲をリアルタイムでダウンロード。"
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Soundplow/screenshot3.png?raw=true",
-                caption: "曲のURLのリストのバッチ処理も可能。"
+                caption: "曲のURLをリスト入力すれば、一括ダウンロードも可能。"
               }
             ],
             tags: ["L0", "T7", "T9", "O5"],
@@ -976,7 +976,7 @@ export const strings = {
           },
           {
             name: "ホグラたたき",
-            shortDescription: "本物のレインボーホログラムのARゲーム。",
+            shortDescription: "実際のレインボーホログラムに浮かび上がらせる、ARモグラ叩きゲーム。",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/HoloMole/screenshot1.png?raw=true",
             tags: ["L1", "T0", "T6", "T9", "O0", "O2", "O3", "O4"],
@@ -991,14 +991,14 @@ export const strings = {
           {
             name: "グーグルスパイ",
             shortDescription:
-              "Googleアシスタントを使って音声だけでゲームのキャラクターを操作が出来る。",
+              "Googleアシスタントを使って声だけでゲームのキャラクターを操作が出来る。",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/GoogleSpy/screenshot1.PNG?raw=true",
             images: [
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/GoogleSpy/screenshot3.PNG?raw=true",
-                caption: "音声だけで進めよう！なんでもありうる！"
+                caption: "あなたの声が、コントローラー？！声でナビって進めよう！"
               },
               {
                 imgPath:
@@ -1312,7 +1312,7 @@ export const strings = {
                 </Typography>
                 <br />
                 <Typography variant="h5">
-                  上級ビジネスレベルではなければ、問題なく日本語でコミュニケーションをとることが出来ます。
+                  上級ビジネスレベルでなければ、問題なく日本語でコミュニケーションをとることが出来ます。
                 </Typography>
               </React.Fragment>
             ),
@@ -1322,11 +1322,10 @@ export const strings = {
             summary: "ゲーム",
             details: (
               <Typography variant="h5">
-                <b>ゲームが大好きなため、プログラミングをしようと思いました。</b>
-                幼い頃、フラッシュゲームやCD-ROMが大好きだったので、
-                その頃からキングダムハーツを始め、ポケモン、スパイロ・ザ・ドラゴン等をしました。
-                現在はゲームをする事はゲームを作るのと同程度好きな事です。
-                (昔の自分だったら、その事を信じる事は出来ないかもしれません。)
+                <b>幼い頃、ゲームが大好きだったため、プログラミングを始めようと思いました。</b>
+                その頃からキングダムハーツを初め、ポケモン、スパイロ・ザ・ドラゴン等をしました。
+                現在はゲームを「する」のはゲームを「作る」のと同じくらい好きな事です。
+                (昔の自分だったら、信じられないかもしれません。)
               </Typography>
             ),
             icon: "videogame_asset"
@@ -1335,9 +1334,9 @@ export const strings = {
             summary: "バスケットボール",
             details: (
               <Typography variant="h5">
-                人生のほとんど、大学までを<b>競技バスケットボール</b>に費やしました。
-                優れた選手に指導をされつつ、数々のチームに所属していました。 未だにその時に習った
-                <u>頑張り</u>や<u>チームワーク</u>を優先する考え方が残っています。
+                大学まで、人生のほとんどを、<b>バスケットボール</b>に費やしました。
+                優れた選手に指導をされつつ、数々のチームに所属していました。 その時に培った
+                <u>ハードワーク</u>や、<u>チームワーク</u>を優先することは、今も残っています。
               </Typography>
               /* Formal version:
               私は大学までの人生の大半、競技バスケットボールをしていました。(をして過ごしました。)
@@ -1352,10 +1351,9 @@ export const strings = {
             details: (
               <React.Fragment>
                 <Typography variant="h5">
-                  (翻訳確認中) <br />
-                  よくした{<Emoji symbol="☕" />}
-                  が大好きです。いれたてのコーヒーの味は最高ですけれども、カフェインの効果があまり感じないんです。
-                  プログラミングする時にはよく集中するため、コーヒーは私の一番好きな飲み物です。
+                  {<Emoji symbol="☕" />}無くしては、生きていくことができますせん。
+                  カフェインの効果はあまり感じませんが、いれたてのコーヒーの味は最高なので、それでいいんです！
+                  プログラミングをするときに飲むブラックコーヒーは、最高の一杯です。
                 </Typography>
               </React.Fragment>
             ),
