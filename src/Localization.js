@@ -953,7 +953,7 @@ export const strings = {
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Soundplow/gif1.gif?raw=true",
-                caption: "探索して、ダウンロードする。"
+                caption: "検索して、ダウンロードする。"
               },
               {
                 imgPath:
@@ -1026,7 +1026,7 @@ export const strings = {
           {
             name: "Kleptomanihat",
             shortDescription:
-              "終身刑に処せられた窃盗協が魔力的に出獄された。彼をコントロールして、冒険しながら様々な帽子を集めよう！",
+              "終身刑に処せられた盗癖のある人が魔力的に出獄された。彼をコントロールして、冒険しながら様々な帽子を集めよう！",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/main-menu.PNG?raw=true",
             images: [
