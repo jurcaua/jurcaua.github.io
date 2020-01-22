@@ -10,7 +10,6 @@ import { getYearsAgo, getMonthsAgo } from "./Utils";
 import {
   BIRTHDAY,
   JAPANESE_STARTED_LEARNING,
-  JLPT_LEVEL_GOING_FOR,
   JLPT_LEVEL_CURRENTLY_HAVE
 } from "./Info";
 import Emoji from "./Emoji";
@@ -525,7 +524,7 @@ export const strings = {
           {
             name: "Re-Lec",
             shortDescription:
-              "Platform that allows students to record lectures and view other recorded lecture, under token-earning system.",
+              "Platform that allows students to record lectures and view other recorded lectures, under a token-earning system.",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/Re-Lec/logo_relec.png?raw=true",
             tags: ["L1", "L3", "L4", "T0", "T3", "T6", "T9", "O2", "O6"]
@@ -664,9 +663,7 @@ export const strings = {
                 <Typography variant="h5">
                   I have been learning Japanese for about{" "}
                   {<b>{getTimeLearningJapaneseString("en")}</b>}. I currently hold a{" "}
-                  {<b>JLPT N{JLPT_LEVEL_CURRENTLY_HAVE}</b>} certification I received Dec. 2017 and
-                  am awaiting my results for the <b>N{JLPT_LEVEL_GOING_FOR}</b> level test I took
-                  this past December.
+                  {<b>JLPT N{JLPT_LEVEL_CURRENTLY_HAVE}</b>} certification I received Dec. 2019.
                 </Typography>
                 <br />
                 <Typography variant="h5">
@@ -991,7 +988,7 @@ export const strings = {
           {
             name: "グーグルスパイ",
             shortDescription:
-              "Googleアシスタントを使って声だけでゲームのキャラクターを操作が出来る。",
+              "Googleアシスタントを使って、声だけでゲームのキャラクターの操作が出来る。",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/GoogleSpy/screenshot1.PNG?raw=true",
             images: [
@@ -1003,7 +1000,7 @@ export const strings = {
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/GoogleSpy/screenshot4.PNG?raw=true",
-                caption: "アップルの敵に捕まらないようにしよう！"
+                caption: "敵はアップル？！奴らに見つかるな！"
               },
               {
                 imgPath:
@@ -1026,39 +1023,39 @@ export const strings = {
           {
             name: "Kleptomanihat",
             shortDescription:
-              "終身刑に処せられた盗癖のある人が魔力的に出獄された。彼をコントロールして、冒険しながら様々な帽子を集めよう！",
+              "終身刑に処せられた盗癖のある人が、魔法の力で出獄された。彼をコントロールして、冒険しながら様々な帽子を集めよう！",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/main-menu.PNG?raw=true",
             images: [
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/prison-structure.PNG?raw=true",
-                caption: "脱出しよう！"
+                caption: "脱獄しよう！"
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/boss-1.PNG?raw=true",
-                caption: "特別なボスを倒そう！"
+                caption: "ユニークなボス達を倒せ！"
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/basketball.PNG?raw=true",
-                caption: "息抜きして、都会生活を楽しみながらバスケットボールをしよう。"
+                caption: "たまには息抜きも大事？都会生活をしながらバスケをしたり、"
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/movie-theatre.PNG?raw=true",
-                caption: "映画館に行こう！"
+                caption: "映画館へ行ったり、"
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/final-boss-1.PNG?raw=true",
-                caption: "俳優になろう？"
+                caption: "そして、俳優デビューもしちゃったり？"
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/final-boss-2.PNG?raw=true",
-                caption: "史上最高の帽子を見つけよう…"
+                caption: "目指すは、史上最高の帽子をみつけること！"
               }
             ],
             tags: ["L1", "T0", "T6", "T9", "O1", "O4"],
@@ -1075,7 +1072,7 @@ export const strings = {
           },
           {
             name: "TranslatAR",
-            shortDescription: "画像認識によって、リアルタイム環境翻訳のARの携帯アプリケーション。",
+            shortDescription: "画像認識により、リアルタイム環境翻訳を実現した、ARのスマホアプリ。",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/TranslatAR/devpost1.jpg?raw=true",
             images: [
@@ -1105,29 +1102,29 @@ export const strings = {
           },
           {
             name: "Snake Dimensions",
-            shortDescription: "Unityで作られたアンドロイド向けの3Dのヘビゲーム。",
+            shortDescription: "Unityで作られたアンドロイド向け3Dヘビゲーム。",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/raw/master/Snake%20DIMENSIONS/Screenshot_20170102-123935.png",
             images: [
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Snake%20DIMENSIONS/Screenshot_20170102-123958.png?raw=true",
-                caption: "分かりやすい3Dコントロールメニュー。"
+                caption: "シンプルな3Dコントロールメニュー。"
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Snake%20DIMENSIONS/Screenshot_20170102-124203.png?raw=true",
-                caption: "自分と落ちている障害物を避けよう！"
+                caption: "障害物を避けながら、ハイスコアを目指そう！"
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Snake%20DIMENSIONS/Screenshot_20170102-124324.png?raw=true",
-                caption: "特別なファーストパーソンモードもたまにあります！"
+                caption: "時々起こるパワーアップで、FPS（一人称視点）モードも楽しめる！"
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Snake%20DIMENSIONS/Screenshot_20170102-124602.png?raw=true",
-                caption: "ハイスコアゲットしよう！"
+                caption: "ハイスコアを叩き出せ！"
               }
             ],
             tags: ["L1", "T0", "T6", "T9", "O4"],
@@ -1168,7 +1165,7 @@ export const strings = {
           {
             name: "Re-Lec",
             shortDescription:
-              "トーケンを稼ぐため、学生が講義を録画してアップロード出来る携帯とWebアプリケーション。それから、トーケンを払うと、他のアップロードした講義も観ることになります。",
+              "講義の動画を集約するWebシステム。講義を録画してアップロードすれば、トークンがもらえます。そのトークンを使って、他の講義の動画を観ることもできます。",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/Re-Lec/logo_relec.png?raw=true",
             tags: ["L1", "L3", "L4", "T0", "T3", "T6", "T9", "O2", "O6"]
@@ -1305,10 +1302,8 @@ export const strings = {
               <React.Fragment>
                 <Typography variant="h5">
                   私は{<b>{getTimeLearningJapaneseString("jp")}</b>}
-                  日本語を勉強しています。 2017年の12月に
-                  <b>日本語能力試験の{JLPT_LEVEL_CURRENTLY_HAVE}級</b>に合格し、今年の年末に
-                  <b>{JLPT_LEVEL_GOING_FOR}級</b>
-                  に挑戦しました（結果未定）。
+                  日本語を勉強しています。 2019年の12月に
+                  <b>日本語能力試験の{JLPT_LEVEL_CURRENTLY_HAVE}級</b>に合格しました。
                 </Typography>
                 <br />
                 <Typography variant="h5">
