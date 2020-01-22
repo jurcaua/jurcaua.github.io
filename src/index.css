@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'NotoSansCJKjp';
+  src: local('NotoSansCJKjp'), url(./fonts/NotoSansCJKjp-Light.otf) format('opentype');
+}
+
 body {
   margin: 0;
   padding: 0;
