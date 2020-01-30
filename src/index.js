@@ -9,6 +9,9 @@ import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
 import { HashRouter } from "react-router-dom";
 
 let theme = createMuiTheme({
+  typography: {
+    "fontFamily": "\"NotoSansCJKjp\", sans-serif",
+  },
   overrides: {
     MuiTooltip: {
       tooltip: {

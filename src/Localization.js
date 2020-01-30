@@ -1148,6 +1148,29 @@ export const strings = {
             name: "Personal Website",
             shortDescription:
               "このウェブサイト。ReactとMaterial UIを使って、全て自分で作られました。",
+            longDescription: (
+              <React.Fragment>
+                <Typography>
+                  <u>主な特徴：</u>
+                </Typography>
+                <Typography variant="body1">-	どんな画面サイズにも最適化・テスト</Typography>
+                <Typography variant="body1">
+                -	自分で作られたカスタムのローカライゼーションのシステム
+                  </Typography>
+                <Typography variant="body1" style={{ marginLeft: "8px" }}>
+                  ⤷ ウェブサイトにどこにもこのシステムが統合されています
+                  </Typography>
+                <Typography variant="body1">
+                -	注目のプロジェクトにおける高性能のプロジェクトのショーケースのフレームワーク
+                  </Typography>
+                <Typography variant="body1" style={{ marginLeft: "8px" }}>
+                  ⤷ 良くカスタマイズ出来るレスポンシブな絞り込みのシステム
+                  </Typography>
+                <Typography variant="body1" style={{ marginLeft: "8px" }}>
+                  ⤷ 動画・画像・GIFが同じスクロール可能のビュー画面
+                  </Typography>
+              </React.Fragment>
+            ),
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/Personal%20Website/2020-01-02%2016_04_56-Window.png?raw=true",
             tags: ["L3", "L4", "T2", "T3", "T9", "T13", "O6"],
@@ -1425,12 +1448,12 @@ export function getTimeLearningJapaneseString(lang) {
 
   let yearsString = `${years}${space}${
     years === 1 ? basicStrings[lang].time.year : basicStrings[lang].time.years
-  }`;
+    }`;
   let monthsString = "";
   if (months > 0) {
     months = `${space}${basicStrings[lang].time.connector}${space}${months}${space}${
       months === 1 ? basicStrings[lang].time.month : basicStrings[lang].time.months
-    }`;
+      }`;
   }
   return `${yearsString}${monthsString}`;
 }
