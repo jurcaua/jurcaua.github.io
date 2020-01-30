@@ -764,22 +764,22 @@ export const strings = {
         currentExperiences: [
           {
             primary:
-              "Leading development on a company-wide service-consolidating meeting productivity tool",
+              "自社のあらゆるサービスを統合する会議の効率を上げるためのツールの開発を担当",
             secondary: "Python, C#",
             icon: "code"
           },
           {
-            primary: "Maintaining our automated integration-testing pipeline",
+            primary: "自動化された統合テストパイプラインの維持",
             secondary: "C++",
             icon: "code"
           },
           {
-            primary: "Developing an online service management web tool",
+            primary: "オンラインサービスを管理するWebツールの開発",
             secondary: "React / Redux, Python, C++",
             icon: "code"
           },
           {
-            primary: "Resolving Sony TRC onlines / ui issues",
+            primary: "Sony TRC オンライン・UIの不具合の改善",
             secondary: "C++",
             icon: "code"
           }
@@ -790,37 +790,37 @@ export const strings = {
         otherExperiences: [
           {
             primary:
-              "Working for an augmented reality startup -- as a programmer and tech consultant",
+              "拡張現実を扱うスタートアップ企業ープログラマー/技術コンサルタントとして",
             secondary: "Unity",
             icon: "videogame_asset",
             dialogTitle: "ARnocular - Augmented Reality Software Developer",
             dialogText: [
-              "Implemented a system that dynamically downloads AssetBundles and displays 3D models from a database, requesting and parsing CSV files",
-              "Developed an accurate linear regress system using GPS points to smoothly move between perceived user locations",
-              "Collaborated smoothly with Git version control; experience with Prod/QA/Dev pipeline, branching, merging, stashing, working with a remote repo"
+              "CSVファイルをリクエストと解析を行い、AssetBundlesを動的にダウンロードし、データベースから3Dモデルを表示するシステムを実装",
+              "GPSによってユーザの行動を正確に分析する線形回帰システムを開発",
+              "Gitのバージョン管理による協同作業：Prod/QA/Devのパイプライン、ブランチ、マージ、スタッシング、リモートのリポジトリーの使用の経験"
             ]
           },
           {
-            primary: "Teaching video game design to at-risk youth, following a game to completion",
+            primary: "不安定な生活環境にいる学生に、1から完成までゲームデザインを教えた",
             secondary: "Construct 2",
             icon: "school",
             dialogTitle: "Youth Fusion - Game Design Program Coordinator",
             dialogText: [
-              "Taught for a local non-profit after-school program aimed to decreasing high school drop-out rates by teaching all aspects of video game development",
-              "Oversaw the development of 2 fully polished games, following a Prototyping/Alpha/Beta/Gold staging process",
-              "Verbally communicated complex game design concepts to children in simple and easy-to-understand ways"
+              "地域の高校の中退率を下げるための非営利の放課後プログラムでゲーム開発の面白さやあらゆることを生徒に教えた",
+              "プロトタイプ版・アルファ版・ベータ版・マスターアップ版の開発段階に従い、2つの完成度の高いゲームの開発を監督",
+              "複雑なゲームデザインコンセプトを子供たちにシンプルでわかりやすい方法で説明"
             ]
           },
           {
             primary:
-              "Working as Systems Support doing data validation, and integration and regression testing",
+              "データ検証、統合およびリグレッションテストを行いながらシステムのサポートとして働いた",
             secondary: "SQL Server (TSQL)",
             icon: "table_chart",
             dialogTitle: "Inmar - Systems Support",
             dialogText: [
-              "Developed SSIS packages for data transfer between SQL Server databases and uploads/downloads from/to Excel files",
-              "Developed T-SQL scripts for comprehensive field level discrepancy reports",
-              "Created testing automation jobs for data integrity and consistency, including test case creation, execution and results logging"
+              "SQLサーバーデータベースとExcelファイル間のデータ転送のSSISパッケージを開発",
+              "SQLフィールドの不一致を発見するT-SQLのテスト・スクリプトを開発",
+              "テストケースの作成、実行、結果のログ記録など、データの整合性と一貫性のためのテスト自動化の仕事を作成"
             ]
           }
         ]
@@ -1172,24 +1172,24 @@ export const strings = {
           },
           {
             name: "Code Bumpin'",
-            shortDescription: "音楽の視覚化をもとにした3Dプラットフォーム・ゲーム。",
+            shortDescription: "3Dプラットフォームのプロトタイプ。音楽を可視化したゲーム。",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/raw/master/Code%20Bumpin'/code-bumpin-v3%202017-01-23%2019-51-19-10.bmp",
             images: [
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Code%20Bumpin'/game-1.png?raw=true",
-                caption: "緑のピックアップを集めると、だんだん近づかれている壁を押し戻すよ！"
+                caption: "迫りくる壁に押し潰されるな！緑のジェムを拾って、押し戻せ！"
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Code%20Bumpin'/game-2.png?raw=true",
-                caption: "青いピックアップを集めると、時間と音楽が遅くなるよ！"
+                caption: "青のジェムで時間を遅らせろ！"
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Code%20Bumpin'/game-3.png?raw=true",
-                caption: "音楽に合わせると、簡単に集められるよ！"
+                caption: "音楽に合わせて動き回れ！これがハイスコアへの近道だ！"
               },
               {
                 imgPath:
@@ -1220,17 +1220,17 @@ export const strings = {
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot1.jpg?raw=true",
-                caption: "各オブジェクトの実況統計を見ることが出来ます。。"
+                caption: "色んなゲームのライブ統計を見ることが出来ます。"
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot2.jpg?raw=true",
-                caption: "キーが入力されたことを全て記録し、実況表示することが出来ます。"
+                caption: "キー入力を記憶し、ゲーム内でライブ表示できます。"
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot3.jpg?raw=true",
-                caption: "コンパニオンアプリで各セッションの細かい統計を見ることが出来ます。"
+                caption: "コンパニオンアプリでは、各セッションの細かい統計を表示することができます。"
               },
               {
                 imgPath:
