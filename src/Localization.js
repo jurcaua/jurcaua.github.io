@@ -598,8 +598,8 @@ export const strings = {
               },
               {
                 imgPath:
-                  "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot4.jpg?raw=true",
-                caption: "Key presses are displayed in the same way!"
+                  "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot5.jpg?raw=true",
+                caption: "Key presses statistics are also displayed in the same way!"
               }
             ],
             tags: ["L1", "T0", "T6", "T9", "O1", "O4", "O5"],
@@ -636,7 +636,7 @@ export const strings = {
           {
             name: "Airplane Simulator",
             shortDescription:
-              "Completely hand-made physics based airplane simulator coded in Java.",
+              "Completely hand-made physics-based airplane simulator made in high school, coded in Java.",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/AirplaneSim/2019-12-30%2021_50_28-Settings.png?raw=true",
             tags: ["L5", "O2"],
@@ -801,7 +801,7 @@ export const strings = {
             ]
           },
           {
-            primary: "不安定な生活環境にいる学生に、1から完成までゲームデザインを教えた",
+            primary: "不安定な生活環境にいる学生に、1から完成までゲームデザインを指導",
             secondary: "Construct 2",
             icon: "school",
             dialogTitle: "Youth Fusion - Game Design Program Coordinator",
@@ -924,12 +924,12 @@ export const strings = {
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/user-profile.gif?raw=true",
-                caption: "ユーザーのプロファイル。"
+                caption: "ユーザーのプロフィール。"
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/club-profile.gif?raw=true",
-                caption: "サークルのプロファイル"
+                caption: "サークルのプロフィール"
               }
             ],
             tags: ["L3", "L4", "T2", "T3", "T4", "T5", "T9", "T13", "O2", "O6"],
@@ -1147,7 +1147,7 @@ export const strings = {
           {
             name: "Personal Website",
             shortDescription:
-              "このウェブサイト。ReactとMaterial UIを使って、全て自分で作られました。",
+              "このウェブサイト。ReactとMaterial UIを使って、全て自分で作りました。",
             longDescription: (
               <React.Fragment>
                 <Typography>
@@ -1236,7 +1236,7 @@ export const strings = {
           {
             name: "GameNani",
             shortDescription:
-              "3DのUnityのゲームのユーザー行動を分析するドラッグ＆ドロップのツール。",
+              "ドラッグ＆ドロップ操作で、Unity 3Dのゲームを分析できる、開発者用ツール。プレイヤーの動作を、シームレスにリポートできます。",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot3.jpg?raw=true",
             images: [
@@ -1258,12 +1258,12 @@ export const strings = {
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot4.jpg?raw=true",
-                caption: "セッション一件の細かい統計を見ることも出来ます。"
+                caption: "セッション毎の、細かい統計を見ることも出来ます。"
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot5.jpg?raw=true",
-                caption: "キーが入力されたことのセッションデータが同じように表示されます。"
+                caption: "入力されたキーの統計を同じように見ることも出来ます。"
               }
             ],
             tags: ["L1", "T0", "T6", "T9", "O1", "O4", "O5"],
@@ -1284,7 +1284,7 @@ export const strings = {
           },
           {
             name: "Space Shooter",
-            shortDescription: "良く狙える射撃を修正したUnityチュートリアルのゲーム。",
+            shortDescription: "Unityチュートリアルの修正版。狙撃の範囲を広げる機能を追加しました。",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/Space%20Shooter/Screenshot_20170110-221144-cropped.png?raw=true",
             tags: ["L1", "T0", "T6", "T9", "O4"],
@@ -1299,7 +1299,7 @@ export const strings = {
           {
             name: "Airplane Simulator",
             shortDescription:
-              "高等学校の時に作った物理学のフライトシミュレータ。Javaで作られたアプリケーション。",
+              "高校の時に作った物理学のフライトシミュレータ。Javaで作られたアプリケーション。",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/AirplaneSim/2019-12-30%2021_50_28-Settings.png?raw=true",
             tags: ["L5", "O2"],
@@ -1342,7 +1342,7 @@ export const strings = {
               <Typography variant="h5">
                 <b>幼い頃、ゲームが大好きだったため、プログラミングを始めようと思いました。</b>
                 その頃からキングダムハーツを初め、ポケモン、スパイロ・ザ・ドラゴン等をしました。
-                現在はゲームを「する」のはゲームを「作る」のと同じくらい好きな事です。
+                現在はゲームを「作る」のはゲームを「する」のと同じくらい好きな事です。
                 (昔の自分だったら、信じられないかもしれません。)
               </Typography>
             ),
