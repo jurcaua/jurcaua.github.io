@@ -11,7 +11,7 @@ import {
   makeStyles,
   ExpansionPanel,
   ExpansionPanelSummary,
-  ExpansionPanelDetails
+  ExpansionPanelDetails,
 } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Emoji from "../../Emoji";
@@ -21,67 +21,67 @@ import { localized } from "../../Localization";
 import { SMALL_WIDTH_THRESHOLD_MARGINS } from "../../Constants";
 import SocialMediaIconList from "./SocialMediaIconList";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
-    marginLeft: props => (props.windowInnerWidth < SMALL_WIDTH_THRESHOLD_MARGINS ? "5vw" : "15vw"),
-    marginRight: props => (props.windowInnerWidth < SMALL_WIDTH_THRESHOLD_MARGINS ? "5vw" : "15vw")
+    marginLeft: (props) => (props.windowInnerWidth < SMALL_WIDTH_THRESHOLD_MARGINS ? "5vw" : "15vw"),
+    marginRight: (props) => (props.windowInnerWidth < SMALL_WIDTH_THRESHOLD_MARGINS ? "5vw" : "15vw"),
   },
   header: {
     textAlign: "center",
-    align: "center"
+    align: "center",
   },
   primaryList: {},
   secondaryList: {
-    color: theme.palette.text.secondary
+    color: theme.palette.text.secondary,
   },
   resumeRoot: {
     textAlign: "center",
-    margin: theme.spacing(1)
+    margin: theme.spacing(1),
   },
   expansionPanelRoot: {
-    margin: theme.spacing(1)
+    margin: theme.spacing(1),
   },
   otherExperienceExpandDetails: {
-    display: "block"
+    display: "block",
   },
   otherExperienceExpandRoot: {
     display: "flex",
-    marginBottom: theme.spacing(1)
+    marginBottom: theme.spacing(1),
   },
   otherExperienceExpandText: {
-    color: "#363738"
+    color: "#363738",
   },
   heading: {
     flexShrink: 0,
     marginLeft: theme.spacing(2),
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
   },
   secondaryHeading: {
     color: theme.palette.text.secondary,
     marginLeft: theme.spacing(2),
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
   },
   greyIcon: {
-    color: theme.palette.text.secondary
+    color: theme.palette.text.secondary,
   },
   expansionPanelSummary: {
     "&:hover": {
-      background: "lightgrey"
-    }
-  }
+      background: "lightgrey",
+    },
+  },
 }));
 
-const TabMe = props => {
+const TabMe = (props) => {
   const [otherExperienceExpanded, setOtherExperienceExpanded] = useState(false);
 
   const classes = useStyles(props);
 
-  const handleExpand = panel => (event, isExpanded) => {
+  const handleExpand = (panel) => (event, isExpanded) => {
     setOtherExperienceExpanded(isExpanded ? panel : false);
   };
 
-  const handleOpenResume = event => {
-    window.open(`${window.location.origin}/resume.pdf`, "_blank");
+  const handleOpenResume = (sublink) => (event) => {
+    window.open(`${window.location.origin}/${sublink}`, "_blank");
   };
 
   const getIntro = () => {
@@ -146,10 +146,7 @@ const TabMe = props => {
               expanded={otherExperienceExpanded === index}
               onChange={handleExpand(index)}
             >
-              <ExpansionPanelSummary
-                className={classes.expansionPanelSummary}
-                expandIcon={<ExpandMoreIcon />}
-              >
+              <ExpansionPanelSummary className={classes.expansionPanelSummary} expandIcon={<ExpandMoreIcon />}>
                 <div className={classes.greyIcon}>
                   <i className="material-icons">{experience.icon}</i>
                 </div>
@@ -194,9 +191,11 @@ const TabMe = props => {
 
       {/* Resume Section */}
       <div className={classes.resumeRoot}>
-        <Button size="large" variant="outlined" onClick={handleOpenResume}>
-          {localized().openResume}
-        </Button>
+        {localized().resumeDocuments.map((r, key) => (
+          <Button size="large" variant="outlined" onClick={handleOpenResume(r.sublink)} key={key}>
+            {r.text}
+          </Button>
+        ))}
       </div>
 
       {/* Short Intro */}

@@ -7,17 +7,13 @@ import EmailIcon from "@material-ui/icons/Email";
 // Local Imports
 import { DEFAULT_LANGUAGE } from "./Constants";
 import { getYearsAgo, getMonthsAgo } from "./Utils";
-import {
-  BIRTHDAY,
-  JAPANESE_STARTED_LEARNING,
-  JLPT_LEVEL_CURRENTLY_HAVE
-} from "./Info";
+import { BIRTHDAY, JAPANESE_STARTED_LEARNING, JLPT_LEVEL_CURRENTLY_HAVE } from "./Info";
 import Emoji from "./Emoji";
 import {
   projectTagMappings,
   groupedProjectTagMappings,
   ignoreGroups,
-  customFilters
+  customFilters,
 } from "./tabs/projects/ProjectsConfig";
 import { LinkedInIcon, GithubIcon, SoundcloudIcon } from "./SocialMediaIcons";
 
@@ -31,8 +27,8 @@ const basicStrings = {
       month: "month",
       months: "months",
       connector: "and",
-      space: " "
-    }
+      space: " ",
+    },
   },
   jp: {
     time: {
@@ -41,9 +37,9 @@ const basicStrings = {
       month: "ヶ月",
       months: "ヶ月",
       connector: "の",
-      space: ""
-    }
-  }
+      space: "",
+    },
+  },
 };
 
 export const strings = {
@@ -52,7 +48,7 @@ export const strings = {
     nameSeperator: " ",
     nameLast: "Jurcau",
     greeting: "Hello there! I'm Alex.",
-    openResume: "View My Resume!",
+    resumeDocuments: [{ text: "View My Resume!", sublink: "resume.pdf" }],
     copyButtonTooltip: "Copy to clipboard",
     copyConfirmNotification: "Copied to clipboard!",
     changeLanguage: "日本語に変更 (Japanese)",
@@ -60,23 +56,23 @@ export const strings = {
       {
         name: "LinkedIn",
         icon: LinkedInIcon,
-        url: "https://www.linkedin.com/in/jurcaua/"
+        url: "https://www.linkedin.com/in/jurcaua/",
       },
       {
         name: "Github",
         icon: GithubIcon,
-        url: "https://github.com/jurcaua"
+        url: "https://github.com/jurcaua",
       },
       {
         name: "Soundcloud",
         icon: SoundcloudIcon,
-        url: "https://soundcloud.com/beunorthodox"
+        url: "https://soundcloud.com/beunorthodox",
       },
       {
         name: "Email",
         icon: EmailIcon,
-        url: "mailto:jurcaua@gmail.com?subject=Hey%20Alex!"
-      }
+        url: "mailto:jurcaua@gmail.com?subject=Hey%20Alex!",
+      },
     ],
     tabs: {
       me: {
@@ -84,53 +80,50 @@ export const strings = {
         tooltip: "Qualification overview.",
         summary: [
           <Typography variant="h5">
-            Currently {getYearsAgo(BIRTHDAY)} years old, and a fourth year student at the{" "}
-            <b>University of Toronto</b> -- studying Computer Science with focuses in Algorithms,
-            System Design, and Game Design.
+            Currently {getYearsAgo(BIRTHDAY)} years old, and a fourth year student at the <b>University of Toronto</b>{" "}
+            -- studying Computer Science with focuses in Algorithms, System Design, and Game Design.
           </Typography>,
           <Typography variant="h5">
-            I worked for <b>Ubisoft Toronto</b> (Watch Dogs Legion) on the tools team for 15 months.
-            Responsible for a variety of things, my focuses were:
-          </Typography>
+            I worked for <b>Ubisoft Toronto</b> (Watch Dogs Legion) on the tools team for 15 months. Responsible for a
+            variety of things, my focuses were:
+          </Typography>,
         ],
         currentExperiences: [
           {
-            primary:
-              "Leading development on a company-wide service-consolidating meeting productivity tool",
+            primary: "Leading development on a company-wide service-consolidating meeting productivity tool",
             secondary: "Python, C#",
-            icon: "code"
+            icon: "code",
           },
           {
             primary: "Maintaining our automated integration-testing pipeline",
             secondary: "C++",
-            icon: "code"
+            icon: "code",
           },
           {
             primary: "Developing an online service management web tool",
             secondary: "React / Redux, Python, C++",
-            icon: "code"
+            icon: "code",
           },
           {
             primary: "Resolving Sony TRC onlines / UI issues",
             secondary: "C++",
-            icon: "code"
-          }
+            icon: "code",
+          },
         ],
         otherExperiencesHeader: (
           <Typography variant="h5">Other related experience in the industry includes:</Typography>
         ),
         otherExperiences: [
           {
-            primary:
-              "Working for an augmented reality startup -- as a programmer and tech consultant",
+            primary: "Working for an augmented reality startup -- as a programmer and tech consultant",
             secondary: "Unity",
             icon: "videogame_asset",
             dialogTitle: "ARnocular - Augmented Reality Software Developer",
             dialogText: [
               "Implemented a system that dynamically downloads AssetBundles and displays 3D models from a database, requesting and parsing CSV files",
               "Developed an accurate linear regress system using GPS points to smoothly move between perceived user locations",
-              "Collaborated smoothly with Git version control; experience with Prod/QA/Dev pipeline, branching, merging, stashing, working with a remote repo"
-            ]
+              "Collaborated smoothly with Git version control; experience with Prod/QA/Dev pipeline, branching, merging, stashing, working with a remote repo",
+            ],
           },
           {
             primary: "Teaching video game design to at-risk youth, following a game to completion",
@@ -140,29 +133,28 @@ export const strings = {
             dialogText: [
               "Taught for a local non-profit after-school program aimed to decreasing high school drop-out rates by teaching all aspects of video game development",
               "Oversaw the development of 2 fully polished games, following a Prototyping/Alpha/Beta/Gold staging process",
-              "Verbally communicated complex game design concepts to children in simple and easy-to-understand ways"
-            ]
+              "Verbally communicated complex game design concepts to children in simple and easy-to-understand ways",
+            ],
           },
           {
-            primary:
-              "Working as Systems Support doing data validation, and integration and regression testing",
+            primary: "Working as Systems Support doing data validation, and integration and regression testing",
             secondary: "SQL Server (TSQL)",
             icon: "table_chart",
             dialogTitle: "Inmar - Systems Support",
             dialogText: [
               "Developed SSIS packages for data transfer between SQL Server databases and uploads/downloads from/to Excel files",
               "Developed T-SQL scripts for comprehensive field level discrepancy reports",
-              "Created testing automation jobs for data integrity and consistency, including test case creation, execution and results logging"
-            ]
-          }
-        ]
+              "Created testing automation jobs for data integrity and consistency, including test case creation, execution and results logging",
+            ],
+          },
+        ],
       },
       projects: {
         label: "Projects",
         tooltip: "Notable projects and experience.",
-        displaying: num => `Displaying ${num} projects`,
+        displaying: (num) => `Displaying ${num} projects`,
         dialog: {
-          linksTitle: "Related Links"
+          linksTitle: "Related Links",
         },
         filter: {
           button: "Filter",
@@ -171,8 +163,8 @@ export const strings = {
             title: "Project Filters",
             resetFiltersButton: "Reset",
             cancelButton: "Cancel",
-            applyButton: "Apply Filters"
-          }
+            applyButton: "Apply Filters",
+          },
         },
         content: [
           {
@@ -185,46 +177,46 @@ export const strings = {
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/movement.gif?raw=true",
-                caption: "Start off on a peaceful ship!"
+                caption: "Start off on a peaceful ship!",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/screenshot3.png?raw=true",
-                caption: "Hit some stormy weather..."
+                caption: "Hit some stormy weather...",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/iceberg.gif?raw=true",
                 caption:
-                  "The final iceberg stage provides a great end to the game with great height and a dangerous surrounding waters."
+                  "The final iceberg stage provides a great end to the game with great height and a dangerous surrounding waters.",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/screenshot5.png?raw=true",
-                caption: "The main menu."
+                caption: "The main menu.",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/character-select.gif?raw=true",
-                caption: "Character lobby."
+                caption: "Character lobby.",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/screenshot4.png?raw=true",
-                caption: "The controls screen."
-              }
+                caption: "The controls screen.",
+              },
             ],
             tags: ["L1", "T0", "T6", "T9", "O1", "O4"],
             links: [
               {
                 title: "GitHub",
-                url: "https://github.com/jurcaua/TOJAM13"
+                url: "https://github.com/jurcaua/TOJAM13",
               },
               {
                 title: "itch.io (Play now!)",
-                url: "https://jurcaua.itch.io/fisherman-foes"
-              }
-            ]
+                url: "https://jurcaua.itch.io/fisherman-foes",
+              },
+            ],
           },
           {
             name: "Event Listeners",
@@ -236,123 +228,115 @@ export const strings = {
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/create-post.gif?raw=true",
-                caption: "Creating an event user flow."
+                caption: "Creating an event user flow.",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/search-clubs.png?raw=true",
-                caption: "Club search page."
+                caption: "Club search page.",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/create-club.gif?raw=true",
-                caption: "Creating a club user flow."
+                caption: "Creating a club user flow.",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/featured-clubs.gif?raw=true",
-                caption: "Dashboard featured clubs."
+                caption: "Dashboard featured clubs.",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/user-profile.gif?raw=true",
-                caption: "User profile page."
+                caption: "User profile page.",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/club-profile.gif?raw=true",
-                caption: "Club profile page."
-              }
+                caption: "Club profile page.",
+              },
             ],
             tags: ["L3", "L4", "T2", "T3", "T4", "T5", "T9", "T13", "O2", "O6"],
             links: [
               {
                 title: "Website",
-                url: "https://event-listeners.herokuapp.com/"
-              }
-            ]
+                url: "https://event-listeners.herokuapp.com/",
+              },
+            ],
           },
           {
             name: "Soundplow",
-            shortDescription:
-              "Soundcloud .mp3 downloader + integrated UI (PySide / Qt) - made in Python",
-            mainImage:
-              "https://github.com/jurcaua/github_image_hosting/blob/master/Soundplow/gif1.gif?raw=true",
+            shortDescription: "Soundcloud .mp3 downloader + integrated UI (PySide / Qt) - made in Python",
+            mainImage: "https://github.com/jurcaua/github_image_hosting/blob/master/Soundplow/gif1.gif?raw=true",
             images: [
               {
-                imgPath:
-                  "https://github.com/jurcaua/github_image_hosting/blob/master/Soundplow/gif1.gif?raw=true",
-                caption: "Search and download tracks instantly."
+                imgPath: "https://github.com/jurcaua/github_image_hosting/blob/master/Soundplow/gif1.gif?raw=true",
+                caption: "Search and download tracks instantly.",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Soundplow/screenshot2.png?raw=true",
-                caption: "Download tracks live as they are liked by any registered user."
+                caption: "Download tracks live as they are liked by any registered user.",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Soundplow/screenshot3.png?raw=true",
-                caption: "Batch-download from a list of track URLs."
-              }
+                caption: "Batch-download from a list of track URLs.",
+              },
             ],
             tags: ["L0", "T7", "T9", "O5"],
             links: [
               {
                 title: "Github",
-                url: "https://github.com/jurcaua/soundplow"
-              }
-            ]
+                url: "https://github.com/jurcaua/soundplow",
+              },
+            ],
           },
           {
             name: "Holo-Mole",
-            shortDescription:
-              "Augmented reality game on a physical rainbow hologram, built in Unity.",
-            mainImage:
-              "https://github.com/jurcaua/github_image_hosting/blob/master/HoloMole/screenshot1.png?raw=true",
+            shortDescription: "Augmented reality game on a physical rainbow hologram, built in Unity.",
+            mainImage: "https://github.com/jurcaua/github_image_hosting/blob/master/HoloMole/screenshot1.png?raw=true",
             tags: ["L1", "T0", "T6", "T9", "O0", "O2", "O3", "O4"],
             links: [
               {
                 title: "GitHub",
-                url: "https://github.com/jurcaua/Hologram-Whack-A-Mole"
-              }
+                url: "https://github.com/jurcaua/Hologram-Whack-A-Mole",
+              },
             ],
-            video: "https://www.youtube.com/watch?v=XwkHZDINBOI"
+            video: "https://www.youtube.com/watch?v=XwkHZDINBOI",
           },
           {
             name: "Google Spy",
-            shortDescription:
-              "Take full control of in-game characters in Unity by voice via Google Assistant.",
-            mainImage:
-              "https://github.com/jurcaua/github_image_hosting/blob/master/GoogleSpy/screenshot1.PNG?raw=true",
+            shortDescription: "Take full control of in-game characters in Unity by voice via Google Assistant.",
+            mainImage: "https://github.com/jurcaua/github_image_hosting/blob/master/GoogleSpy/screenshot1.PNG?raw=true",
             images: [
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/GoogleSpy/screenshot3.PNG?raw=true",
-                caption:
-                  "Possible actions are displayed as you try to navigate the level only using your voice."
+                caption: "Possible actions are displayed as you try to navigate the level only using your voice.",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/GoogleSpy/screenshot4.PNG?raw=true",
-                caption: "Avoid being spotted by the evil apple enemies!"
+                caption: "Avoid being spotted by the evil apple enemies!",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/GoogleSpy/screenshot1.PNG?raw=true",
-                caption: ""
-              }
+                caption: "",
+              },
             ],
             tags: ["L1", "L3", "T0", "T6", "T9", "T11", "O1", "O4"],
             links: [
               {
                 title: "GitHub",
-                url: "https://github.com/jurcaua/GoogleSpy"
+                url: "https://github.com/jurcaua/GoogleSpy",
               },
               {
                 title: "Devpost",
-                url: "https://devpost.com/software/googlespy"
-              }
-            ]
+                url: "https://devpost.com/software/googlespy",
+              },
+            ],
           },
           {
             name: "Kleptomanihat",
@@ -364,121 +348,118 @@ export const strings = {
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/prison-structure.PNG?raw=true",
-                caption: "Break out of prison!"
+                caption: "Break out of prison!",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/boss-1.PNG?raw=true",
-                caption: "Defeat a plethora of unique bosses!"
+                caption: "Defeat a plethora of unique bosses!",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/basketball.PNG?raw=true",
-                caption: "Take a moment to enjoy the city life with some basketball."
+                caption: "Take a moment to enjoy the city life with some basketball.",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/movie-theatre.PNG?raw=true",
-                caption: "Enjoy a relaxing movie!"
+                caption: "Enjoy a relaxing movie!",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/final-boss-1.PNG?raw=true",
-                caption: "Become part of the movie!"
+                caption: "Become part of the movie!",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/final-boss-2.PNG?raw=true",
-                caption: "And find the greatest hat of all time..."
-              }
+                caption: "And find the greatest hat of all time...",
+              },
             ],
             tags: ["L1", "T0", "T6", "T9", "O1", "O4"],
             links: [
               {
                 title: "GitHub",
-                url: "https://github.com/jurcaua/Kleptomanihat"
+                url: "https://github.com/jurcaua/Kleptomanihat",
               },
               {
                 title: "itch.io (Play now!)",
-                url: "https://jurcaua.itch.io/kleptomanihat"
-              }
-            ]
+                url: "https://jurcaua.itch.io/kleptomanihat",
+              },
+            ],
           },
           {
             name: "TranslatAR",
-            shortDescription:
-              "Real-time Augmented Reality translation app with image recognition in Unity.",
-            mainImage:
-              "https://github.com/jurcaua/github_image_hosting/blob/master/TranslatAR/devpost1.jpg?raw=true",
+            shortDescription: "Real-time Augmented Reality translation app with image recognition in Unity.",
+            mainImage: "https://github.com/jurcaua/github_image_hosting/blob/master/TranslatAR/devpost1.jpg?raw=true",
             images: [
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/TranslatAR/translatAR-test-pic1.png?raw=true",
-                caption: ""
+                caption: "",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/TranslatAR/translatAR-test-pic2.png?raw=true",
-                caption: ""
-              }
+                caption: "",
+              },
             ],
             tags: ["L1", "T0", "T6", "O1", "O3"],
             links: [
               {
                 title: "GitHub",
-                url: "https://github.com/jurcaua/TranslatAR"
+                url: "https://github.com/jurcaua/TranslatAR",
               },
               {
                 title: "Devpost",
-                url: "https://devpost.com/software/translatar-ha36kr"
-              }
+                url: "https://devpost.com/software/translatar-ha36kr",
+              },
             ],
-            video: "https://youtu.be/GyIVdzyi8pY"
+            video: "https://youtu.be/GyIVdzyi8pY",
           },
           {
             name: "Snake Dimensions",
-            shortDescription:
-              "3D version of the classic game of Snake, built for Android using Unity.",
+            shortDescription: "3D version of the classic game of Snake, built for Android using Unity.",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/raw/master/Snake%20DIMENSIONS/Screenshot_20170102-123935.png",
             images: [
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Snake%20DIMENSIONS/Screenshot_20170102-123958.png?raw=true",
-                caption: "Simple 3D controls screen."
+                caption: "Simple 3D controls screen.",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Snake%20DIMENSIONS/Screenshot_20170102-124203.png?raw=true",
-                caption: "Avoid falling blocks and running into yourself to get the highscore."
+                caption: "Avoid falling blocks and running into yourself to get the highscore.",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Snake%20DIMENSIONS/Screenshot_20170102-124324.png?raw=true",
-                caption: "Special FPS mode triggered via random powerup!"
+                caption: "Special FPS mode triggered via random powerup!",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Snake%20DIMENSIONS/Screenshot_20170102-124602.png?raw=true",
-                caption: "Integrated local highscores!"
-              }
+                caption: "Integrated local highscores!",
+              },
             ],
             tags: ["L1", "T0", "T6", "T9", "O4"],
             links: [
               {
                 title: "GitHub",
-                url: "https://github.com/jurcaua/Snake-Dimensions"
+                url: "https://github.com/jurcaua/Snake-Dimensions",
               },
               {
                 title: "Google Play",
-                url: "https://play.google.com/store/apps/details?id=com.jurk.co.snakedimensions"
+                url: "https://play.google.com/store/apps/details?id=com.jurk.co.snakedimensions",
               },
               {
                 title: "itch.io (Play now!)",
-                url: "https://jurcaua.itch.io/snake-dimensions"
-              }
+                url: "https://jurcaua.itch.io/snake-dimensions",
+              },
             ],
-            video: "https://www.youtube.com/watch?v=X5Rv26UH0jo"
+            video: "https://www.youtube.com/watch?v=X5Rv26UH0jo",
           },
           {
             name: "Personal Website",
@@ -490,8 +471,7 @@ export const strings = {
                 </Typography>
                 <Typography variant="body1">- Optimized and tested on all screen-sizes.</Typography>
                 <Typography variant="body1">
-                  - Entirely custom and robust localization system (personally translated into
-                  Japanese!)
+                  - Entirely custom and robust localization system (personally translated into Japanese!)
                 </Typography>
                 <Typography variant="body1" style={{ marginLeft: "8px" }}>
                   ⤷ All areas of the website are built around this to keep everything consistent.
@@ -513,21 +493,20 @@ export const strings = {
             links: [
               {
                 title: "Github",
-                url: "https://github.com/jurcaua/jurcaua.github.io"
+                url: "https://github.com/jurcaua/jurcaua.github.io",
               },
               {
                 title: "Website",
-                url: "http://jurcau.com/"
-              }
-            ]
+                url: "http://jurcau.com/",
+              },
+            ],
           },
           {
             name: "Re-Lec",
             shortDescription:
               "Platform that allows students to record lectures and view other recorded lectures, under a token-earning system.",
-            mainImage:
-              "https://github.com/jurcaua/github_image_hosting/blob/master/Re-Lec/logo_relec.png?raw=true",
-            tags: ["L1", "L3", "L4", "T0", "T3", "T6", "T9", "O2", "O6"]
+            mainImage: "https://github.com/jurcaua/github_image_hosting/blob/master/Re-Lec/logo_relec.png?raw=true",
+            tags: ["L1", "L3", "L4", "T0", "T3", "T6", "T9", "O2", "O6"],
           },
           {
             name: "Code Bumpin'",
@@ -538,85 +517,84 @@ export const strings = {
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Code%20Bumpin'/game-1.png?raw=true",
-                caption: "Collect the green pickup to push the walls that are closing in!"
+                caption: "Collect the green pickup to push the walls that are closing in!",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Code%20Bumpin'/game-2.png?raw=true",
-                caption: "Collect the blue pickup to slow down time (and the music)!"
+                caption: "Collect the blue pickup to slow down time (and the music)!",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Code%20Bumpin'/game-3.png?raw=true",
-                caption: "It's easiest to collect the pickups if you sync up with the music!"
+                caption: "It's easiest to collect the pickups if you sync up with the music!",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Code%20Bumpin'/game-4.png?raw=true",
-                caption: "Game over screen."
-              }
+                caption: "Game over screen.",
+              },
             ],
             tags: ["L1", "T0", "T6", "T9", "O1", "O4"],
             links: [
               {
                 title: "GitHub",
-                url: "https://github.com/jurcaua/code-bumpin"
+                url: "https://github.com/jurcaua/code-bumpin",
               },
               {
                 title: "itch.io (Play now!)",
-                url: "https://jurcaua.itch.io/code-bumpin"
-              }
+                url: "https://jurcaua.itch.io/code-bumpin",
+              },
             ],
-            video: "https://www.youtube.com/watch?v=Yfn3moFHb3s&feature=youtu.be"
+            video: "https://www.youtube.com/watch?v=Yfn3moFHb3s&feature=youtu.be",
           },
           {
             name: "GameNani",
             shortDescription:
               "Drag-and-drop analytics developer tool for Unity3D, seamlessly reporting player behaviour.",
-            mainImage:
-              "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot3.jpg?raw=true",
+            mainImage: "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot3.jpg?raw=true",
             images: [
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot1.jpg?raw=true",
-                caption: "Every object has toggleable live analytics."
+                caption: "Every object has toggleable live analytics.",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot2.jpg?raw=true",
-                caption: "All key presses are logged and can be displayed live in-game."
+                caption: "All key presses are logged and can be displayed live in-game.",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot3.jpg?raw=true",
-                caption: "Our companion app can display detailed statistics for each play session."
+                caption: "Our companion app can display detailed statistics for each play session.",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot4.jpg?raw=true",
-                caption: "Specific data per-session can also be looked into."
+                caption: "Specific data per-session can also be looked into.",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot5.jpg?raw=true",
-                caption: "Key presses statistics are also displayed in the same way!"
-              }
+                caption: "Key presses statistics are also displayed in the same way!",
+              },
             ],
             tags: ["L1", "T0", "T6", "T9", "O1", "O4", "O5"],
             links: [
               {
                 title: "GitHub (Tool)",
-                url: "https://github.com/jurcaua/GameNaniGrapher"
+                url: "https://github.com/jurcaua/GameNaniGrapher",
               },
               {
                 title: "GitHub (Game)",
-                url: "https://github.com/jurcaua/GameNani"
+                url: "https://github.com/jurcaua/GameNani",
               },
               {
                 title: "DevPost",
-                url: "https://devpost.com/software/thacks2"
-              }
-            ]
+                url: "https://devpost.com/software/thacks2",
+              },
+            ],
           },
           {
             name: "Space Shooter",
@@ -628,10 +606,10 @@ export const strings = {
             links: [
               {
                 title: "GitHub",
-                url: "https://github.com/jurcaua/SpaceShooter-Android"
-              }
+                url: "https://github.com/jurcaua/SpaceShooter-Android",
+              },
             ],
-            video: "https://www.youtube.com/watch?v=yUQojrvAw1k"
+            video: "https://www.youtube.com/watch?v=yUQojrvAw1k",
           },
           {
             name: "Airplane Simulator",
@@ -643,11 +621,11 @@ export const strings = {
             links: [
               {
                 title: "GitHub",
-                url: "https://github.com/jurcaua/airplaneSimulator"
-              }
-            ]
-          }
-        ]
+                url: "https://github.com/jurcaua/airplaneSimulator",
+              },
+            ],
+          },
+        ],
       },
       interests: {
         label: "Interests",
@@ -661,66 +639,64 @@ export const strings = {
             details: (
               <React.Fragment>
                 <Typography variant="h5">
-                  I have been learning Japanese for about{" "}
-                  {<b>{getTimeLearningJapaneseString("en")}</b>}. I currently hold a{" "}
-                  {<b>JLPT N{JLPT_LEVEL_CURRENTLY_HAVE}</b>} certification I received Dec. 2019.
+                  I have been learning Japanese for about {<b>{getTimeLearningJapaneseString("en")}</b>}. I currently
+                  hold a {<b>JLPT N{JLPT_LEVEL_CURRENTLY_HAVE}</b>} certification I received Dec. 2019.
                 </Typography>
                 <br />
                 <Typography variant="h5">
-                  I can have a casual or simple business level conversation with few issues, and can
-                  keep up with native speaking patterns and colloquial speech.
+                  I can have a casual or simple business level conversation with few issues, and can keep up with native
+                  speaking patterns and colloquial speech.
                 </Typography>
               </React.Fragment>
             ),
-            icon: "translate"
+            icon: "translate",
           },
           {
             summary: "Gaming",
             details: (
               <Typography variant="h5">
-                <b>My love for programming came from games!</b> I started out playing Flash and
-                CD-ROM games as kid, moving on to classic games like Pokemon, Spyro, and my all-time
-                favourite video game series, Kingdom Hearts! Now I enjoy making games as much as I
-                enjoy playing them (something my kid-self would've never believed)!
+                <b>My love for programming came from games!</b> I started out playing Flash and CD-ROM games as kid,
+                moving on to classic games like Pokemon, Spyro, and my all-time favourite video game series, Kingdom
+                Hearts! Now I enjoy making games as much as I enjoy playing them (something my kid-self would've never
+                believed)!
               </Typography>
             ),
-            icon: "videogame_asset"
+            icon: "videogame_asset",
           },
           {
             summary: "Basketball",
             details: (
               <Typography variant="h5">
-                I played basketball at a <b>competitive level</b> for majority of my life, leading
-                up to university. Playing on countless teams and in countless leagues, and being
-                trained by veterans in the game -- it built a certain <u>hardwork</u> and{" "}
-                <u>team-centered</u> mindset that sticks with me to this day.
+                I played basketball at a <b>competitive level</b> for majority of my life, leading up to university.
+                Playing on countless teams and in countless leagues, and being trained by veterans in the game -- it
+                built a certain <u>hardwork</u> and <u>team-centered</u> mindset that sticks with me to this day.
               </Typography>
             ),
-            icon: "fitness_center"
+            icon: "fitness_center",
           },
           {
             summary: "Coffee",
             details: (
               <React.Fragment>
                 <Typography variant="h5">
-                  I absolutely <i>ADORE</i> a good cup of {<Emoji symbol="☕" />}. While I rarely
-                  feel the effects of caffeine, I stick with it for the taste! I believe a nice cup
-                  of black coffee is the best thing to sip on while programming.
+                  I absolutely <i>ADORE</i> a good cup of {<Emoji symbol="☕" />}. While I rarely feel the effects of
+                  caffeine, I stick with it for the taste! I believe a nice cup of black coffee is the best thing to sip
+                  on while programming.
                 </Typography>
               </React.Fragment>
             ),
-            icon: "free_breakfast"
-          }
-        ]
-      }
-    }
+            icon: "free_breakfast",
+          },
+        ],
+      },
+    },
   },
   jp: {
     nameFirst: "ジュルコ",
     nameSeperator: "・",
     nameLast: "アレックス",
     greeting: "こんにちは！アレックスです。",
-    openResume: "履歴書",
+    resumeDocuments: [{ text: "履歴書", sublink: "履歴書.pdf" }, { text: "職務経歴書", sublink: "職務経歴書.pdf" }],
     copyButtonTooltip: "コピー",
     copyConfirmNotification: "コピーしました！",
     changeLanguage: "Change the language to English! (英語)",
@@ -728,23 +704,23 @@ export const strings = {
       {
         name: "LinkedIn",
         icon: LinkedInIcon,
-        url: "https://www.linkedin.com/in/jurcaua/"
+        url: "https://www.linkedin.com/in/jurcaua/",
       },
       {
         name: "Github",
         icon: GithubIcon,
-        url: "https://github.com/jurcaua"
+        url: "https://github.com/jurcaua",
       },
       {
         name: "Soundcloud",
         icon: SoundcloudIcon,
-        url: "https://soundcloud.com/beunorthodox"
+        url: "https://soundcloud.com/beunorthodox",
       },
       {
         name: "メール",
         icon: EmailIcon,
-        url: "mailto:jurcaua@gmail.com?subject=Hey%20Alex!"
-      }
+        url: "mailto:jurcaua@gmail.com?subject=Hey%20Alex!",
+      },
     ],
     tabs: {
       me: {
@@ -759,46 +735,42 @@ export const strings = {
           <Typography variant="h5">
             <b>Ubisoft</b>というゲーム会社のツールチームで15ヶ月のインターンシップをしていました。
             私の専門は以下のとおりです。
-          </Typography>
+          </Typography>,
         ],
         currentExperiences: [
           {
-            primary:
-              "自社のあらゆるサービスを統合する会議の効率を上げるためのツールの開発を担当",
+            primary: "自社のあらゆるサービスを統合する会議の効率を上げるためのツールの開発を担当",
             secondary: "Python, C#",
-            icon: "code"
+            icon: "code",
           },
           {
             primary: "自動化された統合テストパイプラインの維持",
             secondary: "C++",
-            icon: "code"
+            icon: "code",
           },
           {
             primary: "オンラインサービスを管理するWebツールの開発",
             secondary: "React / Redux, Python, C++",
-            icon: "code"
+            icon: "code",
           },
           {
             primary: "Sony TRC オンライン・UIの不具合の改善",
             secondary: "C++",
-            icon: "code"
-          }
+            icon: "code",
+          },
         ],
-        otherExperiencesHeader: (
-          <Typography variant="h5">業界に関連する経験は以下のとおりです。</Typography>
-        ),
+        otherExperiencesHeader: <Typography variant="h5">業界に関連する経験は以下のとおりです。</Typography>,
         otherExperiences: [
           {
-            primary:
-              "拡張現実を扱うスタートアップ企業ープログラマー/技術コンサルタントとして",
+            primary: "拡張現実を扱うスタートアップ企業ープログラマー/技術コンサルタントとして",
             secondary: "Unity",
             icon: "videogame_asset",
             dialogTitle: "ARnocular - Augmented Reality Software Developer",
             dialogText: [
               "CSVファイルをリクエストと解析を行い、AssetBundlesを動的にダウンロードし、データベースから3Dモデルを表示するシステムを実装",
               "GPSによってユーザの行動を正確に分析する線形回帰システムを開発",
-              "Gitのバージョン管理による協同作業：Prod/QA/Devのパイプライン、ブランチ、マージ、スタッシング、リモートのリポジトリーの使用の経験"
-            ]
+              "Gitのバージョン管理による協同作業：Prod/QA/Devのパイプライン、ブランチ、マージ、スタッシング、リモートのリポジトリーの使用の経験",
+            ],
           },
           {
             primary: "不安定な生活環境にいる学生に、1から完成までゲームデザインを指導",
@@ -808,29 +780,28 @@ export const strings = {
             dialogText: [
               "地域の高校の中退率を下げるための非営利の放課後プログラムでゲーム開発の面白さやあらゆることを生徒に教えた",
               "プロトタイプ版・アルファ版・ベータ版・マスターアップ版の開発段階に従い、2つの完成度の高いゲームの開発を監督",
-              "複雑なゲームデザインコンセプトを子供たちにシンプルでわかりやすい方法で説明"
-            ]
+              "複雑なゲームデザインコンセプトを子供たちにシンプルでわかりやすい方法で説明",
+            ],
           },
           {
-            primary:
-              "データ検証、統合およびリグレッションテストを行いながらシステムのサポートとして働いた",
+            primary: "データ検証、統合およびリグレッションテストを行いながらシステムのサポートとして働いた",
             secondary: "SQL Server (TSQL)",
             icon: "table_chart",
             dialogTitle: "Inmar - Systems Support",
             dialogText: [
               "SQLサーバーデータベースとExcelファイル間のデータ転送のSSISパッケージを開発",
               "SQLフィールドの不一致を発見するT-SQLのテスト・スクリプトを開発",
-              "テストケースの作成、実行、結果のログ記録など、データの整合性と一貫性のためのテスト自動化の仕事を作成"
-            ]
-          }
-        ]
+              "テストケースの作成、実行、結果のログ記録など、データの整合性と一貫性のためのテスト自動化の仕事を作成",
+            ],
+          },
+        ],
       },
       projects: {
         label: "プロジェクト",
         tooltip: "注目のプロジェクト",
-        displaying: num => <b>{num}件のプロジェクトを表示</b>,
+        displaying: (num) => <b>{num}件のプロジェクトを表示</b>,
         dialog: {
-          linksTitle: "関連リンク"
+          linksTitle: "関連リンク",
         },
         filter: {
           button: "絞り込み",
@@ -839,60 +810,59 @@ export const strings = {
             title: "プロジェクトの絞り込み",
             resetFiltersButton: "リセット",
             cancelButton: "キャンセル",
-            applyButton: "絞り込む"
-          }
+            applyButton: "絞り込む",
+          },
         },
         content: [
           {
             name: "フィッシャーズ決戦",
-            shortDescription:
-              "釣り竿一本で闘い抜け！ライバルを突き放し、「お山の大将ゲーム」を勝ち抜こう！",
+            shortDescription: "釣り竿一本で闘い抜け！ライバルを突き放し、「お山の大将ゲーム」を勝ち抜こう！",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/artwork1.png?raw=true",
             images: [
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/movement.gif?raw=true",
-                caption: "穏やかな船で始めよう！"
+                caption: "穏やかな船で始めよう！",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/screenshot3.png?raw=true",
-                caption: "時には嵐にも巻き込まれ。。。"
+                caption: "時には嵐にも巻き込まれ。。。",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/iceberg.gif?raw=true",
                 caption:
-                  "最後の氷山のステージでは、想像を超える高さと、危険な海に囲まれた、最高のエンディングを迎える！"
+                  "最後の氷山のステージでは、想像を超える高さと、危険な海に囲まれた、最高のエンディングを迎える！",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/screenshot5.png?raw=true",
-                caption: "メインメニュー。"
+                caption: "メインメニュー。",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/character-select.gif?raw=true",
-                caption: "キャラクターセレクト画面"
+                caption: "キャラクターセレクト画面",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/FishermanFoes/screenshot4.png?raw=true",
-                caption: "操作説明画面"
-              }
+                caption: "操作説明画面",
+              },
             ],
             tags: ["L1", "T0", "T6", "T9", "O1", "O4"],
             links: [
               {
                 title: "GitHub",
-                url: "https://github.com/jurcaua/TOJAM13"
+                url: "https://github.com/jurcaua/TOJAM13",
               },
               {
                 title: "itch.io (今すぐプレイ！)",
-                url: "https://jurcaua.itch.io/fisherman-foes"
-              }
-            ]
+                url: "https://jurcaua.itch.io/fisherman-foes",
+              },
+            ],
           },
           {
             name: "Event Listeners",
@@ -904,121 +874,116 @@ export const strings = {
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/create-post.gif?raw=true",
-                caption: "イベントの作り方。"
+                caption: "イベントの作り方。",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/search-clubs.png?raw=true",
-                caption: "サークル検索ページ。"
+                caption: "サークル検索ページ。",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/create-club.gif?raw=true",
-                caption: "サークルの作り方。"
+                caption: "サークルの作り方。",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/featured-clubs.gif?raw=true",
-                caption: "ダッシュボードで取り上げているサークル一覧。"
+                caption: "ダッシュボードで取り上げているサークル一覧。",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/user-profile.gif?raw=true",
-                caption: "ユーザーのプロフィール。"
+                caption: "ユーザーのプロフィール。",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/EventListeners/club-profile.gif?raw=true",
-                caption: "サークルのプロフィール"
-              }
+                caption: "サークルのプロフィール",
+              },
             ],
             tags: ["L3", "L4", "T2", "T3", "T4", "T5", "T9", "T13", "O2", "O6"],
             links: [
               {
                 title: "ウェブサイト",
-                url: "https://event-listeners.herokuapp.com/"
-              }
-            ]
+                url: "https://event-listeners.herokuapp.com/",
+              },
+            ],
           },
           {
             name: "Soundplow",
             shortDescription:
               "Pythonで作られたSoundcloudからのMP3をダウンロードするアプリケーション。GUI込み（PySide / Qt）。",
-            mainImage:
-              "https://github.com/jurcaua/github_image_hosting/blob/master/Soundplow/gif1.gif?raw=true",
+            mainImage: "https://github.com/jurcaua/github_image_hosting/blob/master/Soundplow/gif1.gif?raw=true",
             images: [
               {
-                imgPath:
-                  "https://github.com/jurcaua/github_image_hosting/blob/master/Soundplow/gif1.gif?raw=true",
-                caption: "検索して、ダウンロードする。"
+                imgPath: "https://github.com/jurcaua/github_image_hosting/blob/master/Soundplow/gif1.gif?raw=true",
+                caption: "検索して、ダウンロードする。",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Soundplow/screenshot2.png?raw=true",
-                caption: "いいね！された曲をリアルタイムでダウンロード。"
+                caption: "いいね！された曲をリアルタイムでダウンロード。",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Soundplow/screenshot3.png?raw=true",
-                caption: "曲のURLをリスト入力すれば、一括ダウンロードも可能。"
-              }
+                caption: "曲のURLをリスト入力すれば、一括ダウンロードも可能。",
+              },
             ],
             tags: ["L0", "T7", "T9", "O5"],
             links: [
               {
                 title: "Github",
-                url: "https://github.com/jurcaua/soundplow"
-              }
-            ]
+                url: "https://github.com/jurcaua/soundplow",
+              },
+            ],
           },
           {
             name: "ホグラたたき",
             shortDescription: "実際のレインボーホログラムに浮かび上がらせる、ARモグラ叩きゲーム。",
-            mainImage:
-              "https://github.com/jurcaua/github_image_hosting/blob/master/HoloMole/screenshot1.png?raw=true",
+            mainImage: "https://github.com/jurcaua/github_image_hosting/blob/master/HoloMole/screenshot1.png?raw=true",
             tags: ["L1", "T0", "T6", "T9", "O0", "O2", "O3", "O4"],
             links: [
               {
                 title: "GitHub",
-                url: "https://github.com/jurcaua/Hologram-Whack-A-Mole"
-              }
+                url: "https://github.com/jurcaua/Hologram-Whack-A-Mole",
+              },
             ],
-            video: "https://www.youtube.com/watch?v=XwkHZDINBOI"
+            video: "https://www.youtube.com/watch?v=XwkHZDINBOI",
           },
           {
             name: "グーグルスパイ",
-            shortDescription:
-              "Googleアシスタントを使って、声だけでゲームのキャラクターの操作が出来る。",
-            mainImage:
-              "https://github.com/jurcaua/github_image_hosting/blob/master/GoogleSpy/screenshot1.PNG?raw=true",
+            shortDescription: "Googleアシスタントを使って、声だけでゲームのキャラクターの操作が出来る。",
+            mainImage: "https://github.com/jurcaua/github_image_hosting/blob/master/GoogleSpy/screenshot1.PNG?raw=true",
             images: [
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/GoogleSpy/screenshot3.PNG?raw=true",
-                caption: "あなたの声が、コントローラー？！声でナビって進めよう！"
+                caption: "あなたの声が、コントローラー？！声でナビって進めよう！",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/GoogleSpy/screenshot4.PNG?raw=true",
-                caption: "敵はアップル？！奴らに見つかるな！"
+                caption: "敵はアップル？！奴らに見つかるな！",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/GoogleSpy/screenshot1.PNG?raw=true",
-                caption: ""
-              }
+                caption: "",
+              },
             ],
             tags: ["L1", "L3", "T0", "T6", "T9", "T11", "O1", "O4"],
             links: [
               {
                 title: "GitHub",
-                url: "https://github.com/jurcaua/GoogleSpy"
+                url: "https://github.com/jurcaua/GoogleSpy",
               },
               {
                 title: "Devpost",
-                url: "https://devpost.com/software/googlespy"
-              }
-            ]
+                url: "https://devpost.com/software/googlespy",
+              },
+            ],
           },
           {
             name: "Kleptomanihat",
@@ -1030,75 +995,74 @@ export const strings = {
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/prison-structure.PNG?raw=true",
-                caption: "脱獄しよう！"
+                caption: "脱獄しよう！",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/boss-1.PNG?raw=true",
-                caption: "ユニークなボス達を倒せ！"
+                caption: "ユニークなボス達を倒せ！",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/basketball.PNG?raw=true",
-                caption: "たまには息抜きも大事？都会生活をしながらバスケをしたり、"
+                caption: "たまには息抜きも大事？都会生活をしながらバスケをしたり、",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/movie-theatre.PNG?raw=true",
-                caption: "映画館へ行ったり、"
+                caption: "映画館へ行ったり、",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/final-boss-1.PNG?raw=true",
-                caption: "そして、俳優デビューもしちゃったり？"
+                caption: "そして、俳優デビューもしちゃったり？",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Kleptomanihat/final-boss-2.PNG?raw=true",
-                caption: "目指すは、史上最高の帽子をみつけること！"
-              }
+                caption: "目指すは、史上最高の帽子をみつけること！",
+              },
             ],
             tags: ["L1", "T0", "T6", "T9", "O1", "O4"],
             links: [
               {
                 title: "GitHub",
-                url: "https://github.com/jurcaua/Kleptomanihat"
+                url: "https://github.com/jurcaua/Kleptomanihat",
               },
               {
                 title: "itch.io (Play now!)",
-                url: "https://jurcaua.itch.io/kleptomanihat"
-              }
-            ]
+                url: "https://jurcaua.itch.io/kleptomanihat",
+              },
+            ],
           },
           {
             name: "TranslatAR",
             shortDescription: "画像認識により、リアルタイム環境翻訳を実現した、ARのスマホアプリ。",
-            mainImage:
-              "https://github.com/jurcaua/github_image_hosting/blob/master/TranslatAR/devpost1.jpg?raw=true",
+            mainImage: "https://github.com/jurcaua/github_image_hosting/blob/master/TranslatAR/devpost1.jpg?raw=true",
             images: [
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/TranslatAR/translatAR-test-pic1.png?raw=true",
-                caption: ""
+                caption: "",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/TranslatAR/translatAR-test-pic2.png?raw=true",
-                caption: ""
-              }
+                caption: "",
+              },
             ],
             tags: ["L1", "T0", "T6", "O1", "O3"],
             links: [
               {
                 title: "GitHub",
-                url: "https://github.com/jurcaua/TranslatAR"
+                url: "https://github.com/jurcaua/TranslatAR",
               },
               {
                 title: "Devpost",
-                url: "https://devpost.com/software/translatar-ha36kr"
-              }
+                url: "https://devpost.com/software/translatar-ha36kr",
+              },
             ],
-            video: "https://youtu.be/GyIVdzyi8pY"
+            video: "https://youtu.be/GyIVdzyi8pY",
           },
           {
             name: "Snake Dimensions",
@@ -1109,66 +1073,63 @@ export const strings = {
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Snake%20DIMENSIONS/Screenshot_20170102-123958.png?raw=true",
-                caption: "シンプルな3Dコントロールメニュー。"
+                caption: "シンプルな3Dコントロールメニュー。",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Snake%20DIMENSIONS/Screenshot_20170102-124203.png?raw=true",
-                caption: "障害物を避けながら、ハイスコアを目指そう！"
+                caption: "障害物を避けながら、ハイスコアを目指そう！",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Snake%20DIMENSIONS/Screenshot_20170102-124324.png?raw=true",
-                caption: "時々起こるパワーアップで、FPS（一人称視点）モードも楽しめる！"
+                caption: "時々起こるパワーアップで、FPS（一人称視点）モードも楽しめる！",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Snake%20DIMENSIONS/Screenshot_20170102-124602.png?raw=true",
-                caption: "ハイスコアを叩き出せ！"
-              }
+                caption: "ハイスコアを叩き出せ！",
+              },
             ],
             tags: ["L1", "T0", "T6", "T9", "O4"],
             links: [
               {
                 title: "GitHub",
-                url: "https://github.com/jurcaua/Snake-Dimensions"
+                url: "https://github.com/jurcaua/Snake-Dimensions",
               },
               {
                 title: "Google Play",
-                url: "https://play.google.com/store/apps/details?id=com.jurk.co.snakedimensions"
+                url: "https://play.google.com/store/apps/details?id=com.jurk.co.snakedimensions",
               },
               {
                 title: "itch.io (今すぐプレイ！)",
-                url: "https://jurcaua.itch.io/snake-dimensions"
-              }
+                url: "https://jurcaua.itch.io/snake-dimensions",
+              },
             ],
-            video: "https://www.youtube.com/watch?v=X5Rv26UH0jo"
+            video: "https://www.youtube.com/watch?v=X5Rv26UH0jo",
           },
           {
             name: "Personal Website",
-            shortDescription:
-              "このウェブサイト。ReactとMaterial UIを使って、全て自分で作りました。",
+            shortDescription: "このウェブサイト。ReactとMaterial UIを使って、全て自分で作りました。",
             longDescription: (
               <React.Fragment>
                 <Typography>
                   <u>主な特徴：</u>
                 </Typography>
-                <Typography variant="body1">-	どんな画面サイズにも最適化・テスト</Typography>
-                <Typography variant="body1">
-                -	自分で作られたカスタムのローカライゼーションのシステム
-                  </Typography>
+                <Typography variant="body1">- どんな画面サイズにも最適化・テスト</Typography>
+                <Typography variant="body1">- 自分で作られたカスタムのローカライゼーションのシステム</Typography>
                 <Typography variant="body1" style={{ marginLeft: "8px" }}>
                   ⤷ ウェブサイトにどこにもこのシステムが統合されています
-                  </Typography>
+                </Typography>
                 <Typography variant="body1">
-                -	注目のプロジェクトにおける高性能のプロジェクトのショーケースのフレームワーク
-                  </Typography>
+                  - 注目のプロジェクトにおける高性能のプロジェクトのショーケースのフレームワーク
+                </Typography>
                 <Typography variant="body1" style={{ marginLeft: "8px" }}>
                   ⤷ 良くカスタマイズ出来るレスポンシブな絞り込みのシステム
-                  </Typography>
+                </Typography>
                 <Typography variant="body1" style={{ marginLeft: "8px" }}>
                   ⤷ 動画・画像・GIFが同じスクロール可能のビュー画面
-                  </Typography>
+                </Typography>
               </React.Fragment>
             ),
             mainImage:
@@ -1177,21 +1138,20 @@ export const strings = {
             links: [
               {
                 title: "Github",
-                url: "https://github.com/jurcaua/jurcaua.github.io"
+                url: "https://github.com/jurcaua/jurcaua.github.io",
               },
               {
                 title: "ウェブサイト",
-                url: "http://jurcau.com/"
-              }
-            ]
+                url: "http://jurcau.com/",
+              },
+            ],
           },
           {
             name: "Re-Lec",
             shortDescription:
               "講義の動画を集約するWebシステム。講義を録画してアップロードすれば、トークンがもらえます。そのトークンを使って、他の講義の動画を観ることもできます。",
-            mainImage:
-              "https://github.com/jurcaua/github_image_hosting/blob/master/Re-Lec/logo_relec.png?raw=true",
-            tags: ["L1", "L3", "L4", "T0", "T3", "T6", "T9", "O2", "O6"]
+            mainImage: "https://github.com/jurcaua/github_image_hosting/blob/master/Re-Lec/logo_relec.png?raw=true",
+            tags: ["L1", "L3", "L4", "T0", "T3", "T6", "T9", "O2", "O6"],
           },
           {
             name: "Code Bumpin'",
@@ -1202,85 +1162,84 @@ export const strings = {
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Code%20Bumpin'/game-1.png?raw=true",
-                caption: "迫りくる壁に押し潰されるな！緑のジェムを拾って、押し戻せ！"
+                caption: "迫りくる壁に押し潰されるな！緑のジェムを拾って、押し戻せ！",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Code%20Bumpin'/game-2.png?raw=true",
-                caption: "青のジェムで時間を遅らせろ！"
+                caption: "青のジェムで時間を遅らせろ！",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Code%20Bumpin'/game-3.png?raw=true",
-                caption: "音楽に合わせて動き回れ！これがハイスコアへの近道だ！"
+                caption: "音楽に合わせて動き回れ！これがハイスコアへの近道だ！",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/Code%20Bumpin'/game-4.png?raw=true",
-                caption: "ゲームオーバー。"
-              }
+                caption: "ゲームオーバー。",
+              },
             ],
             tags: ["L1", "T0", "T6", "T9", "O1", "O4"],
             links: [
               {
                 title: "GitHub",
-                url: "https://github.com/jurcaua/code-bumpin"
+                url: "https://github.com/jurcaua/code-bumpin",
               },
               {
                 title: "itch.io (Play now!)",
-                url: "https://jurcaua.itch.io/code-bumpin"
-              }
+                url: "https://jurcaua.itch.io/code-bumpin",
+              },
             ],
-            video: "https://www.youtube.com/watch?v=Yfn3moFHb3s&feature=youtu.be"
+            video: "https://www.youtube.com/watch?v=Yfn3moFHb3s&feature=youtu.be",
           },
           {
             name: "GameNani",
             shortDescription:
               "ドラッグ＆ドロップ操作で、Unity 3Dのゲームを分析できる、開発者用ツール。プレイヤーの動作を、シームレスにリポートできます。",
-            mainImage:
-              "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot3.jpg?raw=true",
+            mainImage: "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot3.jpg?raw=true",
             images: [
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot1.jpg?raw=true",
-                caption: "色んなゲームのライブ統計を見ることが出来ます。"
+                caption: "色んなゲームのライブ統計を見ることが出来ます。",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot2.jpg?raw=true",
-                caption: "キー入力を記憶し、ゲーム内でライブ表示できます。"
+                caption: "キー入力を記憶し、ゲーム内でライブ表示できます。",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot3.jpg?raw=true",
-                caption: "コンパニオンアプリでは、各セッションの細かい統計を表示することができます。"
+                caption: "コンパニオンアプリでは、各セッションの細かい統計を表示することができます。",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot4.jpg?raw=true",
-                caption: "セッション毎の、細かい統計を見ることも出来ます。"
+                caption: "セッション毎の、細かい統計を見ることも出来ます。",
               },
               {
                 imgPath:
                   "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot5.jpg?raw=true",
-                caption: "入力されたキーの統計を同じように見ることも出来ます。"
-              }
+                caption: "入力されたキーの統計を同じように見ることも出来ます。",
+              },
             ],
             tags: ["L1", "T0", "T6", "T9", "O1", "O4", "O5"],
             links: [
               {
                 title: "GitHub（ツール）",
-                url: "https://github.com/jurcaua/GameNaniGrapher"
+                url: "https://github.com/jurcaua/GameNaniGrapher",
               },
               {
                 title: "GitHub（ゲーム）",
-                url: "https://github.com/jurcaua/GameNani"
+                url: "https://github.com/jurcaua/GameNani",
               },
               {
                 title: "DevPost",
-                url: "https://devpost.com/software/thacks2"
-              }
-            ]
+                url: "https://devpost.com/software/thacks2",
+              },
+            ],
           },
           {
             name: "Space Shooter",
@@ -1291,26 +1250,25 @@ export const strings = {
             links: [
               {
                 title: "GitHub",
-                url: "https://github.com/jurcaua/SpaceShooter-Android"
-              }
+                url: "https://github.com/jurcaua/SpaceShooter-Android",
+              },
             ],
-            video: "https://www.youtube.com/watch?v=yUQojrvAw1k"
+            video: "https://www.youtube.com/watch?v=yUQojrvAw1k",
           },
           {
             name: "Airplane Simulator",
-            shortDescription:
-              "高校の時に作った物理学のフライトシミュレータ。Javaで作られたアプリケーション。",
+            shortDescription: "高校の時に作った物理学のフライトシミュレータ。Javaで作られたアプリケーション。",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/AirplaneSim/2019-12-30%2021_50_28-Settings.png?raw=true",
             tags: ["L5", "O2"],
             links: [
               {
                 title: "GitHub",
-                url: "https://github.com/jurcaua/airplaneSimulator"
-              }
-            ]
-          }
-        ]
+                url: "https://github.com/jurcaua/airplaneSimulator",
+              },
+            ],
+          },
+        ],
       },
       interests: {
         label: "興味",
@@ -1334,7 +1292,7 @@ export const strings = {
                 </Typography>
               </React.Fragment>
             ),
-            icon: "translate"
+            icon: "translate",
           },
           {
             summary: "ゲーム",
@@ -1346,7 +1304,7 @@ export const strings = {
                 (昔の自分だったら、信じられないかもしれません。)
               </Typography>
             ),
-            icon: "videogame_asset"
+            icon: "videogame_asset",
           },
           {
             summary: "バスケットボール",
@@ -1362,7 +1320,7 @@ export const strings = {
               それらが確かな努力とチームワークを優先する思考を形成し、今日(こんにち)まで私の信念です。
               */
             ),
-            icon: "fitness_center"
+            icon: "fitness_center",
           },
           {
             summary: "コーヒー",
@@ -1375,12 +1333,12 @@ export const strings = {
                 </Typography>
               </React.Fragment>
             ),
-            icon: "free_breakfast"
-          }
-        ]
-      }
-    }
-  }
+            icon: "free_breakfast",
+          },
+        ],
+      },
+    },
+  },
 };
 
 export function getLanguage() {
@@ -1398,14 +1356,14 @@ export function localized() {
 export function getGroupedProjectTags(tag) {
   // Filter away preset ignore keys: https://stackoverflow.com/questions/38750705/filter-object-properties-by-key-in-es6
   return Object.keys(groupedProjectTagMappings[currentLanguage])
-    .filter(key => !ignoreGroups.includes(key))
+    .filter((key) => !ignoreGroups.includes(key))
     .reduce((obj, key) => {
       obj[key] = groupedProjectTagMappings[currentLanguage][key];
       return obj;
     }, {});
 }
 
-export const customBoolsToFunctions = customBools => {
+export const customBoolsToFunctions = (customBools) => {
   const customFilters = getCustomFilters();
 
   return Object.keys(customBools).reduce((lst, key) => {
@@ -1418,9 +1376,9 @@ export const customBoolsToFunctions = customBools => {
 
 export const getFilteredProjects = (filterTagList, miscFilterFunctionList = []) => {
   return localized().tabs.projects.content.filter(
-    proj =>
-      filterTagList.every(t => proj.tags.includes(t)) && // 1. only get projects that have every tag given
-      (miscFilterFunctionList.length === 0 || miscFilterFunctionList.every(f => f(proj))) // 2. custom functions the project should return true for
+    (proj) =>
+      filterTagList.every((t) => proj.tags.includes(t)) && // 1. only get projects that have every tag given
+      (miscFilterFunctionList.length === 0 || miscFilterFunctionList.every((f) => f(proj))) // 2. custom functions the project should return true for
   );
 };
 
@@ -1446,14 +1404,12 @@ export function getTimeLearningJapaneseString(lang) {
 
   const { space } = basicStrings[lang].time;
 
-  let yearsString = `${years}${space}${
-    years === 1 ? basicStrings[lang].time.year : basicStrings[lang].time.years
-    }`;
+  let yearsString = `${years}${space}${years === 1 ? basicStrings[lang].time.year : basicStrings[lang].time.years}`;
   let monthsString = "";
   if (months > 0) {
     months = `${space}${basicStrings[lang].time.connector}${space}${months}${space}${
       months === 1 ? basicStrings[lang].time.month : basicStrings[lang].time.months
-      }`;
+    }`;
   }
   return `${yearsString}${monthsString}`;
 }
