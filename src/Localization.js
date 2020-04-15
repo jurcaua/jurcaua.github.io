@@ -168,6 +168,42 @@ export const strings = {
         },
         content: [
           {
+            name: "EspionAge",
+            shortDescription:
+              "Heroes never die; legends never retire. A comedic stealth-adventure game that takes place in a retirement home.",
+            mainImage: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMxODIxNzYucG5n/original/Ta0TH7.png",
+            video: "https://www.youtube.com/watch?v=3FfadIq6LHg",
+            images: [
+              {
+                imgPath: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMxNzU5MzkucG5n/347x500/FfZJXk.png",
+                caption: "",
+              },
+              {
+                imgPath: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMxODIxNzYucG5n/original/Ta0TH7.png",
+                caption: "",
+              },
+              {
+                imgPath: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMxODIxNzUucG5n/347x500/w0k7Mm.png",
+                caption: "",
+              },
+              {
+                imgPath: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMxODIxNzcucG5n/original/5lFLFA.png",
+                caption: "",
+              },
+            ],
+            tags: ["L1", "T0", "T6", "T9", "O2", "O4"],
+            links: [
+              {
+                title: "GitHub",
+                url: "https://github.com/FinnbarrOC/EspionAge",
+              },
+              {
+                title: "itch.io (Play now!)",
+                url: "https://espionage.itch.io/espionage",
+              },
+            ],
+          },
+          {
             name: "Fisherman Foes: Ocean Commotion",
             shortDescription:
               "Fight your fellow fisherman to be the king-of-the-hill, and win in this 2D multiplayer battle, with only your rod as your weapon.",
@@ -696,7 +732,10 @@ export const strings = {
     nameSeperator: "・",
     nameLast: "アレックス",
     greeting: "こんにちは！アレックスです。",
-    resumeDocuments: [{ text: "履歴書", sublink: "履歴書.pdf" }, { text: "職務経歴書", sublink: "職務経歴書.pdf" }],
+    resumeDocuments: [
+      { text: "履歴書", sublink: "履歴書.pdf" },
+      { text: "職務経歴書", sublink: "職務経歴書.pdf" },
+    ],
     copyButtonTooltip: "コピー",
     copyConfirmNotification: "コピーしました！",
     changeLanguage: "Change the language to English! (英語)",
@@ -815,6 +854,42 @@ export const strings = {
         },
         content: [
           {
+            name: "EspionAge（エスピオネージ）",
+            shortDescription:
+              "ヒーローは決して死せず、レジェンドに引退はない。老人ホームが舞台の、滑稽なステルス･アドベンチャーゲーム。",
+            mainImage: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMxODIxNzYucG5n/original/Ta0TH7.png",
+            video: "https://www.youtube.com/watch?v=3FfadIq6LHg",
+            images: [
+              {
+                imgPath: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMxNzU5MzkucG5n/347x500/FfZJXk.png",
+                caption: "",
+              },
+              {
+                imgPath: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMxODIxNzYucG5n/original/Ta0TH7.png",
+                caption: "",
+              },
+              {
+                imgPath: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMxODIxNzUucG5n/347x500/w0k7Mm.png",
+                caption: "",
+              },
+              {
+                imgPath: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMxODIxNzcucG5n/original/5lFLFA.png",
+                caption: "",
+              },
+            ],
+            tags: ["L1", "T0", "T6", "T9", "O2", "O4"],
+            links: [
+              {
+                title: "GitHub",
+                url: "https://github.com/FinnbarrOC/EspionAge",
+              },
+              {
+                title: "itch.io (今すぐプレイ！)",
+                url: "https://espionage.itch.io/espionage",
+              },
+            ],
+          },
+          {
             name: "フィッシャーズ決戦",
             shortDescription: "釣り竿一本で闘い抜け！ライバルを突き放し、「お山の大将ゲーム」を勝ち抜こう！",
             mainImage:
@@ -865,7 +940,7 @@ export const strings = {
             ],
           },
           {
-            name: "Event Listeners",
+            name: "Event Listeners（イベント・リスナー）",
             shortDescription:
               "トロント大学のサークルやイベント情報を集約するWebアプリケーションというアイディア ～ スクールプロジェクトとして、満点を獲得～",
             mainImage:
@@ -911,7 +986,7 @@ export const strings = {
             ],
           },
           {
-            name: "Soundplow",
+            name: "Soundplow（サウンドプラウ）",
             shortDescription:
               "Pythonで作られたSoundcloudからのMP3をダウンロードするアプリケーション。GUI込み（PySide / Qt）。",
             mainImage: "https://github.com/jurcaua/github_image_hosting/blob/master/Soundplow/gif1.gif?raw=true",
@@ -986,7 +1061,7 @@ export const strings = {
             ],
           },
           {
-            name: "Kleptomanihat",
+            name: "Kleptomanihat（クレプトマニハット）",
             shortDescription:
               "終身刑に処せられた盗癖のある人が、魔法の力で出獄された。彼をコントロールして、冒険しながら様々な帽子を集めよう！",
             mainImage:
@@ -1036,7 +1111,7 @@ export const strings = {
             ],
           },
           {
-            name: "TranslatAR",
+            name: "TranslatAR（トランスレータル）",
             shortDescription: "画像認識により、リアルタイム環境翻訳を実現した、ARのスマホアプリ。",
             mainImage: "https://github.com/jurcaua/github_image_hosting/blob/master/TranslatAR/devpost1.jpg?raw=true",
             images: [
@@ -1065,7 +1140,7 @@ export const strings = {
             video: "https://youtu.be/GyIVdzyi8pY",
           },
           {
-            name: "Snake Dimensions",
+            name: "Snake Dimensions（スネーク・ディメンション）",
             shortDescription: "Unityで作られたアンドロイド向け3Dヘビゲーム。",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/raw/master/Snake%20DIMENSIONS/Screenshot_20170102-123935.png",
@@ -1109,7 +1184,7 @@ export const strings = {
             video: "https://www.youtube.com/watch?v=X5Rv26UH0jo",
           },
           {
-            name: "Personal Website",
+            name: "自分のウェブサイト",
             shortDescription: "このウェブサイト。ReactとMaterial UIを使って、全て自分で作りました。",
             longDescription: (
               <React.Fragment>
@@ -1147,14 +1222,14 @@ export const strings = {
             ],
           },
           {
-            name: "Re-Lec",
+            name: "Re-Lec（リーレック）",
             shortDescription:
               "講義の動画を集約するWebシステム。講義を録画してアップロードすれば、トークンがもらえます。そのトークンを使って、他の講義の動画を観ることもできます。",
             mainImage: "https://github.com/jurcaua/github_image_hosting/blob/master/Re-Lec/logo_relec.png?raw=true",
             tags: ["L1", "L3", "L4", "T0", "T3", "T6", "T9", "O2", "O6"],
           },
           {
-            name: "Code Bumpin'",
+            name: "Code Bumpin'（コード・バンピン）",
             shortDescription: "3Dプラットフォームのプロトタイプ。音楽を可視化したゲーム。",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/raw/master/Code%20Bumpin'/code-bumpin-v3%202017-01-23%2019-51-19-10.bmp",
@@ -1194,7 +1269,7 @@ export const strings = {
             video: "https://www.youtube.com/watch?v=Yfn3moFHb3s&feature=youtu.be",
           },
           {
-            name: "GameNani",
+            name: "GameNani（ゲームナ二）",
             shortDescription:
               "ドラッグ＆ドロップ操作で、Unity 3Dのゲームを分析できる、開発者用ツール。プレイヤーの動作を、シームレスにリポートできます。",
             mainImage: "https://github.com/jurcaua/github_image_hosting/blob/master/GameNani/screenshot3.jpg?raw=true",
@@ -1242,7 +1317,7 @@ export const strings = {
             ],
           },
           {
-            name: "Space Shooter",
+            name: "Space Shooter（スペース・シューター）",
             shortDescription: "Unityチュートリアルの修正版。狙撃の範囲を広げる機能を追加しました。",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/Space%20Shooter/Screenshot_20170110-221144-cropped.png?raw=true",
@@ -1256,7 +1331,7 @@ export const strings = {
             video: "https://www.youtube.com/watch?v=yUQojrvAw1k",
           },
           {
-            name: "Airplane Simulator",
+            name: "フライトシミュレーター",
             shortDescription: "高校の時に作った物理学のフライトシミュレータ。Javaで作られたアプリケーション。",
             mainImage:
               "https://github.com/jurcaua/github_image_hosting/blob/master/AirplaneSim/2019-12-30%2021_50_28-Settings.png?raw=true",
