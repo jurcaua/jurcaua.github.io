@@ -6,8 +6,8 @@ import EmailIcon from "@material-ui/icons/Email";
 
 // Local Imports
 import { DEFAULT_LANGUAGE } from "./Constants";
-import { getYearsAgo, getMonthsAgo } from "./Utils";
-import { BIRTHDAY, JAPANESE_STARTED_LEARNING, JLPT_LEVEL_CURRENTLY_HAVE } from "./Info";
+import { getYearsAgo, getMonthsAgo, getYearsFromTotalMonths, getRemainderMonthsFromTotalMonths } from "./Utils";
+import { BIRTHDAY, JAPANESE_STARTED_LEARNING, JLPT_LEVEL_CURRENTLY_HAVE, UBISOFT_WORKED_MONTHS } from "./Info";
 import Emoji from "./Emoji";
 import {
   projectTagMappings,
@@ -80,13 +80,15 @@ export const strings = {
         tooltip: "Qualification overview.",
         summary: [
           <Typography variant="h5">
-            Currently {getYearsAgo(BIRTHDAY)} years old, and a fourth year student at the <b>University of Toronto</b>{" "}
-            -- studying Computer Science with focuses in Algorithms, System Design, and Game Design.
+            Working at Ubisoft Toronto for a total of {getYearsFromTotalMonths(UBISOFT_WORKED_MONTHS)} years and{" "}
+            {getRemainderMonthsFromTotalMonths(UBISOFT_WORKED_MONTHS)} months as a Tools Programmer on Watch Dogs
+            Legion.
           </Typography>,
           <Typography variant="h5">
-            I worked for <b>Ubisoft Toronto</b> (Watch Dogs Legion) on the tools team for 15 months. Responsible for a
-            variety of things, my focuses were:
+            Currently {getYearsAgo(BIRTHDAY)} years old, and a <b>University of Toronto</b> alumnus, where I studied
+            Computer Science with focuses in Algorithms, System Design, and Game Design.
           </Typography>,
+          <Typography variant="h5">My notable contributions to Ubisoft can be seen below:</Typography>,
         ],
         currentExperiences: [
           {
@@ -171,23 +173,27 @@ export const strings = {
             name: "EspionAge",
             shortDescription:
               "Heroes never die; legends never retire. A comedic stealth-adventure game that takes place in a retirement home.",
-            mainImage: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMxODIxNzYucG5n/original/Ta0TH7.png",
+            mainImage: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMyOTMyMDgucG5n/original/yw4VbA.png",
             video: "https://www.youtube.com/watch?v=3FfadIq6LHg",
             images: [
               {
-                imgPath: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMxNzU5MzkucG5n/347x500/FfZJXk.png",
+                imgPath: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMyOTMwOTEucG5n/original/anHZl4.png",
                 caption: "",
               },
               {
-                imgPath: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMxODIxNzYucG5n/original/Ta0TH7.png",
+                imgPath: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMxODIxNzUucG5n/original/ShDYpp.png",
                 caption: "",
               },
               {
-                imgPath: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMxODIxNzUucG5n/347x500/w0k7Mm.png",
+                imgPath: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMyOTMyMDkucG5n/original/TxAkQ5.png",
                 caption: "",
               },
               {
-                imgPath: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMxODIxNzcucG5n/original/5lFLFA.png",
+                imgPath: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMyOTMwOTAucG5n/original/6%2F5Eh7.png",
+                caption: "",
+              },
+              {
+                imgPath: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMyOTMyMDgucG5n/original/yw4VbA.png",
                 caption: "",
               },
             ],
@@ -767,14 +773,14 @@ export const strings = {
         tooltip: "資格概要",
         summary: [
           <Typography variant="h5">
-            現在、<b>トロント大学</b>に通っている{getYearsAgo(BIRTHDAY)}
-            歳の四年生です。
-            コンピューターサイエンスのアルゴリズムやシステムデザインやゲームデザインを中心に学んでいます。
+            現在、{getYearsFromTotalMonths(UBISOFT_WORKED_MONTHS)}年
+            {getRemainderMonthsFromTotalMonths(UBISOFT_WORKED_MONTHS)}
+            ヶ月、Ubisoftというゲーム会社でツールプログラマーとして働いております。
           </Typography>,
           <Typography variant="h5">
-            <b>Ubisoft</b>というゲーム会社のツールチームで15ヶ月のインターンシップをしていました。
-            私の専門は以下のとおりです。
+            トロント大学を卒業、コンピューターサイエンスのアルゴリズム、システムデザイン、ゲームデザイン等、を中心に学んでおりました。
           </Typography>,
+          <Typography variant="h5">私の専門は以下のとおりです。</Typography>,
         ],
         currentExperiences: [
           {
@@ -857,23 +863,27 @@ export const strings = {
             name: "EspionAge（エスピオネージ）",
             shortDescription:
               "ヒーローは決して死せず、レジェンドに引退はない。老人ホームが舞台の、滑稽なステルス･アドベンチャーゲーム。",
-            mainImage: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMxODIxNzYucG5n/original/Ta0TH7.png",
+            mainImage: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMyOTMyMDgucG5n/original/yw4VbA.png",
             video: "https://www.youtube.com/watch?v=3FfadIq6LHg",
             images: [
               {
-                imgPath: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMxNzU5MzkucG5n/347x500/FfZJXk.png",
+                imgPath: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMyOTMwOTEucG5n/original/anHZl4.png",
                 caption: "",
               },
               {
-                imgPath: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMxODIxNzYucG5n/original/Ta0TH7.png",
+                imgPath: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMxODIxNzUucG5n/original/ShDYpp.png",
                 caption: "",
               },
               {
-                imgPath: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMxODIxNzUucG5n/347x500/w0k7Mm.png",
+                imgPath: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMyOTMyMDkucG5n/original/TxAkQ5.png",
                 caption: "",
               },
               {
-                imgPath: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMxODIxNzcucG5n/original/5lFLFA.png",
+                imgPath: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMyOTMwOTAucG5n/original/6%2F5Eh7.png",
+                caption: "",
+              },
+              {
+                imgPath: "https://img.itch.zone/aW1hZ2UvNTk5NTUyLzMyOTMyMDgucG5n/original/yw4VbA.png",
                 caption: "",
               },
             ],
