@@ -686,8 +686,9 @@ export const strings = {
                 </Typography>
                 <br />
                 <Typography variant="h5">
-                  I can have a casual or simple business level conversation with few issues, and can keep up with native
-                  speaking patterns and colloquial speech.
+                  I can have casual or business level conversations without any issues, and can keep up with native
+                  speaking patterns and colloquial speech. Additionally, I successfully went through the Japanese job
+                  hunting process that included Japanese-only communications during the entire interview process.
                 </Typography>
               </React.Fragment>
             ),
@@ -1373,7 +1374,8 @@ export const strings = {
                 </Typography>
                 <br />
                 <Typography variant="h5">
-                  上級ビジネスレベルでなければ、問題なく日本語でコミュニケーションをとることが出来ます。
+                  日常会話やビジネスレベルにおいて、日本語でコミュニケーションをとることが出来ます。
+                  最近では、日本での就職活動を通して、ビジネスメールの書き方や面接のスキルを向上させることができました。
                 </Typography>
               </React.Fragment>
             ),
