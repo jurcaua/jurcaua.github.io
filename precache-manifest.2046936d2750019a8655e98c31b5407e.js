@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/static/media/NotoSansCJKjp-Light.f269c193.otf"
   },
   {
-    "revision": "d41233fb4037605f2167b3be1b580606",
+    "revision": "f52958d98f5839d02684a3d6290e877e",
     "url": "/index.html"
   }
 ];
