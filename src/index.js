@@ -10,15 +10,24 @@ import { HashRouter } from "react-router-dom";
 
 let theme = createMuiTheme({
   typography: {
-    "fontFamily": "\"NotoSansCJKjp\", sans-serif",
+    fontFamily: '"NotoSansCJKjp", sans-serif',
   },
   overrides: {
     MuiTooltip: {
       tooltip: {
-        fontSize: "1em"
-      }
-    }
-  }
+        fontSize: "1em",
+        backgroundColor: "black",
+      },
+      arrow: {
+        color: "black",
+      },
+    },
+  },
+  props: {
+    MuiTooltip: {
+      arrow: true,
+    },
+  },
 });
 theme = responsiveFontSizes(theme);
 
