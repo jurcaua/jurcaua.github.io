@@ -170,6 +170,37 @@ export const strings = {
         },
         content: [
           {
+            name: "Tungsten and Sparky",
+            shortDescription:
+              "The socket brothers are in trouble! Help  tungsten and sparky survive an onslaught of killer forks, only using the electric cable that binds them both as a weapon.",
+            mainImage: "https://img.itch.zone/aW1nLzM0NDUwMjIucG5n/original/8DpP37.png",
+            images: [
+              {
+                imgPath: "https://img.itch.zone/aW1hZ2UvNjQzNjEyLzM0Njg5MzEuanBn/original/mDFSPt.jpg",
+                caption: "",
+              },
+              {
+                imgPath: "https://img.itch.zone/aW1hZ2UvNjQzNjEyLzM0NDkzMTQuanBn/original/Zyfi%2FT.jpg",
+                caption: "",
+              },
+              {
+                imgPath: "https://img.itch.zone/aW1hZ2UvNjQzNjEyLzM0NDkzMTMuanBn/original/QjRZqP.jpg",
+                caption: "",
+              },
+            ],
+            tags: ["L2", "T1", "T6", "T9", "O1", "O4"],
+            links: [
+              {
+                title: "GitHub",
+                url: "https://github.com/FinnbarrOC/TOJam2020_CSC",
+              },
+              {
+                title: "itch.io (Play now!)",
+                url: "https://masonachu.itch.io/tungstenandsparky",
+              },
+            ],
+          },
+          {
             name: "EspionAge",
             shortDescription:
               "Heroes never die; legends never retire. A comedic stealth-adventure game that takes place in a retirement home.",
@@ -860,6 +891,36 @@ export const strings = {
           },
         },
         content: [
+          {
+            name: "Tungsten and Sparky",
+            shortDescription: "",
+            mainImage: "https://img.itch.zone/aW1nLzM0NDUwMjIucG5n/original/8DpP37.png",
+            images: [
+              {
+                imgPath: "https://img.itch.zone/aW1hZ2UvNjQzNjEyLzM0Njg5MzEuanBn/original/mDFSPt.jpg",
+                caption: "",
+              },
+              {
+                imgPath: "https://img.itch.zone/aW1hZ2UvNjQzNjEyLzM0NDkzMTQuanBn/original/Zyfi%2FT.jpg",
+                caption: "",
+              },
+              {
+                imgPath: "https://img.itch.zone/aW1hZ2UvNjQzNjEyLzM0NDkzMTMuanBn/original/QjRZqP.jpg",
+                caption: "",
+              },
+            ],
+            tags: ["L2", "T1", "T6", "T9", "O1", "O4"],
+            links: [
+              {
+                title: "GitHub",
+                url: "https://github.com/FinnbarrOC/TOJam2020_CSC",
+              },
+              {
+                title: "itch.io (今すぐプレイ！)",
+                url: "https://masonachu.itch.io/tungstenandsparky",
+              },
+            ],
+          },
           {
             name: "EspionAge（エスピオネージ）",
             shortDescription:
