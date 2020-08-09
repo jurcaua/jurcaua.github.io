@@ -29,3 +29,10 @@ export function getYearsFromTotalMonths(months) {
 export function getRemainderMonthsFromTotalMonths(months) {
   return months - getYearsFromTotalMonths(months) * 12;
 }
+
+export const displayYearMonthText = (yearValue, monthValue) => {
+  const yearsPart = yearValue === 0 ? `` : yearValue === 1 ? `${yearValue} year` : `${yearValue} years`;
+  const monthsPart = monthValue === 0 ? `` : monthValue === 1 ? `${monthValue} month` : `${monthValue} months`;
+  const connector = yearsPart && monthsPart ? " and " : "";
+  return `${yearsPart}${connector}${monthsPart}`;
+};

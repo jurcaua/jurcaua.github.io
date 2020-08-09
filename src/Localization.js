@@ -6,7 +6,13 @@ import EmailIcon from "@material-ui/icons/Email";
 
 // Local Imports
 import { DEFAULT_LANGUAGE } from "./Constants";
-import { getYearsAgo, getMonthsAgo, getYearsFromTotalMonths, getRemainderMonthsFromTotalMonths } from "./Utils";
+import {
+  getYearsAgo,
+  getMonthsAgo,
+  getYearsFromTotalMonths,
+  getRemainderMonthsFromTotalMonths,
+  displayYearMonthText,
+} from "./Utils";
 import { BIRTHDAY, JAPANESE_STARTED_LEARNING, JLPT_LEVEL_CURRENTLY_HAVE, UBISOFT_WORKED_MONTHS } from "./Info";
 import Emoji from "./Emoji";
 import {
@@ -80,9 +86,12 @@ export const strings = {
         tooltip: "Qualification overview.",
         summary: [
           <Typography variant="h5">
-            Working at Ubisoft Toronto for a total of {getYearsFromTotalMonths(UBISOFT_WORKED_MONTHS)} years and{" "}
-            {getRemainderMonthsFromTotalMonths(UBISOFT_WORKED_MONTHS)} months as a Tools Programmer on Watch Dogs
-            Legion.
+            Working at Ubisoft Toronto for a total of{" "}
+            {displayYearMonthText(
+              getYearsFromTotalMonths(UBISOFT_WORKED_MONTHS),
+              getRemainderMonthsFromTotalMonths(UBISOFT_WORKED_MONTHS)
+            )}
+            as a Tools Programmer on Watch Dogs Legion.
           </Typography>,
           <Typography variant="h5">
             Currently {getYearsAgo(BIRTHDAY)} years old, and a <b>University of Toronto</b> alumnus, where I studied
