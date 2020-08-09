@@ -8,8 +8,8 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(1),
     zIndex: 11,
     bottom: "min(85px, 14vw)",
-    right: theme.spacing(0)
-  }
+    right: theme.spacing(0),
+  },
 }));
 
 const ProjectsNumberOverlay = ({ projects, ...props }) => {
@@ -17,7 +17,7 @@ const ProjectsNumberOverlay = ({ projects, ...props }) => {
 
   return (
     <Paper className={classes.root} elevation={4}>
-      <Typography variant="h6">{localized().tabs.projects.displaying(projects.length)}</Typography>
+      <Typography variant="h6">{localized().tabs.projects.displaying(Object.keys(projects).length)}</Typography>
     </Paper>
   );
 };

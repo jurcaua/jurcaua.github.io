@@ -9,7 +9,7 @@ import TabMe from "./me/TabMe";
 import TabProjects from "./projects/TabProjects";
 import TabInterests from "./interests/TabInterests";
 
-const TabRouteRendering = props => {
+const TabRouteRendering = () => {
   const [windowInnerWidth, setWindowInnerWidth] = useState(window.innerWidth);
 
   const handleWindowSizeChange = () => {
@@ -30,9 +30,11 @@ const TabRouteRendering = props => {
       <Route exact path={GetRootTabRouterPath(ME_TAB_SLUG)}>
         <TabMe windowInnerWidth={windowInnerWidth} />
       </Route>
-      <Route exact path={GetRootTabRouterPath(PROJECTS_TAB_SLUG)}>
-        <TabProjects windowInnerWidth={windowInnerWidth} />
-      </Route>
+      <Route
+        exact
+        path={[GetRootTabRouterPath(PROJECTS_TAB_SLUG), `${GetRootTabRouterPath(PROJECTS_TAB_SLUG)}/:project`]}
+        render={routeProps => <TabProjects {...routeProps} windowInnerWidth={windowInnerWidth} />}
+      />
       <Route
         exact
         path={[GetRootTabRouterPath(INTERESTS_TAB_SLUG), `${GetRootTabRouterPath(INTERESTS_TAB_SLUG)}/:interest`]}

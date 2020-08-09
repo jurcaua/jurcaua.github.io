@@ -1,43 +1,62 @@
 import React from "react";
-import { Card, CardActionArea, CardMedia, CardContent, Typography } from "@material-ui/core";
+import { Link as RouterLink } from "react-router-dom";
+
 import { makeStyles } from "@material-ui/styles";
+import { Typography, Paper } from "@material-ui/core";
+
 import ProjectTagList from "./ProjectTagList";
+import { GetRootTabLinkToPath, PROJECTS_TAB_SLUG } from "../../Constants";
 
 const useStyles = makeStyles(theme => ({
+  link: {
+    textDecoration: "none",
+  },
+  img: {
+    width: "100%",
+  },
   // Ref: https://mui-treasury.com/components/shadow
-  card: {
+  paperRoot: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    height: "100%",
     boxShadow: "0 8px 20px -12px rgba(0,0,0,0.3)",
     transition: "0.3s",
     "&:hover": {
-      boxShadow: "0 8px 40px -12px rgba(0,0,0,0.3)"
-    }
-  }
+      boxShadow: "0 8px 40px -12px rgba(0,0,0,0.3)",
+    },
+  },
+  contentsRoot: {
+    display: "flex",
+    flexDirection: "column",
+    flexGrow: 1,
+    paddingLeft: theme.spacing(1),
+    paddingRight: theme.spacing(1),
+    paddingBottom: theme.spacing(1),
+  },
 }));
 
-const ProjectTile = ({ project, highlights, onClick, ...rest }) => {
+const ProjectTile = ({ projectKey, project, highlights, ...rest }) => {
   const classes = useStyles(rest);
 
   const { name, shortDescription, mainImage, tags } = project;
 
-  const handleClick = event => {
-    onClick(event, project);
-  };
-
   return (
-    <Card className={classes.card} onClick={handleClick}>
-      <CardActionArea>
-        <CardMedia component="img" alt={name} src={mainImage} />
-        <CardContent>
+    <RouterLink className={classes.link} to={`${GetRootTabLinkToPath(PROJECTS_TAB_SLUG)}/${projectKey}`}>
+      <Paper className={classes.paperRoot} variant="outlined" square>
+        <img className={classes.img} alt={name} src={mainImage} />
+        <div className={classes.contentsRoot}>
           <Typography gutterBottom variant="h5" component="h2">
             {name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             {shortDescription}
           </Typography>
+          <div style={{ flexGrow: 1 }} />
           <ProjectTagList tags={tags} highlights={highlights} />
-        </CardContent>
-      </CardActionArea>
-    </Card>
+        </div>
+      </Paper>
+    </RouterLink>
   );
 };
 

@@ -90,7 +90,7 @@ export const strings = {
             {displayYearMonthText(
               getYearsFromTotalMonths(UBISOFT_WORKED_MONTHS),
               getRemainderMonthsFromTotalMonths(UBISOFT_WORKED_MONTHS)
-            )}{" "} 
+            )}{" "}
             as a Tools Programmer on Watch Dogs Legion.
           </Typography>,
           <Typography variant="h5">
@@ -177,8 +177,8 @@ export const strings = {
             applyButton: "Apply Filters",
           },
         },
-        content: [
-          {
+        content: {
+          "tungsten-and-sparky": {
             name: "Tungsten and Sparky",
             shortDescription:
               "The socket brothers are in trouble! Help  tungsten and sparky survive an onslaught of killer forks, only using the electric cable that binds them both as a weapon.",
@@ -209,7 +209,7 @@ export const strings = {
               },
             ],
           },
-          {
+          espionage: {
             name: "EspionAge",
             shortDescription:
               "Heroes never die; legends never retire. A comedic stealth-adventure game that takes place in a retirement home.",
@@ -249,7 +249,7 @@ export const strings = {
               },
             ],
           },
-          {
+          "fisherman-foes": {
             name: "Fisherman Foes: Ocean Commotion",
             shortDescription:
               "Fight your fellow fisherman to be the king-of-the-hill, and win in this 2D multiplayer battle, with only your rod as your weapon.",
@@ -300,7 +300,7 @@ export const strings = {
               },
             ],
           },
-          {
+          "event-listeners": {
             name: "Event Listeners",
             shortDescription:
               "Web app made to be the center of clubs and events for the University of Toronto - school project prototype (100% grade).",
@@ -346,7 +346,7 @@ export const strings = {
               },
             ],
           },
-          {
+          soundplow: {
             name: "Soundplow",
             shortDescription: "Soundcloud .mp3 downloader + integrated UI (PySide / Qt) - made in Python",
             mainImage: "https://github.com/jurcaua/github_image_hosting/blob/master/Soundplow/gif1.gif?raw=true",
@@ -374,7 +374,7 @@ export const strings = {
               },
             ],
           },
-          {
+          "holo-mole": {
             name: "Holo-Mole",
             shortDescription: "Augmented reality game on a physical rainbow hologram, built in Unity.",
             mainImage: "https://github.com/jurcaua/github_image_hosting/blob/master/HoloMole/screenshot1.png?raw=true",
@@ -387,7 +387,7 @@ export const strings = {
             ],
             video: "https://www.youtube.com/watch?v=XwkHZDINBOI",
           },
-          {
+          "google-spy": {
             name: "Google Spy",
             shortDescription: "Take full control of in-game characters in Unity by voice via Google Assistant.",
             mainImage: "https://github.com/jurcaua/github_image_hosting/blob/master/GoogleSpy/screenshot1.PNG?raw=true",
@@ -420,7 +420,7 @@ export const strings = {
               },
             ],
           },
-          {
+          kleptomanihat: {
             name: "Kleptomanihat",
             shortDescription:
               "A hat kleptomaniac imprisoned for life is magically released. Control him as he runs around town, collecting hats as he goes.",
@@ -470,7 +470,7 @@ export const strings = {
               },
             ],
           },
-          {
+          translatar: {
             name: "TranslatAR",
             shortDescription: "Real-time Augmented Reality translation app with image recognition in Unity.",
             mainImage: "https://github.com/jurcaua/github_image_hosting/blob/master/TranslatAR/devpost1.jpg?raw=true",
@@ -499,7 +499,7 @@ export const strings = {
             ],
             video: "https://youtu.be/GyIVdzyi8pY",
           },
-          {
+          "snake-dimensions": {
             name: "Snake Dimensions",
             shortDescription: "3D version of the classic game of Snake, built for Android using Unity.",
             mainImage:
@@ -543,7 +543,7 @@ export const strings = {
             ],
             video: "https://www.youtube.com/watch?v=X5Rv26UH0jo",
           },
-          {
+          website: {
             name: "Personal Website",
             shortDescription: "This website - entirely custom and made in React w/ Material UI.",
             longDescription: (
@@ -583,14 +583,14 @@ export const strings = {
               },
             ],
           },
-          {
+          "re-lec": {
             name: "Re-Lec",
             shortDescription:
               "Platform that allows students to record lectures and view other recorded lectures, under a token-earning system.",
             mainImage: "https://github.com/jurcaua/github_image_hosting/blob/master/Re-Lec/logo_relec.png?raw=true",
             tags: ["L1", "L3", "L4", "T0", "T3", "T6", "T9", "O2", "O6"],
           },
-          {
+          "code-bumpin": {
             name: "Code Bumpin'",
             shortDescription: "A 3D platformer prototype based on music visualization.",
             mainImage:
@@ -630,7 +630,7 @@ export const strings = {
             ],
             video: "https://www.youtube.com/watch?v=Yfn3moFHb3s&feature=youtu.be",
           },
-          {
+          gamenani: {
             name: "GameNani",
             shortDescription:
               "Drag-and-drop analytics developer tool for Unity3D, seamlessly reporting player behaviour.",
@@ -678,7 +678,7 @@ export const strings = {
               },
             ],
           },
-          {
+          "space-shooter": {
             name: "Space Shooter",
             shortDescription:
               "Modified version of a Unity tutorial, adding custom firing mechanics for aimed shooting.",
@@ -693,7 +693,7 @@ export const strings = {
             ],
             video: "https://www.youtube.com/watch?v=yUQojrvAw1k",
           },
-          {
+          "airplane-sim": {
             name: "Airplane Simulator",
             shortDescription:
               "Completely hand-made physics-based airplane simulator made in high school, coded in Java.",
@@ -707,7 +707,7 @@ export const strings = {
               },
             ],
           },
-        ],
+        },
       },
       interests: {
         label: "Interests",
@@ -899,8 +899,8 @@ export const strings = {
             applyButton: "絞り込む",
           },
         },
-        content: [
-          {
+        content: {
+          "tungsten-and-sparky": {
             name: "Tungsten and Sparky",
             shortDescription: "",
             mainImage: "https://img.itch.zone/aW1nLzM0NDUwMjIucG5n/original/8DpP37.png",
@@ -930,7 +930,7 @@ export const strings = {
               },
             ],
           },
-          {
+          espionage: {
             name: "EspionAge（エスピオネージ）",
             shortDescription:
               "ヒーローは決して死せず、レジェンドに引退はない。老人ホームが舞台の、滑稽なステルス･アドベンチャーゲーム。",
@@ -970,7 +970,7 @@ export const strings = {
               },
             ],
           },
-          {
+          "fisherman-foes": {
             name: "フィッシャーズ決戦",
             shortDescription: "釣り竿一本で闘い抜け！ライバルを突き放し、「お山の大将ゲーム」を勝ち抜こう！",
             mainImage:
@@ -1020,7 +1020,7 @@ export const strings = {
               },
             ],
           },
-          {
+          "event-listeners": {
             name: "Event Listeners（イベント・リスナー）",
             shortDescription:
               "トロント大学のサークルやイベント情報を集約するWebアプリケーションというアイディア ～ スクールプロジェクトとして、満点を獲得～",
@@ -1066,7 +1066,7 @@ export const strings = {
               },
             ],
           },
-          {
+          soundplow: {
             name: "Soundplow（サウンドプラウ）",
             shortDescription:
               "Pythonで作られたSoundcloudからのMP3をダウンロードするアプリケーション。GUI込み（PySide / Qt）。",
@@ -1095,7 +1095,7 @@ export const strings = {
               },
             ],
           },
-          {
+          "holo-mole": {
             name: "ホグラたたき",
             shortDescription: "実際のレインボーホログラムに浮かび上がらせる、ARモグラ叩きゲーム。",
             mainImage: "https://github.com/jurcaua/github_image_hosting/blob/master/HoloMole/screenshot1.png?raw=true",
@@ -1108,7 +1108,7 @@ export const strings = {
             ],
             video: "https://www.youtube.com/watch?v=XwkHZDINBOI",
           },
-          {
+          "google-spy": {
             name: "グーグルスパイ",
             shortDescription: "Googleアシスタントを使って、声だけでゲームのキャラクターの操作が出来る。",
             mainImage: "https://github.com/jurcaua/github_image_hosting/blob/master/GoogleSpy/screenshot1.PNG?raw=true",
@@ -1141,7 +1141,7 @@ export const strings = {
               },
             ],
           },
-          {
+          kleptomanihat: {
             name: "Kleptomanihat（クレプトマニハット）",
             shortDescription:
               "終身刑に処せられた盗癖のある人が、魔法の力で出獄された。彼をコントロールして、冒険しながら様々な帽子を集めよう！",
@@ -1191,7 +1191,7 @@ export const strings = {
               },
             ],
           },
-          {
+          translatar: {
             name: "TranslatAR（トランスレータル）",
             shortDescription: "画像認識により、リアルタイム環境翻訳を実現した、ARのスマホアプリ。",
             mainImage: "https://github.com/jurcaua/github_image_hosting/blob/master/TranslatAR/devpost1.jpg?raw=true",
@@ -1220,7 +1220,7 @@ export const strings = {
             ],
             video: "https://youtu.be/GyIVdzyi8pY",
           },
-          {
+          "snake-dimensions": {
             name: "Snake Dimensions（スネーク・ディメンション）",
             shortDescription: "Unityで作られたアンドロイド向け3Dヘビゲーム。",
             mainImage:
@@ -1264,7 +1264,7 @@ export const strings = {
             ],
             video: "https://www.youtube.com/watch?v=X5Rv26UH0jo",
           },
-          {
+          website: {
             name: "自分のウェブサイト",
             shortDescription: "このウェブサイト。ReactとMaterial UIを使って、全て自分で作りました。",
             longDescription: (
@@ -1302,14 +1302,14 @@ export const strings = {
               },
             ],
           },
-          {
+          "re-lec": {
             name: "Re-Lec（リーレック）",
             shortDescription:
               "講義の動画を集約するWebシステム。講義を録画してアップロードすれば、トークンがもらえます。そのトークンを使って、他の講義の動画を観ることもできます。",
             mainImage: "https://github.com/jurcaua/github_image_hosting/blob/master/Re-Lec/logo_relec.png?raw=true",
             tags: ["L1", "L3", "L4", "T0", "T3", "T6", "T9", "O2", "O6"],
           },
-          {
+          "code-bumpin": {
             name: "Code Bumpin'（コード・バンピン）",
             shortDescription: "3Dプラットフォームのプロトタイプ。音楽を可視化したゲーム。",
             mainImage:
@@ -1349,7 +1349,7 @@ export const strings = {
             ],
             video: "https://www.youtube.com/watch?v=Yfn3moFHb3s&feature=youtu.be",
           },
-          {
+          gamenani: {
             name: "GameNani（ゲームナ二）",
             shortDescription:
               "ドラッグ＆ドロップ操作で、Unity 3Dのゲームを分析できる、開発者用ツール。プレイヤーの動作を、シームレスにリポートできます。",
@@ -1397,7 +1397,7 @@ export const strings = {
               },
             ],
           },
-          {
+          "space-shooter": {
             name: "Space Shooter（スペース・シューター）",
             shortDescription: "Unityチュートリアルの修正版。狙撃の範囲を広げる機能を追加しました。",
             mainImage:
@@ -1411,7 +1411,7 @@ export const strings = {
             ],
             video: "https://www.youtube.com/watch?v=yUQojrvAw1k",
           },
-          {
+          "airplane-sim": {
             name: "フライトシミュレーター",
             shortDescription: "高校の時に作った物理学のフライトシミュレータ。Javaで作られたアプリケーション。",
             mainImage:
@@ -1424,7 +1424,7 @@ export const strings = {
               },
             ],
           },
-        ],
+        },
       },
       interests: {
         label: "興味",
@@ -1532,11 +1532,19 @@ export const customBoolsToFunctions = customBools => {
 };
 
 export const getFilteredProjects = (filterTagList, miscFilterFunctionList = []) => {
-  return localized().tabs.projects.content.filter(
-    proj =>
-      filterTagList.every(t => proj.tags.includes(t)) && // 1. only get projects that have every tag given
-      (miscFilterFunctionList.length === 0 || miscFilterFunctionList.every(f => f(proj))) // 2. custom functions the project should return true for
-  );
+  return Object.keys(localized().tabs.projects.content)
+    .filter(
+      projKey =>
+        // 1. only get projects that have every tag given
+        filterTagList.every(t => localized().tabs.projects.content[projKey].tags.includes(t)) &&
+        // 2. custom functions the project should return true for
+        (miscFilterFunctionList.length === 0 ||
+          miscFilterFunctionList.every(f => f(localized().tabs.projects.content[projKey])))
+    )
+    .reduce((currentObj, key) => {
+      currentObj[key] = localized().tabs.projects.content[key];
+      return currentObj;
+    }, {});
 };
 
 export const getCustomFilters = () => {

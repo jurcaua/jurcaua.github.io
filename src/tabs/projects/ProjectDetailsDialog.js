@@ -10,7 +10,7 @@ import {
   MobileStepper,
   Button,
   Paper,
-  Zoom
+  Zoom,
 } from "@material-ui/core";
 import MuiDialogTitle from "@material-ui/core/DialogTitle";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
@@ -26,58 +26,58 @@ import ProjectLinkList from "./ProjectLinkList";
 const useStyles = makeStyles(theme => ({
   root: {
     margin: 0,
-    padding: theme.spacing(2)
+    padding: theme.spacing(2),
   },
   closeButton: {
     position: "absolute",
     right: theme.spacing(1),
     top: theme.spacing(1),
-    color: theme.palette.grey[500]
+    color: theme.palette.grey[500],
   },
   imagesRoot: {
     padding: theme.spacing(1),
     marginBottom: theme.spacing(1),
-    flexGrow: 1
+    flexGrow: 1,
   },
   header: {
     display: "flex",
     alignItems: "center",
     paddingLeft: theme.spacing(4),
-    backgroundColor: theme.palette.background.default
+    backgroundColor: theme.palette.background.default,
   },
   mainImage: {
-    width: "100%"
+    width: "100%",
   },
   reactPlayer: {
     position: "absolute",
     top: "0",
-    left: "0"
+    left: "0",
   },
   videoPlayerRoot: {
     overflow: "hidden",
     position: "relative",
-    paddingTop: "56.25%"
+    paddingTop: "56.25%",
   },
   videoPlayerRootHidden: {
     overflow: "hidden",
     position: "relative",
     paddingTop: "56.25%",
-    height: "0"
+    height: "0",
   },
   img: {
     display: "block",
     overflow: "hidden",
-    width: "100%"
+    width: "100%",
   },
   preloadImg: {
     display: "block",
     overflow: "hidden",
     width: "100%",
-    height: "0"
+    height: "0",
   },
   imageCaption: {
-    color: "dimgrey"
-  }
+    color: "dimgrey",
+  },
 }));
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -100,7 +100,7 @@ const DialogTitle = props => {
   );
 };
 
-const ProjectDetailsDialog = ({ project, highlights, open, onClose, ...props }) => {
+const ProjectDetailsDialog = ({ project, highlights, onClose, ...props }) => {
   const classes = useStyles(props);
 
   const [activeStep, setActiveStep] = React.useState(0);
@@ -141,13 +141,7 @@ const ProjectDetailsDialog = ({ project, highlights, open, onClose, ...props }) 
 
     return (
       <div key={video} className={className}>
-        <ReactPlayer
-          className={classes.reactPlayer}
-          controls
-          url={video}
-          width={"100%"}
-          height={"100%"}
-        />
+        <ReactPlayer className={classes.reactPlayer} controls url={video} width={"100%"} height={"100%"} />
       </div>
     );
   };
@@ -194,21 +188,14 @@ const ProjectDetailsDialog = ({ project, highlights, open, onClose, ...props }) 
 
       return (
         <Paper className={classes.imagesRoot}>
-          <SwipeableViews
-            axis={"x"}
-            index={activeStep}
-            onChangeIndex={handleStepChange}
-            enableMouseEvents
-          >
+          <SwipeableViews axis={"x"} index={activeStep} onChangeIndex={handleStepChange} enableMouseEvents>
             {imageViews}
           </SwipeableViews>
           <Paper square elevation={0} className={classes.header}>
             {/* If we have a video, consider the first step to just have an empty caption */}
             {/* Otherwise, return the caption as usual (whose index may have to be subtracted by 1 if we have a video) */}
             <Typography className={classes.imageCaption} variant="subtitle1">
-              {hasVideo && activeStep === 0
-                ? ""
-                : images[getStepCount(activeStep, hasVideo)].caption}
+              {hasVideo && activeStep === 0 ? "" : images[getStepCount(activeStep, hasVideo)].caption}
             </Typography>
           </Paper>
           <MobileStepper
@@ -266,11 +253,7 @@ const ProjectDetailsDialog = ({ project, highlights, open, onClose, ...props }) 
   //    Github Issue: https://github.com/mui-org/material-ui/issues/12759
   //    Example Fix in Codesandbox: https://codesandbox.io/s/material-demo-7zf07
   return (
-    <Dialog
-      open={open && project !== undefined}
-      onClose={handleClose}
-      TransitionComponent={Transition}
-    >
+    <Dialog open={project !== undefined} onClose={handleClose} TransitionComponent={Transition}>
       <DialogTitle onClose={handleClose}>{name}</DialogTitle>
       <DialogContent>
         {displayVisualContent()}

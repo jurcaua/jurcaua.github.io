@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
   svgButton: {
     position: "fixed",
     margin: "5px",
-    zIndex: 10,
+    zIndex: 2000,
     bottom: theme.spacing(1),
     right: theme.spacing(1)
   }

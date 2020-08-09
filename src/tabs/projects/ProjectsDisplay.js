@@ -1,60 +1,50 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useHistory } from "react-router-dom";
 
 // External Package Imports
-import { Grid } from "@material-ui/core";
+import { makeStyles } from "@material-ui/styles";
 
 // Local Imports
 import ProjectTile from "./ProjectTile";
 import ProjectDetailsDialog from "./ProjectDetailsDialog";
-import { SMALL_WIDTH_THRESHOLD_GRID } from "../../Constants";
+import { GetRootTabLinkToPath, PROJECTS_TAB_SLUG } from "../../Constants";
 
-const ProjectsDisplay = ({ projects, filter, windowInnerWidth }) => {
-  const [dialogOpen, setDialogOpen] = useState(false);
-  const [selectedProject, setSelectedProject] = useState(undefined);
+const useStyles = makeStyles(theme => ({
+  projectsRoot: {
+    height: "auto",
+    display: "grid",
+    gridGap: "1rem",
+    gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))",
+  },
+}));
 
-  const handleProjectClick = (event, project) => {
-    setSelectedProject(project);
-    setDialogOpen(true);
-  };
+const ProjectsDisplay = ({ projects, selected, filter }) => {
+  const history = useHistory();
 
-  const getGridSize = () => {
-    // 6 --> for 2 columns | 12 --> for 1 column (for Material UI Grid system)
-    if (windowInnerWidth > SMALL_WIDTH_THRESHOLD_GRID) {
-      return 6;
+  const classes = useStyles();
+
+  const getSelected = () => {
+    if (selected) {
+      return projects[selected];
     }
-    return 12;
+    return undefined;
   };
 
   // ------------------------------------
   // Handle closing, and make sure we only set the selected project to undefined after we close the dialog
   const handleDialogClose = () => {
-    setDialogOpen(false);
+    history.push(GetRootTabLinkToPath(PROJECTS_TAB_SLUG));
   };
-
-  useEffect(() => {
-    if (dialogOpen === false) {
-      setSelectedProject(undefined);
-    }
-  }, [dialogOpen]);
   // ------------------------------------
 
   return (
     <div>
-      <Grid container spacing={3}>
-        {projects.map((project, index) => {
-          return (
-            <Grid key={index} item xs={getGridSize()}>
-              <ProjectTile project={project} highlights={filter} onClick={handleProjectClick} />
-            </Grid>
-          );
-        })}
-      </Grid>
-      <ProjectDetailsDialog
-        project={selectedProject}
-        highlights={filter}
-        open={dialogOpen}
-        onClose={handleDialogClose}
-      />
+      <div className={classes.projectsRoot}>
+        {Object.keys(projects).map(projectKey => (
+          <ProjectTile key={projectKey} projectKey={projectKey} project={projects[projectKey]} highlights={filter} />
+        ))}
+      </div>
+      <ProjectDetailsDialog project={getSelected()} highlights={filter} onClose={handleDialogClose} />
     </div>
   );
 };
