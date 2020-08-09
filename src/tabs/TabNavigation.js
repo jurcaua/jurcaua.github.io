@@ -3,10 +3,10 @@ import React from "react";
 // External Package Imports
 import PropTypes from "prop-types";
 import { Tabs, Tooltip, Tab } from "@material-ui/core";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, matchPath } from "react-router-dom";
 
 // Local Imports
-import { RootTab, GetRootTabLinkToPath } from "../Constants";
+import { MAIN_TABS, GetRootTabLinkToPath, DEFAULT_TAB_SLUG } from "../Constants";
 import { localized } from "../Localization";
 
 // This workaround is for this issue: https://github.com/mui-org/material-ui/issues/12597
@@ -28,7 +28,7 @@ function TabItemLink({ item, icon, disabled }) {
               icon={<i className="material-icons">{icon}</i>}
               component={RouterLink}
               to={GetRootTabLinkToPath(item)}
-              value={GetRootTabLinkToPath(item)}
+              value={item}
             />
           </div>
         </Tooltip>
@@ -40,11 +40,11 @@ function TabItemLink({ item, icon, disabled }) {
 TabItemLink.propTypes = {
   item: PropTypes.string.isRequired,
   icon: PropTypes.string.isRequired,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
 };
 
 TabItemLink.defaultProps = {
-  disabled: false
+  disabled: false,
 };
 
 /* TODO: Investigate why "value" is necessary at useage TabItemLink in Tabs.\
@@ -52,15 +52,20 @@ This is currently a workaround since purely just having value in the wrapped com
 does not seem to work... highlighted tab does not seem to work at all otherwise. */
 
 const TabNavigation = ({ pathname }) => {
+  const getTabSlug = () => {
+    return matchPath(pathname, { path: ["/:lang/:tab", "/:lang"], exact: false }).params.tab || DEFAULT_TAB_SLUG;
+  };
+
   return (
-    <Tabs value={pathname} centered>
-      {Object.keys(RootTab).map(tabKey => (
+    <Tabs value={getTabSlug()} centered>
+      {Object.keys(MAIN_TABS).map(tabKey => (
         <TabItemLink
           key={tabKey}
-          disabled={RootTab[tabKey].disabled}
-          value={GetRootTabLinkToPath(tabKey)}
           item={tabKey}
-          icon={RootTab[tabKey].icon}
+          disabled={MAIN_TABS[tabKey].disabled}
+          icon={MAIN_TABS[tabKey].icon}
+          // Don't remove this value key... some how they they're checking it...
+          value={tabKey}
         />
       ))}
     </Tabs>

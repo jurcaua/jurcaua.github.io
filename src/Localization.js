@@ -154,7 +154,7 @@ export const strings = {
       projects: {
         label: "Projects",
         tooltip: "Notable projects and experience.",
-        displaying: (num) => `Displaying ${num} projects`,
+        displaying: num => `Displaying ${num} projects`,
         dialog: {
           linksTitle: "Related Links",
         },
@@ -706,8 +706,8 @@ export const strings = {
         header: "Welcome to my world!",
         subheader: "I also do a couple more things outside of work!",
         clickPrompt: "Click one of my interests!",
-        content: [
-          {
+        content: {
+          japanese: {
             summary: "Japanese",
             details: (
               <React.Fragment>
@@ -725,7 +725,7 @@ export const strings = {
             ),
             icon: "translate",
           },
-          {
+          gaming: {
             summary: "Gaming",
             details: (
               <Typography variant="h5">
@@ -737,7 +737,7 @@ export const strings = {
             ),
             icon: "videogame_asset",
           },
-          {
+          basketball: {
             summary: "Basketball",
             details: (
               <Typography variant="h5">
@@ -748,7 +748,7 @@ export const strings = {
             ),
             icon: "fitness_center",
           },
-          {
+          coffee: {
             summary: "Coffee",
             details: (
               <React.Fragment>
@@ -761,7 +761,7 @@ export const strings = {
             ),
             icon: "free_breakfast",
           },
-        ],
+        },
       },
     },
   },
@@ -876,7 +876,7 @@ export const strings = {
       projects: {
         label: "プロジェクト",
         tooltip: "注目のプロジェクト",
-        displaying: (num) => <b>{num}件のプロジェクトを表示</b>,
+        displaying: num => <b>{num}件のプロジェクトを表示</b>,
         dialog: {
           linksTitle: "関連リンク",
         },
@@ -1423,8 +1423,8 @@ export const strings = {
         header: "私の世界へ、ようこそ！",
         subheader: "プライベートの私を紹介します！",
         clickPrompt: "私の興味にクリックしてください！",
-        content: [
-          {
+        content: {
+          japanese: {
             summary: "日本語",
             details: (
               <React.Fragment>
@@ -1442,7 +1442,7 @@ export const strings = {
             ),
             icon: "translate",
           },
-          {
+          gaming: {
             summary: "ゲーム",
             details: (
               <Typography variant="h5">
@@ -1454,7 +1454,7 @@ export const strings = {
             ),
             icon: "videogame_asset",
           },
-          {
+          basketball: {
             summary: "バスケットボール",
             details: (
               <Typography variant="h5">
@@ -1470,7 +1470,7 @@ export const strings = {
             ),
             icon: "fitness_center",
           },
-          {
+          coffee: {
             summary: "コーヒー",
             details: (
               <React.Fragment>
@@ -1483,7 +1483,7 @@ export const strings = {
             ),
             icon: "free_breakfast",
           },
-        ],
+        },
       },
     },
   },
@@ -1504,14 +1504,14 @@ export function localized() {
 export function getGroupedProjectTags(tag) {
   // Filter away preset ignore keys: https://stackoverflow.com/questions/38750705/filter-object-properties-by-key-in-es6
   return Object.keys(groupedProjectTagMappings[currentLanguage])
-    .filter((key) => !ignoreGroups.includes(key))
+    .filter(key => !ignoreGroups.includes(key))
     .reduce((obj, key) => {
       obj[key] = groupedProjectTagMappings[currentLanguage][key];
       return obj;
     }, {});
 }
 
-export const customBoolsToFunctions = (customBools) => {
+export const customBoolsToFunctions = customBools => {
   const customFilters = getCustomFilters();
 
   return Object.keys(customBools).reduce((lst, key) => {
@@ -1524,9 +1524,9 @@ export const customBoolsToFunctions = (customBools) => {
 
 export const getFilteredProjects = (filterTagList, miscFilterFunctionList = []) => {
   return localized().tabs.projects.content.filter(
-    (proj) =>
-      filterTagList.every((t) => proj.tags.includes(t)) && // 1. only get projects that have every tag given
-      (miscFilterFunctionList.length === 0 || miscFilterFunctionList.every((f) => f(proj))) // 2. custom functions the project should return true for
+    proj =>
+      filterTagList.every(t => proj.tags.includes(t)) && // 1. only get projects that have every tag given
+      (miscFilterFunctionList.length === 0 || miscFilterFunctionList.every(f => f(proj))) // 2. custom functions the project should return true for
   );
 };
 

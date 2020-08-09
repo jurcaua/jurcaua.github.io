@@ -23,25 +23,25 @@ toast.configure();
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
-    width: "100%"
+    width: "100%",
   },
 
   appBar: {
-    marginBottom: "20px"
+    marginBottom: "20px",
   },
 
   title: {
     textAlign: "center",
     marginTop: "10px",
     marginLeft: theme.spacing(2),
-    marginRight: theme.spacing(2)
+    marginRight: theme.spacing(2),
   },
 
   footer: {
     textAlign: "center",
     margin: "10px",
-    align: "center"
-  }
+    align: "center",
+  },
 }));
 
 const App = props => {

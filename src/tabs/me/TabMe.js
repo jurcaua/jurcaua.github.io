@@ -9,9 +9,9 @@ import {
   ListItemIcon,
   Button,
   makeStyles,
-  ExpansionPanel,
-  ExpansionPanelSummary,
-  ExpansionPanelDetails,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
 } from "@material-ui/core";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Emoji from "../../Emoji";
@@ -21,10 +21,10 @@ import { localized } from "../../Localization";
 import { SMALL_WIDTH_THRESHOLD_MARGINS } from "../../Constants";
 import SocialMediaIconList from "./SocialMediaIconList";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
-    marginLeft: (props) => (props.windowInnerWidth < SMALL_WIDTH_THRESHOLD_MARGINS ? "5vw" : "15vw"),
-    marginRight: (props) => (props.windowInnerWidth < SMALL_WIDTH_THRESHOLD_MARGINS ? "5vw" : "15vw"),
+    marginLeft: props => (props.windowInnerWidth < SMALL_WIDTH_THRESHOLD_MARGINS ? "5vw" : "15vw"),
+    marginRight: props => (props.windowInnerWidth < SMALL_WIDTH_THRESHOLD_MARGINS ? "5vw" : "15vw"),
   },
   header: {
     textAlign: "center",
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     margin: theme.spacing(1),
   },
-  expansionPanelRoot: {
+  accordionRoot: {
     margin: theme.spacing(1),
   },
   otherExperienceExpandDetails: {
@@ -64,23 +64,23 @@ const useStyles = makeStyles((theme) => ({
   greyIcon: {
     color: theme.palette.text.secondary,
   },
-  expansionPanelSummary: {
+  accordionSummary: {
     "&:hover": {
       background: "lightgrey",
     },
   },
 }));
 
-const TabMe = (props) => {
+const TabMe = props => {
   const [otherExperienceExpanded, setOtherExperienceExpanded] = useState(false);
 
   const classes = useStyles(props);
 
-  const handleExpand = (panel) => (event, isExpanded) => {
+  const handleExpand = panel => (event, isExpanded) => {
     setOtherExperienceExpanded(isExpanded ? panel : false);
   };
 
-  const handleOpenResume = (sublink) => (event) => {
+  const handleOpenResume = sublink => event => {
     window.open(`${window.location.origin}/${sublink}`, "_blank");
   };
 
@@ -140,13 +140,13 @@ const TabMe = (props) => {
       <List>
         {otherExperiences.map((experience, index) => {
           return (
-            <ExpansionPanel
-              className={classes.expansionPanelRoot}
+            <Accordion
+              className={classes.accordionRoot}
               key={index}
               expanded={otherExperienceExpanded === index}
               onChange={handleExpand(index)}
             >
-              <ExpansionPanelSummary className={classes.expansionPanelSummary} expandIcon={<ExpandMoreIcon />}>
+              <AccordionSummary className={classes.accordionSummary} expandIcon={<ExpandMoreIcon />}>
                 <div className={classes.greyIcon}>
                   <i className="material-icons">{experience.icon}</i>
                 </div>
@@ -158,8 +158,8 @@ const TabMe = (props) => {
                     {experience.secondary}
                   </Typography>
                 </div>
-              </ExpansionPanelSummary>
-              <ExpansionPanelDetails className={classes.otherExperienceExpandDetails}>
+              </AccordionSummary>
+              <AccordionDetails className={classes.otherExperienceExpandDetails}>
                 {experience.dialogText.map((text, index) => {
                   return (
                     <div key={index} className={classes.otherExperienceExpandRoot}>
@@ -170,8 +170,8 @@ const TabMe = (props) => {
                     </div>
                   );
                 })}
-              </ExpansionPanelDetails>
-            </ExpansionPanel>
+              </AccordionDetails>
+            </Accordion>
           );
         })}
       </List>

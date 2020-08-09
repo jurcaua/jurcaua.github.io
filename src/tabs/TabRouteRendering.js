@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 
 // Local Imports
-import { GetRootTabRouterPath } from "../Constants";
+import { GetRootTabRouterPath, ME_TAB_SLUG, PROJECTS_TAB_SLUG, INTERESTS_TAB_SLUG } from "../Constants";
 import TabMe from "./me/TabMe";
 import TabProjects from "./projects/TabProjects";
 import TabInterests from "./interests/TabInterests";
@@ -27,20 +27,16 @@ const TabRouteRendering = props => {
 
   return (
     <Switch>
+      <Route exact path={GetRootTabRouterPath(ME_TAB_SLUG)}>
+        <TabMe windowInnerWidth={windowInnerWidth} />
+      </Route>
+      <Route exact path={GetRootTabRouterPath(PROJECTS_TAB_SLUG)}>
+        <TabProjects windowInnerWidth={windowInnerWidth} />
+      </Route>
       <Route
         exact
-        path={GetRootTabRouterPath("me")}
-        render={() => <TabMe windowInnerWidth={windowInnerWidth} />}
-      />
-      <Route
-        exact
-        path={GetRootTabRouterPath("projects")}
-        render={() => <TabProjects windowInnerWidth={windowInnerWidth} />}
-      />
-      <Route
-        exact
-        path={GetRootTabRouterPath("interests")}
-        render={() => <TabInterests windowInnerWidth={windowInnerWidth} />}
+        path={[GetRootTabRouterPath(INTERESTS_TAB_SLUG), `${GetRootTabRouterPath(INTERESTS_TAB_SLUG)}/:interest`]}
+        render={routeProps => <TabInterests {...routeProps} windowInnerWidth={windowInnerWidth} />}
       />
     </Switch>
   );
