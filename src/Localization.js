@@ -90,7 +90,7 @@ export const strings = {
             {displayYearMonthText(
               getYearsFromTotalMonths(UBISOFT_WORKED_MONTHS),
               getRemainderMonthsFromTotalMonths(UBISOFT_WORKED_MONTHS)
-            )}
+            )}{" "} 
             as a Tools Programmer on Watch Dogs Legion.
           </Typography>,
           <Typography variant="h5">
