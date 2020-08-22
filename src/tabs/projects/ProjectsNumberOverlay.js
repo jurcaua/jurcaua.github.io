@@ -12,8 +12,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const ProjectsNumberOverlay = ({ projects, ...props }) => {
-  const classes = useStyles(props);
+const ProjectsNumberOverlay = ({ projects }) => {
+  const classes = useStyles();
 
   return (
     <Paper className={classes.root} elevation={4}>

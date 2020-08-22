@@ -8,16 +8,12 @@ import { localizedProjectTag } from "../../Localization";
 
 const useStyles = makeStyles(theme => ({
   chip: {
-    margin: theme.spacing(0.5)
-  }
+    margin: theme.spacing(0.5),
+  },
 }));
 
-const ProjectTagList = ({ tags, highlights, highlightColor, color, ...props }) => {
-  const classes = useStyles(props);
-
-  highlights = highlights || [];
-  highlightColor = highlightColor || "primary";
-  color = color || "default";
+const ProjectTagList = ({ tags, highlights = [], highlightColor = "primary", color = "default" }) => {
+  const classes = useStyles();
 
   return (
     <div>

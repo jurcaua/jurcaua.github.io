@@ -3,7 +3,7 @@ import { Link, makeStyles, Paper } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    margin: theme.spacing(1)
+    margin: theme.spacing(1),
   },
   paperRoot: {
     display: "inline-block",
@@ -11,16 +11,16 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(0.5),
     "&:hover": {
       background: "lightgrey",
-      cursor: "pointer"
-    }
+      cursor: "pointer",
+    },
   },
   link: {
-    margin: theme.spacing(1)
-  }
+    margin: theme.spacing(1),
+  },
 }));
 
-const ProjectLinkList = ({ links, ...props }) => {
-  const classes = useStyles(props);
+const ProjectLinkList = ({ links }) => {
+  const classes = useStyles();
 
   const goToURL = url => () => {
     window.open(url, "_blank");
@@ -30,12 +30,7 @@ const ProjectLinkList = ({ links, ...props }) => {
     <div className={classes.root}>
       {links.map((link, index) => {
         return (
-          <Paper
-            key={index}
-            className={classes.paperRoot}
-            onClick={goToURL(link.url)}
-            elevation={2}
-          >
+          <Paper key={index} className={classes.paperRoot} onClick={goToURL(link.url)} elevation={2}>
             <Link
               className={classes.link}
               variant="overline"

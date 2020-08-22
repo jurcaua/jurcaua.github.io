@@ -1,45 +1,62 @@
-import React, { Component } from "react";
-import Icon from "@material-ui/core/Icon";
-import IconButton from "@material-ui/core/IconButton";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import TextField from "@material-ui/core/TextField";
+import React, { useRef, useState } from "react";
 import { toast } from "react-toastify";
-import { localized } from "./Localization";
-import { Tooltip } from "@material-ui/core";
 
-const styles = {
+import { IconButton, InputAdornment, TextField, Tooltip } from "@material-ui/core";
+import { makeStyles } from "@material-ui/styles";
+import Icon from "@material-ui/core/Icon";
+
+import { localized } from "./Localization";
+
+const useStyles = makeStyles(theme => ({
   inline: {
     display: "inline-flex",
-    align: "center"
+    align: "center",
   },
-
   text: {
     textAlign: "center",
     marginTop: "10px",
     display: "inline-flex",
-    align: "center"
-  }
-};
+    align: "center",
+  },
+  input: {
+    fontSize: "15px",
+  },
+  bigIcon: {
+    fontSize: "20px",
+  },
+}));
 
-// TODO: Convert to Function Component
-class ReadOnlyCopyField extends Component {
-  emailRef = null;
+const ReadOnlyCopyField = ({ text }) => {
+  const [copyToastId, setCopyToastId] = useState(null);
+  const emailRef = useRef();
 
-  constructor(props) {
-    super(props);
+  const classes = useStyles();
 
-    this.state = {
-      copyToastId: null
-    };
-  }
+  const copyToClipboard = e => {
+    emailRef.current.select();
+    document.execCommand("copy");
+    e.target.focus();
 
-  getCopyButton = () => {
+    if (!toast.isActive(copyToastId)) {
+      let newToastId = toast(localized().copyConfirmNotification, {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+      });
+      setCopyToastId(newToastId);
+    }
+  };
+
+  const getCopyButton = () => {
     if (document.queryCommandSupported("copy")) {
       return (
         <InputAdornment position="end">
           <Tooltip title={localized().copyButtonTooltip}>
-            <IconButton style={styles.inline} onClick={this.copyToClipboard}>
-              <Icon style={{ fontSize: "20px" }}>file_copy</Icon>
+            <IconButton className={classes.inline} onClick={copyToClipboard}>
+              <Icon className={classes.bigIcon}>file_copy</Icon>
             </IconButton>
           </Tooltip>
         </InputAdornment>
@@ -48,45 +65,21 @@ class ReadOnlyCopyField extends Component {
     return null;
   };
 
-  copyToClipboard = e => {
-    this.emailRef.select();
-    document.execCommand("copy");
-    e.target.focus();
-
-    if (!toast.isActive(this.state.copyToastId)) {
-      let newToastId = toast(localized().copyConfirmNotification, {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: true
-      });
-      this.setState({
-        copyToastId: newToastId
-      });
-    }
-  };
-
-  render() {
-    const { text } = this.props;
-
-    return (
-      <div align="center">
-        <TextField
-          style={styles.text}
-          variant="outlined"
-          value={text}
-          inputRef={textArea => (this.emailRef = textArea)}
-          InputProps={{
-            endAdornment: this.getCopyButton(),
-            style: { fontSize: 15 },
-            readOnly: true
-          }}
-        />
-      </div>
-    );
-  }
-}
+  return (
+    <div align="center">
+      <TextField
+        className={classes.text}
+        variant="outlined"
+        value={text}
+        inputRef={emailRef}
+        InputProps={{
+          endAdornment: getCopyButton(),
+          className: classes.input,
+          readOnly: true,
+        }}
+      />
+    </div>
+  );
+};
 
 export default ReadOnlyCopyField;

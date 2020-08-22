@@ -47,7 +47,7 @@ TabItemLink.defaultProps = {
   disabled: false,
 };
 
-/* TODO: Investigate why "value" is necessary at useage TabItemLink in Tabs.\
+/* TODO: Investigate why "value" is necessary at usage of TabItemLink in Tabs.\
 This is currently a workaround since purely just having value in the wrapped component 
 does not seem to work... highlighted tab does not seem to work at all otherwise. */
 

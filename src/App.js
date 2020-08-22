@@ -9,6 +9,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 // Local Imports
+import { version } from "../package.json";
 import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from "./Constants";
 import { EMAIL } from "./Info";
 import { getCurrentYear } from "./Utils";
@@ -52,10 +53,11 @@ const App = props => {
   const changeLanguage = (language, reset = false) => {
     // early exit
     const currentLanguage = getLanguage();
-    console.log("Changing language: ", currentLanguage, "->", language);
     if (currentLanguage === language) {
       return;
     }
+
+    console.log("Changing language: ", currentLanguage, "->", language);
 
     // Set the language for localization module
     setLanguage(language);
@@ -64,11 +66,13 @@ const App = props => {
     let splitURL = location.pathname.split("/");
     splitURL[1] = language;
     if (reset) {
+      // Remove all following parts of the path (keeping only the root and language)
       splitURL = splitURL.slice(0, 2);
     }
+
     const toPush = splitURL.join("/");
-    if (location !== splitURL.join("/")) {
-      history.push(splitURL.join("/"));
+    if (location !== toPush) {
+      history.push(toPush);
       console.log("Pushed to history:", toPush);
     } else {
       console.log("Skipped redundant history.push:", toPush);
@@ -88,8 +92,10 @@ const App = props => {
       // Reset to the main DEFAULT_LANGUAGE if it is not in the list of supported languages
       if (!SUPPORTED_LANGUAGES.find(supportedLang => locationLang === supportedLang)) {
         // Always redirect to english part if unexpected URL.
-        // 予想以外のURLがあれば、いつも英語の方にリダイレクトする
-        console.log("Changing language, NOT found in SUPPORTED_LANGUAGES -> to default.");
+        // 予想以外のURLがあれば、いつも英語の方にリダイレクトしよう
+        console.log(
+          `Defaulting language to English, "${locationLang}" NOT found in SUPPORTED_LANGUAGES -> to default.`
+        );
         changeLanguage(DEFAULT_LANGUAGE, true);
       }
       // otherwise, change the language to the one in the URL, keeping the remaining path as well (aka, no reset flag)
@@ -135,7 +141,7 @@ const App = props => {
                 {/* 基本情報があるフッター */}
                 <AppBar position="static" color="default">
                   <Typography className={classes.footer} variant="h6">
-                    © {getCurrentYear()} {getLocalizedName()}
+                    v{version} © {getCurrentYear()} {getLocalizedName()}
                   </Typography>
                 </AppBar>
               </React.Fragment>

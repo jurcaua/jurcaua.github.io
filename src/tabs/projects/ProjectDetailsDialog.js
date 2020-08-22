@@ -91,32 +91,30 @@ const DialogTitle = props => {
   return (
     <MuiDialogTitle disableTypography className={classes.root} {...other}>
       <Typography variant="h5">{children}</Typography>
-      {onClose ? (
+      {onClose && (
         <IconButton className={classes.closeButton} onClick={onClose}>
           <i className="material-icons">close</i>
         </IconButton>
-      ) : null}
+      )}
     </MuiDialogTitle>
   );
 };
 
-const ProjectDetailsDialog = ({ project, highlights, onClose, ...props }) => {
-  const classes = useStyles(props);
+const ProjectDetailsDialog = ({ project, highlights, onClose }) => {
+  const classes = useStyles();
 
   const [activeStep, setActiveStep] = React.useState(0);
 
-  const tryGetAttr = (obj, key, def) => {
-    return (obj && obj[key]) || def;
-  };
-
-  const name = tryGetAttr(project, "name", "");
-  const mainImage = tryGetAttr(project, "mainImage", undefined);
-  const video = tryGetAttr(project, "video", undefined);
-  const shortDescription = tryGetAttr(project, "shortDescription", undefined);
-  const longDescription = tryGetAttr(project, "longDescription", undefined);
-  const tags = tryGetAttr(project, "tags", []);
-  const images = tryGetAttr(project, "images", []);
-  const links = tryGetAttr(project, "links", []);
+  const {
+    name = "",
+    mainImage = undefined,
+    video = undefined,
+    shortDescription = undefined,
+    longDescription = undefined,
+    tags = [],
+    images = [],
+    links = [],
+  } = project ?? {};
 
   // On close, reset the active step to 0 and pass along the onClose call with all arguments
   const handleClose = (...args) => {
@@ -146,7 +144,7 @@ const ProjectDetailsDialog = ({ project, highlights, onClose, ...props }) => {
     );
   };
 
-  const getStepCount = (step, hasVideo) => {
+  const getImageStepCount = (step, hasVideo) => {
     if (hasVideo) {
       return step - 1;
     }
@@ -163,21 +161,21 @@ const ProjectDetailsDialog = ({ project, highlights, onClose, ...props }) => {
     } else if (hasImages) {
       const maxSteps = images.length + (hasVideo ? 1 : 0);
 
-      let imageViews = images.map((image, index) => (
-        <div key={index}>
-          {/* Issue I ran into was having nearby pictures really large, 
+      let imageViews = images.map((image, index) => {
+        const distanceFromCurrentStep = Math.abs(getImageStepCount(activeStep, hasVideo) - index);
+        return (
+          <div key={index}>
+            {/* Issue I ran into was having nearby pictures really large, 
           then forcing the current picture to match that size.
           Instead, we still render nearby photos but instead we force the height to 0 (classes.preloadImg), 
           so then the current picture is always the largest size in the current loaded set of images. */}
-          {Math.abs(getStepCount(activeStep, hasVideo) - index) <= 2 ? (
-            Math.abs(getStepCount(activeStep, hasVideo) - index) === 0 ? (
-              <img className={classes.img} src={image.imgPath} alt={image.caption} />
-            ) : (
+            {distanceFromCurrentStep === 0 && <img className={classes.img} src={image.imgPath} alt={image.caption} />}
+            {distanceFromCurrentStep <= 2 && distanceFromCurrentStep !== 0 && (
               <img className={classes.preloadImg} src={image.imgPath} alt={image.caption} />
-            )
-          ) : null}
-        </div>
-      ));
+            )}
+          </div>
+        );
+      });
       if (hasVideo) {
         if (activeStep === 0) {
           imageViews.unshift(getVideoPlayer());
@@ -195,7 +193,7 @@ const ProjectDetailsDialog = ({ project, highlights, onClose, ...props }) => {
             {/* If we have a video, consider the first step to just have an empty caption */}
             {/* Otherwise, return the caption as usual (whose index may have to be subtracted by 1 if we have a video) */}
             <Typography className={classes.imageCaption} variant="subtitle1">
-              {hasVideo && activeStep === 0 ? "" : images[getStepCount(activeStep, hasVideo)].caption}
+              {hasVideo && activeStep === 0 ? "" : images[getImageStepCount(activeStep, hasVideo)].caption}
             </Typography>
           </Paper>
           <MobileStepper
@@ -224,27 +222,22 @@ const ProjectDetailsDialog = ({ project, highlights, onClose, ...props }) => {
   };
 
   const displayDescription = () => {
-    if (longDescription !== undefined) {
-      return longDescription;
-    } else if (shortDescription !== undefined) {
-      return <Typography>{shortDescription}</Typography>;
-    }
-    return null;
+    return longDescription ?? shortDescription ?? null;
   };
 
   const displayTags = () => {
-    if (tags.length !== 0) {
+    if (tags.length > 0) {
       return <ProjectTagList tags={tags} highlights={highlights} />;
     }
   };
 
   const displayRelatedLinks = () => {
-    if (links.length !== 0) {
+    if (links.length > 0) {
       return (
-        <React.Fragment>
+        <div>
           <Typography variant="h5">{localized().tabs.projects.dialog.linksTitle}</Typography>
           <ProjectLinkList links={links} />
-        </React.Fragment>
+        </div>
       );
     }
   };

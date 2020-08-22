@@ -1,4 +1,5 @@
 export const ignoreGroups = ["hidden"];
+export const NONE_TAG_SLUG = "!0";
 
 // The grouping here is meant for filtering to them be already well-organized within their own groups of tags
 export const groupedProjectTagMappings = {
@@ -6,8 +7,8 @@ export const groupedProjectTagMappings = {
     hidden: {
       title: "Hidden",
       mappings: {
-        "!0": "None"
-      }
+        [NONE_TAG_SLUG]: "None",
+      },
     },
     language: {
       title: "Language",
@@ -17,12 +18,12 @@ export const groupedProjectTagMappings = {
         L2: "C++",
         L3: "Javascript",
         L4: "HTML/CSS",
-        L5: "Java"
+        L5: "Java",
         // L6: "T-SQL",
         // L7: "Racket",
         // L8: "Haskell",
         // L9: "Dafny"
-      }
+      },
     },
     technology: {
       title: "Technology",
@@ -40,8 +41,8 @@ export const groupedProjectTagMappings = {
         // T10: "ELK",
         T11: "Firebase",
         T12: "Google Assistant",
-        T13: "Material UI"
-      }
+        T13: "Material UI",
+      },
     },
     other: {
       title: "Other",
@@ -52,16 +53,16 @@ export const groupedProjectTagMappings = {
         O3: "AR",
         O4: "Game",
         O5: "Tool",
-        O6: "Web App"
-      }
-    }
+        O6: "Web App",
+      },
+    },
   },
   jp: {
     hidden: {
       title: "秘密",
       mappings: {
-        "!0": "無"
-      }
+        [NONE_TAG_SLUG]: "無",
+      },
     },
     language: {
       title: "言語",
@@ -71,12 +72,12 @@ export const groupedProjectTagMappings = {
         L2: "C++",
         L3: "Javascript",
         L4: "HTML/CSS",
-        L5: "Java"
+        L5: "Java",
         // L6: "T-SQL",
         // L7: "Racket",
         // L8: "Haskell",
         // L9: "Dafny"
-      }
+      },
     },
     technology: {
       title: "テクノロジー",
@@ -94,8 +95,8 @@ export const groupedProjectTagMappings = {
         // T10: "ELK",
         T11: "Firebase",
         T12: "Google アシスタント",
-        T13: "Material UI"
-      }
+        T13: "Material UI",
+      },
     },
     other: {
       title: "その他",
@@ -106,41 +107,42 @@ export const groupedProjectTagMappings = {
         O3: "AR",
         O4: "ゲーム",
         O5: "ツール",
-        O6: "Webアプリケーション"
-      }
-    }
-  }
+        O6: "Webアプリケーション",
+      },
+    },
+  },
 };
+
+const validateHasLink = checkText => proj =>
+  proj.links !== undefined && proj.links.some(link => link.url.includes(checkText));
+
+const validateHasVideo = proj => proj.video !== undefined;
 
 export const customFilters = {
   en: {
     playable: {
       title: "Playable",
       chipTitle: "Playable",
-      validate: proj =>
-        proj.links !== undefined &&
-        proj.links.some(link => link.url.includes("https://jurcaua.itch.io"))
+      validate: validateHasLink("https://jurcaua.itch.io"),
     },
     hasVideo: {
       title: "w/ Video",
       chipTitle: "Video",
-      validate: proj => proj.video !== undefined
-    }
+      validate: validateHasVideo,
+    },
   },
   jp: {
     playable: {
       title: "再生可能",
       chipTitle: "再生可能",
-      validate: proj =>
-        proj.links !== undefined &&
-        proj.links.some(link => link.url.includes("https://jurcaua.itch.io"))
+      validate: validateHasLink("https://jurcaua.itch.io"),
     },
     hasVideo: {
       title: "動画有り",
       chipTitle: "動画有り",
-      validate: proj => proj.video !== undefined
-    }
-  }
+      validate: validateHasVideo,
+    },
+  },
 };
 
 const flattenGroupObject = root => {

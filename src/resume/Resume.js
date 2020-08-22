@@ -5,15 +5,13 @@ import { pdfjs } from "react-pdf";
 import throttle from "lodash.throttle";
 import { Dialog, Divider, DialogContent, IconButton } from "@material-ui/core";
 
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${
-  pdfjs.version
-}/pdf.worker.js`;
+pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const dialogPDFWidthMapping = {
   sm: 0.32,
   md: 0.53,
   lg: 0.71,
-  xl: 1
+  xl: 1,
 };
 
 class ResumeDialog extends Component {
@@ -24,10 +22,7 @@ class ResumeDialog extends Component {
       console.error("You must pass in prop 'dialogSize'!");
     }
     if (!dialogPDFWidthMapping[this.props.dialogSize]) {
-      console.error(
-        "Invalid dialog size. Here is the mapping object: ",
-        dialogPDFWidthMapping
-      );
+      console.error("Invalid dialog size. Here is the mapping object: ", dialogPDFWidthMapping);
     }
 
     this.state = { width: null, dialogOpen: true };
@@ -45,9 +40,7 @@ class ResumeDialog extends Component {
   setDivSize = () => {
     if (this.pdfWrapper) {
       this.setState({
-        width:
-          this.pdfWrapper.getBoundingClientRect().width *
-          dialogPDFWidthMapping[this.props.dialogSize]
+        width: this.pdfWrapper.getBoundingClientRect().width * dialogPDFWidthMapping[this.props.dialogSize],
       });
     }
   };
@@ -60,18 +53,11 @@ class ResumeDialog extends Component {
           height: "100vh",
           width: "100vw",
           display: "flex",
-          overflow: "hidden"
+          overflow: "hidden",
         }}
       >
-        <div
-          id="placeholderWrapper"
-          style={{ width: "10vw", height: "100vh" }}
-        />
-        <div
-          id="pdfWrapper"
-          style={{ width: "90vw" }}
-          ref={ref => (this.pdfWrapper = ref)}
-        >
+        <div id="placeholderWrapper" style={{ width: "10vw", height: "100vh" }} />
+        <div id="pdfWrapper" style={{ width: "90vw" }} ref={ref => (this.pdfWrapper = ref)}>
           <Dialog
             open={this.state.dialogOpen}
             onClose={this.props.onClose}
@@ -81,22 +67,11 @@ class ResumeDialog extends Component {
             <DialogContent>
               <Document file={resume}>
                 <Outline />
-                <Page
-                  pageNumber={1}
-                  renderTextLayer={false}
-                  width={this.state.width}
-                />
+                <Page pageNumber={1} renderTextLayer={false} width={this.state.width} />
                 <Divider />
-                <Page
-                  pageNumber={2}
-                  renderTextLayer={false}
-                  width={this.state.width}
-                />
+                <Page pageNumber={2} renderTextLayer={false} width={this.state.width} />
               </Document>
-              <IconButton
-                onClick={this.props.onClose}
-                style={{ position: "absolute", right: "10px", top: "10px" }}
-              >
+              <IconButton onClick={this.props.onClose} style={{ position: "absolute", right: "10px", top: "10px" }}>
                 <i className="material-icons">close</i>
               </IconButton>
             </DialogContent>

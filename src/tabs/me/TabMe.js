@@ -80,7 +80,7 @@ const TabMe = props => {
     setOtherExperienceExpanded(isExpanded ? panel : false);
   };
 
-  const handleOpenResume = sublink => event => {
+  const handleOpenResume = sublink => () => {
     window.open(`${window.location.origin}/${sublink}`, "_blank");
   };
 
@@ -160,16 +160,14 @@ const TabMe = props => {
                 </div>
               </AccordionSummary>
               <AccordionDetails className={classes.otherExperienceExpandDetails}>
-                {experience.dialogText.map((text, index) => {
-                  return (
-                    <div key={index} className={classes.otherExperienceExpandRoot}>
-                      <i className="material-icons">arrow_right</i>
-                      <Typography className={classes.otherExperienceExpandText} variant="body2">
-                        {text}
-                      </Typography>
-                    </div>
-                  );
-                })}
+                {experience.dialogText.map((text, index) => (
+                  <div key={index} className={classes.otherExperienceExpandRoot}>
+                    <i className="material-icons">arrow_right</i>
+                    <Typography className={classes.otherExperienceExpandText} variant="body2">
+                      {text}
+                    </Typography>
+                  </div>
+                ))}
               </AccordionDetails>
             </Accordion>
           );

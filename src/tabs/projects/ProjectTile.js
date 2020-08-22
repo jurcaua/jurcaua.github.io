@@ -36,8 +36,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const ProjectTile = ({ projectKey, project, highlights, ...rest }) => {
-  const classes = useStyles(rest);
+const ProjectTile = ({ projectKey, project, highlights }) => {
+  const classes = useStyles();
 
   const { name, shortDescription, mainImage, tags } = project;
 

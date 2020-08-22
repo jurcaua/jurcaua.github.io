@@ -7,4 +7,5 @@ export const JLPT_LEVEL_CURRENTLY_HAVE = 2;
 export const UBISOFT_STARTED_WORKING = new Date(2018, 4, 1);
 export const UBISOFT_DIDNT_WORK_MONTHS = 9;
 
-export const UBISOFT_WORKED_MONTHS = getNumberOfMonths(new Date(new Date() - UBISOFT_STARTED_WORKING)) - UBISOFT_DIDNT_WORK_MONTHS
+export const UBISOFT_WORKED_MONTHS =
+  getNumberOfMonths(new Date(new Date() - UBISOFT_STARTED_WORKING)) - UBISOFT_DIDNT_WORK_MONTHS;

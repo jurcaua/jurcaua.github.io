@@ -4,7 +4,7 @@ const svgStyle = {
   width: "16vw",
   height: "8vw",
   maxWidth: "100px",
-  maxHeight: "50px"
+  maxHeight: "50px",
 };
 
 const svgMap = {
@@ -24,7 +24,7 @@ const svgMap = {
       <rect fill="#fff" height="46" width="96" x="2" y="2" />
       <circle fill="#bc002d" cx="50" cy="25" r="12.5" />
     </svg>
-  )
+  ),
 };
 
 export const getSVG = language => svgMap[language];

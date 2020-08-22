@@ -1,19 +1,21 @@
 import React from "react";
-import { localized } from "../../Localization";
+
 import { IconButton, Tooltip } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 
+import { localized } from "../../Localization";
+
 const useStyles = makeStyles(theme => ({
   root: {
-    textAlign: "center"
+    textAlign: "center",
   },
   greyIcon: {
-    color: "dimgrey"
-  }
+    color: "dimgrey",
+  },
 }));
 
-const SocialMediaIconList = props => {
-  const classes = useStyles(props);
+const SocialMediaIconList = () => {
+  const classes = useStyles();
 
   return (
     <div className={classes.root}>
@@ -21,10 +23,7 @@ const SocialMediaIconList = props => {
         const SocialMediaIcon = socialMedia.icon;
         return (
           <Tooltip key={index} title={socialMedia.name} placement="bottom">
-            <IconButton
-              className={classes.greyIcon}
-              onClick={() => window.open(socialMedia.url, "_blank")}
-            >
+            <IconButton className={classes.greyIcon} onClick={() => window.open(socialMedia.url, "_blank")}>
               <SocialMediaIcon />
             </IconButton>
           </Tooltip>

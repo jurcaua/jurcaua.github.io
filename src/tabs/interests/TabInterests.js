@@ -50,35 +50,31 @@ const TabInterests = ({ match, windowInnerWidth }) => {
     return (
       <Paper className={classes.interestsRoot} elevation={2}>
         <Tabs value={getCurrentTab()} centered>
-          {Object.keys(getInterests().content).map((interestKey, index) => {
-            return (
-              <Tab
-                key={index}
-                label={<span>{getInterests().content[interestKey].summary}</span>}
-                icon={<i className="material-icons">{getInterests().content[interestKey].icon}</i>}
-                component={RouterLink}
-                to={`${GetRootTabLinkToPath(INTERESTS_TAB_SLUG)}/${interestKey}`}
-                value={interestKey}
-              />
-            );
-          })}
-        </Tabs>
-        {Object.keys(getInterests().content).map((interestKey, index) => {
-          return (
-            <Slide
+          {Object.keys(getInterests().content).map((interestKey, index) => (
+            <Tab
               key={index}
-              direction="left"
-              in={getCurrentTab() === interestKey}
-              exit={false}
-              timeout={SLIDE_TIMEOUT}
-              unmountOnExit
-            >
-              <Paper elevation={2} className={classes.paper}>
-                {getInterests().content[interestKey].details}
-              </Paper>
-            </Slide>
-          );
-        })}
+              label={<span>{getInterests().content[interestKey].summary}</span>}
+              icon={<i className="material-icons">{getInterests().content[interestKey].icon}</i>}
+              component={RouterLink}
+              to={`${GetRootTabLinkToPath(INTERESTS_TAB_SLUG)}/${interestKey}`}
+              value={interestKey}
+            />
+          ))}
+        </Tabs>
+        {Object.keys(getInterests().content).map((interestKey, index) => (
+          <Slide
+            key={index}
+            direction="left"
+            in={getCurrentTab() === interestKey}
+            exit={false}
+            timeout={SLIDE_TIMEOUT}
+            unmountOnExit
+          >
+            <Paper elevation={2} className={classes.paper}>
+              {getInterests().content[interestKey].details}
+            </Paper>
+          </Slide>
+        ))}
       </Paper>
     );
   };

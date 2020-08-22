@@ -10,17 +10,18 @@ import { localized, getCustomFilters } from "../../Localization";
 import ProjectTagList from "./ProjectTagList";
 import ProjectsFilterDialog from "./ProjectsFilterDialog";
 import ChipList from "../../general/ChipList";
+import { NONE_TAG_SLUG } from "./ProjectsConfig";
 
 const useStyles = makeStyles(theme => ({
   root: {
-    margin: theme.spacing(1)
+    margin: theme.spacing(1),
   },
   currentFilterTagsPaperRoot: {
-    padding: theme.spacing(1)
+    padding: theme.spacing(1),
   },
   extendedIcon: {
-    marginRight: theme.spacing(1)
-  }
+    marginRight: theme.spacing(1),
+  },
 }));
 
 const ProjectsFilter = ({ windowInnerWidth, onChange, ...props }) => {
@@ -42,14 +43,14 @@ const ProjectsFilter = ({ windowInnerWidth, onChange, ...props }) => {
     const customFilters = getCustomFilters();
 
     return Object.keys(filterBools)
-      .filter(key => filterBools[key] === true)
+      .filter(key => filterBools[key])
       .map(key => customFilters[key].chipTitle);
   };
 
   const renderCurrentFilterTags = () => {
     if (filterTags.length === 0) {
-      // !0 -> "None"
-      return <ProjectTagList tags={["!0"]} />;
+      // Display a fake tag that says "None"
+      return <ProjectTagList tags={[NONE_TAG_SLUG]} />;
     } else {
       return <ProjectTagList tags={filterTags} color="primary" />;
     }
@@ -79,13 +80,7 @@ const ProjectsFilter = ({ windowInnerWidth, onChange, ...props }) => {
 
   return (
     <div>
-      <Grid
-        className={classes.root}
-        container
-        spacing={1}
-        justify="space-between"
-        alignItems="center"
-      >
+      <Grid className={classes.root} container spacing={1} justify="space-between" alignItems="center">
         {/* Current Filters (Title + Tag List) */}
         <Grid container item xs direction="column" justify="center" alignItems="flex-start">
           <Grid item>
@@ -108,11 +103,7 @@ const ProjectsFilter = ({ windowInnerWidth, onChange, ...props }) => {
             </Grid>
           )} */}
           <Grid item>
-            <Fab
-              className={classes.extendedIcon}
-              onClick={() => setDialogOpen(true)}
-              variant="extended"
-            >
+            <Fab className={classes.extendedIcon} onClick={() => setDialogOpen(true)} variant="extended">
               <FilterListIcon className={classes.extendedIcon} />
               {localized().tabs.projects.filter.button}
             </Fab>
@@ -121,11 +112,7 @@ const ProjectsFilter = ({ windowInnerWidth, onChange, ...props }) => {
       </Grid>
 
       {/* Filter Selection Dialog */}
-      <ProjectsFilterDialog
-        open={dialogOpen}
-        onApply={handleApply}
-        onCancel={() => setDialogOpen(false)}
-      />
+      <ProjectsFilterDialog open={dialogOpen} onApply={handleApply} onCancel={() => setDialogOpen(false)} />
     </div>
   );
 };

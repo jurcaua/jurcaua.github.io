@@ -13,8 +13,8 @@ const useStyles = makeStyles(theme => ({
     margin: "5px",
     zIndex: 2000,
     bottom: theme.spacing(1),
-    right: theme.spacing(1)
-  }
+    right: theme.spacing(1),
+  },
 }));
 
 const LanguageSwitcher = ({ onClick, ...props }) => {
@@ -26,7 +26,7 @@ const LanguageSwitcher = ({ onClick, ...props }) => {
   return (
     <Tooltip title={localized().changeLanguage} placement="left">
       <div className={classes.svgButton}>
-        <Button onClick={event => onClick(switchLanguageTo)}>{switchLanguageToFlag}</Button>
+        <Button onClick={() => onClick(switchLanguageTo)}>{switchLanguageToFlag}</Button>
       </div>
     </Tooltip>
   );
