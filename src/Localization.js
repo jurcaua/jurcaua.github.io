@@ -12,8 +12,15 @@ import {
   getYearsFromTotalMonths,
   getRemainderMonthsFromTotalMonths,
   displayYearMonthText,
+  getNumberOfMonths,
 } from "./Utils";
-import { BIRTHDAY, JAPANESE_STARTED_LEARNING, JLPT_LEVEL_CURRENTLY_HAVE, UBISOFT_WORKED_MONTHS } from "./Info";
+import {
+  BIRTHDAY,
+  GS_STARTED_WORKING,
+  JAPANESE_STARTED_LEARNING,
+  JLPT_LEVEL_CURRENTLY_HAVE,
+  UBISOFT_WORKED_MONTHS,
+} from "./Info";
 import Emoji from "./Emoji";
 import {
   projectTagMappings,
@@ -86,18 +93,17 @@ export const strings = {
         tooltip: "Qualification overview.",
         summary: [
           <Typography variant="h5">
-            Working at Ubisoft Toronto for a total of{" "}
-            {displayYearMonthText(
-              getYearsFromTotalMonths(UBISOFT_WORKED_MONTHS),
-              getRemainderMonthsFromTotalMonths(UBISOFT_WORKED_MONTHS)
-            )}{" "}
-            as a Tools Programmer on Watch Dogs Legion.
+            Currently working at <b>Guild Studio in Tokyo, Japan</b> for a total of{" "}
+            {getRemainderMonthsFromTotalMonths(getNumberOfMonths(new Date(new Date() - GS_STARTED_WORKING)))} months on
+            an unannounced project.
           </Typography>,
           <Typography variant="h5">
             Currently {getYearsAgo(BIRTHDAY)} years old, and a <b>University of Toronto</b> alumnus, where I studied
             Computer Science with focuses in Algorithms, System Design, and Game Design.
           </Typography>,
-          <Typography variant="h5">My notable contributions to Ubisoft can be seen below:</Typography>,
+          <Typography variant="h5">
+            Working at Ubisoft for ~2 years, my notable contributions can be seen below:
+          </Typography>,
         ],
         currentExperiences: [
           {
@@ -814,14 +820,14 @@ export const strings = {
         tooltip: "資格概要",
         summary: [
           <Typography variant="h5">
-            現在、{getYearsFromTotalMonths(UBISOFT_WORKED_MONTHS)}年
-            {getRemainderMonthsFromTotalMonths(UBISOFT_WORKED_MONTHS)}
-            ヶ月、Ubisoftというゲーム会社でツールプログラマーとして働いております。
+            現在、<b>東京のGUILD STUDIO</b>で
+            {getRemainderMonthsFromTotalMonths(getNumberOfMonths(new Date(new Date() - GS_STARTED_WORKING)))}
+            ヶ月、未発表のプロジェクトに取り組んでおります。
           </Typography>,
           <Typography variant="h5">
             トロント大学を卒業、コンピューターサイエンスのアルゴリズム、システムデザイン、ゲームデザイン等、を中心に学んでおりました。
           </Typography>,
-          <Typography variant="h5">私の専門は以下のとおりです。</Typography>,
+          <Typography variant="h5">私の専門と、Ubisoft（２年ぐらいの職歴）への貢献は以下のとおりです。</Typography>,
         ],
         currentExperiences: [
           {
