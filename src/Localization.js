@@ -55,6 +55,17 @@ const basicStrings = {
   },
 };
 
+const timeSpan = {
+  en: (years = 0, months = 0) => {
+    return `${years > 0 ? `${years} year${years > 1 ? `s` : ``}` : ``} ${
+      months > 0 ? `${years > 0 ? ` and ` : ``}${months} month${months > 1 ? `s` : ``}` : ``
+    }`;
+  },
+  jp: (years = 0, months = 0) => {
+    return `${years > 0 ? `${years}年` : ``}${months > 0 ? `${months}ヶ月` : `間`}`;
+  },
+};
+
 export const strings = {
   en: {
     nameFirst: "Alexander",
@@ -94,8 +105,7 @@ export const strings = {
         summary: [
           <Typography variant="h5">
             Currently working at <b>Guild Studio in Tokyo, Japan</b> for a total of{" "}
-            {getRemainderMonthsFromTotalMonths(getNumberOfMonths(new Date(new Date() - GS_STARTED_WORKING)))} months on
-            an unannounced project.
+            {getFormattedYearsMonthsSince("en", GS_STARTED_WORKING)} on an unannounced project.
           </Typography>,
           <Typography variant="h5">
             Currently {getYearsAgo(BIRTHDAY)} years old, and a <b>University of Toronto</b> alumnus, where I studied
@@ -727,8 +737,9 @@ export const strings = {
             details: (
               <React.Fragment>
                 <Typography variant="h5">
-                  I have been learning Japanese for about {<b>{getTimeLearningJapaneseString("en")}</b>}. I currently
-                  hold a {<b>JLPT N{JLPT_LEVEL_CURRENTLY_HAVE}</b>} certification I received Dec. 2019.
+                  I have been learning Japanese for about{" "}
+                  {<b>{getFormattedYearsMonthsSince("en", JAPANESE_STARTED_LEARNING)}</b>}. I currently hold a{" "}
+                  {<b>JLPT N{JLPT_LEVEL_CURRENTLY_HAVE}</b>} certification I received Dec. 2019.
                 </Typography>
                 <br />
                 <Typography variant="h5">
@@ -820,14 +831,13 @@ export const strings = {
         tooltip: "資格概要",
         summary: [
           <Typography variant="h5">
-            現在、<b>東京のGUILD STUDIO</b>で
-            {getRemainderMonthsFromTotalMonths(getNumberOfMonths(new Date(new Date() - GS_STARTED_WORKING)))}
-            ヶ月、未発表のプロジェクトに取り組んでおります。
+            現在、<b>東京のGUILD STUDIO</b>で{getFormattedYearsMonthsSince("jp", GS_STARTED_WORKING)}
+            、未発表のプロジェクトに取り組んでおります。
           </Typography>,
           <Typography variant="h5">
             トロント大学を卒業、コンピューターサイエンスのアルゴリズム、システムデザイン、ゲームデザイン等、を中心に学んでおりました。
           </Typography>,
-          <Typography variant="h5">私の専門と、Ubisoft（２年ぐらいの職歴）への貢献は以下のとおりです。</Typography>,
+          <Typography variant="h5">私の専門と、Ubisoft（2年間弱の職歴）への貢献は以下のとおりです。</Typography>,
         ],
         currentExperiences: [
           {
@@ -1444,7 +1454,7 @@ export const strings = {
             details: (
               <React.Fragment>
                 <Typography variant="h5">
-                  私は{<b>{getTimeLearningJapaneseString("jp")}</b>}
+                  私は{<b>{getFormattedYearsMonthsSince("jp", JAPANESE_STARTED_LEARNING)}</b>}
                   日本語を勉強しています。 2019年の12月に
                   <b>日本語能力試験の{JLPT_LEVEL_CURRENTLY_HAVE}級</b>に合格しました。
                 </Typography>
@@ -1565,22 +1575,13 @@ export function localizedProjectTag(tag) {
 // a nicely formatted string that is the amount of time ive been studying Japanese
 // To make it more general I had to do some ugly stuff like define what a SPACE was because, whoops cant have spaces with Japanese!!
 // Anyways I hope no one sees this but if so, welcome to my masterpiece.
-export function getTimeLearningJapaneseString(lang) {
-  let years = getYearsAgo(JAPANESE_STARTED_LEARNING);
-  let months = getMonthsAgo(JAPANESE_STARTED_LEARNING) - years * 12;
+export function getFormattedYearsMonthsSince(lang, since) {
+  let years = getYearsAgo(since);
+  let months = getMonthsAgo(since) - years * 12;
   if (months >= 12) {
     years += 1;
     months -= 12;
   }
 
-  const { space } = basicStrings[lang].time;
-
-  let yearsString = `${years}${space}${years === 1 ? basicStrings[lang].time.year : basicStrings[lang].time.years}`;
-  let monthsString = "";
-  if (months > 0) {
-    months = `${space}${basicStrings[lang].time.connector}${space}${months}${space}${
-      months === 1 ? basicStrings[lang].time.month : basicStrings[lang].time.months
-    }`;
-  }
-  return `${yearsString}${monthsString}`;
+  return timeSpan[lang](years, months);
 }
