@@ -739,7 +739,7 @@ export const strings = {
                 <Typography variant="h5">
                   I have been learning Japanese for about{" "}
                   {<b>{getFormattedYearsMonthsSince("en", JAPANESE_STARTED_LEARNING)}</b>}. I currently hold a{" "}
-                  {<b>JLPT N{JLPT_LEVEL_CURRENTLY_HAVE}</b>} certification I received Dec. 2019.
+                  {<b>JLPT N{JLPT_LEVEL_CURRENTLY_HAVE}</b>} certification I received Dec. 2021.
                 </Typography>
                 <br />
                 <Typography variant="h5">
@@ -1455,7 +1455,7 @@ export const strings = {
               <React.Fragment>
                 <Typography variant="h5">
                   私は{<b>{getFormattedYearsMonthsSince("jp", JAPANESE_STARTED_LEARNING)}</b>}
-                  日本語を勉強しています。 2019年の12月に
+                  日本語を勉強しています。 2021年の12月に
                   <b>日本語能力試験の{JLPT_LEVEL_CURRENTLY_HAVE}級</b>に合格しました。
                 </Typography>
                 <br />
