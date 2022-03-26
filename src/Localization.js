@@ -106,7 +106,7 @@ export const strings = {
           <Typography variant="h5">
             Currently working at{" "}
             <b>
-              <a href="https://guildstudio.co.jp/" target="_blank" rel="noopener">
+              <a href="https://guildstudio.co.jp/" target="_blank" rel="noopener noreferrer">
                 Guild Studio
               </a>{" "}
               in Tokyo, Japan
@@ -841,7 +841,7 @@ export const strings = {
             現在、
             <b>
               東京の
-              <a href="https://guildstudio.co.jp/" target="_blank" rel="noopener">
+              <a href="https://guildstudio.co.jp/" target="_blank" rel="noopener noreferrer">
                 GUILD STUDIO
               </a>
             </b>
