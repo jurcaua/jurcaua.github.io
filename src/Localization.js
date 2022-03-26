@@ -104,15 +104,22 @@ export const strings = {
         tooltip: "Qualification overview.",
         summary: [
           <Typography variant="h5">
-            Currently working at <b>Guild Studio in Tokyo, Japan</b> for a total of{" "}
-            {getFormattedYearsMonthsSince("en", GS_STARTED_WORKING)} on an unannounced project.
+            Currently working at{" "}
+            <b>
+              <a href="https://guildstudio.co.jp/" target="_blank" rel="noopener">
+                Guild Studio
+              </a>{" "}
+              in Tokyo, Japan
+            </b>{" "}
+            for a total of {getFormattedYearsMonthsSince("en", GS_STARTED_WORKING)} on an unannounced project (see
+            resume for details).
           </Typography>,
           <Typography variant="h5">
-            Currently {getYearsAgo(BIRTHDAY)} years old, and a <b>University of Toronto</b> alumnus, where I studied
-            Computer Science with focuses in Algorithms, System Design, and Game Design.
+            I am {getYearsAgo(BIRTHDAY)} years old, and a <b>University of Toronto</b> alumnus, where I studied Computer
+            Science with focuses in Algorithms, System Design, and Game Design.
           </Typography>,
           <Typography variant="h5">
-            Working at Ubisoft for ~2 years, my notable contributions can be seen below:
+            Also previously working at Ubisoft for ~2 years, my notable contributions can be seen below:
           </Typography>,
         ],
         currentExperiences: [
@@ -178,7 +185,7 @@ export const strings = {
       },
       projects: {
         label: "Projects",
-        tooltip: "Notable projects and experience.",
+        tooltip: "Notable personal projects and experience.",
         displaying: num => `Displaying ${num} projects`,
         dialog: {
           linksTitle: "Related Links",
@@ -797,8 +804,8 @@ export const strings = {
     nameLast: "アレックス",
     greeting: "こんにちは！アレックスです。",
     resumeDocuments: [
-      { text: "履歴書", sublink: "履歴書.pdf" },
-      { text: "職務経歴書", sublink: "職務経歴書.pdf" },
+      { text: "履歴書（未更新）", sublink: "履歴書.pdf" },
+      { text: "職務経歴書（未更新）", sublink: "職務経歴書.pdf" },
     ],
     copyButtonTooltip: "コピー",
     copyConfirmNotification: "コピーしました！",
@@ -831,13 +838,20 @@ export const strings = {
         tooltip: "資格概要",
         summary: [
           <Typography variant="h5">
-            現在、<b>東京のGUILD STUDIO</b>で{getFormattedYearsMonthsSince("jp", GS_STARTED_WORKING)}
+            現在、
+            <b>
+              東京の
+              <a href="https://guildstudio.co.jp/" target="_blank" rel="noopener">
+                GUILD STUDIO
+              </a>
+            </b>
+            で{getFormattedYearsMonthsSince("jp", GS_STARTED_WORKING)}
             、未発表のプロジェクトに取り組んでおります。
           </Typography>,
           <Typography variant="h5">
             トロント大学を卒業、コンピューターサイエンスのアルゴリズム、システムデザイン、ゲームデザイン等、を中心に学んでおりました。
           </Typography>,
-          <Typography variant="h5">私の専門と、Ubisoft（2年間弱の職歴）への貢献は以下のとおりです。</Typography>,
+          <Typography variant="h5">私の専門と、前職のUbisoft（2年間弱の職歴）への貢献は以下のとおりです。</Typography>,
         ],
         currentExperiences: [
           {
