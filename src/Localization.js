@@ -6,21 +6,8 @@ import EmailIcon from "@material-ui/icons/Email";
 
 // Local Imports
 import { DEFAULT_LANGUAGE } from "./Constants";
-import {
-  getYearsAgo,
-  getMonthsAgo,
-  getYearsFromTotalMonths,
-  getRemainderMonthsFromTotalMonths,
-  displayYearMonthText,
-  getNumberOfMonths,
-} from "./Utils";
-import {
-  BIRTHDAY,
-  GS_STARTED_WORKING,
-  JAPANESE_STARTED_LEARNING,
-  JLPT_LEVEL_CURRENTLY_HAVE,
-  UBISOFT_WORKED_MONTHS,
-} from "./Info";
+import { getYearsAgo, getMonthsAgo } from "./Utils";
+import { BIRTHDAY, ATG_STARTED_WORKING, JAPANESE_STARTED_LEARNING, JLPT_LEVEL_CURRENTLY_HAVE } from "./Info";
 import Emoji from "./Emoji";
 import {
   projectTagMappings,
@@ -28,7 +15,7 @@ import {
   ignoreGroups,
   customFilters,
 } from "./tabs/projects/ProjectsConfig";
-import { LinkedInIcon, GithubIcon, SoundcloudIcon } from "./SocialMediaIcons";
+import { LinkedInIcon, GithubIcon } from "./SocialMediaIcons";
 
 let currentLanguage = DEFAULT_LANGUAGE;
 
@@ -88,11 +75,6 @@ export const strings = {
         url: "https://github.com/jurcaua",
       },
       {
-        name: "Soundcloud",
-        icon: SoundcloudIcon,
-        url: "https://soundcloud.com/beunorthodox",
-      },
-      {
         name: "Email",
         icon: EmailIcon,
         url: "mailto:jurcaua@gmail.com?subject=Hey%20Alex!",
@@ -106,12 +88,12 @@ export const strings = {
           <Typography variant="h5">
             Currently working at{" "}
             <b>
-              <a href="https://guildstudio.co.jp/" target="_blank" rel="noopener noreferrer">
-                Guild Studio
+              <a href="https://arstechguild.inc/#/" target="_blank" rel="noopener noreferrer">
+                ARSTECH GUILD Inc.
               </a>{" "}
               in Tokyo, Japan
             </b>{" "}
-            for a total of {getFormattedYearsMonthsSince("en", GS_STARTED_WORKING)} on an unannounced project (see
+            for a total of {getFormattedYearsMonthsSince("en", ATG_STARTED_WORKING)} on an unannounced project (see
             resume for details).
           </Typography>,
           <Typography variant="h5">
@@ -119,7 +101,8 @@ export const strings = {
             Science with focuses in Algorithms, System Design, and Game Design.
           </Typography>,
           <Typography variant="h5">
-            Also previously working at Ubisoft for ~2 years, my notable contributions can be seen below:
+            Also previously working at Ubisoft on Watch Dogs Legion for ~2 years, my notable contributions can be seen
+            below:
           </Typography>,
         ],
         currentExperiences: [
@@ -744,15 +727,20 @@ export const strings = {
             details: (
               <React.Fragment>
                 <Typography variant="h5">
-                  I have been learning Japanese for about{" "}
-                  {<b>{getFormattedYearsMonthsSince("en", JAPANESE_STARTED_LEARNING)}</b>}. I currently hold a{" "}
-                  {<b>JLPT N{JLPT_LEVEL_CURRENTLY_HAVE}</b>} certification I received Dec. 2021.
+                  Fluent in Japanese, I have been learning for about{" "}
+                  {<b>{getFormattedYearsMonthsSince("en", JAPANESE_STARTED_LEARNING)}</b>} and counting!
+                  <br />I currently hold a {<b>JLPT N{JLPT_LEVEL_CURRENTLY_HAVE}</b>} certification I received Dec.
+                  2021, which is the highest proficiency level currently available.
                 </Typography>
                 <br />
                 <Typography variant="h5">
                   I can have casual or business level conversations without any issues, and can keep up with native
-                  speaking patterns and colloquial speech. Additionally, I successfully went through the Japanese job
-                  hunting process that included Japanese-only communications during the entire interview process.
+                  speaking patterns and colloquial speech. In both a work environment, and in my personal life, I have
+                  experience giving presentations, teaching, mentoring, managing, interviewing in Japanese.
+                  <br /> Additionally, I consistently do translation of internal documents, and have even competed in
+                  literature translation competitions from English to Japanese. Interpretation is also something I have
+                  done from the context of casual interactions, all the way to full-fledged project proposals to company
+                  executives.
                 </Typography>
               </React.Fragment>
             ),
@@ -822,11 +810,6 @@ export const strings = {
         url: "https://github.com/jurcaua",
       },
       {
-        name: "Soundcloud",
-        icon: SoundcloudIcon,
-        url: "https://soundcloud.com/beunorthodox",
-      },
-      {
         name: "メール",
         icon: EmailIcon,
         url: "mailto:jurcaua@gmail.com?subject=Hey%20Alex!",
@@ -841,11 +824,11 @@ export const strings = {
             現在、
             <b>
               東京の
-              <a href="https://guildstudio.co.jp/" target="_blank" rel="noopener noreferrer">
-                GUILD STUDIO
+              <a href="https://arstechguild.inc/#/" target="_blank" rel="noopener noreferrer">
+                ARSTECH GUILD株式会社
               </a>
             </b>
-            で{getFormattedYearsMonthsSince("jp", GS_STARTED_WORKING)}
+            で{getFormattedYearsMonthsSince("jp", ATG_STARTED_WORKING)}
             、未発表のプロジェクトに取り組んでおります。
           </Typography>,
           <Typography variant="h5">

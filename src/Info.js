@@ -10,4 +10,4 @@ export const UBISOFT_DIDNT_WORK_MONTHS = 9;
 export const UBISOFT_WORKED_MONTHS =
   getNumberOfMonths(new Date(new Date() - UBISOFT_STARTED_WORKING)) - UBISOFT_DIDNT_WORK_MONTHS;
 
-export const GS_STARTED_WORKING = new Date(2020, 11, 7);
+export const ATG_STARTED_WORKING = new Date(2020, 11, 7);

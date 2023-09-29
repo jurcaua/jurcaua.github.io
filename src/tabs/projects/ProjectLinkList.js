@@ -37,7 +37,7 @@ const ProjectLinkList = ({ links }) => {
               underline="none"
               href={link.url}
               target="_blank" // Open in new tab
-              rel="noopener" // https://material-ui.com/components/links/#security
+              rel="noopener noreferrer" // https://material-ui.com/components/links/#security
             >
               {link.title.toUpperCase()}
             </Link>

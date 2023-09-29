@@ -19,6 +19,7 @@ export const GithubIcon = props => {
   );
 };
 
+/* Not being used currently
 export const SoundcloudIcon = props => {
   return (
     <SvgIcon {...props}>
@@ -26,3 +27,4 @@ export const SoundcloudIcon = props => {
     </SvgIcon>
   );
 };
+*/
