@@ -1,7 +1,7 @@
 {
   "homepage": "http://jurcaua.github.io/",
   "name": "website-github-pages",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.0",
