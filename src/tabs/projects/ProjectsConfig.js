@@ -133,8 +133,8 @@ export const customFilters = {
   },
   jp: {
     playable: {
-      title: "再生可能",
-      chipTitle: "再生可能",
+      title: "プレイ可能",
+      chipTitle: "プレイ可能",
       validate: validateHasLink("https://jurcaua.itch.io"),
     },
     hasVideo: {

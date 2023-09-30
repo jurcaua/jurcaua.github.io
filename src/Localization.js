@@ -19,28 +19,28 @@ import { LinkedInIcon, GithubIcon } from "./SocialMediaIcons";
 
 let currentLanguage = DEFAULT_LANGUAGE;
 
-const basicStrings = {
-  en: {
-    time: {
-      year: "year",
-      years: "years",
-      month: "month",
-      months: "months",
-      connector: "and",
-      space: " ",
-    },
-  },
-  jp: {
-    time: {
-      year: "年間",
-      years: "年間",
-      month: "ヶ月",
-      months: "ヶ月",
-      connector: "の",
-      space: "",
-    },
-  },
-};
+// const basicStrings = {
+//   en: {
+//     time: {
+//       year: "year",
+//       years: "years",
+//       month: "month",
+//       months: "months",
+//       connector: "and",
+//       space: " ",
+//     },
+//   },
+//   jp: {
+//     time: {
+//       year: "年間",
+//       years: "年間",
+//       month: "ヶ月",
+//       months: "ヶ月",
+//       connector: "の",
+//       space: "",
+//     },
+//   },
+// };
 
 const timeSpan = {
   en: (years = 0, months = 0) => {
@@ -774,9 +774,11 @@ export const strings = {
             details: (
               <React.Fragment>
                 <Typography variant="h5">
-                  I absolutely <i>ADORE</i> a good cup of {<Emoji symbol="☕" />}. While I rarely feel the effects of
-                  caffeine, I stick with it for the taste! I believe a nice cup of black coffee is the best thing to sip
-                  on while programming.
+                  I absolutely <i>ADORE</i> a good cup of {<Emoji symbol="☕" />}. Wanting to expand my knowledge, I
+                  have even taken a Fundamental Coffee Knowledge course at the famous UCC Coffee Academy in Tokyo.
+                  <br />
+                  While I rarely feel the effects of caffeine, I stick with it for the taste! I believe a nice cup of
+                  black coffee is the best thing to sip on while programming.
                 </Typography>
               </React.Fragment>
             ),
@@ -903,13 +905,13 @@ export const strings = {
           linksTitle: "関連リンク",
         },
         filter: {
-          button: "絞り込み",
-          currentFiltersTitle: "現在の絞り込み",
+          button: "フィルター",
+          currentFiltersTitle: "現在のフィルター",
           dialog: {
-            title: "プロジェクトの絞り込み",
+            title: "プロジェクトのフィルター",
             resetFiltersButton: "リセット",
             cancelButton: "キャンセル",
-            applyButton: "絞り込む",
+            applyButton: "適用",
           },
         },
         content: {
@@ -1497,8 +1499,10 @@ export const strings = {
             details: (
               <React.Fragment>
                 <Typography variant="h5">
-                  {<Emoji symbol="☕" />}無くしては、生きていくことができますせん。
-                  カフェインの効果はあまり感じませんが、いれたてのコーヒーの味は最高なので、それでいいんです！
+                  {<Emoji symbol="☕" />}
+                  無くしては、生きていくことができますせん。UCCコーヒーアカデミー東京校にて、コーヒーの基礎知識コースまで受講した経験があります。
+                  <br />
+                  カフェインの効果はあまり感じませんが、淹れたてのコーヒーの味は最高なので、それでいいんです！
                   プログラミングをするときに飲むブラックコーヒーは、最高の一杯です。
                 </Typography>
               </React.Fragment>
