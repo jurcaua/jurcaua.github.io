@@ -7,7 +7,13 @@ import EmailIcon from "@material-ui/icons/Email";
 // Local Imports
 import { DEFAULT_LANGUAGE } from "./Constants";
 import { getYearsAgo, getMonthsAgo } from "./Utils";
-import { BIRTHDAY, ATG_STARTED_WORKING, JAPANESE_STARTED_LEARNING, JLPT_LEVEL_CURRENTLY_HAVE } from "./Info";
+import {
+  BIRTHDAY,
+  ATG_STARTED_WORKING,
+  JAPANESE_STARTED_LEARNING,
+  JLPT_LEVEL_CURRENTLY_HAVE,
+  UBISOFT_STARTED_WORKING,
+} from "./Info";
 import Emoji from "./Emoji";
 import {
   projectTagMappings,
@@ -86,6 +92,9 @@ export const strings = {
         tooltip: "Qualification overview.",
         summary: [
           <Typography variant="h5">
+            <b>{getYearsAgo(UBISOFT_STARTED_WORKING)} years of experience</b> in the game industry.
+          </Typography>,
+          <Typography variant="h5">
             Currently working at{" "}
             <b>
               <a href="https://arstechguild.inc/#/" target="_blank" rel="noopener noreferrer">
@@ -93,38 +102,131 @@ export const strings = {
               </a>{" "}
               in Tokyo, Japan
             </b>{" "}
-            for a total of {getFormattedYearsMonthsSince("en", ATG_STARTED_WORKING)} on an unannounced project (see
-            resume for details).
+            for a total of {getFormattedYearsMonthsSince("en", ATG_STARTED_WORKING)} as an Engineering Manager with a
+            team of 5, while also working on a crowd simulation toolset in UE5 tailored for a leading Japanese anime
+            studio.
           </Typography>,
           <Typography variant="h5">
             I am {getYearsAgo(BIRTHDAY)} years old, and a <b>University of Toronto</b> alumnus, where I studied Computer
             Science with focuses in Algorithms, System Design, and Game Design.
           </Typography>,
           <Typography variant="h5">
-            Also previously working at Ubisoft on Watch Dogs Legion for ~2 years, my notable contributions can be seen
-            below:
+            All notable contributions can be seen below or on my resume linked above.
           </Typography>,
         ],
         currentExperiences: [
           {
-            primary: "Leading development on a company-wide service-consolidating meeting productivity tool",
-            secondary: "Python, C#",
-            icon: "code",
+            name: "Management",
+            icon: "person",
+            experiences: [
+              {
+                primary:
+                  "Guided career development for 5 engineers through consistent goal setting, quarterly performance reviews, monthly 1on1s, and self-reflection via the KPT method",
+                secondary: "",
+                icon: "partner_exchange",
+              },
+              {
+                primary:
+                  "Designed and coordinated a Git training program for 15 cross-disciplinary new graduates, resulting in a standardized program to be used for future cohorts",
+                secondary: "",
+                icon: "school",
+              },
+              {
+                primary:
+                  "Led a 3-engineer team on a AAA UE4 title (transitions, character/vehicle handling, and load optimization), coordinating with clients and designers w/ biweekly sprints",
+                secondary: "",
+                icon: "sprint",
+              },
+              {
+                primary:
+                  "Oversaw the engineering direction of a company-wide project involving 15 new graduates, successfully delivering a game development cycle (Prototype to Master) within 3 months; conducted performance evaluations that identified key growth areas, and compiled a comprehensive report resulting in an annual program continuation",
+                secondary: "",
+                icon: "cycle",
+              },
+            ],
           },
           {
-            primary: "Maintaining our automated integration-testing pipeline",
-            secondary: "C++",
-            icon: "code",
+            name: "Unreal Engine 4/5 AAA Game Development",
+            icon: "stadia_controller",
+            experiences: [
+              {
+                primary:
+                  "Character, NPC & Vehicle: From scratch development of movement, AI, animation (ABP), interaction logic, and abilities",
+                secondary: "",
+                icon: "joystick",
+              },
+              {
+                primary:
+                  "Minimap & World Map: Generic impl., heavy 2D material manipulation, generic UI widget pooling system, robust fog of war system, etc.",
+                secondary: "",
+                icon: "map",
+              },
+            ],
           },
           {
-            primary: "Developing an online service management web tool",
-            secondary: "React / Redux, Python, C++",
+            name: "Unreal Engine 4/5 Tools",
             icon: "code",
+            experiences: [
+              {
+                primary:
+                  "Developed a scalable crowd simulation toolset in UE5, tailored for a leading Japanese animation studio, streamlining their animation workflows and improving efficiency",
+                secondary: "",
+                icon: "linked_services",
+              },
+              {
+                primary:
+                  "Spearheaded the development of a project-agnostic UE5 tool launcher, consolidating internal tools across engine versions for improved accessibility and efficiency",
+                secondary: "",
+                icon: "rocket_launch",
+              },
+              {
+                primary:
+                  "Ultra-high resolution screenshot tool, statically partitioning levels for conditional / staged loading, custom branching spline editor, etc.",
+                secondary: "",
+                icon: "build",
+              },
+            ],
           },
           {
-            primary: "Resolving Sony TRC onlines / UI issues",
-            secondary: "C++",
-            icon: "code",
+            name: "Internal Tools",
+            icon: "construction",
+            experiences: [
+              {
+                primary:
+                  "Developed an automated clock-in/out tool hooked into computer login timing, reducing schedule inconsistancies by 99%",
+                secondary: "Python",
+                icon: "punch_clock",
+              },
+              {
+                primary:
+                  "From scratch development of company portal website including integration with external user authentication (Okta)",
+                secondary: "React, Javascript, HTML, CSS",
+                icon: "captive_portal",
+              },
+              {
+                primary: "Developed a generic tool package manager for all internal tools and scripts",
+                secondary: "Rust",
+                icon: "deployed_code_update",
+              },
+            ],
+          },
+          {
+            name: "Other",
+            icon: "more_horiz",
+            experiences: [
+              {
+                primary:
+                  "Fully translated and presented a game project proposal to an external publisher, achieving a greenlit global collaboration",
+                secondary: "",
+                icon: "language_japanese_kana",
+              },
+              {
+                primary:
+                  "Started the company English club (英会話), holding weekly events and growing a community revolving around having fun while learning English",
+                secondary: "",
+                icon: "language",
+              },
+            ],
           },
         ],
         otherExperiencesHeader: (
@@ -132,10 +234,23 @@ export const strings = {
         ),
         otherExperiences: [
           {
-            primary: "Working for an augmented reality startup -- as a programmer and tech consultant",
-            secondary: "Unity",
+            primary:
+              "Worked on a plethora of internal tools - supporting the game development cycle from all directions",
+            secondary: "",
             icon: "videogame_asset",
-            dialogTitle: "ARnocular - Augmented Reality Software Developer",
+            title: "Ubisoft - Tools Programmer",
+            dialogText: [
+              "Lead development on a company-wide service-consolidating meeting productivity tool (Python & C#)",
+              "Maintained our automated integration-testing pipeline (C++)",
+              "Developed an online service management web tool (React / Redux, Python, C++)",
+              "Resolved Sony TRC onlines / UI issues (C++)",
+            ],
+          },
+          {
+            primary: "Lead Programmer & Tech Consultant for an augmented reality startup",
+            secondary: "Unity",
+            icon: "view_in_ar",
+            title: "ARnocular - Augmented Reality Software Developer",
             dialogText: [
               "Implemented a system that dynamically downloads AssetBundles and displays 3D models from a database, requesting and parsing CSV files",
               "Developed an accurate linear regress system using GPS points to smoothly move between perceived user locations",
@@ -143,10 +258,10 @@ export const strings = {
             ],
           },
           {
-            primary: "Teaching video game design to at-risk youth, following a game to completion",
+            primary: "Taught video game design to at-risk youth, following multiple game projects to completion",
             secondary: "Construct 2",
             icon: "school",
-            dialogTitle: "Youth Fusion - Game Design Program Coordinator",
+            title: "Youth Fusion - Game Design Program Coordinator",
             dialogText: [
               "Taught for a local non-profit after-school program aimed to decreasing high school drop-out rates by teaching all aspects of video game development",
               "Oversaw the development of 2 fully polished games, following a Prototyping/Alpha/Beta/Gold staging process",
@@ -154,10 +269,10 @@ export const strings = {
             ],
           },
           {
-            primary: "Working as Systems Support doing data validation, and integration and regression testing",
+            primary: "Worked as Systems Support doing data validation, and integration and regression testing",
             secondary: "SQL Server (TSQL)",
             icon: "table_chart",
-            dialogTitle: "Inmar - Systems Support",
+            title: "Inmar - Systems Support & Test Engineer",
             dialogText: [
               "Developed SSIS packages for data transfer between SQL Server databases and uploads/downloads from/to Excel files",
               "Developed T-SQL scripts for comprehensive field level discrepancy reports",
@@ -823,6 +938,9 @@ export const strings = {
         tooltip: "資格概要",
         summary: [
           <Typography variant="h5">
+            ゲーム業界に入って<b>{getYearsAgo(UBISOFT_STARTED_WORKING)}年間</b>程が経っています。
+          </Typography>,
+          <Typography variant="h5">
             現在、
             <b>
               東京の
@@ -831,42 +949,141 @@ export const strings = {
               </a>
             </b>
             で{getFormattedYearsMonthsSince("jp", ATG_STARTED_WORKING)}
-            、未発表のプロジェクトに取り組んでおります。
+            、エンジニア課長として務めており、その傍らで大手アニメーション会社向けの群衆システムをUE5で開発中です。
           </Typography>,
           <Typography variant="h5">
             トロント大学を卒業、コンピューターサイエンスのアルゴリズム、システムデザイン、ゲームデザイン等、を中心に学んでおりました。
           </Typography>,
-          <Typography variant="h5">私の専門と、前職のUbisoft（2年間弱の職歴）への貢献は以下のとおりです。</Typography>,
+          <Typography variant="h5">
+            培ってきた経験は以下、もしくは上記の履歴書・職務経歴書にてご確認ください。
+          </Typography>,
         ],
         currentExperiences: [
           {
-            primary: "自社のあらゆるサービスを統合する会議の効率を上げるためのツールの開発を担当",
-            secondary: "Python, C#",
-            icon: "code",
+            name: "Management",
+            icon: "person",
+            experiences: [
+              {
+                primary:
+                  "定期的な目標設定、３ヶ月ごとの評価、月次の1on1、KPT手法を用いた振り返りなどを通じて、5人のエンジニアのキャリアを支援",
+                secondary: "",
+                icon: "partner_exchange",
+              },
+              {
+                primary:
+                  "15人の多分野にわたる新卒者向けにGit研修を自発的に設計・実施することで、標準化されたプログラムとして確立に成功",
+                secondary: "",
+                icon: "school",
+              },
+              {
+                primary:
+                  "AAAタイトルのUE4プロジェクトにおいて、3人のエンジニアチームを率いて、レベル遷移、キャラコン、ロード最適化を担当し、先方やデザイナーと協力しながら2週間のスプリント形式で開発を円滑に進行",
+                secondary: "",
+                icon: "sprint",
+              },
+              {
+                primary:
+                  "15人の新卒者が参加した社内プロジェクトのエンジニア代表のディレクターとして、3か月でゲーム開発サイクル（プロトからマスターまで）を成功裏に完了させ、個人・全体評価を実施。成果のクオリティにより、来年に継続が決定",
+                secondary: "",
+                icon: "cycle",
+              },
+            ],
           },
           {
-            primary: "自動化された統合テストパイプラインの維持",
-            secondary: "C++",
-            icon: "code",
+            name: "Unreal Engine 4/5 AAA ゲーム開発",
+            icon: "stadia_controller",
+            experiences: [
+              {
+                primary:
+                  "キャラクター、NPC、乗り物：移動、AI、アニメーション（ABP）、インタラクション、およびアビリティの実装",
+                secondary: "",
+                icon: "joystick",
+              },
+              {
+                primary:
+                  "ミニマップ & ワールドマップ：2Dマテリアルを扱ったり、汎用UIウィジェットプーリングシステム、踏破済みの場所の霧表現システムの実装など",
+                secondary: "",
+                icon: "map",
+              },
+            ],
           },
           {
-            primary: "オンラインサービスを管理するWebツールの開発",
-            secondary: "React / Redux, Python, C++",
+            name: "Unreal Engine 4/5 ツール",
             icon: "code",
+            experiences: [
+              {
+                primary:
+                  "日本の大手アニメーションスタジオのクライントに、アニメーションワークフローを効率化し、スケーラブルなUE5の群集シミュレーションツールを開発",
+                secondary: "",
+                icon: "linked_services",
+              },
+              {
+                primary:
+                  "複数のエンジンバージョンに跨る内部UEツールを集約し、アクセス性と効率を向上させるように、プロジェクト非依存のUE5ツールランチャーの開発を主導",
+                secondary: "",
+                icon: "rocket_launch",
+              },
+            ],
           },
           {
-            primary: "Sony TRC オンライン・UIの不具合の改善",
-            secondary: "C++",
-            icon: "code",
+            name: "社内ツール",
+            icon: "construction",
+            experiences: [
+              {
+                primary: "パソコンのログインに連動した自動打刻ツールを開発し、勤怠の不整合を99％程削減",
+                secondary: "Python",
+                icon: "punch_clock",
+              },
+              {
+                primary: "社内ユーザー認証（Okta）の統合を含む社内ポータルサイトを一から開発",
+                secondary: "React, Javascript, HTML, CSS",
+                icon: "captive_portal",
+              },
+              {
+                primary:
+                  "社内ツールとスクリプトを全てバージョン管理・配布できるよう、社内のパッケージマネージャーを開発",
+                secondary: "Rust",
+                icon: "deployed_code_update",
+              },
+            ],
+          },
+          {
+            name: "その他",
+            icon: "more_horiz",
+            experiences: [
+              {
+                primary:
+                  "新規案件の提案書を外部のパブリッシャー向けに完全に日本語から英語に翻訳し、クライントに対してプレゼンテーションを行い、プロジェクト設立の承認に成功",
+                secondary: "",
+                icon: "language_japanese_kana",
+              },
+              {
+                primary: "会社の英会話部を設立し、週次イベントを開催",
+                secondary: "",
+                icon: "language",
+              },
+            ],
           },
         ],
         otherExperiencesHeader: <Typography variant="h5">業界に関連する経験は以下のとおりです。</Typography>,
         otherExperiences: [
           {
-            primary: "拡張現実を扱うスタートアップ企業ープログラマー/技術コンサルタントとして",
-            secondary: "Unity",
+            primary: "たくさんの内部ツールの開発に取り組み、ゲーム開発サイクルをあらゆる面から支援",
+            secondary: "",
             icon: "videogame_asset",
-            dialogTitle: "ARnocular - Augmented Reality Software Developer",
+            title: "Ubisoft - ツールエンジニア",
+            dialogText: [
+              "自社のあらゆるサービスを統合する会議の効率を上げるためのツールの開発を担当 (Python & C#)",
+              "自動化された統合テストパイプラインの維持 (C++)",
+              "オンラインサービスを管理するWebツールの開発 (React / Redux, Python, C++)",
+              "Sony TRC オンライン・UIの不具合の改善 (C++)",
+            ],
+          },
+          {
+            primary: "ARを扱うスタートアップ企業ープログラマー/技術コンサルタントとして",
+            secondary: "Unity",
+            icon: "view_in_ar",
+            title: "ARnocular - ARソフトウェアエンジニア",
             dialogText: [
               "CSVファイルをリクエストと解析を行い、AssetBundlesを動的にダウンロードし、データベースから3Dモデルを表示するシステムを実装",
               "GPSによってユーザの行動を正確に分析する線形回帰システムを開発",
@@ -877,7 +1094,7 @@ export const strings = {
             primary: "不安定な生活環境にいる学生に、1から完成までゲームデザインを指導",
             secondary: "Construct 2",
             icon: "school",
-            dialogTitle: "Youth Fusion - Game Design Program Coordinator",
+            title: "Youth Fusion - ゲームデザイン講師",
             dialogText: [
               "地域の高校の中退率を下げるための非営利の放課後プログラムでゲーム開発の面白さやあらゆることを生徒に教えた",
               "プロトタイプ版・アルファ版・ベータ版・マスターアップ版の開発段階に従い、2つの完成度の高いゲームの開発を監督",
@@ -888,7 +1105,7 @@ export const strings = {
             primary: "データ検証、統合およびリグレッションテストを行いながらシステムのサポートとして働いた",
             secondary: "SQL Server (TSQL)",
             icon: "table_chart",
-            dialogTitle: "Inmar - Systems Support",
+            title: "Inmar - IT事務サポート・テストエンジニア",
             dialogText: [
               "SQLサーバーデータベースとExcelファイル間のデータ転送のSSISパッケージを開発",
               "SQLフィールドの不一致を発見するT-SQLのテスト・スクリプトを開発",

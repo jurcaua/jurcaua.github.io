@@ -69,6 +69,11 @@ const useStyles = makeStyles(theme => ({
       background: "lightgrey",
     },
   },
+  experienceRoot: {
+    marginLeft: theme.spacing(5),
+    paddingTop: 0,
+    paddingBottom: 0,
+  },
 }));
 
 const TabMe = props => {
@@ -104,28 +109,46 @@ const TabMe = props => {
     const { currentExperiences } = localized().tabs.me;
     return (
       <List>
-        {currentExperiences.map((experience, index) => {
-          return (
-            <ListItem key={index}>
+        {currentExperiences.map((section, index) => (
+          <div key={section.name + index}>
+            <ListItem>
               <ListItemIcon>
-                <i className="material-icons">{experience.icon}</i>
+                <i className="material-icons">{section.icon}</i>
               </ListItemIcon>
               <ListItemText
                 disableTypography
                 primary={
                   <Typography className={classes.primaryList} variant="body1">
-                    {experience.primary}
-                  </Typography>
-                }
-                secondary={
-                  <Typography className={classes.secondaryList} variant="body2">
-                    {experience.secondary}
+                    <b>{section.name}</b>
                   </Typography>
                 }
               />
             </ListItem>
-          );
-        })}
+
+            {section.experiences.map((experience, index) => {
+              return (
+                <ListItem className={classes.experienceRoot} key={index}>
+                  <ListItemIcon>
+                    <i className="material-icons">{experience.icon}</i>
+                  </ListItemIcon>
+                  <ListItemText
+                    disableTypography
+                    primary={
+                      <Typography className={classes.primaryList} variant="body1">
+                        {experience.primary}
+                      </Typography>
+                    }
+                    secondary={
+                      <Typography className={classes.secondaryList} variant="body2">
+                        {experience.secondary}
+                      </Typography>
+                    }
+                  />
+                </ListItem>
+              );
+            })}
+          </div>
+        ))}
       </List>
     );
   };
@@ -151,6 +174,9 @@ const TabMe = props => {
                   <i className="material-icons">{experience.icon}</i>
                 </div>
                 <div>
+                  <Typography className={classes.heading} variant="body1">
+                    <b>{experience.title}</b>
+                  </Typography>
                   <Typography className={classes.heading} variant="body1">
                     {experience.primary}
                   </Typography>
