@@ -909,8 +909,8 @@ export const strings = {
     nameLast: "アレックス",
     greeting: "こんにちは！アレックスです。",
     resumeDocuments: [
-      { text: "履歴書（未更新）", sublink: "履歴書.pdf" },
-      { text: "職務経歴書（未更新）", sublink: "職務経歴書.pdf" },
+      { text: "履歴書", sublink: "履歴書.pdf" },
+      { text: "職務経歴書", sublink: "職務経歴書.pdf" },
     ],
     copyButtonTooltip: "コピー",
     copyConfirmNotification: "コピーしました！",
@@ -949,7 +949,7 @@ export const strings = {
               </a>
             </b>
             で{getFormattedYearsMonthsSince("jp", ATG_STARTED_WORKING)}
-            、エンジニア課長として務めており、その傍らで大手アニメーション会社向けの群衆システムをUE5で開発中です。
+            、ゲームエンジニア課長として務めており、その傍らで大手アニメーション会社向けの群衆システムをUE5で開発中です。
           </Typography>,
           <Typography variant="h5">
             トロント大学を卒業、コンピューターサイエンスのアルゴリズム、システムデザイン、ゲームデザイン等、を中心に学んでおりました。
@@ -1022,6 +1022,12 @@ export const strings = {
                   "複数のエンジンバージョンに跨る内部UEツールを集約し、アクセス性と効率を向上させるように、プロジェクト非依存のUE5ツールランチャーの開発を主導",
                 secondary: "",
                 icon: "rocket_launch",
+              },
+              {
+                primary:
+                  "高解像度スクリーンショットツール、条件付き/段階的な読み込みのための静的なレベルパーティションを制御するツール、分岐するスプラインの汎用的な仕組みなどのエンジン内ツール",
+                secondary: "",
+                icon: "build",
               },
             ],
           },
